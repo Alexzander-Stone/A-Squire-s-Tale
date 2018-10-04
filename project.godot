@@ -11,7 +11,12 @@ config_version=3
 [application]
 
 config/name="A Squire's Tale"
+run/main_scene="res://Player/World.tscn"
 config/icon="res://icon.png"
+
+[input]
+
+ui_=[  ]
 
 [rendering]
 
