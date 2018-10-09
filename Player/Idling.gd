@@ -1,4 +1,7 @@
-extends "res://Player/Scripts/Select.gd"
+extends "res://State Machine/State.gd"
+
+func enter():
+	owner.velocity = Vector2(0,0)
 
 func handle_input(event):
 	if event.is_action_pressed("ui_right") || event.is_action_pressed("ui_left") || event.is_action_pressed("ui_up") || event.is_action_pressed("ui_down"):

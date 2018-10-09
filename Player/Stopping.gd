@@ -1,15 +1,21 @@
-extends Node
+extends "res://State Machine/State.gd"
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+func handle_input(event):
+	if event.is_action_pressed("ui_right") || event.is_action_pressed("ui_left") || event.is_action_pressed("ui_up") || event.is_action_pressed("ui_down"):
+		emit_signal("finished", "walking")
+	return .handle_input(event)
 
-func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func update(delta):
+	# Change to use episilon in the future.
+	if (floor(owner.velocity.x) == 0 && floor(owner.velocity.y) == 0):
+		emit_signal("finished", "idling")
+	else:
+		if(owner.velocity.x > 0):
+			owner.velocity.x -= 1 * delta
+		elif(owner.velocity.x < 0):
+			owner.velocity.x += 1 * delta
+		if(owner.velocity.y > 0):
+			owner.velocity.y -= 1 * delta
+		elif(owner.velocity.y < 0):
+			owner.velocity.y += 1 * delta
+	owner.update_position()
