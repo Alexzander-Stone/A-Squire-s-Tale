@@ -1,9 +1,9 @@
-extends "res://State Machine/State.gd"
+extends "res://Player/IMoving.gd"
 
 var currentInputs = [0, 0, 0, 0]
 
 func update(delta):
-	updateRapidMovementArray(currentInputs)
+	fillPressedArray(currentInputs)
 	
 	# Check to see if no input has been found, transition to idling if true.
 	var moveCounter = 0
@@ -27,9 +27,3 @@ func update(delta):
 		owner.velocity.y = verticalMove * owner.RUN_VELOCITY 
 	
 	owner.update_position()
-
-func updateRapidMovementArray(array):
-	array[0] = int(Input.is_action_pressed("ui_left"))
-	array[1] = int(Input.is_action_pressed("ui_right"))
-	array[2] = int(Input.is_action_pressed("ui_up"))
-	array[3] = int(Input.is_action_pressed("ui_down")) 
