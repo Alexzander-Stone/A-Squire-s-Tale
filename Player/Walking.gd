@@ -2,7 +2,7 @@ extends "res://State Machine/State.gd"
 
 # Timer for reaching running state.
 var runTimer = 0
-var timeToRun = .5
+var timeToRun = .3
 var horizontalRun = 0
 var verticalRun = 0
 
@@ -27,7 +27,7 @@ func update(delta):
 	# And if they press both, it's 0.
 	var horizontalMove = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
 	var verticalMove = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
-	if(runTimer == 0 and horizontalMove == 0 and verticalMove == 0):
+	if(runTimer <= 0 and horizontalMove == 0 and verticalMove == 0):
 		emit_signal("finished", "idling")
 	
 	# Need to account for diagonal movement. Instead of the movement being represented as a square, it is a circle.
