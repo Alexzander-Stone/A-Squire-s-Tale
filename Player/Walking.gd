@@ -3,8 +3,6 @@ extends "res://State Machine/State.gd"
 # Timer for reaching running state.
 var runTimer = 0
 var timeToRun = .3
-var horizontalRun = 0
-var verticalRun = 0
 # Determine which input to use for run detection.
 var runInputs = [0, 0, 0, 0]
 
