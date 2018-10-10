@@ -4,5 +4,6 @@ func _ready():
 	states_map = {
 		"idling": $Idling,
 		"walking": $Walking,
-		"stopping": $Stopping
+		"stopping": $Stopping,
+		"running": $Running
 	}
