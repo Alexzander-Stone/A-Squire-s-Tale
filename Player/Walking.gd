@@ -6,13 +6,11 @@ var timeToRun = .3
 var horizontalRun = 0
 var verticalRun = 0
 # Determine which input to use for run detection.
-var verticalRunInput = 0
-var horizontalRunInput = 0
+var runInputs = [0, 0, 0, 0]
 
 func enter():
 	runTimer = timeToRun
-	horizontalRunInput = int(Input.is_action_just_pressed("ui_right")) - int(Input.is_action_just_pressed("ui_left"))
-	verticalRunInput = int(Input.is_action_just_pressed("ui_down")) - int(Input.is_action_just_pressed("ui_up"))
+	updateMovementArray(runInputs)
 
 func exit():
 	runTimer = timeToRun
@@ -45,10 +43,17 @@ func update(delta):
 	owner.update_position()
 
 func hasDoubleTapped():
-	var horizontalRun = int(Input.is_action_just_pressed("ui_right")) - int(Input.is_action_just_pressed("ui_left"))
-	var verticalRun = int(Input.is_action_just_pressed("ui_down")) - int(Input.is_action_just_pressed("ui_up"))
+	var directionChecks = [0, 0, 0, 0]
+	updateMovementArray(directionChecks)
 	
-	if(runTimer > 0 and runTimer < timeToRun and (horizontalRun != 0 or verticalRun != 0)):
-		if ((horizontalRun != 0 and horizontalRun == horizontalRunInput) or (verticalRun != 0 and verticalRun == verticalRunInput)):
-			return true
+	if(runTimer > 0 and runTimer < timeToRun):
+		for i in runInputs.size():
+			if(runInputs[i] != 0 and runInputs[i] == directionChecks[i]):
+				return true
 	return false
+
+func updateMovementArray(array):
+	array[0] = int(Input.is_action_just_pressed("ui_left"))
+	array[1] = int(Input.is_action_just_pressed("ui_right"))
+	array[2] = int(Input.is_action_just_pressed("ui_up"))
+	array[3] = int(Input.is_action_just_pressed("ui_down")) 
