@@ -5,20 +5,21 @@ var runTimer = 0
 var timeToRun = .3
 var horizontalRun = 0
 var verticalRun = 0
+# Determine which input to use for run detection.
+var verticalRunInput = 0
+var horizontalRunInput = 0
 
 func enter():
 	runTimer = timeToRun
+	horizontalRunInput = int(Input.is_action_just_pressed("ui_right")) - int(Input.is_action_just_pressed("ui_left"))
+	verticalRunInput = int(Input.is_action_just_pressed("ui_down")) - int(Input.is_action_just_pressed("ui_up"))
 
 func exit():
 	runTimer = timeToRun
 
 func update(delta):
-	var horizontalRun = int(Input.is_action_just_pressed("ui_right")) - int(Input.is_action_just_pressed("ui_left"))
-	var verticalRun = int(Input.is_action_just_pressed("ui_down")) - int(Input.is_action_just_pressed("ui_up"))
-	print("timer" + str(runTimer))
 	# Timer to check during first few frames of walking.
-	if(runTimer > 0 and runTimer < timeToRun and (horizontalRun != 0 or verticalRun != 0)):
-		print("hello")
+	if hasDoubleTapped():
 		emit_signal("finished", "running")
 	elif(runTimer > 0):
 		runTimer -= 1 * delta
@@ -42,3 +43,12 @@ func update(delta):
 		owner.velocity.y = verticalMove * owner.WALK_VELOCITY 
 	
 	owner.update_position()
+
+func hasDoubleTapped():
+	var horizontalRun = int(Input.is_action_just_pressed("ui_right")) - int(Input.is_action_just_pressed("ui_left"))
+	var verticalRun = int(Input.is_action_just_pressed("ui_down")) - int(Input.is_action_just_pressed("ui_up"))
+	
+	if(runTimer > 0 and runTimer < timeToRun and (horizontalRun != 0 or verticalRun != 0)):
+		if ((horizontalRun != 0 and horizontalRun == horizontalRunInput) or (verticalRun != 0 and verticalRun == verticalRunInput)):
+			return true
+	return false
