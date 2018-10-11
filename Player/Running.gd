@@ -1,8 +1,10 @@
 extends "res://Player/IMoving.gd"
 
 var pressedMoves = [0, 0, 0, 0]
+var run_velocity = 10
+
 func enter():
-	VELOCITY = 10
+	VELOCITY = run_velocity
 
 func update(delta):
 	fillPressedArray(pressedMoves)

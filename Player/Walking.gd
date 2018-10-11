@@ -1,5 +1,6 @@
 extends "res://Player/IMoving.gd"
 
+var walk_velocity = 5
 # Timer for reaching running state.
 var runTimer = 0
 var timeToRun = .3
@@ -9,6 +10,8 @@ var initialInputs = [0, 0, 0, 0]
 var pressedMoves = [0, 0, 0, 0]
 
 func enter():
+	VELOCITY = walk_velocity
+	
 	runTimer = timeToRun
 	fillPressedArray(initialInputs)
 

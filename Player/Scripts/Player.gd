@@ -1,6 +1,7 @@
 extends Node2D
 
 var velocity = Vector2(0,0)
+var MOVE_VELOCITY = 0
 
 func _ready():
 	print("created")
