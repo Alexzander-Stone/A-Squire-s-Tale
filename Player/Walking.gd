@@ -5,12 +5,12 @@ var runTimer = 0
 var timeToRun = .3
 # Determine which input to use for run detection
 # Left, right. Up, down.
-var runInputs = [0, 0, 0, 0]
+var initialInputs = [0, 0, 0, 0]
 var pressedMoves = [0, 0, 0, 0]
 
 func enter():
 	runTimer = timeToRun
-	fillPressedArray(runInputs)
+	fillPressedArray(initialInputs)
 
 func exit():
 	runTimer = timeToRun
@@ -34,27 +34,18 @@ func update(delta):
 		if(moveCounter == 0):
 			emit_signal("finished", "idling")
 	
-	# Need to account for diagonal movement. Instead of the movement being represented as a square, it is a circle.
-	# Then find the coordinates on the circle based on the angle of the 
-	# original horizontal and vertical movement.
-	var horizontalMove = pressedMoves[1] - pressedMoves[0]
-	var verticalMove = pressedMoves[3] - pressedMoves[2]
-	if(horizontalMove != 0 and verticalMove != 0):
-		var playerAngle = atan(abs(verticalMove) / abs(horizontalMove))
-		owner.velocity.x = cos(playerAngle) * horizontalMove * owner.WALK_VELOCITY
-		owner.velocity.y = sin(playerAngle) * verticalMove * owner.WALK_VELOCITY
-	else:
-		owner.velocity.x = horizontalMove * owner.WALK_VELOCITY 
-		owner.velocity.y = verticalMove * owner.WALK_VELOCITY 
-	
-	owner.update_position()
+	# Determine which direction to move the player based on given inputs.
+	movePlayer(pressedMoves)
 
+# Boolean hasDoubleTapped
+# Returns true if the current just pressed input is the same as the 
+# initial input upon entering the walking state.
 func hasDoubleTapped():
 	var directionChecks = [0, 0, 0, 0]
 	fillJustPressedArray(directionChecks)
 	
 	if(runTimer > 0 and runTimer < timeToRun):
-		for i in runInputs.size():
-			if(runInputs[i] != 0 and runInputs[i] == directionChecks[i]):
+		for i in initialInputs.size():
+			if(initialInputs[i] != 0 and initialInputs[i] == directionChecks[i]):
 				return true
 	return false
