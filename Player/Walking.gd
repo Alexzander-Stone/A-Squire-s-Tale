@@ -19,6 +19,9 @@ func exit():
 	runTimer = timeToRun
 
 func update(delta):
+	# Has player began casting?
+	check_casting()
+	
 	# Determine which movement inputs have been used this update.
 	fillPressedArray(pressedMoves)
 	

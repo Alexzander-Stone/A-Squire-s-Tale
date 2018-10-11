@@ -7,8 +7,10 @@ func enter():
 	VELOCITY = run_velocity
 
 func update(delta):
-	fillPressedArray(pressedMoves)
+	# Has player began casting?
+	check_casting()
 	
+	fillPressedArray(pressedMoves)
 	# Check to see if no input has been found, transition to idling if true.
 	var moveCounter = 0
 	for input in pressedMoves:

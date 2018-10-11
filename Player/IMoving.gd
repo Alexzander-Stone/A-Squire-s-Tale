@@ -1,4 +1,4 @@
-extends "res://State Machine/State.gd"
+extends "res://Player/ICastable.gd"
 
 var VELOCITY = 5
 
