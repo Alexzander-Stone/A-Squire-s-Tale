@@ -22,6 +22,8 @@ func initialize(start_state):
 	states_pushdown_stack.push_front(get_node(start_state))
 	current_state = states_pushdown_stack[0]
 	current_state.enter()
+	# Send out signal that a starting node has been selected.
+	emit_signal("state_changed", current_state)
 
 func set_active(value):
 	_active = value

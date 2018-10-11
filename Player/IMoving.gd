@@ -30,5 +30,4 @@ func movePlayer(input):
 	else:
 		owner.velocity.x = horizontalMove * VELOCITY 
 		owner.velocity.y = verticalMove * VELOCITY 
-	
 	owner.update_position()
