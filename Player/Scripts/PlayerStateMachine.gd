@@ -6,5 +6,5 @@ func _ready():
 		"walking": $Walking,
 		"stopping": $Stopping,
 		"running": $Running,
-		"casting": $Casting
+		"crafting": $Crafting
 	}
