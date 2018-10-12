@@ -2,6 +2,11 @@ extends "res://Player/ICastable.gd"
 
 func enter():
 	owner.velocity = Vector2(0,0)
+	# When transitioning to the idling state, check for any movement
+	# inputs that are being pressed immediately. Removes the odd transtion of: 
+	# Casting -> Idling -> Walking and now has Casting -> Walking.
+	if Input.is_action_pressed("ui_right") || Input.is_action_pressed("ui_left") || Input.is_action_pressed("ui_up") || Input.is_action_pressed("ui_down"):
+		emit_signal("finished", "walking")
 
 func handle_input(event):
 	# Check to see if casting has been initiated.
