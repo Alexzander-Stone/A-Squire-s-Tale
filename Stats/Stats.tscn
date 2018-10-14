@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Stats/PlayerStats.gd" type="Script" id=1]
+
+[node name="Stats" type="Node"]
+
+script = ExtResource( 1 )
+maxHealth = 100
+currentHealth = 100
+walkSpeed = 5
+runSpeed = 10
+damage = 10
+attackSpeed = 1.0
+maxResource = 0
+currentResource = 0
+cdr = 1.0
+experience = 0
+level = 1
+gold = 0
+
+
