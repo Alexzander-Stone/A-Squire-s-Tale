@@ -7,6 +7,7 @@ This project is intended for Clemson's CPSC 4820: Game Design course.
 
 
 ## Controls
+Initial designs for control schemes can be found [here](https://docs.google.com/document/d/1TT2nNv_OAMtWZwmalvXUz9XKexSAGvmox7Vhtd5tcew/edit?usp=sharing).
 
 ## Testing Program
 
