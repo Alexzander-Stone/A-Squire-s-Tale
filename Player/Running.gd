@@ -21,3 +21,6 @@ func update(delta):
 	
 	# Determine which direction to move the player based on given inputs.
 	movePlayer(pressedMoves)
+	
+	# Call parent class function.
+	.update(delta)

@@ -1,4 +1,4 @@
-extends "res://State Machine/State.gd"
+extends "res://Player/IFlinchable.gd"
 
 var casting_animation_timer = 0
 var timeToAnimate = 2
@@ -16,3 +16,6 @@ func update(delta):
 		casting_animation_timer -= delta
 	else:
 		emit_signal("finished", "idling")
+	
+	# Call parent class function.
+	.update(delta)

@@ -42,6 +42,9 @@ func update(delta):
 	
 	# Determine which direction to move the player based on given inputs.
 	movePlayer(pressedMoves)
+	
+	# Call parent class function.
+	.update(delta)
 
 # Boolean hasDoubleTapped
 # Returns true if the current just pressed input is the same as the 
