@@ -1,4 +1,4 @@
-extends "res://State Machine/State.gd"
+extends "res://Player/IFlinchable.gd"
 
 # Use signal to call this function if casting button has been pressed.
 func check_casting():
