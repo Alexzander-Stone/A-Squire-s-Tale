@@ -1,6 +1,5 @@
-extends "res://Player/IMoving.gd"
+extends "res://Player/Scripts/Movement States/Inheritable Classes/IMoving.gd"
 
-var walk_velocity = 5
 # Timer for reaching running state.
 var runTimer = 0
 var timeToRun = .3
@@ -10,8 +9,6 @@ var initialInputs = [0, 0, 0, 0]
 var pressedMoves = [0, 0, 0, 0]
 
 func enter():
-	VELOCITY = walk_velocity
-	
 	runTimer = timeToRun
 	fillPressedArray(initialInputs)
 
@@ -19,6 +16,9 @@ func exit():
 	runTimer = timeToRun
 
 func update(delta):
+	# Has player began casting?
+	check_casting()
+	
 	# Determine which movement inputs have been used this update.
 	fillPressedArray(pressedMoves)
 	
@@ -39,6 +39,9 @@ func update(delta):
 	
 	# Determine which direction to move the player based on given inputs.
 	movePlayer(pressedMoves)
+	
+	# Call parent class function.
+	.update(delta)
 
 # Boolean hasDoubleTapped
 # Returns true if the current just pressed input is the same as the 

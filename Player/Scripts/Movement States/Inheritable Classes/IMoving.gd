@@ -1,6 +1,6 @@
-extends "res://State Machine/State.gd"
+extends "res://Player/Scripts/Movement States/Inheritable Classes/ICastable.gd"
 
-var VELOCITY = 5
+export (int) var VELOCITY = 5
 
 func fillJustPressedArray(array):
 	array[0] = int(Input.is_action_just_pressed("ui_left"))

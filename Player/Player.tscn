@@ -1,13 +1,17 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Sprites/falcotrash.png" type="Texture" id=2]
-[ext_resource path="res://Player/Scripts/PlayerStateMachine.gd" type="Script" id=3]
-[ext_resource path="res://Player/Idling.gd" type="Script" id=4]
-[ext_resource path="res://Player/Walking.gd" type="Script" id=5]
-[ext_resource path="res://Player/Stopping.gd" type="Script" id=6]
-[ext_resource path="res://Player/Running.gd" type="Script" id=7]
-[ext_resource path="res://Player/Label.gd" type="Script" id=8]
+[ext_resource path="res://Player/Scripts/State Machine/PlayerStateMachine.gd" type="Script" id=3]
+[ext_resource path="res://Player/Scripts/Movement States/Idling.gd" type="Script" id=4]
+[ext_resource path="res://Player/Scripts/Movement States/Walking.gd" type="Script" id=5]
+[ext_resource path="res://Player/Scripts/Movement States/Stopping.gd" type="Script" id=6]
+[ext_resource path="res://Player/Scripts/Movement States/Running.gd" type="Script" id=7]
+[ext_resource path="res://Player/Scripts/Movement States/Crafting.gd" type="Script" id=8]
+[ext_resource path="res://Player/Scripts/Movement States/Casting.gd" type="Script" id=9]
+[ext_resource path="res://Player/Scripts/Movement States/Flinching.gd" type="Script" id=10]
+[ext_resource path="res://Player/Scripts/Movement States/Dying.gd" type="Script" id=11]
+[ext_resource path="res://Player/Scripts/Debug/Label.gd" type="Script" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -33,7 +37,9 @@ frames = SubResource( 1 )
 animation = "Idle"
 _sections_unfolded = [ "Transform" ]
 
-[node name="StateMachine" type="Node" parent="." index="1"]
+[node name="Abilities" type="Node" parent="." index="1"]
+
+[node name="StateMachine" type="Node" parent="." index="2"]
 
 script = ExtResource( 3 )
 _sections_unfolded = [ "Pause" ]
@@ -46,6 +52,7 @@ script = ExtResource( 4 )
 [node name="Walking" type="Node" parent="StateMachine" index="1"]
 
 script = ExtResource( 5 )
+VELOCITY = 5
 
 [node name="Stopping" type="Node" parent="StateMachine" index="2"]
 
@@ -54,8 +61,26 @@ script = ExtResource( 6 )
 [node name="Running" type="Node" parent="StateMachine" index="3"]
 
 script = ExtResource( 7 )
+VELOCITY = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." index="2"]
+[node name="Crafting" type="Node" parent="StateMachine" index="4"]
+
+script = ExtResource( 8 )
+VELOCITY = 2
+
+[node name="Casting" type="Node" parent="StateMachine" index="5"]
+
+script = ExtResource( 9 )
+
+[node name="Flinching" type="Node" parent="StateMachine" index="6"]
+
+script = ExtResource( 10 )
+
+[node name="Dying" type="Node" parent="StateMachine" index="7"]
+
+script = ExtResource( 11 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -94,7 +119,7 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 8 )
+script = ExtResource( 12 )
 _sections_unfolded = [ "Anchor", "Focus", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "custom_constants", "custom_fonts", "custom_styles" ]
 
 
