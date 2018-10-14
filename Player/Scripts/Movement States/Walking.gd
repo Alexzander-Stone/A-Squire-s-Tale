@@ -1,4 +1,4 @@
-extends "res://Player/IMoving.gd"
+extends "res://Player/Scripts/Movement States/Inheritable Classes/IMoving.gd"
 
 # Timer for reaching running state.
 var runTimer = 0

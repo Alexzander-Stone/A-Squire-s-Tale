@@ -1,4 +1,4 @@
-extends "res://Player/IMortal.gd"
+extends "res://Player/Scripts/Movement States/Inheritable Classes/IMortal.gd"
 
 var flinchTimer = 0
 var timeToFlinch = 1

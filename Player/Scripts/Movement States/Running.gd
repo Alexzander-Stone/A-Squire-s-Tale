@@ -1,4 +1,4 @@
-extends "res://Player/IMoving.gd"
+extends "res://Player/Scripts/Movement States/Inheritable Classes/IMoving.gd"
 
 var pressedMoves = [0, 0, 0, 0]
 

@@ -1,4 +1,4 @@
-extends "res://Player/ICastable.gd"
+extends "res://Player/Scripts/Movement States/Inheritable Classes/ICastable.gd"
 
 func enter():
 	owner.velocity = Vector2(0,0)

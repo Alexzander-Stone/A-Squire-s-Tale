@@ -1,4 +1,4 @@
-extends "res://Player/ICastable.gd"
+extends "res://Player/Scripts/Movement States/Inheritable Classes/ICastable.gd"
 
 export (int) var VELOCITY = 5
 

@@ -1,4 +1,4 @@
-extends "res://Player/IFlinchable.gd"
+extends "res://Player/Scripts/Movement States/Inheritable Classes/IFlinchable.gd"
 
 var casting_animation_timer = 0
 var timeToAnimate = 2

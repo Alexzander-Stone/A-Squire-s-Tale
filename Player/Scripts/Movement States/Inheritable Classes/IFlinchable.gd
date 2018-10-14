@@ -1,4 +1,4 @@
-extends "res://Player/IMortal.gd"
+extends "res://Player/Scripts/Movement States/Inheritable Classes/IMortal.gd"
 
 func update(delta):
 	# Testing flinch.

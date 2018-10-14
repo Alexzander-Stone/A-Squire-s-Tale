@@ -1,4 +1,4 @@
-extends "res://Player/IFlinchable.gd"
+extends "res://Player/Scripts/Movement States/Inheritable Classes/IFlinchable.gd"
 
 # Use signal to call this function if casting button has been pressed.
 func check_casting():
