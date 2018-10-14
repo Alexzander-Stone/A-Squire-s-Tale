@@ -28,11 +28,11 @@ In case there is an issue with finding the primary scene, direct the project tow
 	
 State Machines - 
 
-	Player uses a simple FSM. Design can be found [here](https://drive.google.com/file/d/1qfA-In6oXvWRf-HElUcLaJJDhWyOMeaJ/view?usp=sharing)
+* Player uses a simple FSM. Design can be found [here](https://drive.google.com/file/d/1qfA-In6oXvWRf-HElUcLaJJDhWyOMeaJ/view?usp=sharing)
 	
 Observor Pattern -
 	
-	Godot signal system used to alert objects (like Player's State Machine node) of state changes, through emitters.
+* Godot signal system used to alert objects (like Player's State Machine node) of state changes, through emitters.
 
 
 ## Acknowledgments
