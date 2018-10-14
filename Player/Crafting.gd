@@ -1,11 +1,7 @@
 extends "res://Player/IMoving.gd"
 
-var cast_velocity = 2
 var pressedMoves = [0, 0, 0, 0]
 var castInput = 0
-
-func enter():
-	VELOCITY = cast_velocity
 
 func update(delta):
 	# Check casting actions.

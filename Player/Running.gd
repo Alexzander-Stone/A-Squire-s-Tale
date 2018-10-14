@@ -1,10 +1,6 @@
 extends "res://Player/IMoving.gd"
 
 var pressedMoves = [0, 0, 0, 0]
-var run_velocity = 10
-
-func enter():
-	VELOCITY = run_velocity
 
 func update(delta):
 	# Has player began casting?

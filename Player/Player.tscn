@@ -51,6 +51,7 @@ script = ExtResource( 4 )
 [node name="Walking" type="Node" parent="StateMachine" index="1"]
 
 script = ExtResource( 5 )
+VELOCITY = 5
 
 [node name="Stopping" type="Node" parent="StateMachine" index="2"]
 
@@ -59,10 +60,12 @@ script = ExtResource( 6 )
 [node name="Running" type="Node" parent="StateMachine" index="3"]
 
 script = ExtResource( 7 )
+VELOCITY = 10
 
 [node name="Crafting" type="Node" parent="StateMachine" index="4"]
 
 script = ExtResource( 8 )
+VELOCITY = 2
 
 [node name="Casting" type="Node" parent="StateMachine" index="5"]
 

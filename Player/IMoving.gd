@@ -1,6 +1,6 @@
 extends "res://Player/ICastable.gd"
 
-var VELOCITY = 5
+export (int) var VELOCITY = 5
 
 func fillJustPressedArray(array):
 	array[0] = int(Input.is_action_just_pressed("ui_left"))
