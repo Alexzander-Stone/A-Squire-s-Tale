@@ -8,5 +8,6 @@ func _ready():
 		"running": $Running,
 		"crafting": $Crafting,
 		"casting": $Casting,
-		"flinching": $Flinching
+		"flinching": $Flinching,
+		"dying": $Dying
 	}

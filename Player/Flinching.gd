@@ -1,4 +1,4 @@
-extends "res://State Machine/State.gd"
+extends "res://Player/IMortal.gd"
 
 var flinchTimer = 0
 var timeToFlinch = 1
@@ -11,3 +11,4 @@ func update(delta):
 		flinchTimer -= delta
 	else:
 		emit_signal("finished", "idling")
+	.update(delta)
