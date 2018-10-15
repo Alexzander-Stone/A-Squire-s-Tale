@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/template.tres" type="TileSet" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Dummy/Dummy.tscn" type="PackedScene" id=3]
 
 [node name="World" type="Node"]
 
@@ -28,5 +29,7 @@ tile_data = PoolIntArray( -393214, 0, 262147, -393213, 0, 327684, -393212, 0, 6,
 _sections_unfolded = [ "Cell" ]
 
 [node name="Player" parent="." index="1" instance=ExtResource( 2 )]
+
+[node name="Dummy" parent="." index="2" instance=ExtResource( 3 )]
 
 
