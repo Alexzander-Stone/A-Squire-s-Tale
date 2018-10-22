@@ -23,7 +23,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Player" type="Node2D"]
+[node name="Player" type="Node2D" index="0"]
 
 position = Vector2( 106.147, 63.6884 )
 script = ExtResource( 1 )
