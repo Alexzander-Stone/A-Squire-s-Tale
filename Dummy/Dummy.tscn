@@ -18,6 +18,9 @@ _sections_unfolded = [ "Resource" ]
 
 [node name="Dummy" type="Node2D" index="0"]
 
+position = Vector2( -2.60309, 0 )
+scale = Vector2( 0.918653, 1 )
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
 frames = SubResource( 1 )
