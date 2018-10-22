@@ -2,5 +2,5 @@
 extends "res://State Machine/State.gd"
 
 func enter():
-	print("Dead Dead Dummy")
+	print("Dummy State: dead")
 	emit_signal("finished", "idling")

@@ -6,6 +6,7 @@ var flinchTimer = 0
 var timeToFlinch = 1
 
 func enter():
+	print("Dummy State: hit")
 	flinchTimer = timeToFlinch
 
 func update(delta):
