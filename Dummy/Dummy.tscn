@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Dummy/Training_dummy.png" type="Texture" id=1]
+[ext_resource path="res://Dummy/State Machine.gd" type="Script" id=2]
+[ext_resource path="res://Dummy/Idling.gd" type="Script" id=3]
+[ext_resource path="res://Dummy/Flinching.gd" type="Script" id=4]
+[ext_resource path="res://Dummy/Dying.gd" type="Script" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[node name="Dummy" type="Node2D" index="0"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+frames = SubResource( 1 )
+animation = "default"
+
+[node name="DummyStateMachine" type="Node" parent="." index="1"]
+
+script = ExtResource( 2 )
+START_STATE = NodePath("Idling")
+
+[node name="Idling" type="Node" parent="DummyStateMachine" index="0"]
+
+script = ExtResource( 3 )
+
+[node name="Flinching" type="Node" parent="DummyStateMachine" index="1"]
+
+script = ExtResource( 4 )
+
+[node name="Dying" type="Node" parent="DummyStateMachine" index="2"]
+
+script = ExtResource( 5 )
+
+

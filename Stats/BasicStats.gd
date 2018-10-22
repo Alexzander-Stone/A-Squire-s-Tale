@@ -7,3 +7,4 @@ export(int) var walkSpeed = 5
 export(int) var runSpeed = 10
 export(int) var damage = 10
 export(float) var attackSpeed = 1.0
+export(float) var knockback = 1.0
