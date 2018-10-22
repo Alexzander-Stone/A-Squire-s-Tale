@@ -10,4 +10,4 @@ func update(delta):
 # Transitions into the flinch state. Callable from outside object.
 # Need to implement cleanup in each state.
 func beginFlinch():
-	emit_signal("finished", "flinching")
+	emit_signal("finished", "flinching", [1])

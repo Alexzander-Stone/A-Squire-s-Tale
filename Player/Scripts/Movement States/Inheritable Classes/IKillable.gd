@@ -8,4 +8,4 @@ func handle_input(event):
 # void toggleDeath
 # Send player state to the dying state.
 func toggleDeath():
-	emit_signal("finished", "dying")
+	emit_signal("finished", "dying", [0])
