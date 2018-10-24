@@ -27,9 +27,6 @@ animations = [ {
 
 position = Vector2( 106.147, 63.6884 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
