@@ -105,6 +105,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "custom_constants" ]
 
 [node name="Super" type="HBoxContainer" parent="Bar Top/Abilities" index="0"]
 
