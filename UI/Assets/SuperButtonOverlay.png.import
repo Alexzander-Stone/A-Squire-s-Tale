@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/trashdove.png-64ae045335d977ddf21646f420ce6437.stex"
+path="res://.import/SuperButtonOverlay.png-ad28048c69f0620d1268b187cd4f6b27.stex"
 
 [deps]
 
-source_file="res://Player/Sprites/trashdove.png"
-dest_files=[ "res://.import/trashdove.png-64ae045335d977ddf21646f420ce6437.stex" ]
+source_file="res://UI/Assets/SuperButtonOverlay.png"
+dest_files=[ "res://.import/SuperButtonOverlay.png-ad28048c69f0620d1268b187cd4f6b27.stex" ]
 
 [params]
 
