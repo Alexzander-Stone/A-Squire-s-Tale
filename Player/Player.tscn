@@ -23,7 +23,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Player" type="Node2D"]
+[node name="Player" type="Node2D" index="0"]
 
 position = Vector2( 106.147, 63.6884 )
 script = ExtResource( 1 )
@@ -35,9 +35,23 @@ frames = SubResource( 1 )
 animation = "Idle"
 _sections_unfolded = [ "Transform" ]
 
-[node name="Abilities" type="Node" parent="." index="1"]
+[node name="KinematicBody2D" type="KinematicBody2D" parent="." index="1"]
 
-[node name="StateMachine" type="Node" parent="." index="2"]
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+_sections_unfolded = [ "Collision", "Pickable", "collision" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -22.0766, -9.6018, -14.9697, -23.0594, -1.51208, -30.0151, -3.3266, -18.9768, -5.14111, -11.7187, 9.07258, -4.9143, 25.5544, -6.27519, 13.1552, 8.39213, 4.38508, 14.2893, 5.14113, 31.5272, -0.302414, 15.499, -6.502, 29.1078, -9.82861, 11.1139, -17.3891, 13.382, -22.8326, 0.831657 )
+
+[node name="Abilities" type="Node" parent="." index="2"]
+
+[node name="StateMachine" type="Node" parent="." index="3"]
 
 script = ExtResource( 3 )
 _sections_unfolded = [ "Pause" ]
@@ -78,7 +92,7 @@ script = ExtResource( 10 )
 
 script = ExtResource( 11 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." index="3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -120,7 +134,7 @@ max_lines_visible = -1
 script = ExtResource( 12 )
 _sections_unfolded = [ "Anchor", "Focus", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "custom_constants", "custom_fonts", "custom_styles" ]
 
-[node name="Pivot" type="Position2D" parent="." index="4"]
+[node name="Pivot" type="Position2D" parent="." index="5"]
 
 script = ExtResource( 13 )
 
