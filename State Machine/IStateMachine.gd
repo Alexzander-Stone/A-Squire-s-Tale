@@ -21,7 +21,7 @@ func initialize(start_state):
 	set_active(true)
 	states_pushdown_stack.push_front(get_node(start_state))
 	current_state = states_pushdown_stack[0]
-	current_state.enter()
+	current_state.enter([])
 	# Send out signal that a starting node has been selected.
 	emit_signal("state_changed", current_state)
 
@@ -44,7 +44,7 @@ func _on_animation_finished(anim_name):
 		return
 	current_state._on_animation_finished(anim_name)
 
-func _change_state(state_name):
+func _change_state(state_name, args):
 	if not _active:
 		return
 	current_state.exit()
@@ -58,4 +58,4 @@ func _change_state(state_name):
 	emit_signal("state_changed", current_state)
 	
 	if state_name != "previous":
-		current_state.enter()
+		current_state.enter(args)

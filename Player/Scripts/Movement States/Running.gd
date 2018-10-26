@@ -13,7 +13,7 @@ func update(delta):
 		if(input != 0):
 			moveCounter += 1
 	if(moveCounter == 0):
-		emit_signal("finished", "idling")
+		emit_signal("finished", "idling", [0])
 	
 	# Determine which direction to move the player based on given inputs.
 	movePlayer(pressedMoves)
