@@ -27,12 +27,10 @@ margin_bottom = 26.0
 
 [node name="Player" parent="." index="2" instance=ExtResource( 3 )]
 
-<<<<<<< HEAD
 editor/display_folded = true
 position = Vector2( 205.186, 256.228 )
-=======
+
 [node name="Dummy" parent="." index="3" instance=ExtResource( 4 )]
->>>>>>> Player-Hitbox-and-Attack
 
 
 [editable path="CanvasLayer/GUI"]
