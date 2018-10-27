@@ -1,5 +1,13 @@
 extends "res://Player/Scripts/Movement States/Inheritable Classes/IFlinchable.gd"
 
+signal primary_used(cooldown_timer)
+signal secondary_used(cooldown_timer)
+signal ternary_used(cooldown_timer)
+signal super_used(cooldown_timer)
+
+# Cooldown timers.
+var primary_cooldown = 3
+
 var casting_animation_timer = 0
 var timeToAnimate = 2
 
@@ -16,6 +24,7 @@ func enter(args):
 	if(args[0] == 1):
 		#select animation and play it
 		print("first ability activate")
+		emit_signal("primary_used", primary_cooldown)
 		#set timeToAnimate to the animation duration
 		casting_animation_timer = 1;
 	else:
