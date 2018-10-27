@@ -8,13 +8,12 @@ var player_node
 func _ready():
 	player_node = $"../.."
 
-func enter():
+func enter(args):
 	# Change player health.
 	player_node.take_damage(90)
 	# Enter dying state when player's health is equal to or below zero.
 	if player_node.current_health <= 0:
-		emit_signal("finished", "dying")
-func enter(args):
+		emit_signal("finished", "dying", [])
 	flinchTimer = timeToFlinch
 
 func update(delta):
