@@ -14,11 +14,12 @@ func enter():
 	# Enter dying state when player's health is equal to or below zero.
 	if player_node.current_health <= 0:
 		emit_signal("finished", "dying")
+func enter(args):
 	flinchTimer = timeToFlinch
 
 func update(delta):
 	if(flinchTimer > 0):
 		flinchTimer -= delta
 	else:
-		emit_signal("finished", "idling")
+		emit_signal("finished", "idling", [0])
 	.update(delta)

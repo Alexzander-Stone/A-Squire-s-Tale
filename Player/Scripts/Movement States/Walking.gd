@@ -8,7 +8,7 @@ var timeToRun = .3
 var initialInputs = [0, 0, 0, 0]
 var pressedMoves = [0, 0, 0, 0]
 
-func enter():
+func enter(args):
 	runTimer = timeToRun
 	fillPressedArray(initialInputs)
 
@@ -24,7 +24,7 @@ func update(delta):
 	
 	# Timer to check during first few frames of walking.
 	if hasDoubleTapped():
-		emit_signal("finished", "running")
+		emit_signal("finished", "running", [0])
 	elif(runTimer > 0):
 		runTimer -= 1 * delta
 	
@@ -35,7 +35,7 @@ func update(delta):
 			if(input != 0):
 				moveCounter += 1
 		if(moveCounter == 0):
-			emit_signal("finished", "idling")
+			emit_signal("finished", "idling", [0])
 	
 	# Determine which direction to move the player based on given inputs.
 	movePlayer(pressedMoves)

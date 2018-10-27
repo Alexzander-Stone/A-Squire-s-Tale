@@ -1,9 +1,9 @@
 extends Node
 
-signal finished(next_state_name)
+signal finished(next_state_name, args)
 
 # Initialize.
-func enter():
+func enter(args):
 	return
 
 # Reset values.
