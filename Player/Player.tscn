@@ -9,8 +9,8 @@
 [ext_resource path="res://Player/Scripts/Movement States/Running.gd" type="Script" id=7]
 [ext_resource path="res://Player/Scripts/Movement States/Crafting.gd" type="Script" id=8]
 [ext_resource path="res://Player/Scripts/Movement States/Casting.gd" type="Script" id=9]
-[ext_resource path="res://Player/Scripts/Movement States/Flinching.gd" type="Script" id=10]
-[ext_resource path="res://Player/Scripts/Movement States/Dying.gd" type="Script" id=11]
+[ext_resource path="res://Player/Scripts/Movement States/Dying.gd" type="Script" id=10]
+[ext_resource path="res://Player/Scripts/Movement States/Flinching.gd" type="Script" id=11]
 [ext_resource path="res://Player/Scripts/Debug/Label.gd" type="Script" id=12]
 [ext_resource path="res://Player/Camera/Pivot.gd" type="Script" id=13]
 
@@ -23,7 +23,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Player" type="Node2D"]
+[node name="Player" type="Node2D" index="0"]
 
 position = Vector2( 106.147, 63.6884 )
 script = ExtResource( 1 )
@@ -70,11 +70,11 @@ VELOCITY = 2
 
 script = ExtResource( 9 )
 
-[node name="Flinching" type="Node" parent="StateMachine" index="6"]
+[node name="Dying" type="Node" parent="StateMachine" index="6"]
 
 script = ExtResource( 10 )
 
-[node name="Dying" type="Node" parent="StateMachine" index="7"]
+[node name="Flinching" type="Node" parent="StateMachine" index="7"]
 
 script = ExtResource( 11 )
 
