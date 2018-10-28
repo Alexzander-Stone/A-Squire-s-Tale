@@ -11,7 +11,6 @@
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="1"]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -20,8 +19,6 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 2 )]
 
-editor/display_folded = true
-
 [node name="Player" parent="." index="2" instance=ExtResource( 3 )]
 
 editor/display_folded = true
@@ -29,10 +26,8 @@ position = Vector2( 106.147, 66.6884 )
 
 [node name="Dummy" parent="." index="3" instance=ExtResource( 4 )]
 
-editor/display_folded = true
-position = Vector2( 292.764, 501.922 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 
 [editable path="CanvasLayer/GUI"]
 [editable path="Player"]
-[editable path="Dummy"]
