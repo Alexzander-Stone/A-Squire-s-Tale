@@ -9,5 +9,5 @@ func _ready():
 
 
 
-func collisionDetected():
+func collisionDetected(colliding_object):
 	beginFlinch()
