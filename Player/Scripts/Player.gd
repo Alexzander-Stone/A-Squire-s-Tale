@@ -4,7 +4,7 @@ signal damaged(damageValue)
 
 # Movement and direction.
 var velocity = Vector2(0,0)
-var direction
+var direction_vector = Vector2(0,0)
 var MOVE_VELOCITY = 0
 # Crafting.
 var crafting_container = []
@@ -17,13 +17,13 @@ func _ready():
 
 func update_position():
 	#position += velocity
-	update_direction()
+	update_direction_vector()
 	if get_node("KinematicBody2D").move_and_collide(velocity):
 		print("collide")
 	position = get_node("KinematicBody2D").position
 
-func update_direction():
-	direction = velocity.normalized()
+func update_direction_vector():
+	direction_vector = velocity.normalized()
 
 func add_to_crafting(integer):
 	crafting_container.append(integer)

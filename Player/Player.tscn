@@ -25,7 +25,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Player" type="Node2D" index="0"]
+[node name="Player" type="Node2D"]
 
 position = Vector2( 106.147, 63.6884 )
 script = ExtResource( 1 )
@@ -180,6 +180,9 @@ editor_draw_drag_margin = true
 _sections_unfolded = [ "Drag Margin", "Smoothing", "Transform" ]
 
 [node name="Weapon" parent="." index="6" instance=ExtResource( 15 )]
+
+visible = true
+_sections_unfolded = [ "Collision", "Transform", "Visibility" ]
 
 
 [editable path="Weapon"]

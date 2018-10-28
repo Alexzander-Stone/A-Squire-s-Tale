@@ -26,6 +26,7 @@ func enter(args):
 	#add condition checking for cooldown
 	if(args[0] == 1 && ability_node.primary_cooldown_timer <= 0):
 		#select animation and play it. Rotate based on player's current direction.
+		
 		weapon_animation_node.play("Primary_Attack_1")
 		print("first ability activate")
 		emit_signal("primary_used")
