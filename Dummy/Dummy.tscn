@@ -76,12 +76,11 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
-_sections_unfolded = [ "Resource" ]
 
 [sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
-extents = Vector2( 11.7599, 10 )
+extents = Vector2( 10, 10 )
 
 [node name="Dummy" type="Node2D" index="0"]
 
