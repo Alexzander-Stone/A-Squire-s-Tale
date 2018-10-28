@@ -194,15 +194,18 @@ tracks/4/keys = {
 [node name="Weapon" type="Area2D"]
 
 visible = false
+position = Vector2( -74.7639, 185.426 )
+rotation = 1.59119
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+monitoring = false
 collision_layer = 2
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Collision", "Visibility" ]
+_sections_unfolded = [ "Collision", "Transform", "Visibility" ]
 __meta__ = {
 "_edit_group_": true
 }
