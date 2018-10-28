@@ -27,7 +27,12 @@ func movePlayer(input):
 		var playerAngle = atan(abs(verticalMove) / abs(horizontalMove))
 		owner.velocity.x = cos(playerAngle) * horizontalMove * VELOCITY
 		owner.velocity.y = sin(playerAngle) * verticalMove * VELOCITY
+ 
 	else:
 		owner.velocity.x = horizontalMove * VELOCITY 
-		owner.velocity.y = verticalMove * VELOCITY 
+		owner.velocity.y = verticalMove * VELOCITY
+		
+	#only update the direction vector if the player inputs a direction
+	if(horizontalMove != 0 or verticalMove != 0):
+		owner.update_direction_vector()
 	owner.update_position()
