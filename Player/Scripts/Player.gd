@@ -17,13 +17,14 @@ func _ready():
 
 func update_position():
 	#position += velocity
-	update_direction_vector()
+	#update_direction_vector()
 	if get_node("KinematicBody2D").move_and_collide(velocity):
 		print("collide")
 	position = get_node("KinematicBody2D").position
 
 func update_direction_vector():
 	direction_vector = velocity.normalized()
+	print(direction_vector)
 
 func add_to_crafting(integer):
 	crafting_container.append(integer)
