@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Stats/PlayerStats.gd" type="Script" id=1]
 
-[node name="Stats" type="Node" index="0"]
+[node name="Stats" type="Node"]
 
 script = ExtResource( 1 )
 maxHealth = 100
