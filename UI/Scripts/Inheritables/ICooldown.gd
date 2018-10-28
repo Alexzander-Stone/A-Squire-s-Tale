@@ -1,10 +1,10 @@
 extends TextureProgress
 
-var casting_node
+var ability_node
 var cooldown_timer = 0
 
 func _ready():
-	casting_node = $"/root/World/Player/StateMachine/Casting"
+	ability_node = $"/root/World/Player/Abilities"
 
 func animation_cooldown_start(time):
 	cooldown_timer = time

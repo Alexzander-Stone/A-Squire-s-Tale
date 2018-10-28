@@ -1,4 +1,4 @@
 extends "res://UI/Scripts/Inheritables/ICooldown.gd"
 
 func _ready():
-	casting_node.connect("secondary_used", self, "animation_cooldown_start")
+	ability_node.connect("begin_secondary_cooldown", self, "animation_cooldown_start")

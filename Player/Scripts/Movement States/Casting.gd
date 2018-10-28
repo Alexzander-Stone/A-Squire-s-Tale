@@ -1,15 +1,17 @@
 extends "res://Player/Scripts/Movement States/Inheritable Classes/IFlinchable.gd"
 
-signal primary_used(cooldown_timer)
-signal secondary_used(cooldown_timer)
-signal ternary_used(cooldown_timer)
-signal super_used(cooldown_timer)
+signal primary_used()
+signal secondary_used()
+signal ternary_used()
+signal super_used()
 
-# Cooldown timers.
-var primary_cooldown = 3
+var ability_node
 
 var casting_animation_timer = 0
 var timeToAnimate = 2
+
+func _ready():
+	ability_node = $"../../Abilities"
 
 func enter(args):
 	# Will substitute with search for proper ability/animation.
@@ -21,16 +23,15 @@ func enter(args):
 	
 	#receive input for primary ability (number 1)
 	#add condition checking for cooldown
-	if(args[0] == 1):
+	if(args[0] == 1 && ability_node.primary_cooldown_timer <= 0):
 		#select animation and play it
 		print("first ability activate")
-		emit_signal("primary_used", primary_cooldown)
+		emit_signal("primary_used")
 		#set timeToAnimate to the animation duration
 		casting_animation_timer = 1;
 	else:
 		print("no casting")
 		emit_signal("finished", "idling", [0])
-
 
 func update(delta):
 	if(casting_animation_timer >= 0):
