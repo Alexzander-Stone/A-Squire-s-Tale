@@ -21,7 +21,7 @@ _sections_unfolded = [ "Resource" ]
 custom_solver_bias = 0.0
 extents = Vector2( 11.7599, 10 )
 
-[node name="Dummy" type="Node2D" index="0"]
+[node name="Dummy" type="Node2D"]
 
 position = Vector2( -2.60309, 0 )
 scale = Vector2( 0.918653, 1 )
