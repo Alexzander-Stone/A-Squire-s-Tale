@@ -161,6 +161,6 @@ margin_left = 56.0
 margin_top = -50.0
 margin_right = 96.0
 margin_bottom = -10.0
-_sections_unfolded = [ "Size Flags" ]
+_sections_unfolded = [ "Rect", "Size Flags", "Theme", "Visibility" ]
 
 
