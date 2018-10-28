@@ -202,9 +202,10 @@ gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 monitoring = false
+collision_layer = 2
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Collision", "Visibility" ]
 __meta__ = {
 "_edit_group_": true
 }
