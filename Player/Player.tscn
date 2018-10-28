@@ -61,7 +61,6 @@ super_cooldown = 12
 
 [node name="StateMachine" type="Node" parent="." index="3"]
 
-editor/display_folded = true
 script = ExtResource( 4 )
 _sections_unfolded = [ "Pause" ]
 START_STATE = NodePath("Idling")
@@ -181,10 +180,6 @@ editor_draw_drag_margin = true
 _sections_unfolded = [ "Drag Margin", "Smoothing", "Transform" ]
 
 [node name="Weapon" parent="." index="6" instance=ExtResource( 15 )]
-
-visible = false
-position = Vector2( 0, 0 )
-rotation = 0.0
 
 
 [editable path="Weapon"]
