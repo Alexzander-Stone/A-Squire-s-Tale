@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Sprites/falcotrash.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Player/Scripts/Debug/Label.gd" type="Script" id=13]
 [ext_resource path="res://Player/Camera/Pivot.gd" type="Script" id=14]
 [ext_resource path="res://Attack/Attack.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Attack/Attack.gd" type="Script" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -182,7 +183,7 @@ _sections_unfolded = [ "Drag Margin", "Smoothing", "Transform" ]
 [node name="Weapon" parent="." index="6" instance=ExtResource( 15 )]
 
 visible = true
-_sections_unfolded = [ "Collision", "Transform", "Visibility" ]
+script = ExtResource( 16 )
 
 
 [editable path="Weapon"]
