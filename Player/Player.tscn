@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Sprites/falcotrash.png" type="Texture" id=2]
@@ -62,7 +62,6 @@ ternary_cooldown = 8
 super_cooldown = 12
 
 [node name="StateMachine" type="Node" parent="." index="3"]
-
 
 script = ExtResource( 4 )
 _sections_unfolded = [ "Pause" ]

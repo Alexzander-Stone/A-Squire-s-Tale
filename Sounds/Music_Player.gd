@@ -10,7 +10,7 @@ func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	cur = ""
-	play_song("opening")
+	play_song("boss")
 	pass
 	
 func _process(delta):

@@ -4,13 +4,15 @@ extends Node
 # var a = 2
 # var b = "textvar"
 
+export (NodePath) var state_machine_path
+var state_machine_node
 var cur = ""
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
-	
+	print(state_machine_path)
+	state_machine_node = get_node(state_machine_path)
+	state_machine_node.connect("state_changed", self, "trigger_sfx_hit")
+
 func _process(delta):
 	pass
 
@@ -26,11 +28,24 @@ func stop():
 	else:
 		print("No song selected.")
 
-func play_sfx(var sfx):
+func play_sfx(sfx):
 	if(cur != ""):
 		stop()
 	cur = sfx
 	play()
+	
+func trigger_sfx_hit(state):
+	
+	if(state.name == "Flinching"):
+		print("flinching sfx")
+		var r = randi()
+		if(r % 2):
+			play_sfx("oh_no")
+			print("hit sfx")
+		else:
+			play_sfx("hit")
+			print("oh no sfx")
+
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
