@@ -25,7 +25,7 @@ func emit_damage(damageValue):
 	# Update text of visual to represent damage taken.
 	label_node.clear()
 	label_node.add_text(str(damageValue))
-	var goto = get_position() + Vector2(40, -40)
+	var goto = get_position() + Vector2(randi()%81 - 40,randi()%81 - 40)
 	tween_node.interpolate_property(self, 'rect_position', get_position(), goto, 1, Tween.TRANS_EXPO, Tween.EASE_OUT)
 	tween_node.interpolate_property(self, 'modulate', get_modulate(), Color("00ffffff"), 1.5, Tween.TRANS_EXPO, Tween.EASE_OUT)
 	tween_node.start()
