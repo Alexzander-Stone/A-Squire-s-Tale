@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://UI/Assets/HealthBarUI.png" type="Texture" id=1]
-[ext_resource path="res://UI/HealthBar.gd" type="Script" id=2]
+[ext_resource path="res://UI/Scripts/HealthBar.gd" type="Script" id=2]
 [ext_resource path="res://UI/Assets/SuperButton.png" type="Texture" id=3]
 [ext_resource path="res://UI/Assets/SuperButtonOverlay.png" type="Texture" id=4]
-[ext_resource path="res://UI/AbilityCooldown.gd" type="Script" id=5]
+[ext_resource path="res://UI/Scripts/SuperCooldown.gd" type="Script" id=5]
 [ext_resource path="res://UI/Assets/AbilityButton.png" type="Texture" id=6]
 [ext_resource path="res://UI/Assets/AbilityButtonOverlay.png" type="Texture" id=7]
+[ext_resource path="res://UI/Scripts/SecondaryCooldown.gd" type="Script" id=8]
+[ext_resource path="res://UI/Scripts/PrimaryCooldown.gd" type="Script" id=9]
+[ext_resource path="res://UI/Scripts/TernaryCooldown.gd" type="Script" id=10]
 
 [node name="GUI" type="MarginContainer"]
 
@@ -220,7 +223,7 @@ fill_mode = 5
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 5 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Radial Fill", "Rect", "Textures" ]
 
 [node name="Primary" type="VBoxContainer" parent="Bar Top/Abilities/Regular" index="1"]
@@ -288,7 +291,7 @@ fill_mode = 5
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 5 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Anchor", "Focus", "Hint", "Margin", "Material", "Mouse", "Pause", "Radial Fill", "Rect", "Size Flags", "Textures", "Theme", "Visibility" ]
 
 [node name="Ternary" type="VBoxContainer" parent="Bar Top/Abilities/Regular" index="2"]
@@ -336,7 +339,7 @@ fill_mode = 5
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 5 )
+script = ExtResource( 10 )
 _sections_unfolded = [ "Radial Fill", "Textures" ]
 
 

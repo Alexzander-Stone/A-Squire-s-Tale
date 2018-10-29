@@ -7,7 +7,7 @@
 [ext_resource path="res://Sounds/Music_Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sounds/SFX_Player.tscn" type="PackedScene" id=6]
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 [node name="Environment" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -22,15 +22,9 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 2 )]
 
-margin_left = 32.0
-margin_top = 66.0
-margin_right = 52.0
-margin_bottom = 26.0
-
 [node name="Player" parent="." index="2" instance=ExtResource( 3 )]
 
-editor/display_folded = true
-position = Vector2( 205.186, 256.228 )
+position = Vector2( 106.147, 66.6884 )
 
 [node name="Dummy" parent="." index="3" instance=ExtResource( 4 )]
 
