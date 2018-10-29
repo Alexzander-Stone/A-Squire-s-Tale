@@ -84,7 +84,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Dummy" type="Node2D"]
+[node name="Dummy" type="Node2D" index="0"]
 
 position = Vector2( -3.60309, 4.0691 )
 scale = Vector2( 0.918653, 1.09591 )
@@ -110,13 +110,17 @@ state_machine_path = NodePath("../DummyStateMachine")
 [node name="Sprite" type="Sprite" parent="Full Sprite" index="0"]
 
 position = Vector2( -2.60309, 73 )
+rotation = -0.0436332
 scale = Vector2( 0.918653, 1 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Animation", "Offset", "Transform" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Full Sprite" index="1"]
 
+modulate = Color( 0.6, 0.6, 0.6, 1 )
 position = Vector2( -2.60309, 0 )
+rotation = 0.0872665
+scale = Vector2( 0.95, 1.05 )
 frames = SubResource( 3 )
 animation = "default"
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
