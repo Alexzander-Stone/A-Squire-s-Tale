@@ -111,6 +111,7 @@ primary_cooldown = 2
 secondary_cooldown = 4
 ternary_cooldown = 8
 super_cooldown = 12
+casting_path = NodePath("../StateMachine/Casting")
 
 [node name="StateMachine" type="Node" parent="." index="4"]
 

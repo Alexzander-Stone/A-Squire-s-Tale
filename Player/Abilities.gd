@@ -16,10 +16,10 @@ var secondary_cooldown_timer = 0
 var ternary_cooldown_timer = 0
 var super_cooldown_timer = 0
 
-var casting_node
+export(NodePath) var casting_path
+onready var casting_node = get_node(casting_path)
 
 func _ready():
-	casting_node = $"../StateMachine/Casting"
 	# Begin listening to casting node for cooldown directions.
 	casting_node.connect("primary_used", self, "initialize_primary_cooldown")
 	casting_node.connect("secondary_used", self, "initialize_secondary_cooldown")
