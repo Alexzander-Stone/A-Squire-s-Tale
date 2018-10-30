@@ -23,7 +23,6 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="Player" parent="." index="2" instance=ExtResource( 3 )]
 
-editor/display_folded = true
 position = Vector2( 106.147, 66.6884 )
 
 [node name="Dummy" parent="." index="3" instance=ExtResource( 4 )]
@@ -32,4 +31,3 @@ position = Vector2( 106.147, 66.6884 )
 
 
 [editable path="CanvasLayer/GUI"]
-[editable path="Player"]
