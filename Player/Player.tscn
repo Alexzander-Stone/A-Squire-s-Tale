@@ -145,6 +145,9 @@ VELOCITY = 2
 [node name="Casting" type="Node" parent="StateMachine" index="5"]
 
 script = ExtResource( 10 )
+ability_path = NodePath("../../Abilities")
+weapon_animation_path = NodePath("../../Weapon/AnimationPlayer")
+parent_path = NodePath("../..")
 
 [node name="Dying" type="Node" parent="StateMachine" index="6"]
 
@@ -153,6 +156,8 @@ script = ExtResource( 11 )
 [node name="Flinching" type="Node" parent="StateMachine" index="7"]
 
 script = ExtResource( 12 )
+player_path = NodePath("../..")
+player_animation_path = NodePath("../../AnimationPlayer")
 
 [node name="Pivot" type="Position2D" parent="." index="5"]
 

@@ -5,18 +5,19 @@ signal secondary_used()
 signal ternary_used()
 signal super_used()
 
-var ability_node
-var weapon_animation_node
-var parent_node
+export(NodePath) var ability_path
+export(NodePath) var weapon_animation_path
+export(NodePath) var parent_path
+
+onready var ability_node = get_node(ability_path)
+onready var weapon_animation_node = get_node(weapon_animation_path)
+onready var parent_node = get_node(parent_path)
+
 var dict = {"00" : "Primary_Attack_1R", "10" : "Primary_Attack_1R", "11" : "Primary_Attack_1DR", "01" : "Primary_Attack_1D", "-11" : "Primary_Attack_1DL", "-10" : "Primary_Attack_1L", "-1-1" : "Primary_Attack_1TL", "0-1" : "Primary_Attack_1T", "1-1" : "Primary_Attack_1TR"}
 
 var casting_animation_timer = 0
+# Needs to be replaced by ability lengths eventually.
 var timeToAnimate = 2
-
-func _ready():
-	ability_node = $"../../Abilities"
-	weapon_animation_node = $"../../Weapon/AnimationPlayer"
-	parent_node = $"../.."
 
 func enter(args):
 	if(args.size() > 0):
@@ -34,7 +35,8 @@ func enter(args):
 			print("first ability activate")
 			emit_signal("primary_used")
 			#set timeToAnimate to the animation duration
-			casting_animation_timer = weapon_animation_node.current_animation_length;
+			# Need to replace with inheritable helper method.
+			casting_animation_timer = weapon_animation_node.current_animation_length / weapon_animation_node.playback_speed;
 		else:
 			print("no casting")
 			emit_signal("finished", "idling", [])

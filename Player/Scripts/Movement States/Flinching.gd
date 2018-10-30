@@ -3,15 +3,14 @@ extends "res://Player/Scripts/Movement States/Inheritable Classes/IKillable.gd"
 var flinchTimer = 0
 var timeToFlinch = 1
 
-var player_node
-var player_animation_node
+export(NodePath) var player_path
+export(NodePath) var player_animation_path
 
-func _ready():
-	player_node = $"../.."
-	player_animation_node = $"../../AnimationPlayer"
+onready var player_node = get_node(player_path)
+onready var player_animation_node = get_node(player_animation_path)
 
 func enter(args):
-		# Change player health.
+	# Change player health.
 	player_node.take_damage(90)
 	# Enter dying state when player's health is equal to or below zero.
 	if player_node.current_health <= 0:
@@ -24,5 +23,5 @@ func update(delta):
 	if(flinchTimer > 0):
 		flinchTimer -= delta
 	else:
-		emit_signal("finished", "idling", [0])
+		emit_signal("finished", "idling", [])
 	.update(delta)
