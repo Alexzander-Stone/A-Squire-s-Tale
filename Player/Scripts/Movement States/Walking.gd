@@ -2,7 +2,7 @@ extends "res://Player/Scripts/Movement States/Inheritable Classes/IMoving.gd"
 
 # Timer for reaching running state.
 var runTimer = 0
-var timeToRun = .3
+export(int) var timeToRun = .3
 # Determine which input to use for run detection
 # Left, right. Up, down.
 var initialInputs = [0, 0, 0, 0]

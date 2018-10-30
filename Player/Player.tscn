@@ -126,6 +126,7 @@ script = ExtResource( 5 )
 
 script = ExtResource( 6 )
 VELOCITY = 5
+timeToRun = 0.3
 
 [node name="Stopping" type="Node" parent="StateMachine" index="2"]
 
