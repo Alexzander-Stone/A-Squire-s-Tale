@@ -9,7 +9,8 @@ var direction_vector = Vector2(0,0)
 # Crafting.
 var crafting_container = []
 # Health points.
-var current_health = 100
+export(int) var max_health = 100
+onready var current_health = max_health
 
 func _ready():
 	print("PC created")
@@ -20,7 +21,6 @@ func update_position():
 
 func update_direction_vector():
 	direction_vector = velocity.normalized()
-	print(direction_vector)
 
 func add_to_crafting(integer):
 	crafting_container.append(integer)
