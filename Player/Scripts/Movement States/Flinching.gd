@@ -10,7 +10,7 @@ onready var player_node = get_node(player_path)
 onready var player_animation_node = get_node(player_animation_path)
 
 func enter(args):
-	# Change player health.
+	# Change player health. Change damage to be arg passed by enter.
 	player_node.take_damage(90)
 	# Enter dying state when player's health is equal to or below zero.
 	if player_node.current_health <= 0:

@@ -159,6 +159,7 @@ script = ExtResource( 6 )
 [node name="Flinching" type="Node" parent="DummyStateMachine" index="1"]
 
 script = ExtResource( 7 )
+player_path = NodePath("../..")
 
 [node name="Dying" type="Node" parent="DummyStateMachine" index="2"]
 

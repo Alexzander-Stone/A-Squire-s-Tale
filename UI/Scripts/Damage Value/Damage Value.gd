@@ -18,7 +18,6 @@ func _ready():
 	texture_width = animated_sprite_node.frames.get_frame(animated_sprite_node.animation, 0).get_width()
 
 func emit_damage(damageValue):
-	damageValue=40
 	# Reset position/modulation.
 	reset_tween_settings()
 	# Update text of visual to represent damage taken.
