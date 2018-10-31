@@ -1,53 +1,34 @@
 extends Node
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
 export (NodePath) var state_machine_path
-var state_machine_node
-var cur = ""
+onready var state_machine_node = get_node(state_machine_path)
+var current_sfx = ""
 
 func _ready():
-	print(state_machine_path)
-	state_machine_node = get_node(state_machine_path)
 	state_machine_node.connect("state_changed", self, "trigger_sfx_hit")
 
-func _process(delta):
-	pass
-
 func play():
-	if(cur != ""):
-		get_node(cur).play()
+	if(current_sfx != ""):
+		get_node(current_sfx).play()
 	else:
 		print("No sfx selected.")
 
 func stop():
-	if(cur != ""):
-		get_node(cur).stop()
+	if(current_sfx != ""):
+		get_node(current_sfx).stop()
 	else:
 		print("No song selected.")
 
 func play_sfx(sfx):
-	if(cur != ""):
+	if(current_sfx != ""):
 		stop()
-	cur = sfx
+	current_sfx = sfx
 	play()
-	
+
 func trigger_sfx_hit(state):
-	
 	if(state.name == "Flinching"):
-		print("flinching sfx")
 		var r = randi()
 		if(r % 2):
 			play_sfx("oh_no")
-			print("hit sfx")
 		else:
 			play_sfx("hit")
-			print("oh no sfx")
-
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
