@@ -8,8 +8,8 @@
 [ext_resource path="res://Dummy/Idling.gd" type="Script" id=6]
 [ext_resource path="res://Dummy/Flinching.gd" type="Script" id=7]
 [ext_resource path="res://Dummy/Dying.gd" type="Script" id=8]
-[ext_resource path="res://UI/DamageValue.tscn" type="PackedScene" id=9]
-[ext_resource path="res://UI/DebugStateLabel.tscn" type="PackedScene" id=10]
+[ext_resource path="res://UI/DebugStateLabel.tscn" type="PackedScene" id=9]
+[ext_resource path="res://UI/DamageValue.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 
@@ -86,7 +86,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Dummy" type="Node2D" index="0"]
+[node name="Dummy" type="Node2D"]
 
 position = Vector2( -3.60309, 4.0691 )
 scale = Vector2( 0.918653, 1.09591 )
@@ -165,22 +165,21 @@ player_path = NodePath("../..")
 
 script = ExtResource( 8 )
 
-[node name="Damage Value" parent="." index="4" instance=ExtResource( 9 )]
-
-margin_left = 56.0
-margin_top = -50.0
-margin_right = 96.0
-margin_bottom = -10.0
-_sections_unfolded = [ "Rect", "Size Flags", "Theme", "Visibility" ]
-parent_path = NodePath("..")
-animated_sprite_path = NodePath("../Full Sprite/AnimatedSprite")
-
-[node name="DebugStateLabel" parent="." index="5" instance=ExtResource( 10 )]
+[node name="DebugStateLabel" parent="." index="4" instance=ExtResource( 9 )]
 
 [node name="Label" parent="DebugStateLabel" index="0"]
 
 state_machine_path = NodePath("../../DummyStateMachine")
 
+[node name="Damage Value" parent="." index="5" instance=ExtResource( 10 )]
 
-[editable path="Damage Value"]
+_sections_unfolded = [ "Rect", "Size Flags", "Theme", "Visibility" ]
+
+[node name="Damage Value" parent="Damage Value" index="0"]
+
+parent_path = NodePath("../..")
+animated_sprite_path = NodePath("../../Full Sprite/AnimatedSprite")
+
+
 [editable path="DebugStateLabel"]
+[editable path="Damage Value"]

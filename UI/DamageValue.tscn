@@ -15,7 +15,12 @@ use_filter = false
 font_data = SubResource( 1 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[node name="Damage Value" type="Control" index="0"]
+[node name="Layer Control" type="Node2D" index="0"]
+
+z_index = 10
+_sections_unfolded = [ "Rect", "Theme", "Visibility", "Z Index" ]
+
+[node name="Damage Value" type="Control" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -30,20 +35,10 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Rect", "Theme", "Visibility" ]
 parent_path = null
 animated_sprite_path = null
 
-[node name="Tween" type="Tween" parent="." index="0"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-
-[node name="Damage Label" type="RichTextLabel" parent="." index="1"]
+[node name="Damage Label" type="RichTextLabel" parent="Damage Value" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -70,5 +65,14 @@ scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Hint", "Rect", "Size Flags", "Theme", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="Tween" type="Tween" parent="Damage Value" index="1"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
 
 

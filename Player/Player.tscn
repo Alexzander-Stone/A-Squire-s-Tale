@@ -55,12 +55,12 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.6, 0.6, 0.6, 1 ), Color( 1, 1, 1, 1 ), Color( 0.6, 0.6, 0.6, 1 ), Color( 1, 1, 1, 1 ), Color( 0.6, 0.6, 0.6, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
@@ -69,7 +69,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 85.3419, 110.204 )
@@ -109,20 +109,20 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damage Hitbox" index="0"]
 
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="2"]
 
 rotation = 6.28319
 scale = Vector2( 0.25, 0.25 )
-frames = SubResource( 3 )
+frames = SubResource( 4 )
 animation = "Idle"
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="Wall Hitbox" type="CollisionShape2D" parent="." index="3"]
 
 scale = Vector2( 0.25, 0.25 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Abilities" type="Node" parent="." index="4"]
 
@@ -228,9 +228,14 @@ state_machine_path = NodePath("../../StateMachine")
 
 [node name="Damage Value" parent="." index="9" instance=ExtResource( 16 )]
 
-parent_path = NodePath("..")
-animated_sprite_path = NodePath("../AnimatedSprite")
+_sections_unfolded = [ "Anchor", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Theme", "Visibility" ]
+
+[node name="Damage Value" parent="Damage Value" index="0"]
+
+parent_path = NodePath("../..")
+animated_sprite_path = NodePath("../../AnimatedSprite")
 
 
 [editable path="Weapon"]
 [editable path="DebugStateLabel"]
+[editable path="Damage Value"]
