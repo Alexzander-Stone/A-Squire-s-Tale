@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Sprites/falcotrash.png" type="Texture" id=2]
@@ -14,8 +14,7 @@
 [ext_resource path="res://Player/Scripts/Movement States/Flinching.gd" type="Script" id=12]
 [ext_resource path="res://Player/Camera/Pivot.gd" type="Script" id=13]
 [ext_resource path="res://Attack/Attack.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Attack/Attack.gd" type="Script" id=15]
-[ext_resource path="res://UI/DebugStateLabel.tscn" type="PackedScene" id=16]
+[ext_resource path="res://UI/DebugStateLabel.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Animation" id=1]
 
@@ -199,9 +198,8 @@ _sections_unfolded = [ "Drag Margin", "Smoothing", "Transform" ]
 [node name="Weapon" parent="." index="6" instance=ExtResource( 14 )]
 
 visible = true
-script = ExtResource( 15 )
 
-[node name="DebugStateLabel" parent="." index="7" instance=ExtResource( 16 )]
+[node name="DebugStateLabel" parent="." index="7" instance=ExtResource( 15 )]
 
 [node name="Label" parent="DebugStateLabel" index="0"]
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Attack/hammer_sprite_alpha.png" type="Texture" id=1]
+[ext_resource path="res://Attack/Attack.gd" type="Script" id=1]
+[ext_resource path="res://Attack/hammer_sprite_alpha.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
 
@@ -693,7 +694,7 @@ tracks/5/keys = {
 "values": [ false ]
 }
 
-[node name="Weapon" type="Area2D" index="0"]
+[node name="Weapon" type="Area2D"]
 
 visible = false
 input_pickable = true
@@ -707,6 +708,7 @@ collision_layer = 2
 collision_mask = 0
 audio_bus_override = false
 audio_bus_name = "Master"
+script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform", "Visibility" ]
 __meta__ = {
 "_edit_group_": true
@@ -734,7 +736,7 @@ _sections_unfolded = [ "Pause", "Playback Options" ]
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]

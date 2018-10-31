@@ -5,7 +5,7 @@ signal damaged(damageValue)
 # Movement and direction.
 var velocity = Vector2(0,0)
 var direction_vector = Vector2(0,0)
-var MOVE_VELOCITY = 0
+
 # Crafting.
 var crafting_container = []
 # Health points.
