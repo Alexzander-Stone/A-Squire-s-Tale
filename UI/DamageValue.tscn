@@ -15,7 +15,7 @@ use_filter = false
 font_data = SubResource( 1 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[node name="Damage Value" type="Control" index="0"]
+[node name="Damage Value" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -31,6 +31,8 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Rect", "Theme", "Visibility" ]
+collision_path = null
+animated_sprite_path = null
 
 [node name="Tween" type="Tween" parent="." index="0"]
 
@@ -41,7 +43,7 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." index="1"]
+[node name="Damage Label" type="RichTextLabel" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0

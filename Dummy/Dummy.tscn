@@ -168,6 +168,8 @@ margin_top = -50.0
 margin_right = 96.0
 margin_bottom = -10.0
 _sections_unfolded = [ "Rect", "Size Flags", "Theme", "Visibility" ]
+collision_path = NodePath("../Full Sprite/AnimatedSprite/Area2D")
+animated_sprite_path = NodePath("../Full Sprite/AnimatedSprite")
 
 [node name="DebugStateLabel" parent="." index="5" instance=ExtResource( 9 )]
 
@@ -176,4 +178,5 @@ _sections_unfolded = [ "Rect", "Size Flags", "Theme", "Visibility" ]
 state_machine_path = NodePath("../../DummyStateMachine")
 
 
+[editable path="Damage Value"]
 [editable path="DebugStateLabel"]
