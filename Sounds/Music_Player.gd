@@ -1,74 +1,37 @@
 extends Node
 
-var cur = ""
-
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+var current_song = ""
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	cur = ""
 	play_song("boss")
-	pass
-	
+
 func _process(delta):
 	if Input.is_action_just_pressed("play_music_1"):
-		if(cur == "dungeon"):
-			if(get_node(cur).playing):
-				stop()
-			else:
-				play()
-		else:
-			play_song("dungeon")
+		play_song("dungeon") if(current_song != "dungeon") else stop()
 	elif Input.is_action_just_pressed("play_music_2"):
-		if(cur == "town"):
-			if(get_node(cur).playing):
-				stop()
-			else:
-				play()
-		else:
-			play_song("town")
+		play_song("town") if(current_song != "town") else stop()
 	elif Input.is_action_just_pressed("play_music_3"):
-		if(cur == "boss"):
-			if(get_node(cur).playing):
-				stop()
-			else:
-				play()
-		else:
-			play_song("boss")
+		play_song("boss") if(current_song != "boss") else stop()
 	elif Input.is_action_just_pressed("play_music_4"):
-		if(cur == "opening"):
-			if(get_node(cur).playing):
-				stop()
-			else:
-				play()
-		else:
-			play_song("opening")
+		play_song("opening") if(current_song != "opening") else stop()
 
 func play():
-	if(cur != ""):
-		get_node(cur).play()
+	if(current_song != ""):
+		get_node(current_song).play()
 	else:
 		print("No song selected.")
 
 func stop():
-	if(cur != ""):
-		get_node(cur).stop()
+	if(current_song != ""):
+		get_node(current_song).stop()
 	else:
 		print("No song selected.")
 
 func play_song(var song):
-	if(cur == song):
+	if(current_song == song):
 		print("already playing.")
 	else:
-		if(cur != ""):
+		if(current_song != ""):
 			stop()
-		cur = song
+		current_song = song
 		play()
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
