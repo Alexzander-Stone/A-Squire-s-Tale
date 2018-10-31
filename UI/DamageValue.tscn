@@ -31,7 +31,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Rect", "Theme", "Visibility" ]
-collision_path = null
+parent_path = null
 animated_sprite_path = null
 
 [node name="Tween" type="Tween" parent="." index="0"]

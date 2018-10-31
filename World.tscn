@@ -12,7 +12,6 @@
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="1"]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -24,7 +23,6 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 [node name="Player" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 106.147, 66.6884 )
-max_health = 100
 
 [node name="Dummy" parent="." index="3" instance=ExtResource( 4 )]
 

@@ -1,9 +1,9 @@
 extends Node
 
-export(NodePath) var collision_path
+export(NodePath) var parent_path
 export(NodePath) var animated_sprite_path
 
-onready var collision_node = get_node(collision_path)
+onready var parent_node = get_node(parent_path)
 onready var animated_sprite_node = get_node(animated_sprite_path)
 onready var tween_node = $"Tween"
 onready var damage_label_node = $"Damage Label"
@@ -12,7 +12,7 @@ var texture_height
 var texture_width
 
 func _ready():
-	collision_node.connect("area_entered", self, "emit_damage")
+	parent_node.connect("damaged", self, "emit_damage")
 	
 	texture_height = animated_sprite_node.frames.get_frame(animated_sprite_node.animation, 0).get_height()
 	texture_width = animated_sprite_node.frames.get_frame(animated_sprite_node.animation, 0).get_width()
