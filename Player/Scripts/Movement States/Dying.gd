@@ -1,5 +1,5 @@
 # Trapping death state.
-extends "res://State Machine/State.gd"
+extends "res://Scripts/State Machine/State.gd"
 
 func enter(args):
 	print("Dead")

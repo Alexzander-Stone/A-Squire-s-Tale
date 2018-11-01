@@ -1,4 +1,4 @@
-extends "res://State Machine/State.gd"
+extends "res://Scripts/State Machine/State.gd"
 
 # DEPRECATED USE
 

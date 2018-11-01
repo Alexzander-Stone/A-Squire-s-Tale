@@ -5,7 +5,7 @@
 [sub_resource type="DynamicFontData" id=1]
 
 hinting = 2
-font_path = "res://Font/Lobster_1.3.otf"
+font_path = "res://Assets/Font/Lobster_1.3.otf"
 
 [sub_resource type="DynamicFont" id=2]
 
@@ -15,7 +15,7 @@ use_filter = false
 font_data = SubResource( 1 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[node name="Layer Control" type="Node2D"]
+[node name="Layer Control" type="Node2D" index="0"]
 
 z_index = 10
 _sections_unfolded = [ "Rect", "Theme", "Visibility", "Z Index" ]

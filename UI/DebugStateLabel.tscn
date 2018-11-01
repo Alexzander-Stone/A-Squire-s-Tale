@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Player/Scripts/Debug/Label.gd" type="Script" id=1]
 
-[node name="Layer Control" type="Node2D" index="0"]
+[node name="Layer Control" type="Node2D"]
 
 position = Vector2( -64, -80 )
 z_index = 100

@@ -1,0 +1,191 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Scripts/Dummy/Dummy.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/SFX_Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Dummy/Training_dummy_base.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Dummy/Training_dummy_body.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Dummy/State Machine.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Dummy/Idling.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Dummy/Flinching.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/Dummy/Dying.gd" type="Script" id=8]
+[ext_resource path="res://UI/DebugStateLabel.tscn" type="PackedScene" id=9]
+[ext_resource path="res://UI/DamageValue.tscn" type="PackedScene" id=10]
+
+
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "Default"
+length = 1.0
+loop = false
+step = 0.1
+
+[sub_resource type="Animation" id=2]
+
+length = 3.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Full Sprite/AnimatedSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.6, 0.6, 0.6, 1 ), Color( 1, 1, 1, 1 ), Color( 0.6, 0.6, 0.6, 1 ), Color( 1, 1, 1, 1 ), Color( 0.6, 0.6, 0.6, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Full Sprite/AnimatedSprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.0, -10.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Full Sprite/AnimatedSprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.85, 1.15 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Full Sprite/Sprite:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -5.0, 5.0, 0.0 ]
+}
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Dummy" type="Node2D"]
+
+position = Vector2( -3.60309, 4.0691 )
+scale = Vector2( 0.918653, 1.09591 )
+script = ExtResource( 1 )
+max_health = 100
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 3.0
+anims/Default = SubResource( 1 )
+anims/Flinching = SubResource( 2 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
+
+[node name="SFX_Player" parent="." index="1" instance=ExtResource( 2 )]
+
+state_machine_path = NodePath("../DummyStateMachine")
+
+[node name="Full Sprite" type="Node" parent="." index="2"]
+
+[node name="Sprite" type="Sprite" parent="Full Sprite" index="0"]
+
+position = Vector2( -2.60309, 73 )
+scale = Vector2( 0.918653, 1 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Animation", "Offset", "Transform" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Full Sprite" index="1"]
+
+position = Vector2( -2.60309, 0 )
+frames = SubResource( 3 )
+animation = "default"
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="Area2D" type="Area2D" parent="Full Sprite/AnimatedSprite" index="0"]
+
+position = Vector2( 3.85136, -2.43933 )
+scale = Vector2( 1.65783, 2.11463 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 0
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision", "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Full Sprite/AnimatedSprite/Area2D" index="0"]
+
+position = Vector2( 1.04158, 0.409906 )
+scale = Vector2( 2.59994, 3.08602 )
+shape = SubResource( 4 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="DummyStateMachine" type="Node" parent="." index="3"]
+
+script = ExtResource( 5 )
+START_STATE = NodePath("Idling")
+
+[node name="Idling" type="Node" parent="DummyStateMachine" index="0"]
+
+script = ExtResource( 6 )
+
+[node name="Flinching" type="Node" parent="DummyStateMachine" index="1"]
+
+script = ExtResource( 7 )
+player_path = NodePath("../..")
+
+[node name="Dying" type="Node" parent="DummyStateMachine" index="2"]
+
+script = ExtResource( 8 )
+
+[node name="DebugStateLabel" parent="." index="4" instance=ExtResource( 9 )]
+
+[node name="Label" parent="DebugStateLabel/DebugStateLabel" index="0"]
+
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 128.0
+margin_bottom = 14.0
+state_machine_path = NodePath("../../../DummyStateMachine")
+
+[node name="Damage Value" parent="." index="5" instance=ExtResource( 10 )]
+
+_sections_unfolded = [ "Rect", "Size Flags", "Theme", "Visibility", "Z Index" ]
+
+[node name="Damage Value" parent="Damage Value" index="0"]
+
+parent_path = NodePath("../..")
+animated_sprite_path = NodePath("../../Full Sprite/AnimatedSprite")
+
+
+[editable path="DebugStateLabel"]
+[editable path="Damage Value"]

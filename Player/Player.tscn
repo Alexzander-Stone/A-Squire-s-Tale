@@ -13,7 +13,7 @@
 [ext_resource path="res://Player/Scripts/Movement States/Dying.gd" type="Script" id=11]
 [ext_resource path="res://Player/Scripts/Movement States/Flinching.gd" type="Script" id=12]
 [ext_resource path="res://Player/Camera/Pivot.gd" type="Script" id=13]
-[ext_resource path="res://Attack/Attack.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Attack/Attack.tscn" type="PackedScene" id=14]
 [ext_resource path="res://UI/DebugStateLabel.tscn" type="PackedScene" id=15]
 [ext_resource path="res://UI/DamageValue.tscn" type="PackedScene" id=16]
 
