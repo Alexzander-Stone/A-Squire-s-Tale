@@ -222,13 +222,13 @@ visible = true
 
 [node name="DebugStateLabel" parent="." index="8" instance=ExtResource( 15 )]
 
-[node name="Label" parent="DebugStateLabel" index="0"]
+[node name="Label" parent="DebugStateLabel/DebugStateLabel" index="0"]
 
-state_machine_path = NodePath("../../StateMachine")
+state_machine_path = NodePath("../../../StateMachine")
 
 [node name="Damage Value" parent="." index="9" instance=ExtResource( 16 )]
 
-_sections_unfolded = [ "Anchor", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Theme", "Visibility" ]
+_sections_unfolded = [ "Anchor", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Theme", "Visibility", "Z Index" ]
 
 [node name="Damage Value" parent="Damage Value" index="0"]
 

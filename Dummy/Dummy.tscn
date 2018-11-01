@@ -167,13 +167,17 @@ script = ExtResource( 8 )
 
 [node name="DebugStateLabel" parent="." index="4" instance=ExtResource( 9 )]
 
-[node name="Label" parent="DebugStateLabel" index="0"]
+[node name="Label" parent="DebugStateLabel/DebugStateLabel" index="0"]
 
-state_machine_path = NodePath("../../DummyStateMachine")
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 128.0
+margin_bottom = 14.0
+state_machine_path = NodePath("../../../DummyStateMachine")
 
 [node name="Damage Value" parent="." index="5" instance=ExtResource( 10 )]
 
-_sections_unfolded = [ "Rect", "Size Flags", "Theme", "Visibility" ]
+_sections_unfolded = [ "Rect", "Size Flags", "Theme", "Visibility", "Z Index" ]
 
 [node name="Damage Value" parent="Damage Value" index="0"]
 
