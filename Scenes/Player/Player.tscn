@@ -74,7 +74,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 85.3419, 110.204 )
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 position = Vector2( 106.147, 63.6884 )
 input_pickable = false
@@ -142,10 +142,12 @@ START_STATE = NodePath("Idling")
 [node name="Idling" type="Node" parent="StateMachine" index="0"]
 
 script = ExtResource( 5 )
+collision_path = NodePath("../../Damage Hitbox")
 
 [node name="Walking" type="Node" parent="StateMachine" index="1"]
 
 script = ExtResource( 6 )
+collision_path = NodePath("../../Damage Hitbox")
 VELOCITY = 5
 timeToRun = 0.3
 
@@ -156,16 +158,19 @@ script = ExtResource( 7 )
 [node name="Running" type="Node" parent="StateMachine" index="3"]
 
 script = ExtResource( 8 )
+collision_path = NodePath("../../Damage Hitbox")
 VELOCITY = 10
 
 [node name="Crafting" type="Node" parent="StateMachine" index="4"]
 
 script = ExtResource( 9 )
+collision_path = NodePath("../../Damage Hitbox")
 VELOCITY = 2
 
 [node name="Casting" type="Node" parent="StateMachine" index="5"]
 
 script = ExtResource( 10 )
+collision_path = NodePath("../../Damage Hitbox")
 ability_path = NodePath("../../Abilities")
 weapon_animation_path = NodePath("../../Weapon/AnimationPlayer")
 parent_path = NodePath("../..")

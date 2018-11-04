@@ -25,6 +25,7 @@ func update_direction_vector():
 func add_to_crafting(integer):
 	crafting_container.append(integer)
 
+# Used during initial step of flinching state.
 func take_damage(damage):
 	current_health -= damage
 	# Informs UI of change in health.

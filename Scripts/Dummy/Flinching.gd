@@ -12,7 +12,7 @@ onready var dummy_animation_node = $"../../AnimationPlayer"
 
 func enter(args):
 	# Change player health.
-	player_node.take_damage(90)
+	player_node.take_damage(args[0])
 	#args is the damage value, use it to display, don't edit hp
 	dummy_animation_node.play("Flinching")
 	print("Dummy State: hit")

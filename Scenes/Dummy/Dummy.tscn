@@ -11,8 +11,6 @@
 [ext_resource path="res://Scenes/UI/DebugStateLabel.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/UI/DamageValue.tscn" type="PackedScene" id=10]
 
-
-
 [sub_resource type="Animation" id=1]
 
 resource_name = "Default"
@@ -157,10 +155,12 @@ START_STATE = NodePath("Idling")
 [node name="Idling" type="Node" parent="DummyStateMachine" index="0"]
 
 script = ExtResource( 6 )
+collision_path = NodePath("../../Full Sprite/AnimatedSprite/Area2D")
 
 [node name="Flinching" type="Node" parent="DummyStateMachine" index="1"]
 
 script = ExtResource( 7 )
+collision_path = null
 player_path = NodePath("../..")
 
 [node name="Dying" type="Node" parent="DummyStateMachine" index="2"]
