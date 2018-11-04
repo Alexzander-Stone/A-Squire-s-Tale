@@ -160,7 +160,7 @@ collision_path = NodePath("../../Full Sprite/AnimatedSprite/Area2D")
 [node name="Flinching" type="Node" parent="DummyStateMachine" index="1"]
 
 script = ExtResource( 7 )
-collision_path = null
+collision_path = NodePath("../../Full Sprite/AnimatedSprite/Area2D")
 player_path = NodePath("../..")
 
 [node name="Dying" type="Node" parent="DummyStateMachine" index="2"]
