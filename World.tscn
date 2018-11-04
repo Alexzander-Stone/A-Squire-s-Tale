@@ -10,6 +10,8 @@
 
 [node name="Environment" parent="." index="0" instance=ExtResource( 1 )]
 
+position = Vector2( -1, 0 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="1"]
 
 editor/display_folded = true
