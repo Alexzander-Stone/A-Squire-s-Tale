@@ -1,4 +1,4 @@
-extends "res://Player/Scripts/Movement States/Inheritable Classes/ICastable.gd"
+extends "res://Scripts/Player/Movement States/Inheritable Classes/ICastable.gd"
 #in here, have code for "if collided with, go to flinching
 
 var dummy_collision_node

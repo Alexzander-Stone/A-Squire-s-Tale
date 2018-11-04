@@ -1,15 +1,15 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/Dummy/Dummy.gd" type="Script" id=1]
-[ext_resource path="res://Sounds/SFX_Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Sounds/SFX_Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Dummy/Training_dummy_base.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Dummy/Training_dummy_body.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/Dummy/State Machine.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/Dummy/Idling.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/Dummy/Flinching.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/Dummy/Dying.gd" type="Script" id=8]
-[ext_resource path="res://UI/DebugStateLabel.tscn" type="PackedScene" id=9]
-[ext_resource path="res://UI/DamageValue.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/UI/DebugStateLabel.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/UI/DamageValue.tscn" type="PackedScene" id=10]
 
 
 
@@ -88,7 +88,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Dummy" type="Node2D"]
+[node name="Dummy" type="Node2D" index="0"]
 
 position = Vector2( -3.60309, 4.0691 )
 scale = Vector2( 0.918653, 1.09591 )
@@ -171,10 +171,6 @@ script = ExtResource( 8 )
 
 [node name="Label" parent="DebugStateLabel/DebugStateLabel" index="0"]
 
-margin_left = 0.0
-margin_top = 0.0
-margin_right = 128.0
-margin_bottom = 14.0
 state_machine_path = NodePath("../../../DummyStateMachine")
 
 [node name="Damage Value" parent="." index="5" instance=ExtResource( 10 )]

@@ -1,4 +1,4 @@
-extends "res://Player/Scripts/Movement States/Inheritable Classes/IFlinchable.gd"
+extends "res://Scripts/Player/Movement States/Inheritable Classes/IFlinchable.gd"
 
 #in here we need to add animation, damage numbers, and HP loss
 
