@@ -35,6 +35,10 @@ Observor Pattern -
 	
 * Godot signal system used to alert objects (like Player's State Machine node) of state changes, through emitters.
 
+Object Pooling - 
+
+* We created an generalized Object Pooling script to be inherited by classes needing object pooling. The inheritable class can be found within the Object Pooler folder in the Scripts, and an example of it being used can be found within the Damage Value Spawner.
+
 
 ## Acknowledgments
 
