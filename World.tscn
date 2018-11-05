@@ -23,6 +23,26 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 2 )]
 
+[node name="Bar Top" parent="CanvasLayer/GUI" index="0"]
+
+margin_right = 1560.0
+margin_bottom = 860.0
+
+[node name="Health" parent="CanvasLayer/GUI/Bar Top" index="0"]
+
+margin_right = 1240.0
+margin_bottom = 860.0
+
+[node name="HealthBar" parent="CanvasLayer/GUI/Bar Top/Health" index="0"]
+
+margin_right = 1240.0
+
+[node name="Abilities" parent="CanvasLayer/GUI/Bar Top" index="1"]
+
+margin_left = 1244.0
+margin_right = 1552.0
+margin_bottom = 860.0
+
 [node name="Super" parent="CanvasLayer/GUI/Bar Top/Abilities/Super" index="0"]
 
 ability_path = NodePath("../../../../../../Player/Cooldowns")
