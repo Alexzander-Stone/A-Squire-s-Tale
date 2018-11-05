@@ -28,9 +28,6 @@ func _ready():
 	file.close()
 	
 	craftable_abilities_dict = parse_json(text_data)
-	for i in craftable_abilities_dict:
-		print(i)
-	print(craftable_abilities_dict["01"])
 
 # void setup_ability(Node new_node, String animation_to_play)
 # Default setup for all nodes. Spawns on top of player and chooses correct animation.
@@ -41,7 +38,6 @@ func setup_ability(new_node, animation_to_play):
 	current_active_abilities.append(new_node)
 
 func craft_ability(ability_key, animation_to_play):
-	print(ability_key)
 	# Check to see if ability is valid.
 	if craftable_abilities_dict.has(ability_key):
 		var craft_spawner = load(craftable_abilities_dict[ability_key])
