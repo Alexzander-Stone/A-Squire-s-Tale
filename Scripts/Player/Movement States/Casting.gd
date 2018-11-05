@@ -4,7 +4,8 @@ signal primary_used(animation_to_play)
 signal secondary_used(animation_to_play)
 signal ternary_used(animation_to_play)
 signal super_used(animation_to_play)
-signal crafting_used(ability_key)
+# Ability key = Abilities numbers used for crafting.
+signal crafting_used(ability_key, animation_to_play)
 
 export(NodePath) var cooldown_path
 export(NodePath) var abilities_path
