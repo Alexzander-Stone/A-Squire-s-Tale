@@ -14,7 +14,15 @@ onready var cooldown_node = get_node(cooldown_path)
 onready var abilities_node = get_node(abilities_path)
 onready var parent_node = get_node(parent_path)
 
-var dict = {"00" : "Primary_Attack_1R", "10" : "Primary_Attack_1R", "11" : "Primary_Attack_1DR", "01" : "Primary_Attack_1D", "-11" : "Primary_Attack_1DL", "-10" : "Primary_Attack_1L", "-1-1" : "Primary_Attack_1TL", "0-1" : "Primary_Attack_1T", "1-1" : "Primary_Attack_1TR"}
+var dict = {"00" : "Attack_1R", 
+			"10" : "Attack_1R", 
+			"11" : "Attack_1DR", 
+			"01" : "Attack_1D", 
+			"-11" : "Attack_1DL", 
+			"-10" : "Attack_1L", 
+			"-1-1" : "Attack_1TL", 
+			"0-1" : "Attack_1T", 
+			"1-1" : "Attack_1TR"}
 
 var casting_animation_timer = 0
 # Needs to be replaced by ability lengths eventually.
