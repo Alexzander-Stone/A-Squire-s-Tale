@@ -23,6 +23,22 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 2 )]
 
+[node name="Super" parent="CanvasLayer/GUI/Bar Top/Abilities/Super" index="0"]
+
+ability_path = NodePath("../../../../../../Player/Cooldowns")
+
+[node name="Cooldown" parent="CanvasLayer/GUI/Bar Top/Abilities/Regular/Secondary" index="0"]
+
+ability_path = NodePath("../../../../../../../Player/Cooldowns")
+
+[node name="Cooldown" parent="CanvasLayer/GUI/Bar Top/Abilities/Regular/Primary" index="1"]
+
+ability_path = NodePath("../../../../../../../Player/Cooldowns")
+
+[node name="Cooldown" parent="CanvasLayer/GUI/Bar Top/Abilities/Regular/Ternary" index="0"]
+
+ability_path = NodePath("../../../../../../../Player/Cooldowns")
+
 [node name="Player" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 106.147, 66.6884 )

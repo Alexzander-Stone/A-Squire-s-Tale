@@ -694,7 +694,7 @@ tracks/5/keys = {
 "values": [ false ]
 }
 
-[node name="Utility" type="Area2D" index="0"]
+[node name="Utility" type="Area2D"]
 
 visible = false
 input_pickable = true

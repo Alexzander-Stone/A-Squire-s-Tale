@@ -5,11 +5,11 @@ signal secondary_used()
 signal ternary_used()
 signal super_used()
 
-export(NodePath) var ability_path
+export(NodePath) var cooldown_path
 export(NodePath) var weapon_animation_path
 export(NodePath) var parent_path
 
-onready var ability_node = get_node(ability_path)
+onready var cooldown_node = get_node(cooldown_path)
 onready var weapon_animation_node = get_node(weapon_animation_path)
 onready var parent_node = get_node(parent_path)
 
@@ -29,7 +29,7 @@ func enter(args):
 		
 		#receive input for primary ability (number 1)
 		#add condition checking for cooldown
-		if(args[0] == 1 && ability_node.primary_cooldown_timer <= 0):
+		if(args[0] == 1 && cooldown_node.primary_cooldown_timer <= 0):
 			#select animation and play it. Rotate based on player's current direction.
 			weapon_animation_node.play(dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))])
 			print("first ability activate")

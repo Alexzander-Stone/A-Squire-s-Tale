@@ -74,7 +74,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 85.3419, 110.204 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 position = Vector2( 106.147, 63.6884 )
 input_pickable = false
@@ -124,7 +124,7 @@ _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 scale = Vector2( 0.25, 0.25 )
 shape = SubResource( 5 )
 
-[node name="Abilities" type="Node" parent="." index="4"]
+[node name="Cooldowns" type="Node" parent="." index="4"]
 
 script = ExtResource( 3 )
 primary_cooldown = 2
@@ -171,7 +171,7 @@ VELOCITY = 2
 
 script = ExtResource( 10 )
 collision_path = NodePath("../../Damage Hitbox")
-ability_path = NodePath("../../Abilities")
+cooldown_path = NodePath("../../Cooldowns")
 weapon_animation_path = NodePath("../../Weapon/AnimationPlayer")
 parent_path = NodePath("../..")
 
