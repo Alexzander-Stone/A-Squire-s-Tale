@@ -2,21 +2,20 @@
 # The root node of each object scene must contain this deactivation signal.
 extends Node
 
-var object_to_spawn
-
 # Object pooling for less creation of new resources.
 var active_objects = []
 var object_pool = []
 
 # Node spawn_object(args)
 # Return: Node of object from object pooler.
-# args = list of arguments [object to spawn path, signal name]
+# args = list of arguments [object to spawn scene, signal name]
 func spawn_object(args):
+	print(object_pool.size())
 	# Create a new node if object pool is empty.
 	# Otherwise, reuse a node from the pool.
 	if object_pool.size() <= 0:
 		# Set path to class/node to be created. Then create the object.
-		object_to_spawn = load(args[0])
+		var object_to_spawn = args[0]
 		var new_node = object_to_spawn.instance()
 		# Signal to send into object pool once the node has finished it's goal.
 		new_node.connect(args[1], self, "add_to_pool")

@@ -4,7 +4,7 @@ export(NodePath) var animated_sprite_path
 export(Color) var GUI_start_color = Color("ffffff")
 export(Color) var GUI_end_color = Color("00ffffff")
 
-onready var damage_GUI_spawner = preload("res://Scenes/UI/DamageValue.tscn")
+onready var damage_GUI_scene = preload("res://Scenes/UI/DamageValue.tscn")
 
 onready var animated_sprite_node = get_node(animated_sprite_path)
 onready var texture_height = animated_sprite_node.frames.get_frame(animated_sprite_node.animation, 0).get_height()
@@ -14,7 +14,7 @@ func _ready():
 	get_parent().connect("damaged", self, "spawn_damage_value")
 
 func spawn_damage_value(damageValue):
-	var new_node = spawn_object(["res://Scenes/UI/DamageValue.tscn", "goal_completed"])
+	var new_node = spawn_object([damage_GUI_scene, "goal_completed"])
 	add_child(new_node)
 	#Call after spawn.
 	setup_damage_GUI(new_node, damageValue)
