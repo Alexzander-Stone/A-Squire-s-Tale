@@ -1,9 +1,9 @@
 extends "res://Scripts/Player/Movement States/Inheritable Classes/IFlinchable.gd"
 
-signal primary_used()
-signal secondary_used()
-signal ternary_used()
-signal super_used()
+signal primary_used(animation_to_play)
+signal secondary_used(animation_to_play)
+signal ternary_used(animation_to_play)
+signal super_used(animation_to_play)
 
 export(NodePath) var cooldown_path
 export(NodePath) var abilities_path
@@ -12,7 +12,6 @@ export(NodePath) var parent_path
 
 onready var cooldown_node = get_node(cooldown_path)
 onready var abilities_node = get_node(abilities_path)
-onready var weapon_animation_node = get_node(weapon_animation_path)
 onready var parent_node = get_node(parent_path)
 
 var dict = {"00" : "Primary_Attack_1R", "10" : "Primary_Attack_1R", "11" : "Primary_Attack_1DR", "01" : "Primary_Attack_1D", "-11" : "Primary_Attack_1DL", "-10" : "Primary_Attack_1L", "-1-1" : "Primary_Attack_1TL", "0-1" : "Primary_Attack_1T", "1-1" : "Primary_Attack_1TR"}
@@ -39,15 +38,13 @@ func enter(args):
 		#receive input for primary ability (number 1)
 		#add condition checking for cooldown
 		if(args[0] == 1 && cooldown_node.primary_cooldown_timer <= 0):
-			emit_signal("primary_used")
-			#select animation and play it. Rotate based on player's current direction.
-			weapon_animation_node.play(dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))])
-			print("first ability activate")
+			var animation_to_play = dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))]
+			emit_signal("primary_used", animation_to_play)
 			#set timeToAnimate to the animation duration
 			# Need to replace with inheritable helper method.
 			
 			# Get casting_animation_timer from Abilities node.
-			casting_animation_timer = weapon_animation_node.current_animation_length / weapon_animation_node.playback_speed;
+			casting_animation_timer = abilities_node.primary_length;
 		else:
 			print("no casting")
 			emit_signal("finished", "idling", [])

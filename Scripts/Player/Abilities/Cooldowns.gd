@@ -26,19 +26,19 @@ func _ready():
 	casting_node.connect("ternary_used", self, "initialize_ternary_cooldown")
 	casting_node.connect("super_used", self, "initialize_super_cooldown")
 
-func initialize_primary_cooldown():
+func initialize_primary_cooldown(args):
 	primary_cooldown_timer = primary_cooldown 
 	emit_signal("begin_primary_cooldown", primary_cooldown)
 
-func initialize_secondary_cooldown():
+func initialize_secondary_cooldown(args):
 	secondary_cooldown_timer = secondary_cooldown 
 	emit_signal("begin_secondary_cooldown", secondary_cooldown)
 
-func initialize_ternary_cooldown():
+func initialize_ternary_cooldown(args):
 	ternary_cooldown_timer = ternary_cooldown 
 	emit_signal("begin_ternary_cooldown", ternary_cooldown)
 
-func initialize_super_cooldown():
+func initialize_super_cooldown(args):
 	super_cooldown_timer = super_cooldown 
 	emit_signal("begin_super_cooldown", super_cooldown)
 
