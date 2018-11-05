@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/UI/Damage Value Spawner/Damage Value Spawner.gd" type="Script" id=1]
+
+[node name="Damage Value Spawner" type="Node"]
+
+script = ExtResource( 1 )
+animated_sprite_path = null
+GUI_start_color = Color( 1, 1, 1, 1 )
+GUI_end_color = Color( 1, 1, 1, 0 )
+
+

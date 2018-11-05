@@ -9,7 +9,7 @@
 [ext_resource path="res://Scripts/Dummy/Flinching.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/Dummy/Dying.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/UI/DebugStateLabel.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/UI/DamageValue.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/UI/Damage Value Spawner/Damage Value Spawner.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 
@@ -86,7 +86,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Dummy" type="Node2D" index="0"]
+[node name="Dummy" type="Node2D"]
 
 position = Vector2( -3.60309, 4.0691 )
 scale = Vector2( 0.918653, 1.09591 )
@@ -173,15 +173,9 @@ script = ExtResource( 8 )
 
 state_machine_path = NodePath("../../../DummyStateMachine")
 
-[node name="Damage Value" parent="." index="5" instance=ExtResource( 10 )]
+[node name="Damage Value Spawner" parent="." index="5" instance=ExtResource( 10 )]
 
-_sections_unfolded = [ "Rect", "Size Flags", "Theme", "Visibility", "Z Index" ]
-
-[node name="Damage Value" parent="Damage Value" index="0"]
-
-parent_path = NodePath("../..")
-animated_sprite_path = NodePath("../../Full Sprite/AnimatedSprite")
+animated_sprite_path = NodePath("../Full Sprite/AnimatedSprite")
 
 
 [editable path="DebugStateLabel"]
-[editable path="Damage Value"]

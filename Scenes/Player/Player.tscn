@@ -15,7 +15,7 @@
 [ext_resource path="res://Scripts/Player/Movement States/Flinching.gd" type="Script" id=13]
 [ext_resource path="res://Scripts/Camera/Pivot.gd" type="Script" id=14]
 [ext_resource path="res://Scenes/UI/DebugStateLabel.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scenes/UI/DamageValue.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/UI/Damage Value Spawner/Damage Value Spawner.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Animation" id=1]
 
@@ -239,15 +239,9 @@ _sections_unfolded = [ "Drag Margin", "Smoothing", "Transform" ]
 
 state_machine_path = NodePath("../../../StateMachine")
 
-[node name="Damage Value" parent="." index="9" instance=ExtResource( 16 )]
+[node name="Damage Value Spawner" parent="." index="9" instance=ExtResource( 16 )]
 
-_sections_unfolded = [ "Anchor", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Theme", "Visibility", "Z Index" ]
-
-[node name="Damage Value" parent="Damage Value" index="0"]
-
-parent_path = NodePath("../..")
-animated_sprite_path = NodePath("../../AnimatedSprite")
+animated_sprite_path = NodePath("../AnimatedSprite")
 
 
 [editable path="DebugStateLabel"]
-[editable path="Damage Value"]
