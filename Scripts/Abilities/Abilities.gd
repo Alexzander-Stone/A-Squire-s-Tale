@@ -3,6 +3,9 @@ extends Node2D
 var current_active_abilities = []
 
 export(int) var primary_length = 1
+export(int) var secondary_length = 1
+export(int) var ternary_length = 1
+export(int) var super_length = 1
 
 onready var primary_spawner = preload("res://Scenes/Attack/Attack.tscn")
 onready var secondary_spawner = preload("res://Scenes/Attack/Utility.tscn")

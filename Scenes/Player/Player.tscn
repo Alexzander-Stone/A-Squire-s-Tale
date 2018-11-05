@@ -127,6 +127,9 @@ shape = SubResource( 5 )
 
 script = ExtResource( 3 )
 primary_length = 1
+secondary_length = 1
+ternary_length = 1
+super_length = 1
 
 [node name="Cooldowns" type="Node" parent="." index="5"]
 
