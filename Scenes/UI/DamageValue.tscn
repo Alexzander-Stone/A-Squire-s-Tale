@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/UI/Damage Value/Damage Value.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/UI/DamageValue.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/UI/Damage Value/Damage Value.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFontData" id=1]
 
@@ -18,6 +19,7 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 [node name="Layer Control" type="Node2D" index="0"]
 
 z_index = 10
+script = ExtResource( 1 )
 _sections_unfolded = [ "Rect", "Theme", "Visibility", "Z Index" ]
 
 [node name="Damage Value" type="Control" parent="." index="0"]
@@ -34,7 +36,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="Damage Label" type="RichTextLabel" parent="Damage Value" index="0"]
 

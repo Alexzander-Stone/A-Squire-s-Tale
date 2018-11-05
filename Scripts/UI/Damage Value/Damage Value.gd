@@ -1,5 +1,9 @@
 extends Node
 
+# When the node has finished with it's tween animation, send the root 
+# to the spawner. This will be compared to the active damage value gui
+# to determine which node will be sent to the object pool.
+
 onready var tween_node = $"Tween"
 onready var damage_label_node = $"Damage Label"
 
