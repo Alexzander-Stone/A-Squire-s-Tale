@@ -25,6 +25,7 @@ func _ready():
 	casting_node.connect("secondary_used", self, "initialize_secondary_cooldown")
 	casting_node.connect("ternary_used", self, "initialize_ternary_cooldown")
 	casting_node.connect("super_used", self, "initialize_super_cooldown")
+	casting_node.connect("crafting_used", self, "initialize_multiple_cooldowns")
 
 func initialize_primary_cooldown(args):
 	primary_cooldown_timer = primary_cooldown 
@@ -41,6 +42,18 @@ func initialize_ternary_cooldown(args):
 func initialize_super_cooldown(args):
 	super_cooldown_timer = super_cooldown 
 	emit_signal("begin_super_cooldown", super_cooldown)
+
+func initialize_multiple_cooldowns(ability_key, args):
+	for ability in ability_key:
+		match ability:
+			"0":
+				initialize_primary_cooldown(args)
+			"1":
+				initialize_secondary_cooldown(args)
+			"2":
+				initialize_ternary_cooldown(args)
+			"3":
+				initialize_super_cooldown(args)
 
 func _process(delta):
 	if primary_cooldown_timer > 0:

@@ -6,7 +6,7 @@
 [ext_resource path="res://Scenes/Dummy/Dummy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Sounds/Music_Player.tscn" type="PackedScene" id=5]
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 [node name="Environment" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -14,6 +14,7 @@ position = Vector2( -1, 0 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="1"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -24,23 +25,15 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="Bar Top" parent="CanvasLayer/GUI" index="0"]
 
-margin_right = 1560.0
-margin_bottom = 860.0
+margin_bottom = 288.0
 
 [node name="Health" parent="CanvasLayer/GUI/Bar Top" index="0"]
 
-margin_right = 1240.0
-margin_bottom = 860.0
-
-[node name="HealthBar" parent="CanvasLayer/GUI/Bar Top/Health" index="0"]
-
-margin_right = 1240.0
+margin_bottom = 288.0
 
 [node name="Abilities" parent="CanvasLayer/GUI/Bar Top" index="1"]
 
-margin_left = 1244.0
-margin_right = 1552.0
-margin_bottom = 860.0
+margin_bottom = 288.0
 
 [node name="Super" parent="CanvasLayer/GUI/Bar Top/Abilities/Super" index="0"]
 
