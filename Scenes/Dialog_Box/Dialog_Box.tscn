@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/Dialog_Box/Dialog_Box.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Dialog_Box/dialog_arrow.png" type="Texture" id=2]
 
-[node name="Dialog_box" type="Control" index="0"]
+[node name="Dialog_box" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -19,7 +19,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Popup", "Visibility" ]
-dialog_list = [ null, null, null ]
+dialog_list = [ "Hey bud.", "There be monsters out there.", "Be safe." ]
 
 [node name="Background" type="Panel" parent="." index="0"]
 
