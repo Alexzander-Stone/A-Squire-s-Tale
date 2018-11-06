@@ -1,6 +1,7 @@
 extends Area2D
 
 var default_damage = 10
+export(bool) var follow_player = false
 
 func _process(delta):
 	if !$"AnimationPlayer".is_playing():

@@ -43,8 +43,12 @@ func craft_ability(ability_key, animation_to_play):
 		var craft_spawner = load(craftable_abilities_dict[ability_key])
 		var new_node = craft_spawner.instance()
 		setup_ability(new_node, animation_to_play)
-		# Hammer follows player.
-		follow_node.add_child(new_node)
+		
+		# Need to determine whether to place into stay vs following node.
+		if new_node.follow_player == true:
+			follow_node.add_child(new_node)
+		else:
+			stay_node.add_child(new_node)
 
 func spawn_primary(animation_to_play):
 	var new_node = primary_spawner.instance()

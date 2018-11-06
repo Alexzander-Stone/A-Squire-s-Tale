@@ -695,7 +695,7 @@ tracks/5/keys = {
 "values": [ false ]
 }
 
-[node name="Weapon" type="Area2D" index="0"]
+[node name="Weapon" type="Area2D"]
 
 visible = false
 position = Vector2( -150, -50 )
@@ -716,6 +716,7 @@ _sections_unfolded = [ "Collision", "Transform", "Visibility" ]
 __meta__ = {
 "_edit_group_": true
 }
+follow_player = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 
