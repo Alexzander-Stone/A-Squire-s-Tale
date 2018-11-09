@@ -203,7 +203,7 @@ script = ExtResource( 9 )
 script = ExtResource( 10 )
 collision_path = NodePath("../../Damage Hitbox")
 interaction_collision_path = NodePath("../../Interaction Layer")
-VELOCITY = 5
+VELOCITY = 10
 
 [node name="Crafting" type="Node" parent="StateMachine" index="5"]
 

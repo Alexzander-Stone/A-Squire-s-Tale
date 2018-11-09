@@ -1,5 +1,9 @@
 # Area2D's can have multiple objects entering/exiting at the same time, so we must check names
 # before removing from our current references.
+
+# May need to add a list of object's that have entered/left, that way they player can
+# immediately interact with the next node without letting it re-enter the player's
+# hitbox.
 extends "res://Scripts/Player/Movement States/Inheritable Classes/ICastable.gd"
 
 var colliding_node = null
@@ -17,7 +21,7 @@ func update(delta):
 	if colliding_node != null:
 		# Check to see if Player wants to interact with the node.
 		if Input.is_action_just_pressed("interact"):
-			emit_signal("finished", "interacting", [])
+			emit_signal("finished", "interacting", [colliding_node.get_owner()])
 	.update(delta)
 
 func append_interaction_node(object):
@@ -26,7 +30,7 @@ func append_interaction_node(object):
 		colliding_node = object
 		# Check to see if Player wants to interact with the node.
 		if Input.is_action_just_pressed("interact"):
-			emit_signal("finished", "interacting", [])
+			emit_signal("finished", "interacting", [colliding_node.get_owner()])
 
 func remove_interaction_node(object):
 	# Remove interaction node if it has left the area.

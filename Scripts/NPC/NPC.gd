@@ -19,6 +19,12 @@ func _process(delta):
       is_talking = false
    pass
 
+func inititate_interaction():
+	pass
+
+func next_interaction():
+	pass
+
 func interact():
    print("Hi human. Welcome.")
    is_talking = true
