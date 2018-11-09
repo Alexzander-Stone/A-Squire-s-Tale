@@ -74,7 +74,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 85.3419, 110.204 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -98,6 +98,7 @@ _sections_unfolded = [ "Playback Options" ]
 
 [node name="Damage Hitbox" type="Area2D" parent="." index="1"]
 
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -125,6 +126,7 @@ shape = SubResource( 5 )
 
 [node name="Abilities" type="Node2D" parent="." index="4"]
 
+editor/display_folded = true
 script = ExtResource( 3 )
 primary_length = 1
 secondary_length = 1
@@ -146,6 +148,7 @@ casting_path = NodePath("../StateMachine/Casting")
 
 [node name="StateMachine" type="Node" parent="." index="6"]
 
+editor/display_folded = true
 script = ExtResource( 5 )
 _sections_unfolded = [ "Pause" ]
 START_STATE = NodePath("Idling")
@@ -234,6 +237,8 @@ editor_draw_drag_margin = true
 _sections_unfolded = [ "Drag Margin", "Smoothing", "Transform" ]
 
 [node name="DebugStateLabel" parent="." index="8" instance=ExtResource( 15 )]
+
+editor/display_folded = true
 
 [node name="Label" parent="DebugStateLabel/DebugStateLabel" index="0"]
 
