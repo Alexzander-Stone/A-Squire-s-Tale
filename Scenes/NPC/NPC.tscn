@@ -98,6 +98,7 @@ collision_mask = 23
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
+dialog_box_path = NodePath("Dialog_box")
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

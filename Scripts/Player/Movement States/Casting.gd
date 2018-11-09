@@ -68,6 +68,7 @@ func enter(args):
 		else:
 			print("no casting")
 			emit_signal("finished", "idling", [])
+	.enter(args)
 
 func update(delta):
 	if(casting_animation_timer >= 0):

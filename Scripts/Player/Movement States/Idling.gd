@@ -7,6 +7,7 @@ func enter(args):
 	# Casting -> Idling -> Walking and now has Casting -> Walking.
 	if Input.is_action_pressed("ui_right") || Input.is_action_pressed("ui_left") || Input.is_action_pressed("ui_up") || Input.is_action_pressed("ui_down"):
 		emit_signal("finished", "walking", [])
+	.enter(args)
 
 
 func handle_input(event):

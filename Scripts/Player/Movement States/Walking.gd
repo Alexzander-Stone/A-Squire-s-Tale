@@ -11,6 +11,7 @@ var pressedMoves = [0, 0, 0, 0]
 func enter(args):
 	runTimer = timeToRun
 	fillPressedArray(initialInputs)
+	.enter(args)
 
 func exit():
 	runTimer = timeToRun

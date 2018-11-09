@@ -18,6 +18,7 @@ func enter(args):
 	
 	player_animation_node.play("Flinching")
 	flinchTimer = player_animation_node.current_animation_length / player_animation_node.playback_speed
+	.enter(args)
 
 func update(delta):
 	if(flinchTimer > 0):

@@ -10,16 +10,18 @@ func enter(args):
 	interactable_node = args[0]
 	# Begin the interaction.
 	interactable_node.inititate_interaction()
+	.enter(args)
 
 func handle_input(event):
 	# Check to see if player wishes to continue the interaction event.
 	if Input.is_action_just_pressed("interact"):
 		# Emit signal to tell object to go to next interaction step.
 		# Player will be notified of when the interaction has ended from the interactable object.
-		var is_finished = interactable_node.next_interaction()
+		# Given active state boolean.
+		var is_finished = !interactable_node.next_interaction()
 		if is_finished:
 			end_interaction() 
 
 # Signal received to finish interaction.
 func end_interaction():
-	emit_signal("finished", "walking", [])
+	emit_signal("finished", "idling", ["remove_interaction_keybounce"])

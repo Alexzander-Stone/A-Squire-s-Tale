@@ -1,35 +1,21 @@
 extends KinematicBody2D
 
+export(NodePath) var dialog_box_path
+var dialog_box_node
+
 var is_talking = false
 var direction_vector = Vector2(0,0)
 
 func _ready():
    get_node("AnimationPlayer").play("facing_down")
-   pass
+   dialog_box_node = get_node(dialog_box_path)
 
-func _process(delta):
-   if not is_talking and Input.is_action_just_pressed("interact"):
-      interact()
-      
-   #basically if dialog is done
-   if not get_node("Dialog_box").active and is_talking:
-      ##
-      #Potentially send a signal that dialog is done here
-      ##
-      is_talking = false
-   pass
-
+#TODO: Place into an inheritable script
 func inititate_interaction():
-	pass
+	print("Hi hooman. Whalecome.")
+	dialog_box_node.start()
 
 func next_interaction():
-	pass
-
-func interact():
-   print("Hi human. Welcome.")
-   is_talking = true
-   open_dialog()
-   
-func open_dialog():
-   get_node("Dialog_box").start()
-   pass
+	dialog_box_node.next()
+	return dialog_box_node.active
+#TODO: Place into an inheritable script.

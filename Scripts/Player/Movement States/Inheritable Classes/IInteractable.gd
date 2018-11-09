@@ -16,6 +16,10 @@ func _ready():
 	interaction_collision_node.connect("area_entered", self, "append_interaction_node")
 	interaction_collision_node.connect("area_exited", self, "remove_interaction_node")
 
+func enter(args):
+	colliding_node = null
+	.enter(args)
+
 func update(delta):
 	# Collision object is still within current scene's collider.
 	if colliding_node != null:
@@ -25,6 +29,7 @@ func update(delta):
 	.update(delta)
 
 func append_interaction_node(object):
+	print("appending node...")
 	if colliding_node == null:
 		# Keep track of the colliding node.
 		colliding_node = object
@@ -34,5 +39,5 @@ func append_interaction_node(object):
 
 func remove_interaction_node(object):
 	# Remove interaction node if it has left the area.
-	if colliding_node.name == object.name:
+	if colliding_node and colliding_node.name == object.name:
 		colliding_node = null

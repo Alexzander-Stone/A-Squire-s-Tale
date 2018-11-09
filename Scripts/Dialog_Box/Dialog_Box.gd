@@ -14,15 +14,8 @@ var index = -1
 var active = false
 
 func _ready():
-   index = -1
+   reset_dialog()
    active = false
-   pass
-
-func _process(delta):
-   if active and Input.is_action_just_pressed("interact"):
-      var fin = next()
-      if fin == -1: 
-         finish()  
    pass
    
 func next():
@@ -33,7 +26,7 @@ func next():
          get_node("Next Arrow").visible = false
       return index
    else:
-      return -1
+      finish()
 
 func reset_dialog():
    index = -1
@@ -45,6 +38,7 @@ func start():
    get_node("Text").text = ""
    get_node("Text").visible = true
    get_node("Next Arrow").visible = true
+   next()
 
 func finish():
    active = false
