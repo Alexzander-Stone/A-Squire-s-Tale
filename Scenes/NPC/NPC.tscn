@@ -109,10 +109,10 @@ shape = SubResource( 1 )
 [node name="Dialog_box" parent="." index="2" instance=ExtResource( 3 )]
 
 visible = false
-margin_left = -139.0
-margin_top = -70.0
-margin_right = 141.0
-margin_bottom = -10.0
+margin_left = -140.0
+margin_top = -89.0
+margin_right = 140.0
+margin_bottom = -29.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 

@@ -56,7 +56,7 @@ size_flags_vertical = 4
 text = "Here is some text to be displayed in this dialog lorem ipsom stuff more text on screen hopefully more than you need."
 autowrap = true
 clip_text = true
-percent_visible = -1.0
+percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
