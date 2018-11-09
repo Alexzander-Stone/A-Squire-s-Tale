@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Player/falcotrash.png" type="Texture" id=2]
@@ -56,11 +56,6 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.6, 0.6, 0.6, 1 ), Color( 1, 1, 1, 1 ), Color( 0.6, 0.6, 0.6, 1 ), Color( 1, 1, 1, 1 ), Color( 0.6, 0.6, 0.6, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
-
 [sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
@@ -75,7 +70,17 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 85.3419, 110.204 )
 
-[node name="Player" type="KinematicBody2D"]
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 40, 50 )
+
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -97,7 +102,20 @@ anims/Flinching = SubResource( 2 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
-[node name="Damage Hitbox" type="Area2D" parent="." index="1"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
+
+rotation = 4.46638e-06
+scale = Vector2( 0.25, 0.25 )
+frames = SubResource( 4 )
+animation = "Idle"
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="Wall Hitbox" type="CollisionShape2D" parent="." index="2"]
+
+scale = Vector2( 0.25, 0.25 )
+shape = SubResource( 5 )
+
+[node name="Damage Hitbox" type="Area2D" parent="." index="3"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -111,20 +129,24 @@ audio_bus_name = "Master"
 
 shape = SubResource( 3 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="2"]
+[node name="Interaction Layer" type="Area2D" parent="." index="4"]
 
-rotation = 6.28319
-scale = Vector2( 0.25, 0.25 )
-frames = SubResource( 4 )
-animation = "Idle"
-_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 16
+collision_mask = 16
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
 
-[node name="Wall Hitbox" type="CollisionShape2D" parent="." index="3"]
+[node name="Interaction Hitbox" type="CollisionShape2D" parent="Interaction Layer" index="0"]
 
-scale = Vector2( 0.25, 0.25 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
-[node name="Abilities" type="Node2D" parent="." index="4"]
+[node name="Abilities" type="Node2D" parent="." index="5"]
 
 script = ExtResource( 3 )
 primary_length = 1
@@ -138,7 +160,7 @@ position = Vector2( 0, 4 )
 
 [node name="Stay" type="Node" parent="Abilities" index="1"]
 
-[node name="Cooldowns" type="Node" parent="." index="5"]
+[node name="Cooldowns" type="Node" parent="." index="6"]
 
 script = ExtResource( 4 )
 primary_cooldown = 2
@@ -147,7 +169,7 @@ ternary_cooldown = 8
 super_cooldown = 12
 casting_path = NodePath("../StateMachine/Casting")
 
-[node name="StateMachine" type="Node" parent="." index="6"]
+[node name="StateMachine" type="Node" parent="." index="7"]
 
 script = ExtResource( 5 )
 _sections_unfolded = [ "Pause" ]
@@ -157,6 +179,7 @@ START_STATE = NodePath("Idling")
 
 script = ExtResource( 6 )
 collision_path = NodePath("../../Damage Hitbox")
+interaction_collision_path = NodePath("../../Interaction Layer")
 
 [node name="Interacting" type="Node" parent="StateMachine" index="1"]
 
@@ -167,6 +190,7 @@ collision_path = NodePath("../../Damage Hitbox/CollisionShape2D")
 
 script = ExtResource( 8 )
 collision_path = NodePath("../../Damage Hitbox")
+interaction_collision_path = NodePath("../../Interaction Layer")
 VELOCITY = 5
 timeToRun = 0.3
 
@@ -178,12 +202,14 @@ script = ExtResource( 9 )
 
 script = ExtResource( 10 )
 collision_path = NodePath("../../Damage Hitbox")
+interaction_collision_path = NodePath("../../Interaction Layer")
 VELOCITY = 5
 
 [node name="Crafting" type="Node" parent="StateMachine" index="5"]
 
 script = ExtResource( 11 )
 collision_path = NodePath("../../Damage Hitbox")
+interaction_collision_path = NodePath("../../Interaction Layer")
 VELOCITY = 2
 
 [node name="Casting" type="Node" parent="StateMachine" index="6"]
@@ -205,7 +231,7 @@ script = ExtResource( 14 )
 player_path = NodePath("../..")
 player_animation_path = NodePath("../../AnimationPlayer")
 
-[node name="Pivot" type="Position2D" parent="." index="7"]
+[node name="Pivot" type="Position2D" parent="." index="8"]
 
 editor/display_folded = true
 script = ExtResource( 15 )
@@ -241,13 +267,13 @@ editor_draw_limits = false
 editor_draw_drag_margin = true
 _sections_unfolded = [ "Drag Margin", "Smoothing", "Transform" ]
 
-[node name="DebugStateLabel" parent="." index="8" instance=ExtResource( 16 )]
+[node name="DebugStateLabel" parent="." index="9" instance=ExtResource( 16 )]
 
 [node name="Label" parent="DebugStateLabel/DebugStateLabel" index="0"]
 
 state_machine_path = NodePath("../../../StateMachine")
 
-[node name="Damage Value Spawner" parent="." index="9" instance=ExtResource( 17 )]
+[node name="Damage Value Spawner" parent="." index="10" instance=ExtResource( 17 )]
 
 animated_sprite_path = NodePath("../AnimatedSprite")
 
