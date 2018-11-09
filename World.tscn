@@ -6,7 +6,7 @@
 [ext_resource path="res://Scenes/Dummy/Dummy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Sounds/Music_Player.tscn" type="PackedScene" id=5]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 [node name="Environment" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -56,6 +56,8 @@ ability_path = NodePath("../../../../../../../Player/Cooldowns")
 position = Vector2( 106.147, 66.6884 )
 
 [node name="Dummy" parent="." index="3" instance=ExtResource( 4 )]
+
+position = Vector2( -3.60303, 4.06912 )
 
 [node name="Music_Player" parent="." index="4" instance=ExtResource( 5 )]
 

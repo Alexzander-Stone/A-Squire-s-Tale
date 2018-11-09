@@ -86,7 +86,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Dummy" type="Node2D" index="0"]
+[node name="Dummy" type="Node2D"]
 
 position = Vector2( -3.60309, 4.0691 )
 scale = Vector2( 0.918653, 1.09591 )
@@ -109,7 +109,7 @@ _sections_unfolded = [ "Playback Options" ]
 
 state_machine_path = NodePath("../DummyStateMachine")
 
-[node name="Full Sprite" type="Node" parent="." index="2"]
+[node name="Full Sprite" type="Node2D" parent="." index="2"]
 
 [node name="Sprite" type="Sprite" parent="Full Sprite" index="0"]
 
