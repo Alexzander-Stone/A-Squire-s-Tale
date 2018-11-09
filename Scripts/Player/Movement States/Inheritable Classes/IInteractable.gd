@@ -15,23 +15,18 @@ func _ready():
 func update(delta):
 	# Collision object is still within current scene's collider.
 	if colliding_node != null:
+		# Check to see if Player wants to interact with the node.
 		if Input.is_action_just_pressed("interact"):
-			# Found interactable object.
-			print("Interact found.")
-			# If true, begin interacting state.
+			emit_signal("finished", "interacting", [])
 	.update(delta)
 
 func append_interaction_node(object):
 	if colliding_node == null:
 		# Keep track of the colliding node.
 		colliding_node = object
-		print(colliding_node.name)
-		# Check to see if player has interacted as soon as the object has entered the collision zone.
-		if Input.is_action_pressed("interact"):
-			# Found interactable object.
-			print("Interact found.")
-			# If true, begin interacting state.
-			pass
+		# Check to see if Player wants to interact with the node.
+		if Input.is_action_just_pressed("interact"):
+			emit_signal("finished", "interacting", [])
 
 func remove_interaction_node(object):
 	# Remove interaction node if it has left the area.
