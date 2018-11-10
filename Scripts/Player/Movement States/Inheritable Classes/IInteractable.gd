@@ -6,8 +6,6 @@
 # hitbox.
 extends "res://Scripts/Player/Movement States/Inheritable Classes/ICastable.gd"
 
-var colliding_node = null
-
 export(NodePath) var interaction_collision_path
 var interaction_collision_node
 
@@ -16,28 +14,23 @@ func _ready():
 	interaction_collision_node.connect("area_entered", self, "append_interaction_node")
 	interaction_collision_node.connect("area_exited", self, "remove_interaction_node")
 
-func enter(args):
-	colliding_node = null
-	.enter(args)
-
 func update(delta):
 	# Collision object is still within current scene's collider.
-	if colliding_node != null:
+	if interaction_collision_node.colliding_node != null:
 		# Check to see if Player wants to interact with the node.
 		if Input.is_action_just_pressed("interact"):
-			emit_signal("finished", "interacting", [colliding_node.get_owner()])
+			emit_signal("finished", "interacting", [interaction_collision_node.colliding_node.get_owner()])
 	.update(delta)
 
 func append_interaction_node(object):
-	print("appending node...")
-	if colliding_node == null:
+	if interaction_collision_node.colliding_node == null:
 		# Keep track of the colliding node.
-		colliding_node = object
+		interaction_collision_node.colliding_node = object
 		# Check to see if Player wants to interact with the node.
 		if Input.is_action_just_pressed("interact"):
-			emit_signal("finished", "interacting", [colliding_node.get_owner()])
+			emit_signal("finished", "interacting", [interaction_collision_node.colliding_node.get_owner()])
 
 func remove_interaction_node(object):
 	# Remove interaction node if it has left the area.
-	if colliding_node and colliding_node.name == object.name:
-		colliding_node = null
+	if interaction_collision_node.colliding_node and interaction_collision_node.colliding_node.name == object.name:
+		interaction_collision_node.colliding_node = null

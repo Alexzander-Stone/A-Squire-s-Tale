@@ -1,6 +1,9 @@
 # State is entered when Player has pressed the interaction button while in the collision box of an interactable object.
 extends "res://Scripts/Player/Movement States/Inheritable Classes/IFlinchable.gd"
 
+export(NodePath) var interaction_collision_path
+onready var interaction_collision_node = get_node(interaction_collision_path)
+
 var interactable_node = null
 
 # Args[0] = Node that is initialized to interact with.
@@ -11,6 +14,11 @@ func enter(args):
 	# Begin the interaction.
 	interactable_node.inititate_interaction()
 	.enter(args)
+
+# When leaving the interacting state, we want to set the colliding_node to null
+# so we don't get stuck in a neverending interacting loop.
+func exit():
+	interaction_collision_node.colliding_node = null
 
 func handle_input(event):
 	# Check to see if player wishes to continue the interaction event.
@@ -24,4 +32,4 @@ func handle_input(event):
 
 # Signal received to finish interaction.
 func end_interaction():
-	emit_signal("finished", "idling", ["remove_interaction_keybounce"])
+	emit_signal("finished", "idling", [])

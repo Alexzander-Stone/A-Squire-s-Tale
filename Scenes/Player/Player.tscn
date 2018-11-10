@@ -1,22 +1,23 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Player/falcotrash.png" type="Texture" id=2]
-[ext_resource path="res://Scripts/Abilities/Abilities.gd" type="Script" id=3]
-[ext_resource path="res://Scripts/Player/Abilities/Cooldowns.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/Player/State Machine/PlayerStateMachine.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/Player/Movement States/Idling.gd" type="Script" id=6]
-[ext_resource path="res://Scripts/Player/Movement States/Interacting.gd" type="Script" id=7]
-[ext_resource path="res://Scripts/Player/Movement States/Walking.gd" type="Script" id=8]
-[ext_resource path="res://Scripts/Player/Movement States/Stopping.gd" type="Script" id=9]
-[ext_resource path="res://Scripts/Player/Movement States/Running.gd" type="Script" id=10]
-[ext_resource path="res://Scripts/Player/Movement States/Crafting.gd" type="Script" id=11]
-[ext_resource path="res://Scripts/Player/Movement States/Casting.gd" type="Script" id=12]
-[ext_resource path="res://Scripts/Player/Movement States/Dying.gd" type="Script" id=13]
-[ext_resource path="res://Scripts/Player/Movement States/Flinching.gd" type="Script" id=14]
-[ext_resource path="res://Scripts/Camera/Pivot.gd" type="Script" id=15]
-[ext_resource path="res://Scenes/UI/DebugStateLabel.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scenes/UI/Damage Value Spawner/Damage Value Spawner.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Player/Interaction Layer.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Abilities/Abilities.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Player/Abilities/Cooldowns.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Player/State Machine/PlayerStateMachine.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Player/Movement States/Idling.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/Player/Movement States/Interacting.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Player/Movement States/Walking.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/Player/Movement States/Stopping.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/Player/Movement States/Running.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/Player/Movement States/Crafting.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/Player/Movement States/Casting.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/Player/Movement States/Dying.gd" type="Script" id=14]
+[ext_resource path="res://Scripts/Player/Movement States/Flinching.gd" type="Script" id=15]
+[ext_resource path="res://Scripts/Camera/Pivot.gd" type="Script" id=16]
+[ext_resource path="res://Scenes/UI/DebugStateLabel.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/UI/Damage Value Spawner/Damage Value Spawner.tscn" type="PackedScene" id=18]
 
 [sub_resource type="Animation" id=1]
 
@@ -56,7 +57,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.6, 0.6, 0.6, 1 ), Color( 1, 1, 1, 1 ), Color( 0.6, 0.6, 0.6, 1 ), Color( 1, 1, 1, 1 ), Color( 0.6, 0.6, 0.6, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
@@ -65,12 +66,12 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 85.3419, 110.204 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
@@ -106,14 +107,14 @@ _sections_unfolded = [ "Playback Options" ]
 
 rotation = 4.46638e-06
 scale = Vector2( 0.25, 0.25 )
-frames = SubResource( 4 )
+frames = SubResource( 3 )
 animation = "Idle"
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="Wall Hitbox" type="CollisionShape2D" parent="." index="2"]
 
 scale = Vector2( 0.25, 0.25 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="Damage Hitbox" type="Area2D" parent="." index="3"]
 
@@ -128,7 +129,7 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damage Hitbox" index="0"]
 
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="Interaction Layer" type="Area2D" parent="." index="4"]
 
@@ -141,6 +142,7 @@ collision_layer = 16
 collision_mask = 16
 audio_bus_override = false
 audio_bus_name = "Master"
+script = ExtResource( 3 )
 _sections_unfolded = [ "Collision" ]
 
 [node name="Interaction Hitbox" type="CollisionShape2D" parent="Interaction Layer" index="0"]
@@ -149,7 +151,7 @@ shape = SubResource( 6 )
 
 [node name="Abilities" type="Node2D" parent="." index="5"]
 
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 primary_length = 1
 secondary_length = 1
 ternary_length = 1
@@ -163,7 +165,7 @@ position = Vector2( 0, 4 )
 
 [node name="Cooldowns" type="Node" parent="." index="6"]
 
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 primary_cooldown = 2
 secondary_cooldown = 4
 ternary_cooldown = 8
@@ -172,24 +174,25 @@ casting_path = NodePath("../StateMachine/Casting")
 
 [node name="StateMachine" type="Node" parent="." index="7"]
 
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Pause" ]
 START_STATE = NodePath("Idling")
 
 [node name="Idling" type="Node" parent="StateMachine" index="0"]
 
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 collision_path = NodePath("../../Damage Hitbox")
 interaction_collision_path = NodePath("../../Interaction Layer")
 
 [node name="Interacting" type="Node" parent="StateMachine" index="1"]
 
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 collision_path = NodePath("../../Damage Hitbox/CollisionShape2D")
+interaction_collision_path = NodePath("../../Interaction Layer")
 
 [node name="Walking" type="Node" parent="StateMachine" index="2"]
 
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 collision_path = NodePath("../../Damage Hitbox")
 interaction_collision_path = NodePath("../../Interaction Layer")
 VELOCITY = 5
@@ -197,25 +200,25 @@ timeToRun = 0.3
 
 [node name="Stopping" type="Node" parent="StateMachine" index="3"]
 
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 
 [node name="Running" type="Node" parent="StateMachine" index="4"]
 
-script = ExtResource( 10 )
+script = ExtResource( 11 )
 collision_path = NodePath("../../Damage Hitbox")
 interaction_collision_path = NodePath("../../Interaction Layer")
 VELOCITY = 10
 
 [node name="Crafting" type="Node" parent="StateMachine" index="5"]
 
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 collision_path = NodePath("../../Damage Hitbox")
 interaction_collision_path = NodePath("../../Interaction Layer")
 VELOCITY = 2
 
 [node name="Casting" type="Node" parent="StateMachine" index="6"]
 
-script = ExtResource( 12 )
+script = ExtResource( 13 )
 collision_path = NodePath("../../Damage Hitbox")
 cooldown_path = NodePath("../../Cooldowns")
 abilities_path = NodePath("../../Abilities")
@@ -224,18 +227,18 @@ parent_path = NodePath("../..")
 
 [node name="Dying" type="Node" parent="StateMachine" index="7"]
 
-script = ExtResource( 13 )
+script = ExtResource( 14 )
 
 [node name="Flinching" type="Node" parent="StateMachine" index="8"]
 
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 player_path = NodePath("../..")
 player_animation_path = NodePath("../../AnimationPlayer")
 
 [node name="Pivot" type="Position2D" parent="." index="8"]
 
 editor/display_folded = true
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="CameraOffset" type="Position2D" parent="Pivot" index="0"]
 
@@ -268,13 +271,13 @@ editor_draw_limits = false
 editor_draw_drag_margin = true
 _sections_unfolded = [ "Drag Margin", "Smoothing", "Transform" ]
 
-[node name="DebugStateLabel" parent="." index="9" instance=ExtResource( 16 )]
+[node name="DebugStateLabel" parent="." index="9" instance=ExtResource( 17 )]
 
 [node name="Label" parent="DebugStateLabel/DebugStateLabel" index="0"]
 
 state_machine_path = NodePath("../../../StateMachine")
 
-[node name="Damage Value Spawner" parent="." index="10" instance=ExtResource( 17 )]
+[node name="Damage Value Spawner" parent="." index="10" instance=ExtResource( 18 )]
 
 animated_sprite_path = NodePath("../AnimatedSprite")
 
