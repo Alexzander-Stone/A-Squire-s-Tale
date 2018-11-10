@@ -187,7 +187,7 @@ interaction_collision_path = NodePath("../../Interaction Layer")
 [node name="Interacting" type="Node" parent="StateMachine" index="1"]
 
 script = ExtResource( 8 )
-collision_path = NodePath("../../Damage Hitbox/CollisionShape2D")
+collision_path = NodePath("../../Damage Hitbox")
 interaction_collision_path = NodePath("../../Interaction Layer")
 
 [node name="Walking" type="Node" parent="StateMachine" index="2"]
