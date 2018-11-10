@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Abilities/Utility.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Utility/Utility.png" type="Texture" id=2]
@@ -73,15 +73,18 @@ length = 3.0
 loop = false
 step = 0.1
 
-[node name="Utility" type="Area2D"]
+[sub_resource type="RectangleShape2D" id=11]
+
+custom_solver_bias = 0.0
+extents = Vector2( 150, 150 )
+
+[node name="Utility" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-monitoring = false
-monitorable = false
 collision_layer = 2
 collision_mask = 0
 audio_bus_override = false
@@ -117,9 +120,9 @@ blend_times = [  ]
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 
-build_mode = 0
-polygon = PoolVector2Array( 20, -76, 20, 72, 108, 72, 108, -76 )
+shape = SubResource( 11 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 
