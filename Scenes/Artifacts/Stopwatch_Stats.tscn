@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Artifacts/Stopwatch.gd" type="Script" id=1]
 
-[node name="Stopwatch_stats" type="Node" index="0"]
+[node name="Stopwatch_stats" type="Node"]
 
 script = ExtResource( 1 )
 

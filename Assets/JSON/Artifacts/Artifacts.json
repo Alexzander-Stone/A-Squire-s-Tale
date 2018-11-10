@@ -1,0 +1,8 @@
+{
+	"Stopwatch": {
+		"maxHealthMod": 0,
+		"cdrMod": 0.5,
+		"sprite": "res://Assets/Artifacts/Clock Sprite.png"
+	}
+}
+		
