@@ -67,6 +67,7 @@ func is_cooldown_running_for(ability_number_id):
 			return true if ternary_cooldown_timer > 0 else false
 		3:
 			return true if super_cooldown_timer > 0 else false
+	printerr("Ability number id was invalid in Cooldowns of Player")
 
 func _process(delta):
 	if primary_cooldown_timer > 0:

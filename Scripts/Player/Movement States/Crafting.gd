@@ -3,6 +3,10 @@ extends "res://Scripts/Player/Movement States/Inheritable Classes/IMoving.gd"
 var pressedMoves = [0, 0, 0, 0]
 var castInput = 0
 
+func enter(args):
+	# Reset crafting container. Needed for interaction transitions.
+	owner.crafting_container.clear()
+
 func update(delta):
 	# Check casting actions.
 	castInput = int(Input.is_action_pressed("craft"))

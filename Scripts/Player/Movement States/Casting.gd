@@ -39,6 +39,10 @@ func _ready():
 
 
 func enter(args):
+	##
+	#Add check to see if crafting container only has one ability.
+	#May want to just immediately call normal crafting if so.
+	##
 	if(args.size() > 0):
 		if(owner.crafting_container.size() > 0 && args[0] == 0):
 			# While creating the ability_key string, check to see if ability cooldowns are 
@@ -46,7 +50,6 @@ func enter(args):
 			var ability_key = ""
 			while owner.crafting_container.size() > 0:
 				var i = owner.crafting_container.pop_front()
-				print(cooldown_node.is_cooldown_running_for(i))
 				if cooldown_node.is_cooldown_running_for(i) == true:
 					return
 				ability_key += String(i)
