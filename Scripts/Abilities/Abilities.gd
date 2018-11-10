@@ -1,5 +1,7 @@
 # We use a .JSON file to store the valid combinations and 
 # their scene paths for ability crafting.
+
+# Abilities activates abilities, cooldowns keeps track of when abilities can be created (casting checks for these).
 extends Node
 
 onready var primary_spawner = preload("res://Scenes/Attack/Attack.tscn")
@@ -13,7 +15,7 @@ export(int) var secondary_length = 1
 export(int) var ternary_length = 1
 export(int) var super_length = 1
 # Replace with dictionary.
-var crafting_length = 1
+var crafting_length = 2
 
 onready var follow_node = $"Follow"
 onready var stay_node = $"Stay"
@@ -43,7 +45,7 @@ func craft_ability(ability_key, animation_to_play):
 		var craft_spawner = load(craftable_abilities_dict[ability_key])
 		var new_node = craft_spawner.instance()
 		setup_ability(new_node, animation_to_play)
-		
+			
 		# Need to determine whether to place into stay vs following node.
 		if new_node.follow_player == true:
 			follow_node.add_child(new_node)

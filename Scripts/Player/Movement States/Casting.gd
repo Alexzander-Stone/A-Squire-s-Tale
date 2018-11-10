@@ -41,9 +41,14 @@ func _ready():
 func enter(args):
 	if(args.size() > 0):
 		if(owner.crafting_container.size() > 0 && args[0] == 0):
+			# While creating the ability_key string, check to see if ability cooldowns are 
+			# will prevent it from being created. 
 			var ability_key = ""
 			while owner.crafting_container.size() > 0:
 				var i = owner.crafting_container.pop_front()
+				print(cooldown_node.is_cooldown_running_for(i))
+				if cooldown_node.is_cooldown_running_for(i) == true:
+					return
 				ability_key += String(i)
 			var animation_to_play = dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))]
 			emit_signal("crafting_used", ability_key, animation_to_play)

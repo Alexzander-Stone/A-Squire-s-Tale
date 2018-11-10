@@ -55,6 +55,19 @@ func initialize_multiple_cooldowns(ability_key, args):
 			"3":
 				initialize_super_cooldown(args)
 
+# Given the ID number of the ability (0-3), return a boolean corresponding to if the 
+# cooldown is currently running.
+func is_cooldown_running_for(ability_number_id):
+	match ability_number_id:
+		0:
+			return true if primary_cooldown_timer > 0 else false
+		1:
+			return true if secondary_cooldown_timer > 0 else false
+		2:
+			return true if ternary_cooldown_timer > 0 else false
+		3:
+			return true if super_cooldown_timer > 0 else false
+
 func _process(delta):
 	if primary_cooldown_timer > 0:
 		primary_cooldown_timer -= delta
