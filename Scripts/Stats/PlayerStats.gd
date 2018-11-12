@@ -16,15 +16,24 @@ onready var mMaxHealth = maxHealth
 onready var mcdr = cdr
 
 func _ready():
+	##
+	#player is given the group here, may want to change this later
+	##
+	add_to_group("player")
+	
 	var file = File.new()
 	file.open("res://Assets/JSON/Artifacts/Artifacts.json", File.READ)
 	var text_data = file.get_as_text()
 	file.close()
 	
 	artifacts_dict = parse_json(text_data)
-	artifactList.append("Stopwatch")
-	updateStats()
+	#artifactList.append("Stopwatch")
+	#updateStats()
 	
+func addArtifact(args):
+	print(args[0])
+	artifactList.append(args[0])
+	updateStats()
 func updateStats():
 	for artifact in artifactList:
 		mcdr = cdr + artifacts_dict[artifact]["cdrMod"]

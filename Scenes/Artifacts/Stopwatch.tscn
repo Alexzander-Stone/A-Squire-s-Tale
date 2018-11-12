@@ -1,14 +1,22 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scenes/Artifacts/Stopwatch_Stats.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Artifacts/BaseArtifact.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Artifacts/Clock Sprite.png" type="Texture" id=2]
 
-[node name="Stopwatch" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=1]
 
-[node name="Stopwatch_stats" parent="." index="0" instance=ExtResource( 1 )]
+custom_solver_bias = 0.0
+extents = Vector2( 350, 350 )
 
-[node name="Sprite" type="Sprite" parent="." index="1"]
+[node name="Stopwatch" type="Node2D" index="0"]
 
+script = ExtResource( 1 )
+artifactName = "Stopwatch"
+collision_path = NodePath("Sprite/Area2D")
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="Sprite" index="0"]
@@ -18,13 +26,16 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+monitorable = false
+collision_layer = 0
 audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/Area2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D" index="0"]
 
-build_mode = 0
-polygon = PoolVector2Array(  )
+position = Vector2( 2.28882e-005, 2.28882e-005 )
+scale = Vector2( 1.13314, 1.13314 )
+shape = SubResource( 1 )
 
 

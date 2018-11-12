@@ -173,7 +173,7 @@ script = ExtResource( 8 )
 
 script = ExtResource( 9 )
 collision_path = NodePath("../../Damage Hitbox")
-VELOCITY = 5
+VELOCITY = 10
 
 [node name="Crafting" type="Node" parent="StateMachine" index="4"]
 
