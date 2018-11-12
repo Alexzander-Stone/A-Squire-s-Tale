@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Environment/Tilesets/Tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/UI/GUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/SceneTransitionBox/SceneTransitionBox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/NPC/NPC.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Sound_Players/Music_Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Dummy/Dummy.tscn" type="PackedScene" id=7]
+
+[node name="World" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="." index="0"]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 256, 256 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -1, 10, 65537, -65536, 10, 4, -65535, 10, 4, -65534, 10, 327686, 65535, 10, 262144, 0, 10, 131076, 1, 10, 65540, 2, 10, 65541, 3, 10, 4, 4, 10, 4, 5, 10, 4, 6, 10, 327686, 131071, 10, 262144, 65536, 10, 131076, 65537, 10, 262145, 65538, 10, 131077, 65539, 10, 196611, 65540, 10, 196611, 65541, 10, 327681, 65542, 10, 262146, 196607, 10, 393221, 131072, 10, 196611, 131073, 10, 196611, 131074, 10, 393222, 131077, 10, 262144, 131078, 10, 262146, 196613, 10, 262144, 196614, 10, 262146, 262144, 10, 65537, 262145, 10, 4, 262146, 10, 327686, 262149, 10, 262144, 262150, 10, 262146, 327680, 10, 262144, 327681, 10, 131076, 327682, 10, 65541, 327683, 10, 4, 327684, 10, 4, 327685, 10, 131075, 327686, 10, 262146, 393216, 10, 262144, 393217, 10, 131076, 393218, 10, 131077, 393219, 10, 196611, 393220, 10, 196611, 393221, 10, 196611, 393222, 10, 393222, 458752, 10, 393221, 458753, 10, 196611, 458754, 10, 393222 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="1"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 2 )]
+
+margin_left = -99.0
+margin_top = 245.0
+margin_right = 21.0
+margin_bottom = 233.0
+
+[node name="Player" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 60.2007, 389.155 )
+
+[node name="SceneTransitionBox" parent="." index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 221.885, 1511.04 )
+to_scene = "res://Scenes/Levels/Level3.tscn"
+
+[node name="NPC" parent="." index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 298.854, 397.755 )
+
+[node name="Music_Player" parent="." index="5" instance=ExtResource( 6 )]
+
+[node name="Dummy" parent="." index="6" instance=ExtResource( 7 )]
+
+

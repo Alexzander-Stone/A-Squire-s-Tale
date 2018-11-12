@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Environment/Tilesets/Tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/NPC/NPC.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/SceneTransitionBox/SceneTransitionBox.tscn" type="PackedScene" id=3]
+
+[node name="Level1" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="." index="0"]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 256, 256 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -262130, 10, 65537, -262129, 10, 4, -262128, 10, 4, -262127, 10, 4, -262126, 10, 327686, -196597, 10, 65537, -196596, 10, 4, -196595, 10, 4, -196594, 10, 131075, -196593, 10, 131076, -196592, 10, 131076, -196591, 10, 65540, -196590, 10, 262146, -131061, 10, 262144, -131060, 10, 131077, -131059, 10, 196611, -131058, 10, 327681, -131057, 10, 65540, -131056, 10, 131076, -131055, 10, 131076, -131054, 10, 262146, -65525, 10, 262144, -65524, 10, 262146, -65522, 10, 262144, -65521, 10, 131076, -65520, 10, 65540, -65519, 10, 262145, -65518, 10, 262146, 2, 10, 65537, 3, 10, 4, 4, 10, 4, 5, 10, 4, 6, 10, 327686, 11, 10, 262144, 12, 10, 262146, 14, 10, 393221, 15, 10, 196611, 16, 10, 196611, 17, 10, 196611, 18, 10, 393222, 65538, 10, 262144, 65539, 10, 131076, 65540, 10, 65540, 65541, 10, 65540, 65542, 10, 65541, 65543, 10, 4, 65544, 10, 4, 65545, 10, 4, 65546, 10, 4, 65547, 10, 131075, 65548, 10, 262146, 131074, 10, 262144, 131075, 10, 262145, 131076, 10, 65540, 131077, 10, 262145, 131078, 10, 131077, 131079, 10, 196611, 131080, 10, 196611, 131081, 10, 196611, 131082, 10, 196611, 131083, 10, 196611, 131084, 10, 393222, 196610, 10, 262144, 196611, 10, 262145, 196612, 10, 131076, 196613, 10, 262145, 196614, 10, 262146, 262146, 10, 393221, 262147, 10, 196611, 262148, 10, 196611, 262149, 10, 196611, 262150, 10, 393222 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="NPC" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 1580.27, 427.855 )
+
+[node name="SceneTransitionBox" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 4646.21, -827.76 )
+to_scene = "res://Scenes/Levels/Level2.tscn"
+
+

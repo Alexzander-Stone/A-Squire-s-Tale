@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Player/falcotrash.png" type="Texture" id=2]
@@ -74,10 +74,15 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 85.3419, 110.204 )
 
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
 [node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
-collision_layer = 1
+collision_layer = 17
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
@@ -98,6 +103,7 @@ _sections_unfolded = [ "Playback Options" ]
 
 [node name="Damage Hitbox" type="Area2D" parent="." index="1"]
 
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -105,6 +111,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damage Hitbox" index="0"]
 
@@ -125,6 +132,7 @@ shape = SubResource( 5 )
 
 [node name="Abilities" type="Node2D" parent="." index="4"]
 
+editor/display_folded = true
 script = ExtResource( 3 )
 primary_length = 1
 secondary_length = 1
@@ -146,6 +154,7 @@ casting_path = NodePath("../StateMachine/Casting")
 
 [node name="StateMachine" type="Node" parent="." index="6"]
 
+editor/display_folded = true
 script = ExtResource( 5 )
 _sections_unfolded = [ "Pause" ]
 START_STATE = NodePath("Idling")
@@ -235,6 +244,8 @@ _sections_unfolded = [ "Drag Margin", "Smoothing", "Transform" ]
 
 [node name="DebugStateLabel" parent="." index="8" instance=ExtResource( 15 )]
 
+editor/display_folded = true
+
 [node name="Label" parent="DebugStateLabel/DebugStateLabel" index="0"]
 
 state_machine_path = NodePath("../../../StateMachine")
@@ -242,6 +253,23 @@ state_machine_path = NodePath("../../../StateMachine")
 [node name="Damage Value Spawner" parent="." index="9" instance=ExtResource( 16 )]
 
 animated_sprite_path = NodePath("../AnimatedSprite")
+
+[node name="Area2D" type="Area2D" parent="." index="10"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 16
+collision_mask = 0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+
+shape = SubResource( 6 )
 
 
 [editable path="DebugStateLabel"]

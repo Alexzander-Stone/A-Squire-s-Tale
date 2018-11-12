@@ -1,13 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Environment/Environment.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI/GUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Dummy/Dummy.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/Sounds/Music_Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Sound_Players/Music_Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/NPC/NPC.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/SceneTransitionBox/SceneTransitionBox.tscn" type="PackedScene" id=7]
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 [node name="Environment" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -63,6 +64,11 @@ position = Vector2( 106.147, 66.6884 )
 [node name="NPC" parent="." index="5" instance=ExtResource( 6 )]
 
 position = Vector2( 148.841, -326.49 )
+
+[node name="SceneTransitionBox" parent="." index="6" instance=ExtResource( 7 )]
+
+position = Vector2( 869.431, -128.487 )
+to_scene = "res://World.tscn"
 
 
 [editable path="CanvasLayer/GUI"]

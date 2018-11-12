@@ -1,8 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Assets/Sounds/SFX_Player.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Sound_Players/SFX_Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/SFX/sfx_hit.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Assets/SFX/sfx_oh_no.ogg" type="AudioStream" id=3]
+
+
 
 
 [node name="SFX_Player" type="Node" index="0"]
