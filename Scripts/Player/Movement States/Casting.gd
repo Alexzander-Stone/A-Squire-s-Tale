@@ -60,7 +60,7 @@ func enter(args):
 		
 		#receive input for primary ability (number 1)
 		#add condition checking for cooldown
-		if(args[0] == 1 && cooldown_node.primary_cooldown_timer <= 0):
+		elif(args[0] == 1 && cooldown_node.primary_cooldown_timer <= 0):
 			var animation_to_play = dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))]
 			emit_signal("primary_used", animation_to_play)
 			# Get casting_animation_timer from Abilities node.
