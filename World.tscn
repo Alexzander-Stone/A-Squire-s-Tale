@@ -5,7 +5,11 @@
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Dummy/Dummy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Sounds/Music_Player.tscn" type="PackedScene" id=5]
+<<<<<<< HEAD
 [ext_resource path="res://Scenes/NPC/NPC.tscn" type="PackedScene" id=6]
+=======
+[ext_resource path="res://Scenes/Artifacts/Stopwatch.tscn" type="PackedScene" id=6]
+>>>>>>> Implementing-Trinkets-and-Stat-Changes
 
 [node name="World" type="Node" index="0"]
 
@@ -61,9 +65,15 @@ position = Vector2( -3.60303, 4.06912 )
 
 [node name="Music_Player" parent="." index="4" instance=ExtResource( 5 )]
 
+<<<<<<< HEAD
 [node name="NPC" parent="." index="5" instance=ExtResource( 6 )]
 
 position = Vector2( 301.565, -181.116 )
+=======
+[node name="Stopwatch" parent="." index="5" instance=ExtResource( 6 )]
+
+position = Vector2( -97.947, 380.905 )
+>>>>>>> Implementing-Trinkets-and-Stat-Changes
 
 
 [editable path="CanvasLayer/GUI"]

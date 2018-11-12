@@ -9,8 +9,8 @@ var direction_vector = Vector2(0,0)
 # Crafting.
 var crafting_container = []
 # Health points.
-export(int) var max_health = 100
-onready var current_health = max_health
+# export(int) var max_health = 100
+# onready var current_health = max_health
 
 func _ready():
 	print("PC created")
@@ -27,6 +27,6 @@ func add_to_crafting(integer):
 
 # Used during initial step of flinching state.
 func take_damage(damage):
-	current_health -= damage
+	$"Stats".current_health -= damage
 	# Informs UI of change in health.
 	emit_signal("damaged", damage)

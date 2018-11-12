@@ -28,20 +28,20 @@ func _ready():
 	casting_node.connect("crafting_used", self, "initialize_multiple_cooldowns")
 
 func initialize_primary_cooldown(args):
-	primary_cooldown_timer = primary_cooldown 
-	emit_signal("begin_primary_cooldown", primary_cooldown)
+	primary_cooldown_timer = primary_cooldown * (1 - $"../Stats".mcdr) 
+	emit_signal("begin_primary_cooldown", primary_cooldown * (1 - $"../Stats".mcdr))
 
 func initialize_secondary_cooldown(args):
-	secondary_cooldown_timer = secondary_cooldown 
-	emit_signal("begin_secondary_cooldown", secondary_cooldown)
+	secondary_cooldown_timer = secondary_cooldown * (1 - $"../Stats".mcdr)
+	emit_signal("begin_secondary_cooldown", secondary_cooldown* (1 - $"../Stats".mcdr))
 
 func initialize_ternary_cooldown(args):
-	ternary_cooldown_timer = ternary_cooldown 
-	emit_signal("begin_ternary_cooldown", ternary_cooldown)
+	ternary_cooldown_timer = ternary_cooldown * (1 - $"../Stats".mcdr)
+	emit_signal("begin_ternary_cooldown", ternary_cooldown* (1 - $"../Stats".mcdr))
 
 func initialize_super_cooldown(args):
-	super_cooldown_timer = super_cooldown 
-	emit_signal("begin_super_cooldown", super_cooldown)
+	super_cooldown_timer = super_cooldown * (1 - $"../Stats".mcdr)
+	emit_signal("begin_super_cooldown", super_cooldown* (1 - $"../Stats".mcdr))
 
 func initialize_multiple_cooldowns(ability_key, args):
 	for ability in ability_key:
