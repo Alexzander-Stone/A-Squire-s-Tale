@@ -1,6 +1,10 @@
 {
 	"01":"res://Scenes/Attack/Attack.tscn",
+	"10":"res://Scenes/Attack/Attack.tscn",
 	"12":"res://Scenes/Attack/Attack.tscn",
+	"21":"res://Scenes/Attack/Attack.tscn",
 	"13":"res://Scenes/Attack/Utility.tscn",
+	"31":"res://Scenes/Attack/Utility.tscn",
+	"30":"res://Scenes/Attack/Utility.tscn",
 	"03":"res://Scenes/Attack/Utility.tscn"
 }
