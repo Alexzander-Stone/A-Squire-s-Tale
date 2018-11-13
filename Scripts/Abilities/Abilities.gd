@@ -4,6 +4,9 @@
 # Abilities activates abilities, cooldowns keeps track of when abilities can be created (casting checks for these).
 extends Node
 
+##
+#Replace using JSON file.
+##
 onready var primary_spawner = preload("res://Scenes/Attack/Attack.tscn")
 onready var secondary_spawner = preload("res://Scenes/Attack/Utility.tscn")
 # Placeholders
@@ -22,6 +25,8 @@ onready var stay_node = $"Stay"
 
 var craftable_abilities_dict = {}
 var current_active_abilities = []
+
+var node_path_key = "scene"
 
 func _ready():
 	var file = File.new()
@@ -42,7 +47,7 @@ func setup_ability(new_node, animation_to_play):
 func craft_ability(ability_key, animation_to_play):
 	# Check to see if ability is valid.
 	if craftable_abilities_dict.has(ability_key):
-		var craft_spawner = load(craftable_abilities_dict[ability_key])
+		var craft_spawner = load(craftable_abilities_dict[ability_key][node_path_key])
 		var new_node = craft_spawner.instance()
 		setup_ability(new_node, animation_to_play)
 			

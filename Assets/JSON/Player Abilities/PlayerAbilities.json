@@ -1,10 +1,34 @@
 {
-	"01":"res://Scenes/Attack/Attack.tscn",
-	"10":"res://Scenes/Attack/Attack.tscn",
-	"12":"res://Scenes/Attack/Attack.tscn",
-	"21":"res://Scenes/Attack/Attack.tscn",
-	"13":"res://Scenes/Attack/Utility.tscn",
-	"31":"res://Scenes/Attack/Utility.tscn",
-	"30":"res://Scenes/Attack/Utility.tscn",
-	"03":"res://Scenes/Attack/Utility.tscn"
+	"01": {
+		"scene": "res://Scenes/Attack/Attack.tscn", 
+		"casting_timer": ".3"
+	},
+	"10": {
+		"scene": "res://Scenes/Attack/Attack.tscn", 
+		"casting_timer": ".3"
+	},
+	"12": {
+		"scene": "res://Scenes/Attack/Attack.tscn", 
+		"casting_timer": ".3"
+	},
+	"21": {
+		"scene": "res://Scenes/Attack/Attack.tscn", 
+		"casting_timer": ".3"
+	},
+	"13": {
+		"scene": "res://Scenes/Attack/Utility.tscn", 
+		"casting_timer": ".5"
+	},
+	"31": {
+		"scene": "res://Scenes/Attack/Utility.tscn", 
+		"casting_timer": ".5"
+	},
+	"30": {
+		"scene": "res://Scenes/Attack/Utility.tscn", 
+		"casting_timer": ".5"
+	},
+	"03": {
+		"scene": "res://Scenes/Attack/Utility.tscn", 
+		"casting_timer": ".5"
+	},
 }

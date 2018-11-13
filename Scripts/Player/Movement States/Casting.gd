@@ -56,7 +56,8 @@ func enter(args):
 			var animation_to_play = dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))]
 			emit_signal("crafting_used", ability_key, animation_to_play)
 			# Get casting_animation_timer from Abilities node.
-			casting_animation_timer = abilities_node.crafting_length;
+			if abilities_node.craftable_abilities_dict.has(ability_key):
+				casting_animation_timer = float(abilities_node.craftable_abilities_dict[ability_key]["casting_timer"]);
 		
 		#receive input for primary ability (number 1)
 		#add condition checking for cooldown
