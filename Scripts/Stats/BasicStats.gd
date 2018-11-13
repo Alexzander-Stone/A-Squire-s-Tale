@@ -1,10 +1,7 @@
 extends Node
 
-# generic stats for all enemies
+# generic stats
 export(int) var  maxHealth = 100
-export(int) var currentHealth = 100
+onready var currentHealth = maxHealth
 export(int) var walkSpeed = 5
-export(int) var runSpeed = 10
-export(int) var damage = 10
-export(float) var attackSpeed = 1.0
-export(float) var knockback = 1.0
+#may also include here: weight

@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Dummy/Dummy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Sounds/Music_Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/NPC/NPC.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Artifacts/Stopwatch.tscn" type="PackedScene" id=7]
 
 [node name="World" type="Node" index="0"]
 
@@ -64,6 +65,10 @@ position = Vector2( -3.60303, 4.06912 )
 [node name="NPC" parent="." index="5" instance=ExtResource( 6 )]
 
 position = Vector2( 301.565, -181.116 )
+
+[node name="Stopwatch" parent="." index="6" instance=ExtResource( 7 )]
+
+position = Vector2( -97.947, 380.905 )
 
 
 [editable path="CanvasLayer/GUI"]
