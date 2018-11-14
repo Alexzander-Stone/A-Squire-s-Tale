@@ -12,7 +12,7 @@ func enter(args):
 	owner.velocity = Vector2(0,0)
 	to_search_timer = base_time_until_search + rand_range(0, search_variable_time)
 	# Check for Player to attack.
-	if true:
+	if false:
 		emit_signal("finished", "walking", [])
 	.enter(args)
 
