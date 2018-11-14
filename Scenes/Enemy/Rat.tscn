@@ -53,18 +53,25 @@ START_STATE = NodePath("Idling")
 [node name="Idling" type="Node" parent="StateMachine" index="0"]
 
 script = ExtResource( 3 )
+collision_path = NodePath("")
+base_time_until_search = 1.0
+search_variable_time = 3.0
 
-[node name="Walking" type="Node" parent="StateMachine" index="1"]
+[node name="Searching" type="Node" parent="StateMachine" index="1"]
+
+[node name="Walking" type="Node" parent="StateMachine" index="2"]
 
 script = ExtResource( 4 )
-collision_path = null
+collision_path = NodePath("")
 VELOCITY = 5
 
-[node name="Charging" type="Node" parent="StateMachine" index="2"]
+[node name="Following" type="Node" parent="StateMachine" index="3"]
 
-[node name="Taking Damage" type="Node" parent="StateMachine" index="3"]
+[node name="Charging" type="Node" parent="StateMachine" index="4"]
 
-[node name="Dying" type="Node" parent="StateMachine" index="4"]
+[node name="Taking Damage" type="Node" parent="StateMachine" index="5"]
+
+[node name="Dying" type="Node" parent="StateMachine" index="6"]
 
 [node name="Layer Control" parent="." index="3" instance=ExtResource( 5 )]
 
