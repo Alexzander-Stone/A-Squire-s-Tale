@@ -1,6 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Enemy/darkfalco.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Enemy/EnemyStateMachine.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Enemy/EnemyIdling.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Enemy/EnemyWalking.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/UI/DebugStateLabel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/UI/Damage Value Spawner/Damage Value Spawner.tscn" type="PackedScene" id=6]
 
 [sub_resource type="SpriteFrames" id=2]
 
@@ -31,5 +36,34 @@ animation = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 1 )
+
+[node name="StateMachine" type="Node" parent="." index="2"]
+
+script = ExtResource( 2 )
+START_STATE = NodePath("Idling")
+
+[node name="Idling" type="Node" parent="StateMachine" index="0"]
+
+script = ExtResource( 3 )
+
+[node name="Walking" type="Node" parent="StateMachine" index="1"]
+
+script = ExtResource( 4 )
+collision_path = null
+VELOCITY = 5
+
+[node name="Charging" type="Node" parent="StateMachine" index="2"]
+
+[node name="Taking Damage" type="Node" parent="StateMachine" index="3"]
+
+[node name="Dying" type="Node" parent="StateMachine" index="4"]
+
+[node name="Layer Control" parent="." index="3" instance=ExtResource( 5 )]
+
+position = Vector2( -64, -180 )
+
+[node name="Damage Value Spawner" parent="." index="4" instance=ExtResource( 6 )]
+
+animated_sprite_path = NodePath("../AnimatedSprite")
 
 
