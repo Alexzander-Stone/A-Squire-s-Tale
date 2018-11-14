@@ -4,7 +4,7 @@ extends Node
 # var a = 2
 # var b = "textvar"
 signal medkit_acquired
-export(String) var healthRestore = 50
+export(int) var healthRestore = 50
 
 export(NodePath) var collision_path 
 var collision_node
