@@ -10,16 +10,12 @@ var artifacts_dict = {}
 export(float) var cdr = 0.0
 
 #modified stats (for trinket changes)
-onready var mMaxHealth = maxHealth
+var mMaxHealth = 150
 #onready var mWalkSpeed = walkSpeed
 #onready var mRunSpeed = runSpeed
-onready var mcdr = cdr
+var mcdr = 0.0
 
 func _ready():
-	##
-	#player is given the group here, may want to change this later
-	##
-	add_to_group("player")
 	
 	var file = File.new()
 	file.open("res://Assets/JSON/Artifacts/Artifacts.json", File.READ)
@@ -27,13 +23,20 @@ func _ready():
 	file.close()
 	
 	artifacts_dict = parse_json(text_data)
-	#artifactList.append("Stopwatch")
-	#updateStats()
+	
+	mMaxHealth = maxHealth + 50
+	mcdr = cdr
 	
 func addArtifact(args):
-	print(args[0])
 	artifactList.append(args[0])
 	updateStats()
+#placed this here for consistency of signals being sent to the GUI
+func heal(restore):
+	currentHealth += restore
+	if(currentHealth > mMaxHealth):
+		currentHealth = mMaxHealth
+
+
 func updateStats():
 	for artifact in artifactList:
 		mcdr = cdr + artifacts_dict[artifact]["cdrMod"]

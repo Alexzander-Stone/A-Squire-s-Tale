@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal damaged(damageValue)
+signal healed(healValue)
 
 # Movement and direction.
 var velocity = Vector2(0,0)
@@ -13,6 +14,10 @@ var crafting_container = []
 # onready var current_health = max_health
 
 func _ready():
+	##
+	#player is added to player group
+	##
+	add_to_group("player")
 	print("PC created")
 
 func update_position():
@@ -30,3 +35,11 @@ func take_damage(damage):
 	$"Stats".current_health -= damage
 	# Informs UI of change in health.
 	emit_signal("damaged", damage)
+
+#routing signals to stats script
+func addArtifact(args):
+	$"Stats".addArtifact(args)
+
+func medkitCollected(args):
+	$"Stats".heal(args[0])
+	emit_signal("healed", args[0])

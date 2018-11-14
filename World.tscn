@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Environment/Environment.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI/GUI.tscn" type="PackedScene" id=2]
@@ -7,8 +7,9 @@
 [ext_resource path="res://Assets/Sounds/Music_Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/NPC/NPC.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Artifacts/Stopwatch.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Consumables/Medkit.tscn" type="PackedScene" id=8]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 [node name="Environment" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -16,6 +17,7 @@ position = Vector2( -1, 0 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="1"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -58,7 +60,7 @@ position = Vector2( 106.147, 66.6884 )
 
 [node name="Dummy" parent="." index="3" instance=ExtResource( 4 )]
 
-position = Vector2( -3.60303, 4.06912 )
+position = Vector2( -105.631, 73.4483 )
 
 [node name="Music_Player" parent="." index="4" instance=ExtResource( 5 )]
 
@@ -69,6 +71,10 @@ position = Vector2( 301.565, -181.116 )
 [node name="Stopwatch" parent="." index="6" instance=ExtResource( 7 )]
 
 position = Vector2( -97.947, 380.905 )
+
+[node name="Medkit" parent="." index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 133.317, 451.645 )
 
 
 [editable path="CanvasLayer/GUI"]
