@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Player/falcotrash.png" type="Texture" id=2]
@@ -153,7 +153,6 @@ shape = SubResource( 6 )
 [node name="Abilities" type="Node2D" parent="." index="5"]
 
 script = ExtResource( 4 )
-
 primary_length = 1
 secondary_length = 1
 ternary_length = 1
@@ -215,10 +214,8 @@ VELOCITY = 10
 
 script = ExtResource( 12 )
 collision_path = NodePath("../../Damage Hitbox")
-
 interaction_collision_path = NodePath("../../Interaction Layer")
 VELOCITY = 2
-
 
 [node name="Casting" type="Node" parent="StateMachine" index="6"]
 
