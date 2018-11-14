@@ -6,21 +6,29 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 120, 120 )
+extents = Vector2( 60, 50 )
 
-[node name="Box" type="Node2D"]
+[node name="Box" type="KinematicBody2D" index="0"]
 
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
 script = ExtResource( 1 )
 health = 3
-collision_path = NodePath("Area2D")
+collision_path = NodePath("Hitbox")
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+[node name="CollisionBox" type="CollisionShape2D" parent="." index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
 
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Area2D" type="Area2D" parent="." index="1"]
+[node name="Hitbox" type="Area2D" parent="." index="2"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -33,7 +41,7 @@ audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
 
 shape = SubResource( 1 )
 

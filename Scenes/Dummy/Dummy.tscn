@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Dummy/Dummy.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sounds/SFX_Player.tscn" type="PackedScene" id=2]
@@ -86,10 +86,19 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Dummy" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Dummy" type="KinematicBody2D"]
 
 position = Vector2( -3.60309, 4.0691 )
 scale = Vector2( 0.918653, 1.09591 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
 script = ExtResource( 1 )
 max_health = 100
 
@@ -111,6 +120,8 @@ state_machine_path = NodePath("../DummyStateMachine")
 
 [node name="Full Sprite" type="Node2D" parent="." index="2"]
 
+editor/display_folded = true
+
 [node name="Sprite" type="Sprite" parent="Full Sprite" index="0"]
 
 position = Vector2( -2.60309, 73 )
@@ -127,6 +138,7 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Area2D" type="Area2D" parent="Full Sprite/AnimatedSprite" index="0"]
 
+visible = false
 position = Vector2( 3.85136, -2.43933 )
 scale = Vector2( 1.65783, 2.11463 )
 input_pickable = true
@@ -142,12 +154,19 @@ _sections_unfolded = [ "Collision", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Full Sprite/AnimatedSprite/Area2D" index="0"]
 
-position = Vector2( 1.04158, 0.409906 )
-scale = Vector2( 2.59994, 3.08602 )
+position = Vector2( -3.55387, 3.71279 )
+scale = Vector2( 2.92287, 3.08602 )
 shape = SubResource( 4 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="DummyStateMachine" type="Node" parent="." index="3"]
+[node name="Collision Box" type="CollisionShape2D" parent="." index="3"]
+
+position = Vector2( -6.96336, 60.1609 )
+scale = Vector2( 2.51204, 2.85979 )
+shape = SubResource( 5 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="DummyStateMachine" type="Node" parent="." index="4"]
 
 script = ExtResource( 5 )
 START_STATE = NodePath("Idling")
@@ -167,13 +186,13 @@ player_path = NodePath("../..")
 
 script = ExtResource( 8 )
 
-[node name="DebugStateLabel" parent="." index="4" instance=ExtResource( 9 )]
+[node name="DebugStateLabel" parent="." index="5" instance=ExtResource( 9 )]
 
 [node name="Label" parent="DebugStateLabel/DebugStateLabel" index="0"]
 
 state_machine_path = NodePath("../../../DummyStateMachine")
 
-[node name="Damage Value Spawner" parent="." index="5" instance=ExtResource( 10 )]
+[node name="Damage Value Spawner" parent="." index="6" instance=ExtResource( 10 )]
 
 animated_sprite_path = NodePath("../Full Sprite/AnimatedSprite")
 
