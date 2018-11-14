@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Environment/Environment.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI/GUI.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/Artifacts/Stopwatch.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Consumables/Medkit.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Destructibles/Box.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Destructibles/Pot.tscn" type="PackedScene" id=10]
 
 [node name="World" type="Node"]
 
@@ -83,7 +84,10 @@ position = Vector2( 133.317, 451.645 )
 [node name="Box" parent="." index="8" instance=ExtResource( 9 )]
 
 position = Vector2( 481.573, 512.862 )
-health = 3
+
+[node name="Pot" parent="." index="9" instance=ExtResource( 10 )]
+
+position = Vector2( 715.558, 112.911 )
 
 
 [editable path="CanvasLayer/GUI"]
