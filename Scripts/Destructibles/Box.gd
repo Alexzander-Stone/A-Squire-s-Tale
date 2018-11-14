@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 
 export(int) var health = 3
@@ -11,10 +11,19 @@ func _ready():
 	collision_node.connect("area_entered", self, "collisionDetected")
 	
 func collisionDetected(colliding_object):
+	#in here, check for collision with player hitbox vs. attack.
+	#do this for player hitbox
+	#physics engine part, need the player to walk into the object, but not through it
+	
+	#do this for attack
 	health -= 1
-	#emit_signal("medkit_acquired", [healthRestore])
-	#queue for deletion at the end of the frame
 	if(health == 0):
+		#create an instance of the stopwatch
+		var scene = load("res://Scenes/Artifacts/Stopwatch.tscn")
+		var scene_instance = scene.instance()
+		scene_instance.set_name("Stopwatch")
+		scene_instance.position = position
+		get_tree().get_root().add_child(scene_instance)
 		queue_free()
 	
 

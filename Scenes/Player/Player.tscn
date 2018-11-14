@@ -174,7 +174,6 @@ casting_path = NodePath("../StateMachine/Casting")
 
 [node name="StateMachine" type="Node" parent="." index="7"]
 
-editor/display_folded = true
 script = ExtResource( 6 )
 _sections_unfolded = [ "Pause" ]
 START_STATE = NodePath("Idling")
