@@ -1,13 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Environment/Tilesets/Tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://Scenes/UI/GUI.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/SceneTransitionBox/SceneTransitionBox.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/NPC/NPC.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Sound_Players/Music_Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/SceneTransitionBox/SceneTransitionBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/NPC/NPC.tscn" type="PackedScene" id=3]
 
-[node name="World" type="Node"]
+[node name="Level3" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
@@ -27,37 +24,20 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 3, 10, 65537, 4, 10, 4, 5, 10, 4, 6, 10, 4, 7, 10, 327686, 131071, 10, 65537, 65536, 10, 4, 65537, 10, 5, 65538, 10, 327684, 65539, 10, 65539, 65540, 10, 262145, 65541, 10, 262145, 65542, 10, 262145, 65543, 10, 262146, 196607, 10, 393221, 131072, 10, 196611, 131073, 10, 393222, 131075, 10, 262144, 131076, 10, 262145, 131077, 10, 131076, 131078, 10, 131076, 131079, 10, 262146, 196611, 10, 262144, 196612, 10, 65540, 196613, 10, 262145, 196614, 10, 262145, 196615, 10, 262146, 196618, 10, 65537, 196619, 10, 4, 196620, 10, 327686, 262147, 10, 262144, 262148, 10, 262145, 262149, 10, 65540, 262150, 10, 65540, 262151, 10, 327682, 262152, 10, 327684, 262153, 10, 327684, 262154, 10, 65539, 262155, 10, 65540, 262156, 10, 262146, 327683, 10, 393221, 327684, 10, 196611, 327685, 10, 196611, 327686, 10, 196611, 327687, 10, 393222, 327690, 10, 393221, 327691, 10, 196611, 327692, 10, 393222 )
+tile_data = PoolIntArray( -1, 10, 65537, -65536, 10, 4, -65535, 10, 327686, 65535, 10, 262144, 0, 10, 262145, 1, 10, 65541, 2, 10, 4, 3, 10, 4, 4, 10, 4, 5, 10, 4, 6, 10, 4, 7, 10, 327686, 131071, 10, 262144, 65536, 10, 131076, 65537, 10, 131077, 65538, 10, 196611, 65539, 10, 327681, 65540, 10, 262145, 65541, 10, 262145, 65542, 10, 262145, 65543, 10, 262146, 196607, 10, 393221, 131072, 10, 196611, 131073, 10, 393222, 131075, 10, 262144, 131076, 10, 262145, 131077, 10, 131076, 131078, 10, 131076, 131079, 10, 262146, 196611, 10, 262144, 196612, 10, 65540, 196613, 10, 262145, 196614, 10, 262145, 196615, 10, 262146, 196618, 10, 65537, 196619, 10, 4, 196620, 10, 327686, 262147, 10, 262144, 262148, 10, 262145, 262149, 10, 65540, 262150, 10, 65540, 262151, 10, 65541, 262152, 10, 4, 262153, 10, 4, 262154, 10, 131075, 262155, 10, 65540, 262156, 10, 262146, 327683, 10, 393221, 327684, 10, 196611, 327685, 10, 196611, 327686, 10, 196611, 327687, 10, 196611, 327688, 10, 196611, 327689, 10, 196611, 327690, 10, 327681, 327691, 10, 262145, 327692, 10, 262146, 393226, 10, 393221, 393227, 10, 196611, 393228, 10, 393222 )
 _sections_unfolded = [ "Cell" ]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="1"]
-
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-
-[node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 2 )]
-
-margin_left = -220.0
-margin_top = 377.0
-margin_right = -100.0
-margin_bottom = 365.0
-
-[node name="Player" parent="." index="2" instance=ExtResource( 3 )]
-
-position = Vector2( -60.2008, 509.556 )
-
-[node name="SceneTransitionBox" parent="." index="3" instance=ExtResource( 4 )]
+[node name="SceneTransitionBox" parent="." index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 2930.92, 1145.54 )
-to_scene = "res://World.tscn"
+to_scene = "res://Scenes/Levels/Level1.tscn"
 
-[node name="NPC" parent="." index="4" instance=ExtResource( 5 )]
+[node name="NPC" parent="." index="2" instance=ExtResource( 3 )]
 
-position = Vector2( 187.053, 509.556 )
+position = Vector2( 250.612, 378.201 )
 
-[node name="Music_Player" parent="." index="5" instance=ExtResource( 6 )]
+[node name="Player_Start_Loc" type="Node2D" parent="." index="3"]
+
+position = Vector2( 241.524, 567.794 )
 
 
