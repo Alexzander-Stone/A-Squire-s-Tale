@@ -84,7 +84,6 @@ func next_search_step(object, node_path):
 	
 
 func setup_search_rotation(go_to_rotation):
-	print("start at rotation value of " + str(go_to_rotation))
 	# Update the character animation frames.
 	# Vision rotation.
 	set_tween_vision_rotation_to(go_to_rotation, 1)
@@ -136,7 +135,6 @@ func end_search():
 	if number_of_searches_left > 0:
 		# Find a random direction to begin searching.
 		var direction_to_look = (randi() % 4) * 90
-		print("calcuated direction to look is " + str(direction_to_look))
 		setup_search_rotation(direction_to_look)
 	else:
 		emit_signal("finished", "idling", [])
