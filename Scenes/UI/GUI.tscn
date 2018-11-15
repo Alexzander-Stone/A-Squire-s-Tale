@@ -11,10 +11,6 @@
 [ext_resource path="res://Scripts/UI/PrimaryCooldown.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/UI/TernaryCooldown.gd" type="Script" id=10]
 
-
-
-
-
 [node name="GUI" type="MarginContainer"]
 
 anchor_left = 0.0
@@ -31,17 +27,18 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags", "Theme" ]
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags" ]
 
 [node name="Bar Top" type="HBoxContainer" parent="." index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 8.0
 margin_right = 620.0
-margin_bottom = 360.0
+margin_bottom = 288.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -58,7 +55,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 300.0
-margin_bottom = 360.0
+margin_bottom = 288.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -106,7 +103,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 304.0
 margin_right = 612.0
-margin_bottom = 360.0
+margin_bottom = 288.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -164,6 +161,7 @@ radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 script = ExtResource( 5 )
 _sections_unfolded = [ "Anchor", "Margin", "Radial Fill", "Rect", "Textures" ]
+ability_path = null
 
 [node name="Regular" type="HBoxContainer" parent="Bar Top/Abilities" index="1"]
 
@@ -229,6 +227,7 @@ radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 script = ExtResource( 8 )
 _sections_unfolded = [ "Radial Fill", "Rect", "Textures" ]
+ability_path = null
 
 [node name="Primary" type="VBoxContainer" parent="Bar Top/Abilities/Regular" index="1"]
 
@@ -297,6 +296,7 @@ radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 script = ExtResource( 9 )
 _sections_unfolded = [ "Anchor", "Focus", "Hint", "Margin", "Material", "Mouse", "Pause", "Radial Fill", "Rect", "Size Flags", "Textures", "Theme", "Visibility" ]
+ability_path = null
 
 [node name="Ternary" type="VBoxContainer" parent="Bar Top/Abilities/Regular" index="2"]
 
@@ -345,5 +345,24 @@ radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 script = ExtResource( 10 )
 _sections_unfolded = [ "Radial Fill", "Textures" ]
+ability_path = null
+
+[node name="TransitionScreen" type="ColorRect" parent="." index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_right = 620.0
+margin_bottom = 288.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 1 )
 
 
