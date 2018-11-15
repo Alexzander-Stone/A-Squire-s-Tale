@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Enemy/Rat.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Enemy/darkfalco.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Enemy/EnemyStateMachine.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/Enemy/EnemyIdling.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/Enemy/EnemySearching.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/UI/DebugStateLabel.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/UI/Damage Value Spawner/Damage Value Spawner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/Enemy/EnemyFollowing.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/UI/DebugStateLabel.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/UI/Damage Value Spawner/Damage Value Spawner.tscn" type="PackedScene" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -66,7 +67,8 @@ START_STATE = NodePath("Idling")
 [node name="Idling" type="Node" parent="StateMachine" index="0"]
 
 script = ExtResource( 4 )
-collision_path = NodePath("")
+collision_path = NodePath("../../CollisionShape2D")
+vision_path = NodePath("../../Vision Field")
 base_time_until_search = 1.0
 search_variable_time = 3.0
 
@@ -74,13 +76,16 @@ search_variable_time = 3.0
 
 script = ExtResource( 5 )
 collision_path = NodePath("../../CollisionShape2D")
+vision_path = NodePath("../../Vision Field/CollisionShape2D")
 tween_path = NodePath("../../SearchingTween")
 animated_sprite_path = NodePath("../../AnimatedSprite")
-vision_path = NodePath("../../Vision Field/CollisionShape2D")
 rotation_of_vision = 45
 rotation_of_character = 10
 
 [node name="Following" type="Node" parent="StateMachine" index="2"]
+
+script = ExtResource( 6 )
+collision_path = NodePath("../../CollisionShape2D")
 
 [node name="Charging" type="Node" parent="StateMachine" index="3"]
 
@@ -88,7 +93,7 @@ rotation_of_character = 10
 
 [node name="Dying" type="Node" parent="StateMachine" index="5"]
 
-[node name="Layer Control" parent="." index="4" instance=ExtResource( 6 )]
+[node name="Layer Control" parent="." index="4" instance=ExtResource( 7 )]
 
 position = Vector2( -64, -64 )
 
@@ -96,7 +101,7 @@ position = Vector2( -64, -64 )
 
 state_machine_path = NodePath("../../../StateMachine")
 
-[node name="Damage Value Spawner" parent="." index="5" instance=ExtResource( 7 )]
+[node name="Damage Value Spawner" parent="." index="5" instance=ExtResource( 8 )]
 
 animated_sprite_path = NodePath("../AnimatedSprite")
 
@@ -107,6 +112,7 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+monitorable = false
 audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Transform", "Z Index" ]

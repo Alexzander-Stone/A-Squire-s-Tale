@@ -12,8 +12,12 @@ var tween_node
 
 export(NodePath) var animated_sprite_path
 var animated_sprite_node
-export(NodePath) var vision_path
-var vision_node
+
+##
+#Vision path/node are inherited from Followable class.
+##
+#export(NodePath) var vision_path
+#var vision_node
 
 export(int) var rotation_of_vision
 export(int) var rotation_of_character
@@ -136,3 +140,6 @@ func end_search():
 		setup_search_rotation(direction_to_look)
 	else:
 		emit_signal("finished", "idling", [])
+
+func player_found(player_collision_node, node_path):
+	emit_signal("finished", "following", [player_collision_node.position])
