@@ -20,8 +20,8 @@ func _process(delta):
 
 func collision_detected(colliding_object):
    if not moved_to_scene:
-      move_to_scene()
       moved_to_scene = true
+      move_to_scene()
 
 func update_shader():
    get_node("ColorRect").color = get_node("ColorRect").color.inverted()

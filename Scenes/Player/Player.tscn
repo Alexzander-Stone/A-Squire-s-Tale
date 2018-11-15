@@ -208,7 +208,6 @@ player_animation_path = NodePath("../../AnimationPlayer")
 
 [node name="Pivot" type="Position2D" parent="." index="7"]
 
-editor/display_folded = true
 script = ExtResource( 14 )
 
 [node name="CameraOffset" type="Position2D" parent="Pivot" index="0"]
@@ -256,6 +255,7 @@ animated_sprite_path = NodePath("../AnimatedSprite")
 
 [node name="Area2D" type="Area2D" parent="." index="10"]
 
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
