@@ -1,3 +1,6 @@
+# If we want to remove the slow approach to the player, we can create a variable
+# that is assigned upon entering for the direction to move.
+
 extends "res://Scripts/Enemy/Enemy Inheritable Classes/IFlinchable.gd"
 
 var perceived_player_position = Vector2(0,0)
@@ -11,8 +14,8 @@ func update(delta):
 	# Update perceived player's coordinates when player has left the 
 	# vision cone or the enemy has reached the coordinates.
 	if ( 
-		owner.position.x <= perceived_player_position.x + 100 && owner.position.y <= perceived_player_position.y + 100
-		&& owner.position.x >= perceived_player_position.x - 100 && owner.position.y >= perceived_player_position.y - 100
+		owner.position.x <= perceived_player_position.x + 10 && owner.position.y <= perceived_player_position.y + 10
+		&& owner.position.x >= perceived_player_position.x - 10 && owner.position.y >= perceived_player_position.y - 10
 		):
 		print("hello")
 		# Update player coordinates.
