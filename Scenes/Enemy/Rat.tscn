@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Enemy/darkfalco.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Enemy/EnemyStateMachine.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/Enemy/EnemyIdling.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/Enemy/EnemyWalking.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Enemy/EnemySearching.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/UI/DebugStateLabel.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/UI/Damage Value Spawner/Damage Value Spawner.tscn" type="PackedScene" id=7]
 
@@ -34,20 +34,30 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+[node name="SearchingTween" type="Tween" parent="." index="0"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
 
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
 animation = "default"
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 
 visible = false
 shape = SubResource( 2 )
 
-[node name="StateMachine" type="Node" parent="." index="2"]
+[node name="StateMachine" type="Node" parent="." index="3"]
 
 script = ExtResource( 3 )
 START_STATE = NodePath("Idling")
@@ -61,29 +71,35 @@ search_variable_time = 3.0
 
 [node name="Searching" type="Node" parent="StateMachine" index="1"]
 
-[node name="Walking" type="Node" parent="StateMachine" index="2"]
-
 script = ExtResource( 5 )
-collision_path = NodePath("")
-VELOCITY = 5
+collision_path = NodePath("../../CollisionShape2D")
+tween_path = NodePath("../../SearchingTween")
+animated_sprite_path = NodePath("../../AnimatedSprite")
+vision_path = NodePath("../../Vision Field/CollisionShape2D")
+rotation_of_vision = 70
+rotation_of_character = 10
 
-[node name="Following" type="Node" parent="StateMachine" index="3"]
+[node name="Following" type="Node" parent="StateMachine" index="2"]
 
-[node name="Charging" type="Node" parent="StateMachine" index="4"]
+[node name="Charging" type="Node" parent="StateMachine" index="3"]
 
-[node name="Taking Damage" type="Node" parent="StateMachine" index="5"]
+[node name="Taking Damage" type="Node" parent="StateMachine" index="4"]
 
-[node name="Dying" type="Node" parent="StateMachine" index="6"]
+[node name="Dying" type="Node" parent="StateMachine" index="5"]
 
-[node name="Layer Control" parent="." index="3" instance=ExtResource( 6 )]
+[node name="Layer Control" parent="." index="4" instance=ExtResource( 6 )]
 
 position = Vector2( -64, -64 )
 
-[node name="Damage Value Spawner" parent="." index="4" instance=ExtResource( 7 )]
+[node name="Label" parent="Layer Control/DebugStateLabel" index="0"]
+
+state_machine_path = NodePath("../../../StateMachine")
+
+[node name="Damage Value Spawner" parent="." index="5" instance=ExtResource( 7 )]
 
 animated_sprite_path = NodePath("../AnimatedSprite")
 
-[node name="Vision Field" type="Area2D" parent="." index="5"]
+[node name="Vision Field" type="Area2D" parent="." index="6"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -92,6 +108,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision Field" index="0"]
 
@@ -100,3 +117,4 @@ shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 
+[editable path="Layer Control"]
