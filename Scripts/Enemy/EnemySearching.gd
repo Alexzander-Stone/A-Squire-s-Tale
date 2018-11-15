@@ -42,7 +42,7 @@ func enter(args):
 	current_vision_rotation = 0
 	
 	number_of_searches_left = rand_range(1, 4)
-	transition_to_new_search_direction(0)
+	setup_search_rotation(0)
 	next_search_step(null, null)
 
 # Clear any animations from playing.
@@ -79,12 +79,8 @@ func next_search_step(object, node_path):
 			end_search()
 	
 
-func setup_search():
-	# Change the rotation of character and vision.
-	rotate_character_to = rotation_of_character
-	rotate_vision_to = rotation_of_vision
-
-func transition_to_new_search_direction(go_to_rotation):
+func setup_search_rotation(go_to_rotation):
+	print("start at rotation value of " + str(go_to_rotation))
 	# Update the character animation frames.
 	# Vision rotation.
 	set_tween_vision_rotation_to(go_to_rotation, 1)
@@ -95,7 +91,7 @@ func transition_to_new_search_direction(go_to_rotation):
 	#Rotation of character is more unique than FoV, needs to be changed.
 	##
 	rotate_character_to = rotation_of_character
-	rotate_vision_to = go_to_rotation + rotation_of_vision
+	rotate_vision_to = go_to_rotation
 	
 	tween_node.start()
 
@@ -103,7 +99,7 @@ func search_step_one():
 	# Character rotation.
 	#set_tween_character_rotation_to(rotate_character_to, 1)
 	# Vision rotation.
-	set_tween_vision_rotation_to(rotate_vision_to, 1)
+	set_tween_vision_rotation_to(rotate_vision_to + rotation_of_vision, 1)
 	
 	tween_node.start()
 	
@@ -113,7 +109,7 @@ func search_step_two():
 	# Character rotation.
 	#set_tween_character_rotation_to(-rotate_character_to, 2)
 	# Vision rotation.
-	set_tween_vision_rotation_to(-rotate_vision_to, 2)
+	set_tween_vision_rotation_to(rotate_vision_to - rotation_of_vision, 2)
 	
 	tween_node.start()
 	search_step += 1
@@ -122,7 +118,7 @@ func search_step_three():
 	# Character rotation.
 	#set_tween_character_rotation_to(current_character_rotation + rotate_character_to, 1)
 	# Vision rotation.
-	set_tween_vision_rotation_to(current_vision_rotation + rotate_vision_to, 1)
+	set_tween_vision_rotation_to(rotate_vision_to, 1)
 	
 	tween_node.start()
 	search_step += 1
@@ -135,7 +131,8 @@ func end_search():
 	number_of_searches_left -= 1
 	if number_of_searches_left > 0:
 		# Find a random direction to begin searching.
-		var direction_to_look = rand_range(0, 3) * 90
-		transition_to_new_search_direction(direction_to_look)
+		var direction_to_look = (randi() % 4) * 90
+		print("calcuated direction to look is " + str(direction_to_look))
+		setup_search_rotation(direction_to_look)
 	else:
 		emit_signal("finished", "idling", [])
