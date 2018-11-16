@@ -65,6 +65,5 @@ func begin_charging(collided_object):
 	if collided_object == player_to_follow:
 		emit_signal("finished", "charging", [])
 
-
 func calculate_velocity_based_on(object_position):
 	return (object_position - owner.position).clamped(max_velocity_magnitude) * speed_multiplier
