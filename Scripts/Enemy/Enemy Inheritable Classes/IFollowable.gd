@@ -15,4 +15,4 @@ func check_if_player(collided_object):
 	#Replace name check with group check.
 	##
 	if collided_object.owner.name == "Player":
-		emit_signal("finished", "following", [collided_object.owner.position])
+		emit_signal("finished", "following", [collided_object])
