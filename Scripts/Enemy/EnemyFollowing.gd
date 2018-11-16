@@ -6,8 +6,14 @@ extends "res://Scripts/Enemy/Enemy Inheritable Classes/IFlinchable.gd"
 export(NodePath) var vision_path
 onready var vision_node = get_node(vision_path)
 
+export(NodePath) var attack_begin_collision_path
+onready var attack_begin_collision_node = get_node(attack_begin_collision_path)
+
 var perceived_player_position = Vector2(0,0)
 var player_to_follow = null
+
+func _ready():
+	attack_begin_collision_node.connect("area_entered", self, "begin_charging")
 
 # void enter
 # args[0], contains the player object for when the player entered the vision cone.
@@ -46,3 +52,7 @@ func begin_following(player_object):
 	# Record player's current coordinates upon entering.
 	perceived_player_position = player_to_follow.owner.position
 	owner.move_and_slide(perceived_player_position - owner.position)
+
+func begin_charging(collided_object):
+	if collided_object == player_to_follow:
+		emit_signal("finished", "charging", [])

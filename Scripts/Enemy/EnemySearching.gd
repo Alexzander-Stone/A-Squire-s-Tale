@@ -48,12 +48,14 @@ func enter(args):
 	number_of_searches_left = rand_range(1, 4)
 	setup_search_rotation(0)
 	next_search_step(null, null)
+	.enter(args)
 
 # Clear any animations from playing.
 # To make it not appear jagged, flinching state must have unique animation.
 func exit():
 	# May need to change to reset_all()
 	tween_node.stop_all()
+	.exit()
 
 func set_tween_character_rotation_to(rotation_value, time):
 	tween_node.interpolate_property(animated_sprite_node, 'rotation_degrees', current_character_rotation, rotation_value, time, Tween.TRANS_LINEAR, Tween.EASE_OUT)
