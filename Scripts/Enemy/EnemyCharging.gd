@@ -8,7 +8,7 @@ var current_state
 func _ready():
 	states_map = {
 		"readying": $Readying,
-		"charging": $Charging,
+		"attacking": $Attacking,
 		"ending": $Ending
 	}
 	for state in get_children():

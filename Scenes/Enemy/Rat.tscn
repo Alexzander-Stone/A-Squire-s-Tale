@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/Enemy/Rat.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Enemy/darkfalco.png" type="Texture" id=2]
@@ -7,9 +7,11 @@
 [ext_resource path="res://Scripts/Enemy/EnemySearching.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/Enemy/EnemyFollowing.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/Enemy/EnemyCharging.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/Enemy/Readying.gd" type="Script" id=8]
-[ext_resource path="res://Scenes/UI/DebugStateLabel.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/UI/Damage Value Spawner/Damage Value Spawner.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scripts/Enemy/Charging State Machine/ChargingReadying.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Enemy/Charging State Machine/ChargingAttacking.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/Enemy/Charging State Machine/ChargingEnding.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/UI/DebugStateLabel.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/UI/Damage Value Spawner/Damage Value Spawner.tscn" type="PackedScene" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -139,15 +141,19 @@ initial_node_path = NodePath("Readying")
 
 script = ExtResource( 8 )
 
-[node name="Charging" type="Node" parent="StateMachine/Charging" index="1"]
+[node name="Attacking" type="Node" parent="StateMachine/Charging" index="1"]
+
+script = ExtResource( 9 )
 
 [node name="Ending" type="Node" parent="StateMachine/Charging" index="2"]
+
+script = ExtResource( 10 )
 
 [node name="Taking Damage" type="Node" parent="StateMachine" index="4"]
 
 [node name="Dying" type="Node" parent="StateMachine" index="5"]
 
-[node name="Layer Control" parent="." index="6" instance=ExtResource( 9 )]
+[node name="Layer Control" parent="." index="6" instance=ExtResource( 11 )]
 
 position = Vector2( -64, -65 )
 
@@ -155,7 +161,7 @@ position = Vector2( -64, -65 )
 
 state_machine_path = NodePath("../../../StateMachine")
 
-[node name="Damage Value Spawner" parent="." index="7" instance=ExtResource( 10 )]
+[node name="Damage Value Spawner" parent="." index="7" instance=ExtResource( 12 )]
 
 animated_sprite_path = NodePath("../AnimatedSprite")
 
