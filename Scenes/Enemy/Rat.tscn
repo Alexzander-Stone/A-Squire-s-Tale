@@ -126,6 +126,8 @@ script = ExtResource( 6 )
 collision_path = NodePath("../../CollisionShape2D")
 vision_path = NodePath("../../Vision Field")
 attack_begin_collision_path = NodePath("../../Begin Attack")
+max_velocity_magnitude = 100.0
+speed_multiplier = 2.0
 
 [node name="Charging" type="Node" parent="StateMachine" index="3"]
 

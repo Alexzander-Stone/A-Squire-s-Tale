@@ -9,6 +9,10 @@ onready var vision_node = get_node(vision_path)
 export(NodePath) var attack_begin_collision_path
 onready var attack_begin_collision_node = get_node(attack_begin_collision_path)
 
+export(float) var max_velocity_magnitude = 100
+export(float) var speed_multiplier = 1
+
+var velocity = Vector2(0,0)
 var perceived_player_position = Vector2(0,0)
 var player_to_follow = null
 
@@ -36,7 +40,7 @@ func update(delta):
 		#owner.move_and_slide(perceived_player_position)
 		emit_signal("finished", "searching", [])
 	else:
-		owner.move_and_slide(perceived_player_position - owner.position)
+		owner.move_and_slide(velocity)
 	
 	# Update the rotation of the vision cone to "follow" player.
 	# This value will be constantly updated, unlike the player movement. Helps with vision tracking.
@@ -51,8 +55,16 @@ func begin_following(player_object):
 	
 	# Record player's current coordinates upon entering.
 	perceived_player_position = player_to_follow.owner.position
-	owner.move_and_slide(perceived_player_position - owner.position)
+	
+	# Set up the enemy's velocity.
+	velocity = calculate_velocity_based_on(perceived_player_position)
+	
+	owner.move_and_slide(velocity)
 
 func begin_charging(collided_object):
 	if collided_object == player_to_follow:
 		emit_signal("finished", "charging", [])
+
+
+func calculate_velocity_based_on(object_position):
+	return (object_position - owner.position).clamped(max_velocity_magnitude) * speed_multiplier
