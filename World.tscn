@@ -73,7 +73,7 @@ position = Vector2( 301.565, -181.116 )
 
 [node name="Box" parent="." index="6" instance=ExtResource( 7 )]
 
-position = Vector2( 481.573, 512.862 )
+position = Vector2( 540.069, -23.1261 )
 
 [node name="Pot" parent="." index="7" instance=ExtResource( 8 )]
 

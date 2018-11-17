@@ -22,9 +22,11 @@ func _ready():
 
 func update_position():
 	#position += velocity
-	var collision = move_and_collide(velocity)
+	#var collision = move_and_collide(velocity)
+	
 	#using move_and_slide would allow for pushing blocks around
-	#move_and_slide(velocity)
+	#50 is a placeholder value. It achieves roughly the same movement as with move_and_collide
+	move_and_slide(velocity*50)
 
 func update_direction_vector():
 	direction_vector = velocity.normalized()

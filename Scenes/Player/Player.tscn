@@ -113,6 +113,7 @@ _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="Wall Hitbox" type="CollisionShape2D" parent="." index="2"]
 
+visible = false
 scale = Vector2( 0.25, 0.25 )
 shape = SubResource( 4 )
 
