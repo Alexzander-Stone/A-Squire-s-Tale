@@ -164,8 +164,12 @@ raycast_path = NodePath("../../../Jumping RayCast2D")
 jump_height = 40
 jump_time = 2
 backup_length = 500
-backup_height = 20
-bounce_time = 1
+large_backup_height = 20
+large_bounce_time = 1
+large_bounce_count = 1
+small_backup_height = 10
+small_bounce_time = 2
+small_bounce_count = 2
 
 [node name="Attacking" type="Node" parent="StateMachine/Charging" index="1"]
 

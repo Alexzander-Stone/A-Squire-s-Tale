@@ -34,9 +34,16 @@ onready var raycast_node = get_node(raycast_path)
 
 export(int) var jump_height = 40
 export(float) var jump_time = 2
+
 export(int) var backup_length = 500
-export(float) var backup_height = 20
-export(float) var bounce_time = 1
+
+export(float) var large_backup_height = 20
+export(float) var large_bounce_time = 1
+export(int) var large_bounce_count = 1
+
+export(float) var small_backup_height = 10
+export(float) var small_bounce_time = 2
+export(int) var small_bounce_count = 2
 
 # Direction will always be normalized
 var direction = Vector2(-1,0)
@@ -87,11 +94,13 @@ func animation_transitions(tween_object, inspector_key):
 			# Returns collision shape that we are colliding with.
 			bounce_position = raycast_node.get_collision_point()
 		print("after raycast bounce_position is " + str(bounce_position))
-		# Begin first bounce.
-		bounce_to(bounce_position/2, -backup_height, bounce_time)
+		# Begin first bounce. Contains two tween processes, so next 
+		# animation index will be +2.
+		bounce_to(animated_sprite_node.position, bounce_position/2, -large_backup_height, large_bounce_count, large_bounce_time)
 	
-	
-	
+	# Smaller jumps, will have 2 jumps so animation index will be +4
+	elif current_animation_index == 3:
+		bounce_to(animated_sprite_node.position, bounce_position, -small_backup_height, small_bounce_count, small_bounce_time)
 	
 	# After final chunk, shake/hop. This is final animation
 	
@@ -111,11 +120,21 @@ func animate_vertically(delta_y, time_frame):
 	tween_node.interpolate_property(animated_sprite_node, 'position', current_position, go_to_position, time_frame, Tween.TRANS_QUAD, Tween.EASE_OUT)
 	tween_node.start()
 
-func bounce_to(bounce_pos, bounce_height, time_frame):
-	# Go to apex.
-	var current_position = animated_sprite_node.position
-	var jump_pos = Vector2(bounce_pos.x/2.0, bounce_pos.y/2.0 + bounce_height)
-	tween_node.interpolate_property(animated_sprite_node, 'position', current_position, jump_pos, time_frame/2.0, Tween.TRANS_QUAD, Tween.EASE_IN)
-	# Go to ground.
-	tween_node.interpolate_property(animated_sprite_node, 'position', jump_pos, bounce_pos, time_frame/2.0, Tween.TRANS_QUAD, Tween.EASE_OUT, time_frame/2.0)
+# Can bounce multiple times.
+func bounce_to(position, bounce_pos, bounce_height, number_of_bounces, time_frame):
+	var ending_jump_pos = position
+	var distance_vector_per_jump = (bounce_pos - position) / (2 * number_of_bounces)
+	var i = 0
+	while i < number_of_bounces*2:
+		var current_position = ending_jump_pos
+		var apex_jump_pos = Vector2(current_position.x + distance_vector_per_jump.x, current_position.y + distance_vector_per_jump.y + bounce_height)
+		ending_jump_pos = Vector2(apex_jump_pos.x + distance_vector_per_jump.x, apex_jump_pos.y + distance_vector_per_jump.y - bounce_height)
+		
+		print("current is " + str(current_position) + " and apex is " + str(apex_jump_pos) + " and ending is " + str(ending_jump_pos))
+		
+		# Go to apex.
+		tween_node.interpolate_property(animated_sprite_node, 'position', current_position, apex_jump_pos, time_frame/(2.0 * number_of_bounces), Tween.TRANS_QUAD, Tween.EASE_IN)
+		# Go to ground.
+		tween_node.interpolate_property(animated_sprite_node, 'position', apex_jump_pos, ending_jump_pos, time_frame/(2.0 * number_of_bounces), Tween.TRANS_QUAD, Tween.EASE_OUT, (time_frame/(2.0 * number_of_bounces)) * (1+i))
+		i += 2
 	tween_node.start()
