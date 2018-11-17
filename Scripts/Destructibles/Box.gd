@@ -13,19 +13,15 @@ func _ready():
 	
 func _physics_process(delta):
 	if(test_move(transform, Vector2(-1, 0))):
-		print("here")
 		velocity.x = 50
 	elif(test_move(transform, Vector2(1, 0))):
-		print("here")
 		velocity.x = -50
 	elif(test_move(transform, Vector2(0, -1))):
-		print("here")
 		velocity.y = 50
 	elif(test_move(transform, Vector2(0, 1))):
-		print("here")
 		velocity.y = -50
 	else:
-		velocity = velocity*.9
+		velocity = velocity*.5
 	
 	move_and_slide(velocity)
 
@@ -42,7 +38,7 @@ func collisionDetected(colliding_object):
 			var scene = load("res://Scenes/Artifacts/Stopwatch.tscn")
 			var scene_instance = scene.instance()
 			scene_instance.set_name("Stopwatch")
-			scene_instance.position = position
+			scene_instance.position = global_position
 			get_tree().get_root().add_child(scene_instance)
 			queue_free()
 	
