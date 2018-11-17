@@ -53,7 +53,7 @@ frames = SubResource( 1 )
 animation = "default"
 _sections_unfolded = [ "Transform" ]
 
-[node name="SearchingTween" type="Tween" parent="." index="1"]
+[node name="Tween" type="Tween" parent="." index="1"]
 
 repeat = false
 playback_process_mode = 1
@@ -63,11 +63,20 @@ playback/repeat = false
 playback/speed = 1.0
 _sections_unfolded = [ "playback" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+[node name="Charging Tween" type="Tween" parent="." index="2"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
 
 shape = SubResource( 2 )
 
-[node name="Begin Attack" type="Area2D" parent="." index="3"]
+[node name="Begin Attack" type="Area2D" parent="." index="4"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -82,7 +91,7 @@ audio_bus_name = "Master"
 
 shape = SubResource( 3 )
 
-[node name="Vision Field" type="Area2D" parent="." index="4"]
+[node name="Vision Field" type="Area2D" parent="." index="5"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -100,7 +109,7 @@ scale = Vector2( 6, 6 )
 shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="StateMachine" type="Node" parent="." index="5"]
+[node name="StateMachine" type="Node" parent="." index="6"]
 
 script = ExtResource( 3 )
 START_STATE = NodePath("Idling")
@@ -118,7 +127,7 @@ search_variable_time = 3.0
 script = ExtResource( 5 )
 collision_path = NodePath("../../CollisionShape2D")
 vision_path = NodePath("../../Vision Field")
-tween_path = NodePath("../../SearchingTween")
+tween_path = NodePath("../../Tween")
 animated_sprite_path = NodePath("../../AnimatedSprite")
 rotation_of_vision = 45
 rotation_of_character = 10
@@ -140,6 +149,10 @@ initial_node_path = NodePath("Readying")
 [node name="Readying" type="Node" parent="StateMachine/Charging" index="0"]
 
 script = ExtResource( 8 )
+tween_path = NodePath("../../../Charging Tween")
+animated_sprite_path = NodePath("../../../AnimatedSprite")
+jump_height = 40
+jump_time = 2
 
 [node name="Attacking" type="Node" parent="StateMachine/Charging" index="1"]
 
@@ -153,7 +166,7 @@ script = ExtResource( 10 )
 
 [node name="Dying" type="Node" parent="StateMachine" index="5"]
 
-[node name="Layer Control" parent="." index="6" instance=ExtResource( 11 )]
+[node name="Layer Control" parent="." index="7" instance=ExtResource( 11 )]
 
 position = Vector2( -64, -65 )
 
@@ -161,7 +174,7 @@ position = Vector2( -64, -65 )
 
 state_machine_path = NodePath("../../../StateMachine")
 
-[node name="Damage Value Spawner" parent="." index="7" instance=ExtResource( 12 )]
+[node name="Damage Value Spawner" parent="." index="8" instance=ExtResource( 12 )]
 
 animated_sprite_path = NodePath("../AnimatedSprite")
 

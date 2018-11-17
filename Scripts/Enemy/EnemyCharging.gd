@@ -16,6 +16,7 @@ func _ready():
 
 func enter(args):
 	current_state = get_node(initial_node_path)
+	current_state.enter(args)
 
 func update(delta):
 	current_state.update(delta)
