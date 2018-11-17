@@ -44,6 +44,7 @@ func collisionDetected(colliding_object):
 			scene_instance.set_name("Stopwatch")
 			scene_instance.position = position
 			get_tree().get_root().add_child(scene_instance)
+			#delete the box
 			queue_free()
 	
 
