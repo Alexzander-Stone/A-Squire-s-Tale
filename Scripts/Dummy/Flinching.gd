@@ -7,7 +7,7 @@ var timeToFlinch = 1
 
 export(NodePath) var dummy_path
 
-onready var dummy_node = get_node(player_path)
+onready var dummy_node = get_node(dummy_path)
 onready var dummy_animation_node = $"../../AnimationPlayer"
 
 func enter(args):

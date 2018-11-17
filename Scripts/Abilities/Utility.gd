@@ -1,23 +1,32 @@
 extends Area2D
 
-export(NodePath) var collision_path 
-var collision_node
+var default_damage = 10
+#base values, edit later
+var tickTimer = 1.0
+var currentTick = 1.0
+
+signal tickDamage
 
 func _ready():
-	collision_node = get_node(collision_path)
-	collision_node.connect("area_entered", self, "ObjectEntered")
-	collision_node.connect("area_exited", self, "ObjectExited")
+	self.connect("area_entered", self, "ObjectEntered")
+	self.connect("area_exited", self, "ObjectExited")
 
 func ObjectEntered(colliding_object):
-	pass
+	self.connect("tickDamage", colliding_object.owner, "take_damage")
 	
 func ObjectExited(colliding_object):
-	pass
+	self.disconnect("tickDamage", colliding_object.owner, "take_damage")
 	
 
 func _process(delta):
 	if !$"AnimationPlayer".is_playing():
 		queue_free()
+	else:
+		if(currentTick <= 0):
+			emit_signal("tickDamage", calculate_damage())
+			currentTick = tickTimer
+		else:
+			currentTick -= delta
 
 func play_animation(animation_to_play):
 	$"AnimationPlayer".play(animation_to_play)

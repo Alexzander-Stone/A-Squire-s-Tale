@@ -11,6 +11,11 @@
 [ext_resource path="res://Scenes/UI/DebugStateLabel.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/UI/Damage Value Spawner/Damage Value Spawner.tscn" type="PackedScene" id=10]
 
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
 [sub_resource type="Animation" id=1]
 
 resource_name = "Default"
@@ -86,12 +91,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="RectangleShape2D" id=5]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
-
-[node name="Dummy" type="KinematicBody2D" index="0"]
+[node name="Dummy" type="KinematicBody2D"]
 
 position = Vector2( -3.60309, 4.0691 )
 scale = Vector2( 0.918653, 1.09591 )
@@ -102,7 +102,14 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 max_health = 100
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+[node name="Collision Box" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( -6.96336, 60.1609 )
+scale = Vector2( 2.51204, 2.85979 )
+shape = SubResource( 5 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -114,13 +121,11 @@ anims/Flinching = SubResource( 2 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
-[node name="SFX_Player" parent="." index="1" instance=ExtResource( 2 )]
+[node name="SFX_Player" parent="." index="2" instance=ExtResource( 2 )]
 
 state_machine_path = NodePath("../DummyStateMachine")
 
-[node name="Full Sprite" type="Node2D" parent="." index="2"]
-
-editor/display_folded = true
+[node name="Full Sprite" type="Node2D" parent="." index="3"]
 
 [node name="Sprite" type="Sprite" parent="Full Sprite" index="0"]
 
@@ -156,13 +161,6 @@ _sections_unfolded = [ "Collision", "Visibility" ]
 position = Vector2( -3.55387, 3.71279 )
 scale = Vector2( 2.92287, 3.08602 )
 shape = SubResource( 4 )
-_sections_unfolded = [ "Visibility" ]
-
-[node name="Collision Box" type="CollisionShape2D" parent="." index="3"]
-
-position = Vector2( -6.96336, 60.1609 )
-scale = Vector2( 2.51204, 2.85979 )
-shape = SubResource( 5 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="DummyStateMachine" type="Node" parent="." index="4"]
