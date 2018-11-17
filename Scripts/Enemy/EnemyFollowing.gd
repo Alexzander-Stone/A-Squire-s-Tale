@@ -44,7 +44,7 @@ func update(delta):
 	
 	# Update the rotation of the vision cone to "follow" player.
 	# This value will be constantly updated, unlike the player movement. Helps with vision tracking.
-	var vision_direction = (player_to_follow.owner.position - owner.position).normalized()
+	var vision_direction = (player_to_follow.position - owner.position).normalized()
 	# Changes godot angle to trig angle.
 	var vision_angle = rad2deg(vision_direction.angle()) - 90
 	vision_node.rotation_degrees = vision_angle
@@ -54,7 +54,7 @@ func begin_following(player_object):
 	player_to_follow = player_object
 	
 	# Record player's current coordinates upon entering.
-	perceived_player_position = player_to_follow.owner.position
+	perceived_player_position = player_to_follow.position
 	
 	# Set up the enemy's velocity.
 	velocity = calculate_velocity_based_on(perceived_player_position)
@@ -62,8 +62,8 @@ func begin_following(player_object):
 	owner.move_and_slide(velocity)
 
 func begin_charging(collided_object):
-	if collided_object == player_to_follow:
-		emit_signal("finished", "charging", [])
+	if collided_object.owner == player_to_follow:
+		emit_signal("finished", "charging", [player_to_follow.position])
 
 func calculate_velocity_based_on(object_position):
 	return (object_position - owner.position).clamped(max_velocity_magnitude) * speed_multiplier

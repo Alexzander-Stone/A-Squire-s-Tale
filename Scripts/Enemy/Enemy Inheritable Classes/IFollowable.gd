@@ -26,4 +26,4 @@ func check_if_player(collided_object):
 	
 	# Verify that the current state is active before moving to the following state.
 	if collided_object.owner.name == "Player":
-		emit_signal("finished", "following", [collided_object])
+		emit_signal("finished", "following", [collided_object.owner])

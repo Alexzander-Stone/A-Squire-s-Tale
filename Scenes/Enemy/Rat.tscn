@@ -38,7 +38,7 @@ extents = Vector2( 75, 75 )
 custom_solver_bias = 0.0
 points = PoolVector2Array( -5, 0, 5, 0, 30, 20, 0, 40, -30, 20 )
 
-[node name="Rat" type="KinematicBody2D" index="0"]
+[node name="Rat" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -95,6 +95,7 @@ angular_damp = 1.0
 monitorable = false
 audio_bus_override = false
 audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Begin Attack" index="0"]
 
@@ -174,6 +175,7 @@ small_bounce_count = 2.0
 [node name="Attacking" type="Node" parent="StateMachine/Charging" index="1"]
 
 script = ExtResource( 10 )
+minimum_charge_length = 10
 
 [node name="Ending" type="Node" parent="StateMachine/Charging" index="2"]
 
