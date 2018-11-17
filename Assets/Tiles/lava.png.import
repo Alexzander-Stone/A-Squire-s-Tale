@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grass.png-46bb554aade75a091da98570239d1507.stex"
+path="res://.import/lava.png-2aabd6d8043d915297bb6644d02de165.stex"
 
 [deps]
 
-source_file="res://Assets/grass.png"
-dest_files=[ "res://.import/grass.png-46bb554aade75a091da98570239d1507.stex" ]
+source_file="res://Assets/Tiles/lava.png"
+dest_files=[ "res://.import/lava.png-2aabd6d8043d915297bb6644d02de165.stex" ]
 
 [params]
 

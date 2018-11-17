@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lava.png-c8b565333b329f49ed1d7191d5120409.stex"
+path="res://.import/sand.png-491f1d81cf50b2c0452dd89085271724.stex"
 
 [deps]
 
-source_file="res://Assets/lava.png"
-dest_files=[ "res://.import/lava.png-c8b565333b329f49ed1d7191d5120409.stex" ]
+source_file="res://Assets/Tiles/sand.png"
+dest_files=[ "res://.import/sand.png-491f1d81cf50b2c0452dd89085271724.stex" ]
 
 [params]
 

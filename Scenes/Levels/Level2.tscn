@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Environment/Tilesets/Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/SceneTransitionBox/SceneTransitionBox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/NPC/NPC.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Dummy/Dummy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Destructibles/Box.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Destructibles/Pot.tscn" type="PackedScene" id=6]
 
 [node name="Level2" type="Node2D"]
 
@@ -25,7 +27,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -1, 10, 65537, -65536, 10, 4, -65535, 10, 4, -65534, 10, 327686, 65535, 10, 262144, 0, 10, 131076, 1, 10, 65540, 2, 10, 65541, 3, 10, 4, 4, 10, 4, 5, 10, 4, 6, 10, 327686, 131071, 10, 262144, 65536, 10, 131076, 65537, 10, 262145, 65538, 10, 131077, 65539, 10, 196611, 65540, 10, 196611, 65541, 10, 327681, 65542, 10, 262146, 196607, 10, 393221, 131072, 10, 196611, 131073, 10, 196611, 131074, 10, 393222, 131077, 10, 262144, 131078, 10, 262146, 196613, 10, 262144, 196614, 10, 262146, 262144, 10, 65537, 262145, 10, 4, 262146, 10, 327686, 262149, 10, 262144, 262150, 10, 262146, 327680, 10, 262144, 327681, 10, 131076, 327682, 10, 65541, 327683, 10, 4, 327684, 10, 4, 327685, 10, 131075, 327686, 10, 262146, 393216, 10, 262144, 393217, 10, 131076, 393218, 10, 131077, 393219, 10, 196611, 393220, 10, 196611, 393221, 10, 196611, 393222, 10, 393222, 458752, 10, 393221, 458753, 10, 196611, 458754, 10, 393222 )
+tile_data = PoolIntArray( -65538, 12, 0, -65537, 12, 0, -131072, 12, 0, -131071, 12, 0, -131070, 12, 0, -131069, 12, 0, -131068, 12, 0, -131067, 12, 0, -131066, 12, 0, -131065, 12, 0, -2, 12, 0, -1, 10, 65537, -65536, 10, 4, -65535, 10, 4, -65534, 10, 5, -65533, 10, 327684, -65532, 10, 327684, -65531, 10, 3, -65530, 10, 327686, -65529, 12, 0, 65534, 12, 0, 65535, 10, 262144, 0, 10, 262145, 1, 10, 65540, 2, 10, 262146, 3, 12, 0, 4, 12, 0, 5, 10, 262144, 6, 10, 262146, 7, 12, 0, 131070, 12, 0, 131071, 10, 262144, 65536, 10, 65540, 65537, 10, 131076, 65538, 10, 262146, 65539, 12, 0, 65540, 12, 0, 65541, 10, 262144, 65542, 10, 262146, 65543, 12, 0, 65544, 12, 0, 65545, 12, 0, 65546, 12, 0, 65547, 12, 0, 196606, 12, 0, 196607, 10, 393221, 131072, 10, 196611, 131073, 10, 196611, 131074, 10, 393222, 131075, 12, 0, 131076, 12, 0, 131077, 10, 262144, 131078, 10, 262146, 131079, 12, 0, 131080, 12, 0, 131081, 10, 65537, 131082, 10, 327686, 131083, 12, 0, 262142, 12, 0, 262143, 12, 0, 196608, 12, 0, 196609, 12, 0, 196610, 12, 0, 196611, 12, 0, 196612, 10, 1, 196613, 10, 65539, 196614, 10, 327682, 196615, 10, 327684, 196616, 10, 327684, 196617, 10, 65539, 196618, 10, 262146, 196619, 12, 0, 327679, 12, 0, 262144, 10, 65537, 262145, 10, 4, 262146, 10, 327686, 262147, 12, 0, 262148, 12, 0, 262149, 10, 262144, 262150, 10, 262146, 262151, 12, 0, 262152, 12, 0, 262153, 10, 393221, 262154, 10, 393222, 262155, 12, 0, 393215, 12, 0, 327680, 10, 262144, 327681, 10, 131076, 327682, 10, 65541, 327683, 10, 4, 327684, 10, 4, 327685, 10, 131075, 327686, 10, 262146, 327687, 12, 0, 327688, 12, 0, 327689, 12, 0, 327690, 12, 0, 327691, 12, 0, 458751, 12, 0, 393216, 10, 262144, 393217, 10, 131076, 393218, 10, 131077, 393219, 10, 196611, 393220, 10, 196611, 393221, 10, 196611, 393222, 10, 393222, 393223, 12, 0, 524287, 12, 0, 458752, 10, 393221, 458753, 10, 196611, 458754, 10, 393222, 458755, 12, 0, 458756, 12, 0, 458757, 12, 0, 458758, 12, 0, 458759, 12, 0, 589823, 12, 0, 524288, 12, 0, 524289, 12, 0, 524290, 12, 0, 524291, 12, 0 )
 _sections_unfolded = [ "Cell" ]
 
 [node name="SceneTransitionBox" parent="." index="1" instance=ExtResource( 2 )]
@@ -35,12 +37,66 @@ to_scene = "res://Scenes/Levels/Level3.tscn"
 
 [node name="NPC" parent="." index="2" instance=ExtResource( 3 )]
 
-position = Vector2( 298.854, 397.755 )
+position = Vector2( 581.464, 313.404 )
 
 [node name="Dummy" parent="." index="3" instance=ExtResource( 4 )]
 
+position = Vector2( 247.95, 72.87 )
+
 [node name="Player_Start_Loc" type="Node2D" parent="." index="4"]
 
-position = Vector2( 281.654, 563.308 )
+position = Vector2( 247.947, 304.426 )
+
+[node name="Box" parent="." index="5" instance=ExtResource( 5 )]
+
+position = Vector2( 2561.25, 746.638 )
+
+[node name="Box2" parent="." index="6" instance=ExtResource( 6 )]
+
+position = Vector2( 2736.72, 1132.16 )
+
+[node name="Box3" parent="." index="7" instance=ExtResource( 6 )]
+
+position = Vector2( 2651.65, 1180.15 )
+
+[node name="Box4" parent="." index="8" instance=ExtResource( 6 )]
+
+position = Vector2( 113.774, 1868.91 )
+
+[node name="Box5" parent="." index="9" instance=ExtResource( 6 )]
+
+position = Vector2( 397.671, 1153.75 )
+
+[node name="Box6" parent="." index="10" instance=ExtResource( 6 )]
+
+position = Vector2( 632.333, 641.184 )
+
+[node name="Box7" parent="." index="11" instance=ExtResource( 6 )]
+
+position = Vector2( -130.856, 614.138 )
+
+[node name="Box8" parent="." index="12" instance=ExtResource( 6 )]
+
+position = Vector2( -25.0691, 637.04 )
+
+[node name="Box9" parent="." index="13" instance=ExtResource( 6 )]
+
+position = Vector2( -78.5076, 519.257 )
+
+[node name="Box10" parent="." index="14" instance=ExtResource( 6 )]
+
+position = Vector2( -14.7683, -121.786 )
+
+[node name="Box11" parent="." index="15" instance=ExtResource( 6 )]
+
+position = Vector2( 1714.47, 514.272 )
+
+[node name="Box12" parent="." index="16" instance=ExtResource( 6 )]
+
+position = Vector2( 1365.35, 1200.91 )
+
+[node name="Box13" parent="." index="17" instance=ExtResource( 6 )]
+
+position = Vector2( 643.347, 1939.08 )
 
 

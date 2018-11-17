@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sand.png-597945792daa4a3e4d236cbbed214b18.stex"
+path="res://.import/rock_wall.png-16915d3464f14bae4007deec3ab8713f.stex"
 
 [deps]
 
-source_file="res://Assets/sand.png"
-dest_files=[ "res://.import/sand.png-597945792daa4a3e4d236cbbed214b18.stex" ]
+source_file="res://Assets/Tiles/rock_wall.png"
+dest_files=[ "res://.import/rock_wall.png-16915d3464f14bae4007deec3ab8713f.stex" ]
 
 [params]
 
