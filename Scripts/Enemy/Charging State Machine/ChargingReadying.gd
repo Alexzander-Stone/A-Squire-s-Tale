@@ -33,16 +33,16 @@ export(NodePath) var raycast_path
 onready var raycast_node = get_node(raycast_path)
 
 export(int) var jump_height = 40
-export(float) var jump_time = 2
+export(float) var jump_time = 1
 
-export(int) var backup_length = 500
+export(int) var backup_length = 250
 
 export(float) var large_backup_height = 20
 export(float) var large_bounce_time = 1
 export(float) var large_bounce_count = 1.0
 
 export(float) var small_backup_height = 10
-export(float) var small_bounce_time = 2
+export(float) var small_bounce_time = 1
 export(float) var small_bounce_count = 2.0
 
 # Direction will always be normalized
@@ -131,7 +131,6 @@ func bounce_to(position, bounce_pos, bounce_height, number_of_bounces, time_fram
 		var apex_jump_pos = Vector2(current_position.x + distance_vector_per_jump.x, current_position.y + distance_vector_per_jump.y + bounce_height)
 		ending_jump_pos = Vector2(apex_jump_pos.x + distance_vector_per_jump.x, apex_jump_pos.y + distance_vector_per_jump.y - bounce_height)
 		
-		print("current is " + str(current_position) + " and apex is " + str(apex_jump_pos) + " and ending is " + str(ending_jump_pos))
 		print((time_frame/(2.0 * number_of_bounces)) * (i+1))
 		# Go to apex.
 		tween_node.interpolate_property(animated_sprite_node, 'position', current_position, apex_jump_pos, time_frame/(2.0 * number_of_bounces), Tween.TRANS_QUAD, Tween.EASE_IN, (time_frame/(2.0 * number_of_bounces)) * i)

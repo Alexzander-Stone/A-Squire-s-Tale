@@ -38,7 +38,7 @@ extents = Vector2( 75, 75 )
 custom_solver_bias = 0.0
 points = PoolVector2Array( -5, 0, 5, 0, 30, 20, 0, 40, -30, 20 )
 
-[node name="Rat" type="KinematicBody2D"]
+[node name="Rat" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -162,14 +162,14 @@ tween_path = NodePath("../../../Charging Tween")
 animated_sprite_path = NodePath("../../../AnimatedSprite")
 raycast_path = NodePath("../../../Jumping RayCast2D")
 jump_height = 40
-jump_time = 2
-backup_length = 500
+jump_time = 1
+backup_length = 250
 large_backup_height = 20
 large_bounce_time = 1
-large_bounce_count = 1
+large_bounce_count = 1.0
 small_backup_height = 10
-small_bounce_time = 2
-small_bounce_count = 2
+small_bounce_time = 1
+small_bounce_count = 2.0
 
 [node name="Attacking" type="Node" parent="StateMachine/Charging" index="1"]
 
