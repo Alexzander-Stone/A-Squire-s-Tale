@@ -1,17 +1,18 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Enemy/Rat.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Enemy/darkfalco.png" type="Texture" id=2]
-[ext_resource path="res://Scripts/Enemy/EnemyStateMachine.gd" type="Script" id=3]
-[ext_resource path="res://Scripts/Enemy/EnemyIdling.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/Enemy/EnemySearching.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/Enemy/EnemyFollowing.gd" type="Script" id=6]
-[ext_resource path="res://Scripts/Enemy/EnemyCharging.gd" type="Script" id=7]
-[ext_resource path="res://Scripts/Enemy/Charging State Machine/ChargingReadying.gd" type="Script" id=8]
-[ext_resource path="res://Scripts/Enemy/Charging State Machine/ChargingAttacking.gd" type="Script" id=9]
-[ext_resource path="res://Scripts/Enemy/Charging State Machine/ChargingEnding.gd" type="Script" id=10]
-[ext_resource path="res://Scenes/UI/DebugStateLabel.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/UI/Damage Value Spawner/Damage Value Spawner.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scripts/Enemy/Charging State Machine/IgnoreList Jumping RayCast2D.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Enemy/EnemyStateMachine.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Enemy/EnemyIdling.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Enemy/EnemySearching.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Enemy/EnemyFollowing.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/Enemy/EnemyCharging.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Enemy/Charging State Machine/ChargingReadying.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/Enemy/Charging State Machine/ChargingAttacking.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/Enemy/Charging State Machine/ChargingEnding.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/UI/DebugStateLabel.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/UI/Damage Value Spawner/Damage Value Spawner.tscn" type="PackedScene" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -37,21 +38,20 @@ extents = Vector2( 75, 75 )
 custom_solver_bias = 0.0
 points = PoolVector2Array( -5, 0, 5, 0, 30, 20, 0, 40, -30, 20 )
 
-[node name="Rat" type="KinematicBody2D" index="0"]
+[node name="Rat" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
 animation = "default"
-_sections_unfolded = [ "Transform" ]
 
 [node name="Tween" type="Tween" parent="." index="1"]
 
@@ -78,6 +78,8 @@ enabled = true
 exclude_parent = true
 cast_to = Vector2( 0, 50 )
 collision_mask = 1
+script = ExtResource( 3 )
+exception_paths = [ NodePath("../Begin Attack"), NodePath("../Vision Field") ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
 
@@ -108,7 +110,7 @@ angular_damp = 1.0
 monitorable = false
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Transform", "Z Index" ]
+_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision Field" index="0"]
 
@@ -118,12 +120,12 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="StateMachine" type="Node" parent="." index="7"]
 
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 START_STATE = NodePath("Idling")
 
 [node name="Idling" type="Node" parent="StateMachine" index="0"]
 
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 collision_path = NodePath("../../CollisionShape2D")
 vision_path = NodePath("../../Vision Field")
 base_time_until_search = 1.0
@@ -131,7 +133,7 @@ search_variable_time = 3.0
 
 [node name="Searching" type="Node" parent="StateMachine" index="1"]
 
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 collision_path = NodePath("../../CollisionShape2D")
 vision_path = NodePath("../../Vision Field")
 tween_path = NodePath("../../Tween")
@@ -141,7 +143,7 @@ rotation_of_character = 10
 
 [node name="Following" type="Node" parent="StateMachine" index="2"]
 
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 collision_path = NodePath("../../CollisionShape2D")
 vision_path = NodePath("../../Vision Field")
 attack_begin_collision_path = NodePath("../../Begin Attack")
@@ -150,32 +152,34 @@ speed_multiplier = 2.0
 
 [node name="Charging" type="Node" parent="StateMachine" index="3"]
 
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 initial_node_path = NodePath("Readying")
 
 [node name="Readying" type="Node" parent="StateMachine/Charging" index="0"]
 
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 tween_path = NodePath("../../../Charging Tween")
 animated_sprite_path = NodePath("../../../AnimatedSprite")
 raycast_path = NodePath("../../../Jumping RayCast2D")
 jump_height = 40
 jump_time = 2
 backup_length = 500
+backup_height = 20
+bounce_time = 1
 
 [node name="Attacking" type="Node" parent="StateMachine/Charging" index="1"]
 
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 
 [node name="Ending" type="Node" parent="StateMachine/Charging" index="2"]
 
-script = ExtResource( 10 )
+script = ExtResource( 11 )
 
 [node name="Taking Damage" type="Node" parent="StateMachine" index="4"]
 
 [node name="Dying" type="Node" parent="StateMachine" index="5"]
 
-[node name="Layer Control" parent="." index="8" instance=ExtResource( 11 )]
+[node name="Layer Control" parent="." index="8" instance=ExtResource( 12 )]
 
 position = Vector2( -64, -65 )
 
@@ -183,7 +187,7 @@ position = Vector2( -64, -65 )
 
 state_machine_path = NodePath("../../../StateMachine")
 
-[node name="Damage Value Spawner" parent="." index="9" instance=ExtResource( 12 )]
+[node name="Damage Value Spawner" parent="." index="9" instance=ExtResource( 13 )]
 
 animated_sprite_path = NodePath("../AnimatedSprite")
 
