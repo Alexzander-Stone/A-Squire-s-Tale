@@ -57,7 +57,6 @@ var bounce_position
 
 # args[0] = player's perceived position.
 func enter(args):
-	print(owner.position)
 	# Record player position.
 	player_position = args[0]
 	direction_to_player = (player_position - owner.position).normalized()
@@ -101,20 +100,21 @@ func animation_transitions(tween_object, inspector_key):
 		if raycast_node.is_colliding():
 			# Returns collision shape that we are colliding with.
 			bounce_position = raycast_node.get_collision_point()
-			raycasted_target = animated_sprite_node.position - bounce_position
+		# Determine how far to charge.
+		raycasted_target = owner.position - bounce_position
 		# Begin first bounce. Contains two tween processes, so next 
 		# animation index will be +2.
-		bounce_to(animated_sprite_node.position, bounce_position/2, -large_backup_height, large_bounce_count, large_bounce_time)
+		bounce_to(owner.position, bounce_position/2, -large_backup_height, large_bounce_count, large_bounce_time)
 	
 	# Smaller jumps, will have 2 jumps so animation index will be +4
 	elif current_animation_index == 3:
-		bounce_to(animated_sprite_node.position, bounce_position, -small_backup_height, small_bounce_count, small_bounce_time)
+		bounce_to(owner.position, bounce_position, -small_backup_height, small_bounce_count, small_bounce_time)
 	
 	# After final chunk, shake/hop. This is final animation
 	
 	# Check to see if final animation has ended, then charge.
 	elif current_animation_index == 7:
-		print("final pos is " + str(owner.position) + " and raycasted target is " + str(raycasted_target))
+		print(raycasted_target)
 		emit_signal("finished", "attacking", [player_position, raycasted_target])
 	
 	# Update animation index.
@@ -142,8 +142,8 @@ func bounce_to(position, bounce_pos, bounce_height, number_of_bounces, time_fram
 		ending_jump_pos = Vector2(apex_jump_pos.x + distance_vector_per_jump.x, apex_jump_pos.y + distance_vector_per_jump.y - bounce_height)
 		
 		# Go to apex.
-		tween_node.interpolate_property(animated_sprite_node, 'position', current_position, apex_jump_pos, time_frame/(2.0 * number_of_bounces), Tween.TRANS_QUAD, Tween.EASE_IN, (time_frame/(2.0 * number_of_bounces)) * i)
+		tween_node.interpolate_property(animated_sprite_node.owner, 'position', current_position, apex_jump_pos, time_frame/(2.0 * number_of_bounces), Tween.TRANS_QUAD, Tween.EASE_IN, (time_frame/(2.0 * number_of_bounces)) * i)
 		# Go to ground.
-		tween_node.interpolate_property(animated_sprite_node, 'position', apex_jump_pos, ending_jump_pos, time_frame/(2.0 * number_of_bounces), Tween.TRANS_QUAD, Tween.EASE_OUT, (time_frame/(2.0 * number_of_bounces)) * (1+i))
+		tween_node.interpolate_property(animated_sprite_node.owner, 'position', apex_jump_pos, ending_jump_pos, time_frame/(2.0 * number_of_bounces), Tween.TRANS_QUAD, Tween.EASE_OUT, (time_frame/(2.0 * number_of_bounces)) * (1+i))
 		i += 2
 	tween_node.start()
