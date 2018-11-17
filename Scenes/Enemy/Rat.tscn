@@ -72,11 +72,18 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+[node name="Jumping RayCast2D" type="RayCast2D" parent="." index="3"]
+
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 50 )
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
 
 shape = SubResource( 2 )
 
-[node name="Begin Attack" type="Area2D" parent="." index="4"]
+[node name="Begin Attack" type="Area2D" parent="." index="5"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -91,7 +98,7 @@ audio_bus_name = "Master"
 
 shape = SubResource( 3 )
 
-[node name="Vision Field" type="Area2D" parent="." index="5"]
+[node name="Vision Field" type="Area2D" parent="." index="6"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -109,7 +116,7 @@ scale = Vector2( 6, 6 )
 shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="StateMachine" type="Node" parent="." index="6"]
+[node name="StateMachine" type="Node" parent="." index="7"]
 
 script = ExtResource( 3 )
 START_STATE = NodePath("Idling")
@@ -151,8 +158,10 @@ initial_node_path = NodePath("Readying")
 script = ExtResource( 8 )
 tween_path = NodePath("../../../Charging Tween")
 animated_sprite_path = NodePath("../../../AnimatedSprite")
+raycast_path = NodePath("../../../Jumping RayCast2D")
 jump_height = 40
 jump_time = 2
+backup_length = 500
 
 [node name="Attacking" type="Node" parent="StateMachine/Charging" index="1"]
 
@@ -166,7 +175,7 @@ script = ExtResource( 10 )
 
 [node name="Dying" type="Node" parent="StateMachine" index="5"]
 
-[node name="Layer Control" parent="." index="7" instance=ExtResource( 11 )]
+[node name="Layer Control" parent="." index="8" instance=ExtResource( 11 )]
 
 position = Vector2( -64, -65 )
 
@@ -174,7 +183,7 @@ position = Vector2( -64, -65 )
 
 state_machine_path = NodePath("../../../StateMachine")
 
-[node name="Damage Value Spawner" parent="." index="8" instance=ExtResource( 12 )]
+[node name="Damage Value Spawner" parent="." index="9" instance=ExtResource( 12 )]
 
 animated_sprite_path = NodePath("../AnimatedSprite")
 

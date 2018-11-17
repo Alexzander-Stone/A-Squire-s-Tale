@@ -24,10 +24,15 @@ onready var tween_node = get_node(tween_path)
 export(NodePath) var animated_sprite_path
 onready var animated_sprite_node = get_node(animated_sprite_path)
 
+export(NodePath) var raycast_path
+onready var raycast_node = get_node(raycast_path)
+
 export(int) var jump_height = 40
 export(float) var jump_time = 2
+export(int) var backup_length = 500
 
-var direction = Vector2(1,1)
+# Direction will always be normalized
+var direction = Vector2(0.5,0.5)
 
 var current_animation_index = 0
 
@@ -54,6 +59,25 @@ func animation_transitions(tween_object, inspector_key):
 		animate_vertically(jump_height, jump_time/2.0)
 	
 	# Jumping animation collection has finished, begin backing up.
+	# Calculate how far to back up and the portion that each bounce gets.
+	# Find this by using the the vector opposite to our direction.
+	elif current_animation_index == 1:
+		var bounce_direction = -direction
+		var bounce_length = backup_length
+		# Check to see a raycast in the bounce direction would end up in
+		# a wall, if so find the closest position to bounce towards.
+		var bounce_position = bounce_direction * bounce_length
+		raycast_node.set_cast_to(bounce_position)
+		
+		raycast_node.force_raycast_update()
+		
+		if raycast_node.is_colliding():
+			# Returns collision shape that we are colliding with.
+			bounce_position = raycast_node.get_collision_point()
+			
+			print("found wall")
+		
+		print("we are at " + str(owner.position) + " and final bounce position is " + str(bounce_position))
 	
 	# Bounce back in 3 chunks.
 	
