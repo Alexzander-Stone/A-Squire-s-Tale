@@ -7,11 +7,11 @@ extends Node
 ##
 #Replace using JSON file.
 ##
-onready var primary_spawner = preload("res://Scenes/Attack/Attack.tscn")
-onready var secondary_spawner = preload("res://Scenes/Attack/Utility.tscn")
+onready var primary_spawner = preload("res://Scenes/Attack/BasicHammerAttack.tscn")
+onready var secondary_spawner = preload("res://Scenes/Attack/ShockwaveAttack.tscn")
 # Placeholders
-onready var ternary_spawner = preload("res://Scenes/Attack/Attack.tscn")
-onready var super_spawner = preload("res://Scenes/Attack/Attack.tscn")
+onready var ternary_spawner = preload("res://Scenes/Attack/BasicHammerAttack.tscn")
+onready var super_spawner = preload("res://Scenes/Attack/MovingHammerAttack.tscn")
 
 export(int) var primary_length = 1
 export(int) var secondary_length = 1

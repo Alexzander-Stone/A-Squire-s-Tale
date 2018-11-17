@@ -1,7 +1,19 @@
 extends Area2D
 
-var default_damage = 10
-export(bool) var follow_player = false
+export(NodePath) var collision_path 
+var collision_node
+
+func _ready():
+	collision_node = get_node(collision_path)
+	collision_node.connect("area_entered", self, "ObjectEntered")
+	collision_node.connect("area_exited", self, "ObjectExited")
+
+func ObjectEntered(colliding_object):
+	pass
+	
+func ObjectExited(colliding_object):
+	pass
+	
 
 func _process(delta):
 	if !$"AnimationPlayer".is_playing():

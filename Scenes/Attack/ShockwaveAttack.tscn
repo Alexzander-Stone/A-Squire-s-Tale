@@ -94,7 +94,7 @@ _sections_unfolded = [ "Collision", "Transform", "Visibility" ]
 __meta__ = {
 "_edit_group_": true
 }
-follow_player = false
+collision_path = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 

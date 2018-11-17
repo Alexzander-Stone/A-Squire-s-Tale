@@ -60,12 +60,12 @@ func enter(args):
 				casting_animation_timer = float(abilities_node.craftable_abilities_dict[ability_key]["casting_timer"]);
 		
 		#receive input for primary ability (number 1)
-		#add condition checking for cooldown
 		elif(args[0] == 1 && cooldown_node.primary_cooldown_timer <= 0):
 			var animation_to_play = dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))]
 			emit_signal("primary_used", animation_to_play)
-			# Get casting_animation_timer from Abilities node.
 			casting_animation_timer = abilities_node.primary_length;
+		
+		#receive input for secondary ability (number 2)
 		elif(args[0] == 2 && cooldown_node.secondary_cooldown_timer <= 0):
 			var animation_to_play = dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))]
 			emit_signal("secondary_used", animation_to_play)
@@ -74,6 +74,7 @@ func enter(args):
 			
 			# Get casting_animation_timer from Abilities node.
 			casting_animation_timer = abilities_node.secondary_length;
+			
 		else:
 			print("no casting")
 			emit_signal("finished", "idling", [])

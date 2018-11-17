@@ -12,19 +12,15 @@ func _ready():
 
 func _physics_process(delta):
 	if(test_move(transform, Vector2(-1, 0))):
-		print("here")
 		velocity.x = 50
 	elif(test_move(transform, Vector2(1, 0))):
-		print("here")
 		velocity.x = -50
 	elif(test_move(transform, Vector2(0, -1))):
-		print("here")
 		velocity.y = 50
 	elif(test_move(transform, Vector2(0, 1))):
-		print("here")
 		velocity.y = -50
 	else:
-		velocity = velocity*.9
+		velocity = velocity*.5
 	
 	move_and_slide(velocity)
 	

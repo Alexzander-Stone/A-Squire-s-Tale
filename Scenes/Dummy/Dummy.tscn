@@ -11,8 +11,6 @@
 [ext_resource path="res://Scenes/UI/DebugStateLabel.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/UI/Damage Value Spawner/Damage Value Spawner.tscn" type="PackedScene" id=10]
 
-
-
 [sub_resource type="Animation" id=1]
 
 resource_name = "Default"
@@ -93,7 +91,7 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Dummy" type="KinematicBody2D"]
+[node name="Dummy" type="KinematicBody2D" index="0"]
 
 position = Vector2( -3.60309, 4.0691 )
 scale = Vector2( 0.918653, 1.09591 )
@@ -140,7 +138,6 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Area2D" type="Area2D" parent="Full Sprite/AnimatedSprite" index="0"]
 
-visible = false
 position = Vector2( 3.85136, -2.43933 )
 scale = Vector2( 1.65783, 2.11463 )
 input_pickable = true
@@ -182,7 +179,7 @@ collision_path = NodePath("../../Full Sprite/AnimatedSprite/Area2D")
 
 script = ExtResource( 7 )
 collision_path = NodePath("../../Full Sprite/AnimatedSprite/Area2D")
-player_path = NodePath("../..")
+dummy_path = NodePath("../..")
 
 [node name="Dying" type="Node" parent="DummyStateMachine" index="2"]
 

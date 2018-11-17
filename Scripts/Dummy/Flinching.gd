@@ -5,14 +5,13 @@ extends "res://Scripts/Player/Movement States/Inheritable Classes/IFlinchable.gd
 var flinchTimer = 0
 var timeToFlinch = 1
 
-export(NodePath) var player_path
+export(NodePath) var dummy_path
 
-onready var player_node = get_node(player_path)
+onready var dummy_node = get_node(player_path)
 onready var dummy_animation_node = $"../../AnimationPlayer"
 
 func enter(args):
-	# Change player health.
-	player_node.take_damage(args[0])
+	dummy_node.take_damage(args[0])
 	#args is the damage value, use it to display, don't edit hp
 	dummy_animation_node.play("Flinching")
 	print("Dummy State: hit")
