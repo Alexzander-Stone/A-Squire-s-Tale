@@ -39,11 +39,11 @@ export(int) var backup_length = 500
 
 export(float) var large_backup_height = 20
 export(float) var large_bounce_time = 1
-export(int) var large_bounce_count = 1
+export(float) var large_bounce_count = 1.0
 
 export(float) var small_backup_height = 10
 export(float) var small_bounce_time = 2
-export(int) var small_bounce_count = 2
+export(float) var small_bounce_count = 2.0
 
 # Direction will always be normalized
 var direction = Vector2(-1,0)
@@ -123,7 +123,8 @@ func animate_vertically(delta_y, time_frame):
 # Can bounce multiple times.
 func bounce_to(position, bounce_pos, bounce_height, number_of_bounces, time_frame):
 	var ending_jump_pos = position
-	var distance_vector_per_jump = (bounce_pos - position) / (2 * number_of_bounces)
+	var distance_vector_per_jump = (bounce_pos - position) / (2.0 * number_of_bounces)
+	print(str(distance_vector_per_jump) + " is for number of bounces = " + str(number_of_bounces))
 	var i = 0
 	while i < number_of_bounces*2:
 		var current_position = ending_jump_pos
@@ -131,9 +132,9 @@ func bounce_to(position, bounce_pos, bounce_height, number_of_bounces, time_fram
 		ending_jump_pos = Vector2(apex_jump_pos.x + distance_vector_per_jump.x, apex_jump_pos.y + distance_vector_per_jump.y - bounce_height)
 		
 		print("current is " + str(current_position) + " and apex is " + str(apex_jump_pos) + " and ending is " + str(ending_jump_pos))
-		
+		print((time_frame/(2.0 * number_of_bounces)) * (i+1))
 		# Go to apex.
-		tween_node.interpolate_property(animated_sprite_node, 'position', current_position, apex_jump_pos, time_frame/(2.0 * number_of_bounces), Tween.TRANS_QUAD, Tween.EASE_IN)
+		tween_node.interpolate_property(animated_sprite_node, 'position', current_position, apex_jump_pos, time_frame/(2.0 * number_of_bounces), Tween.TRANS_QUAD, Tween.EASE_IN, (time_frame/(2.0 * number_of_bounces)) * i)
 		# Go to ground.
 		tween_node.interpolate_property(animated_sprite_node, 'position', apex_jump_pos, ending_jump_pos, time_frame/(2.0 * number_of_bounces), Tween.TRANS_QUAD, Tween.EASE_OUT, (time_frame/(2.0 * number_of_bounces)) * (1+i))
 		i += 2
