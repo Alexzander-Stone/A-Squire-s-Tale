@@ -59,9 +59,8 @@ func update(delta):
 		leftover_charge_vector -= (owner.position - previous_position).abs()
 
 func end_charge(collided_object):
-	print("hello")
 	##
 	#Change to player group. Can also include walls.
 	##
 	#if collided_object.name == "Player":
-	emit_signal("finished", "ending", [])
+	emit_signal("finished", "ending", [charge_vector])

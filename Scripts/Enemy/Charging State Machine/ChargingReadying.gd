@@ -113,7 +113,7 @@ func animation_transitions(tween_object, inspector_key):
 	
 	# Smaller jumps, will have 2 jumps so animation index will be +4
 	elif current_animation_index == 4:
-		bounce_to(owner.position, bounce_position, -small_backup_height, small_bounce_count, small_bounce_time)
+		bounce_to(owner.position, bounce_position * (1.0/3.0), -small_backup_height, small_bounce_count, small_bounce_time)
 	
 	# After final chunk, shake/hop. This is final animation
 	

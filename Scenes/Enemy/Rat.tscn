@@ -51,7 +51,7 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "collision" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
@@ -83,7 +83,7 @@ playback/speed = 1.0
 enabled = true
 exclude_parent = true
 cast_to = Vector2( 0, 50 )
-collision_mask = 0
+collision_mask = 1
 script = ExtResource( 3 )
 exception_paths = [ NodePath("../Begin Attack"), NodePath("../Vision Field"), NodePath("../Charging Attack") ]
 
@@ -204,6 +204,10 @@ minimum_charge_length = 10
 [node name="Ending" type="Node" parent="StateMachine/Charging" index="2"]
 
 script = ExtResource( 12 )
+tween_path = NodePath("../../../Charging Tween")
+bounce_height = 10
+number_of_bounces = 3
+animation_time = 0.5
 
 [node name="Taking Damage" type="Node" parent="StateMachine" index="4"]
 

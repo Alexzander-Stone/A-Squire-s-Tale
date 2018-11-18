@@ -5,6 +5,11 @@ var collision_node
 
 func _ready():
 	collision_node = get_node(collision_path)
+
+func enter(args):
+	collision_node.connect("area_entered", self, "collisionDetected")
+
+func exit():
 	collision_node.connect("area_entered", self, "collisionDetected")
 
 # void beginFlinch

@@ -15,6 +15,7 @@ func enter(args):
 
 func exit():
 	runTimer = timeToRun
+	.exit()
 
 func update(delta):
 	# Has player began casting?
