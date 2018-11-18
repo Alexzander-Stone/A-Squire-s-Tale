@@ -10,7 +10,7 @@ extends Node
 onready var primary_spawner = preload("res://Scenes/Attack/BasicHammerAttack.tscn")
 onready var secondary_spawner = preload("res://Scenes/Attack/ShockwaveAttack.tscn")
 # Placeholders
-onready var ternary_spawner = preload("res://Scenes/Attack/BasicHammerAttack.tscn")
+onready var ternary_spawner = preload("res://Scenes/Attack/Warcry.tscn")
 onready var super_spawner = preload("res://Scenes/Attack/MovingHammerAttack.tscn")
 
 export(int) var primary_length = 1

@@ -41,9 +41,12 @@ func take_damage(damage):
 	emit_signal("damaged", damage)
 
 #routing signals to stats script
-func addArtifact(args):
-	$"Stats".addArtifact(args)
+func addArtifact(artifact):
+	$"Stats".addArtifact(artifact)
+	
+func addStatusEffect(status):
+	$"Stats".addStatus(status)
 
-func medkitCollected(args):
-	$"Stats".heal(args[0])
-	emit_signal("healed", args[0])
+func medkitCollected(health):
+	$"Stats".heal(health[0])
+	emit_signal("healed", health[0])

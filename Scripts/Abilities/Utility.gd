@@ -15,10 +15,10 @@ func _ready():
 func ObjectEntered(colliding_object):
 	#this routes by the flinching state, so enemies take damage but don't flinch
 	self.connect("tickDamage", colliding_object.owner, "take_damage")
-	
+
 func ObjectExited(colliding_object):
 	self.disconnect("tickDamage", colliding_object.owner, "take_damage")
-	
+
 
 func _process(delta):
 	if !$"AnimationPlayer".is_playing():
