@@ -34,9 +34,10 @@ func enter(args):
 	leftover_charge_vector -= (owner.position - previous_position).abs()
 
 func exit():
-	# Disable the hitbox.
-	charging_hitbox_node.monitorable = false
-	charging_hitbox_node.monitoring = false
+	# Disable the hitbox. Collision boxes can't be disabled on the frame that they are called.
+	# Defer to later time.
+	charging_hitbox_node.call_deferred("set_monitoring", false)
+	charging_hitbox_node.call_deferred("set_monitorable", false)
 	
 	charging_hitbox_node.disconnect("area_entered", self, "end_charge")
 

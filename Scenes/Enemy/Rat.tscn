@@ -44,7 +44,7 @@ extents = Vector2( 40, 40 )
 custom_solver_bias = 0.0
 points = PoolVector2Array( -5, 0, 5, 0, 30, 20, 0, 40, -30, 20 )
 
-[node name="Rat" type="KinematicBody2D"]
+[node name="Rat" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
