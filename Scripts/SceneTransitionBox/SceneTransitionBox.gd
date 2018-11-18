@@ -13,14 +13,16 @@ func _ready():
    collision_node.connect("area_entered", self, "collision_detected")
 
 func _process(delta):
-   time_since_update += delta
-   if(time_since_update > update_interval):
-      update_shader()
-      time_since_update = 0
+   if not moved_to_scene: 
+      time_since_update += delta
+      if(time_since_update > update_interval):
+         update_shader()
+         time_since_update = 0
 
 func collision_detected(colliding_object):
    if not moved_to_scene:
       moved_to_scene = true
+      collision_node.disconnect("area_entered", self, "collision_detected")
       move_to_scene()
 
 func update_shader():

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dungeon_wall.png-b93f7e74c2bba3f1a48323e002aff835.stex"
+path="res://.import/tile_template.png-20fe86378da77e3eedd043de4ec6c640.stex"
 
 [deps]
 
-source_file="res://Assets/dungeon_wall.png"
-dest_files=[ "res://.import/dungeon_wall.png-b93f7e74c2bba3f1a48323e002aff835.stex" ]
+source_file="res://Assets/Tiles/tile_template.png"
+dest_files=[ "res://.import/tile_template.png-20fe86378da77e3eedd043de4ec6c640.stex" ]
 
 [params]
 

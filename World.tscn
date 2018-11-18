@@ -36,6 +36,8 @@ ability_path = NodePath("../../../../../../../Player/Cooldowns")
 
 [node name="Environment" parent="." index="1" instance=ExtResource( 2 )]
 
+starting_level = "res://Scenes/Levels/Level1.tscn"
+
 [node name="Player" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( -570.552, 127.724 )

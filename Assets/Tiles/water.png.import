@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mountain.png-77334435d73aa7ad7af926aa1aadee67.stex"
+path="res://.import/water.png-cbce900bf903935bda68e090963ff2aa.stex"
 
 [deps]
 
-source_file="res://Assets/mountain.png"
-dest_files=[ "res://.import/mountain.png-77334435d73aa7ad7af926aa1aadee67.stex" ]
+source_file="res://Assets/Tiles/water.png"
+dest_files=[ "res://.import/water.png-cbce900bf903935bda68e090963ff2aa.stex" ]
 
 [params]
 

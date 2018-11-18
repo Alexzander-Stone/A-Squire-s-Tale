@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/water.png-53a6dcecea988d67b96c05d30db55ba1.stex"
+path="res://.import/brickgravel_marching.png-f5404da1b7366002af13c883a2c6470e.stex"
 
 [deps]
 
-source_file="res://Assets/water.png"
-dest_files=[ "res://.import/water.png-53a6dcecea988d67b96c05d30db55ba1.stex" ]
+source_file="res://Assets/Tiles/brickgravel_marching.png"
+dest_files=[ "res://.import/brickgravel_marching.png-f5404da1b7366002af13c883a2c6470e.stex" ]
 
 [params]
 

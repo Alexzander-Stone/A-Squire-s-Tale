@@ -20,7 +20,7 @@ func _physics_process(delta):
 	elif(test_move(transform, Vector2(0, 1))):
 		velocity.y = -50
 	else:
-		velocity = velocity*.5
+		velocity = velocity*0.5
 	
 	move_and_slide(velocity)
 	
@@ -29,8 +29,8 @@ func collisionDetected(colliding_object):
 	var scene = load("res://Scenes/Consumables/Medkit.tscn")
 	var scene_instance = scene.instance()
 	scene_instance.set_name("Medkit")
-	scene_instance.position = position
-	get_tree().get_root().add_child(scene_instance)
+	scene_instance.position = global_position
+	get_node("/root/World/Environment/Level").add_child(scene_instance)
 	
 	queue_free()
 	

@@ -14,6 +14,7 @@ func _ready():
 func inititate_interaction():
 	print("Hi hooman. Whalecome.")
 	dialog_box_node.start()
+	return true
 
 func next_interaction():
 	dialog_box_node.next()
