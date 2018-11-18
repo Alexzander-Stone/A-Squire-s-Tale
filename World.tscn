@@ -44,5 +44,9 @@ position = Vector2( -570.552, 127.724 )
 
 [node name="Music_Player" parent="." index="3" instance=ExtResource( 4 )]
 
+[node name="Rat" parent="." index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 270.775, 265.679 )
+
 
 [editable path="CanvasLayer/GUI"]

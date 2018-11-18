@@ -57,5 +57,3 @@ script = ExtResource( 6 )
 [node name="Fadingin" type="Node" parent="StateMachine" index="4"]
 
 script = ExtResource( 7 )
-
-
