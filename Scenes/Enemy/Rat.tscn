@@ -43,7 +43,7 @@ extents = Vector2( 20, 20 )
 custom_solver_bias = 0.0
 points = PoolVector2Array( -5, 0, 5, 0, 30, 20, 0, 40, -30, 20 )
 
-[node name="Rat" type="KinematicBody2D" index="0"]
+[node name="Rat" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -82,7 +82,7 @@ playback/speed = 1.0
 enabled = true
 exclude_parent = true
 cast_to = Vector2( 0, 50 )
-collision_mask = 1
+collision_mask = 0
 script = ExtResource( 3 )
 exception_paths = [ NodePath("../Begin Attack"), NodePath("../Vision Field"), NodePath("../Charging Attack") ]
 

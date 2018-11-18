@@ -12,11 +12,11 @@ var leftover_charge_vector
 var previous_position
 
 # args[0] = perceived player position.
-# args[1] = backup length, used to determine how far the rat will go when charging.
+# args[1] = backup position, used to determine how far the rat will go when charging.
 func enter(args):
 	player_position = args[0]
 	# Begin running towards direction, based on backup length.
-	charge_vector = args[1] * 2
+	charge_vector = (player_position - owner.position) * 2
 	if charge_vector.length() < 50:
 		charge_vector *= 20
 	leftover_charge_vector = charge_vector.abs()

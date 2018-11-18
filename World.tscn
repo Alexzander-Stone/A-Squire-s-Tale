@@ -73,7 +73,7 @@ position = Vector2( -97.947, 380.905 )
 
 [node name="Rat" parent="." index="7" instance=ExtResource( 8 )]
 
-position = Vector2( -107.372, 62.306 )
+position = Vector2( 270.775, 265.679 )
 
 
 [editable path="CanvasLayer/GUI"]

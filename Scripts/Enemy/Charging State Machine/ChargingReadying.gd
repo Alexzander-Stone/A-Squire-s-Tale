@@ -46,14 +46,14 @@ export(float) var small_bounce_time = 1
 export(float) var small_bounce_count = 2.0
 
 # Direction will always be normalized
-var player_position = Vector2(0, 0)
-var direction_to_player = Vector2(-1, 0)
+var player_position = Vector2(1.1, 1.1)
+var direction_to_player = Vector2(-1.1, 1.1)
 
 var current_animation_index = 0
-var raycasted_target = Vector2(0,0)
+var raycasted_target = Vector2(0.1,0.1)
 
 # Used for 3 bounce setup.
-var bounce_position
+var bounce_position = Vector2(0.1,0.1)
 
 # args[0] = player's perceived position.
 func enter(args):
@@ -81,19 +81,23 @@ func exit():
 	tween_node.disconnect("tween_completed", self, "animation_transitions")
 
 func animation_transitions(tween_object, inspector_key):
+	# Update animation index.
+	current_animation_index += 1
+	
 	# Fall down from jump. +2 to current_animation_index
 	
 	# Jumping animation collection has finished, begin backing up.
 	# Bounce back in 3 chunks.
 	# Calculate how far to back up and the portion that each bounce gets.
 	# Find this by using the the vector opposite to our direction.
-	if current_animation_index == 1:
+	if current_animation_index == 2:
 		var bounce_direction = -direction_to_player
 		var bounce_length = backup_length
 		# Check to see a raycast in the bounce direction would end up in
 		# a wall, if so find the closest position to bounce towards.
 		bounce_position = bounce_direction * bounce_length
 		print("bounce pos is " + str(bounce_position))
+		#raycast_node.position = owner.position
 		raycast_node.set_cast_to(bounce_position)
 		
 		raycast_node.force_raycast_update()
@@ -102,23 +106,20 @@ func animation_transitions(tween_object, inspector_key):
 			# Returns collision shape that we are colliding with.
 			bounce_position = raycast_node.get_collision_point()
 		# Determine how far to charge.
-		raycasted_target = owner.position - bounce_position
+		raycasted_target = bounce_position
 		# Begin first bounce. Contains two tween processes, so next 
 		# animation index will be +2.
-		bounce_to(owner.position, bounce_position/2.0, -large_backup_height, large_bounce_count, large_bounce_time)
+		bounce_to(owner.position, bounce_position * (2/3), -large_backup_height, large_bounce_count, large_bounce_time)
 	
 	# Smaller jumps, will have 2 jumps so animation index will be +4
-	elif current_animation_index == 3:
+	elif current_animation_index == 4:
 		bounce_to(owner.position, bounce_position, -small_backup_height, small_bounce_count, small_bounce_time)
 	
 	# After final chunk, shake/hop. This is final animation
 	
 	# Check to see if final animation has ended, then charge.
-	elif current_animation_index == 7:
+	elif current_animation_index == 8:
 		emit_signal("finished", "attacking", [player_position, raycasted_target])
-	
-	# Update animation index.
-	current_animation_index += 1
 
 # Tween animated sprite to a new y position in a specified time frame.
 # void animate_vertically(delta_y, time_frame)
@@ -132,16 +133,15 @@ func animate_vertically(delta_y, time_frame):
 	tween_node.start()
 
 # Can bounce multiple times.
+# Takes a local bounce pos
 func bounce_to(position, bounce_pos, bounce_height, number_of_bounces, time_frame):
 	var ending_jump_pos = position
-	var distance_vector_per_jump = (bounce_pos - position) / (2.0 * number_of_bounces)
-	print(distance_vector_per_jump)
+	var distance_vector_per_jump = bounce_pos / (2.0 * number_of_bounces)
 	var i = 0
 	while i < number_of_bounces*2:
 		var current_position = ending_jump_pos
 		var apex_jump_pos = Vector2(current_position.x + distance_vector_per_jump.x, current_position.y + distance_vector_per_jump.y + bounce_height)
 		ending_jump_pos = Vector2(apex_jump_pos.x + distance_vector_per_jump.x, apex_jump_pos.y + distance_vector_per_jump.y - bounce_height)
-		
 		# Go to apex.
 		tween_node.interpolate_property(animated_sprite_node.owner, 'position', current_position, apex_jump_pos, time_frame/(2.0 * number_of_bounces), Tween.TRANS_QUAD, Tween.EASE_IN, (time_frame/(2.0 * number_of_bounces)) * i)
 		# Go to ground.
