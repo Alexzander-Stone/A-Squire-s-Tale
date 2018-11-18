@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Enemy/Rat.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Enemy/darkfalco.png" type="Texture" id=2]
@@ -33,12 +33,17 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 75, 75 )
 
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 20, 20 )
+
 [sub_resource type="ConvexPolygonShape2D" id=4]
 
 custom_solver_bias = 0.0
 points = PoolVector2Array( -5, 0, 5, 0, 30, 20, 0, 40, -30, 20 )
 
-[node name="Rat" type="KinematicBody2D"]
+[node name="Rat" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -79,7 +84,7 @@ exclude_parent = true
 cast_to = Vector2( 0, 50 )
 collision_mask = 1
 script = ExtResource( 3 )
-exception_paths = [ NodePath("../Begin Attack"), NodePath("../Vision Field") ]
+exception_paths = [ NodePath("../Begin Attack"), NodePath("../Vision Field"), NodePath("../Charging Attack") ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
 
@@ -101,7 +106,23 @@ _sections_unfolded = [ "Collision" ]
 
 shape = SubResource( 3 )
 
-[node name="Vision Field" type="Area2D" parent="." index="6"]
+[node name="Charging Attack" type="Area2D" parent="." index="6"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+monitorable = false
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Charging Attack" index="0"]
+
+shape = SubResource( 5 )
+
+[node name="Vision Field" type="Area2D" parent="." index="7"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -119,7 +140,7 @@ scale = Vector2( 6, 6 )
 shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="StateMachine" type="Node" parent="." index="7"]
+[node name="StateMachine" type="Node" parent="." index="8"]
 
 script = ExtResource( 4 )
 START_STATE = NodePath("Idling")
@@ -175,6 +196,7 @@ small_bounce_count = 2.0
 [node name="Attacking" type="Node" parent="StateMachine/Charging" index="1"]
 
 script = ExtResource( 10 )
+charging_hitbox_path = NodePath("../../../Charging Attack")
 minimum_charge_length = 10
 
 [node name="Ending" type="Node" parent="StateMachine/Charging" index="2"]
@@ -185,7 +207,7 @@ script = ExtResource( 11 )
 
 [node name="Dying" type="Node" parent="StateMachine" index="5"]
 
-[node name="Layer Control" parent="." index="8" instance=ExtResource( 12 )]
+[node name="Layer Control" parent="." index="9" instance=ExtResource( 12 )]
 
 position = Vector2( -64, -65 )
 
@@ -193,7 +215,7 @@ position = Vector2( -64, -65 )
 
 state_machine_path = NodePath("../../../StateMachine")
 
-[node name="Damage Value Spawner" parent="." index="9" instance=ExtResource( 13 )]
+[node name="Damage Value Spawner" parent="." index="10" instance=ExtResource( 13 )]
 
 animated_sprite_path = NodePath("../AnimatedSprite")
 

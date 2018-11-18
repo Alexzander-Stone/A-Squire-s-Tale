@@ -9,7 +9,7 @@
 [ext_resource path="res://Scenes/Artifacts/Stopwatch.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Enemy/Rat.tscn" type="PackedScene" id=8]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 [node name="Environment" parent="." index="0" instance=ExtResource( 1 )]
 

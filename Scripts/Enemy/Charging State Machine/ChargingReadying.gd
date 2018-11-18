@@ -57,6 +57,9 @@ var bounce_position
 
 # args[0] = player's perceived position.
 func enter(args):
+	# Reset values.
+	current_animation_index = 0
+	
 	# Record player position.
 	player_position = args[0]
 	direction_to_player = (player_position - owner.position).normalized()
@@ -68,7 +71,7 @@ func enter(args):
 	##
 	
 	# Tween to jump up.
-	animate_vertically(-jump_height, jump_time/2.0)
+	animate_vertically(-jump_height, jump_time)
 	
 	# Turn red while doing this.
 	
@@ -78,15 +81,13 @@ func exit():
 	tween_node.disconnect("tween_completed", self, "animation_transitions")
 
 func animation_transitions(tween_object, inspector_key):
-	# Fall down from jump.
-	if current_animation_index == 0:
-		animate_vertically(jump_height, jump_time/2.0)
+	# Fall down from jump. +2 to current_animation_index
 	
 	# Jumping animation collection has finished, begin backing up.
 	# Bounce back in 3 chunks.
 	# Calculate how far to back up and the portion that each bounce gets.
 	# Find this by using the the vector opposite to our direction.
-	elif current_animation_index == 1:
+	if current_animation_index == 1:
 		var bounce_direction = -direction_to_player
 		var bounce_length = backup_length
 		# Check to see a raycast in the bounce direction would end up in
@@ -104,7 +105,7 @@ func animation_transitions(tween_object, inspector_key):
 		raycasted_target = owner.position - bounce_position
 		# Begin first bounce. Contains two tween processes, so next 
 		# animation index will be +2.
-		bounce_to(owner.position, bounce_position/2, -large_backup_height, large_bounce_count, large_bounce_time)
+		bounce_to(owner.position, bounce_position/2.0, -large_backup_height, large_bounce_count, large_bounce_time)
 	
 	# Smaller jumps, will have 2 jumps so animation index will be +4
 	elif current_animation_index == 3:
@@ -114,7 +115,6 @@ func animation_transitions(tween_object, inspector_key):
 	
 	# Check to see if final animation has ended, then charge.
 	elif current_animation_index == 7:
-		print(raycasted_target)
 		emit_signal("finished", "attacking", [player_position, raycasted_target])
 	
 	# Update animation index.
@@ -127,7 +127,8 @@ func animation_transitions(tween_object, inspector_key):
 func animate_vertically(delta_y, time_frame):
 	var current_position = animated_sprite_node.position
 	var go_to_position = Vector2(current_position.x, current_position.y + delta_y)
-	tween_node.interpolate_property(animated_sprite_node, 'position', current_position, go_to_position, time_frame, Tween.TRANS_QUAD, Tween.EASE_OUT)
+	tween_node.interpolate_property(animated_sprite_node, 'position', current_position, go_to_position, time_frame/2.0, Tween.TRANS_QUAD, Tween.EASE_OUT)
+	tween_node.interpolate_property(animated_sprite_node, 'position', go_to_position, current_position, time_frame/2.0, Tween.TRANS_QUAD, Tween.EASE_IN, time_frame/2.0)
 	tween_node.start()
 
 # Can bounce multiple times.

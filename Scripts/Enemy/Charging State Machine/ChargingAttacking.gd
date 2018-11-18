@@ -1,21 +1,39 @@
 extends "res://Scripts/State Machine/State.gd"
 
+export(NodePath) var charging_hitbox_path
+onready var charging_hitbox_node = get_node(charging_hitbox_path)
+
 export(int) var minimum_charge_length = 10
 
 var player_position
 var charge_vector
+var leftover_charge_vector
+
+var previous_position
 
 # args[0] = perceived player position.
 # args[1] = backup length, used to determine how far the rat will go when charging.
 func enter(args):
 	player_position = args[0]
 	# Begin running towards direction, based on backup length.
-	charge_vector = args[1]
-	if charge_vector.length() < 100:
-		charge_vector *= 100
+	charge_vector = args[1] * 2
+	if charge_vector.length() < 50:
+		charge_vector *= 20
+	leftover_charge_vector = charge_vector.abs()
+	
+	# Enable the hitbox.
+	charging_hitbox_node.monitorable = true
+	
+	# Move player and check how much it has moved.
+	previous_position = owner.position
+	owner.move_and_slide(charge_vector)
+	leftover_charge_vector -= (owner.position - previous_position).abs()
+
+func exit():
+	# Enable the hitbox.
+	charging_hitbox_node.monitorable = false
 
 func update(delta):
-	print("charge vector" + str(charge_vector))
 	# Update perceived player's coordinates when player has left the 
 	# vision cone or the enemy has reached the coordinates.
 	
@@ -23,9 +41,11 @@ func update(delta):
 	#Replace with charging hitbox check and transition to charging.
 	##
 	if ( 
-		owner.position.x <= charge_vector.x + 10 && owner.position.y <= charge_vector.y + 10
-		&& owner.position.x >= charge_vector.x - 10 && owner.position.y >= charge_vector.y - 10
+		leftover_charge_vector.x <= 0 && leftover_charge_vector.y <= 0
 		):
 		emit_signal("finished", "ending", [])
 	else:
+		# Move player and check how much it has moved.
+		previous_position = owner.position
 		owner.move_and_slide(charge_vector)
+		leftover_charge_vector -= (owner.position - previous_position).abs()

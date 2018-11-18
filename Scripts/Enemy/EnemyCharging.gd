@@ -26,7 +26,12 @@ func update(delta):
 func change_state(state_name, args):
 	# Exit out of current_state.
 	current_state.exit()
-	# Change states.
-	current_state = states_map[state_name]
-	# Officially enter new state.
-	current_state.enter(args)
+	
+	# Once charging is done, return to idling.
+	if state_name == "leaving":
+		emit_signal("finished", "idling", [])
+	else:
+		# Change states.
+		current_state = states_map[state_name]
+		# Officially enter new state.
+		current_state.enter(args)
