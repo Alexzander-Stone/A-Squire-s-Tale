@@ -9,6 +9,7 @@
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="0"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -34,6 +35,8 @@ ability_path = NodePath("../../../../../../../Player/Cooldowns")
 ability_path = NodePath("../../../../../../../Player/Cooldowns")
 
 [node name="Environment" parent="." index="1" instance=ExtResource( 2 )]
+
+starting_level = "res://Scenes/Levels/Level1.tscn"
 
 [node name="Player" parent="." index="2" instance=ExtResource( 3 )]
 

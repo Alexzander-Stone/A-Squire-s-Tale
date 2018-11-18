@@ -3,12 +3,10 @@
 [ext_resource path="res://Scenes/Environment/Tilesets/Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/NPC/NPC.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/SceneTransitionBox/SceneTransitionBox.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Destructibles/Pot.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Door/Door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Door/Door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Destructibles/Pot.tscn" type="PackedScene" id=5]
 
 [node name="Level1" type="Node2D"]
-
-_sections_unfolded = [ "Transform" ]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
@@ -44,48 +42,52 @@ to_scene = "res://Scenes/Levels/Level2.tscn"
 
 position = Vector2( 383.982, 360.659 )
 
-[node name="Pot" parent="." index="4" instance=ExtResource( 4 )]
-
-position = Vector2( 71.8959, 11.704 )
-
-[node name="Pot2" parent="." index="5" instance=ExtResource( 4 )]
-
-position = Vector2( 767.768, -19.8323 )
-
-[node name="Pot3" parent="." index="6" instance=ExtResource( 4 )]
-
-position = Vector2( 604.717, 774.806 )
-
-[node name="Pot4" parent="." index="7" instance=ExtResource( 4 )]
-
-position = Vector2( 176.5, 729.814 )
-
-[node name="Pot5" parent="." index="8" instance=ExtResource( 4 )]
-
-position = Vector2( -4.99188, 681.36 )
-
-[node name="Pot6" parent="." index="9" instance=ExtResource( 4 )]
-
-position = Vector2( 876.898, 707.303 )
-
-[node name="Pot7" parent="." index="10" instance=ExtResource( 4 )]
-
-position = Vector2( 4165.95, -554.484 )
-
-[node name="Pot8" parent="." index="11" instance=ExtResource( 4 )]
-
-position = Vector2( 4179.88, -201.244 )
-
-[node name="Pot9" parent="." index="12" instance=ExtResource( 4 )]
-
-position = Vector2( 3463.27, -464.591 )
-
-[node name="Pot10" parent="." index="13" instance=ExtResource( 4 )]
-
-position = Vector2( 3468.33, -312.66 )
-
-[node name="Door" parent="." index="14" instance=ExtResource( 5 )]
+[node name="Door" parent="." index="4" instance=ExtResource( 4 )]
 
 position = Vector2( 1102.34, 380.906 )
+
+[node name="Pot" parent="." index="5" instance=ExtResource( 5 )]
+
+position = Vector2( 4152.69, -588.122 )
+
+[node name="Pot2" parent="." index="6" instance=ExtResource( 5 )]
+
+position = Vector2( 4139.73, -193.582 )
+
+[node name="Pot3" parent="." index="7" instance=ExtResource( 5 )]
+
+position = Vector2( 3470.78, -484.482 )
+
+[node name="Pot4" parent="." index="8" instance=ExtResource( 5 )]
+
+position = Vector2( 3477.85, -306.644 )
+
+[node name="Pot5" parent="." index="9" instance=ExtResource( 5 )]
+
+position = Vector2( 713.007, -94.888 )
+
+[node name="Pot6" parent="." index="10" instance=ExtResource( 5 )]
+
+position = Vector2( 867.289, -10.0913 )
+
+[node name="Pot7" parent="." index="11" instance=ExtResource( 5 )]
+
+position = Vector2( -82.9042, -100.07 )
+
+[node name="Pot8" parent="." index="12" instance=ExtResource( 5 )]
+
+position = Vector2( -145.088, 881.922 )
+
+[node name="Pot9" parent="." index="13" instance=ExtResource( 5 )]
+
+position = Vector2( -9.64938, 824.214 )
+
+[node name="Pot10" parent="." index="14" instance=ExtResource( 5 )]
+
+position = Vector2( 111.657, 871.323 )
+
+[node name="Pot11" parent="." index="15" instance=ExtResource( 5 )]
+
+position = Vector2( 872.943, 875.798 )
 
 

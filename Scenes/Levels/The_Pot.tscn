@@ -1,0 +1,496 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Environment/Tilesets/Tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/SceneTransitionBox/SceneTransitionBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/NPC/NPC.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Destructibles/Pot.tscn" type="PackedScene" id=4]
+
+[node name="The_Pot" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="." index="0"]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 256, 256 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -1, -2147483636, 0, -65536, -2147483636, 0, -65535, -2147483636, 0, -65534, -2147483636, 0, -65533, 12, 0, -65532, 12, 0, -65531, 12, 0, -65530, 12, 0, -65529, 12, 0, -65528, 12, 0, -65527, -2147483636, 0, -65526, -2147483636, 0, -65525, -2147483636, 0, 65535, -2147483636, 0, 0, 10, 65537, 1, 10, 4, 2, 10, 4, 3, 10, 4, 4, 10, 4, 5, 10, 4, 6, 10, 4, 7, 10, 4, 8, 10, 4, 9, 10, 4, 10, 10, 327686, 11, -2147483636, 0, 131071, -2147483636, 0, 65536, 10, 262144, 65537, 10, 131076, 65538, 10, 65540, 65539, 10, 65540, 65540, 10, 65540, 65541, 10, 262145, 65542, 10, 262145, 65543, 10, 262145, 65544, 10, 131076, 65545, 10, 262145, 65546, 10, 262146, 65547, -2147483636, 0, 196607, -2147483636, 0, 131072, 10, 262144, 131073, 10, 262145, 131074, 10, 65540, 131075, 10, 65540, 131076, 10, 262145, 131077, 10, 131076, 131078, 10, 131076, 131079, 10, 262145, 131080, 10, 65540, 131081, 10, 262145, 131082, 10, 262146, 131083, -2147483636, 0, 262143, -2147483636, 0, 196608, 10, 262144, 196609, 10, 131076, 196610, 10, 65540, 196611, 10, 131076, 196612, 10, 65540, 196613, 10, 262145, 196614, 10, 131076, 196615, 10, 262145, 196616, 10, 65540, 196617, 10, 131076, 196618, 10, 262146, 196619, -2147483636, 0, 327679, -2147483636, 0, 262144, 10, 262144, 262145, 10, 65540, 262146, 10, 65540, 262147, 10, 65540, 262148, 10, 262145, 262149, 10, 65540, 262150, 10, 262145, 262151, 10, 65540, 262152, 10, 262145, 262153, 10, 262145, 262154, 10, 262146, 262155, -2147483636, 0, 393215, -2147483636, 0, 327680, 10, 393221, 327681, 10, 196611, 327682, 10, 196611, 327683, 10, 196611, 327684, 10, 196611, 327685, 10, 196611, 327686, 10, 196611, 327687, 10, 196611, 327688, 10, 196611, 327689, 10, 196611, 327690, 10, 393222, 327691, -2147483636, 0, 458751, -2147483636, 0, 393216, -2147483636, 0, 393217, -2147483636, 0, 393218, -2147483636, 0, 393219, -2147483636, 0, 393220, -2147483636, 0, 393221, -2147483636, 0, 393222, -2147483636, 0, 393223, -2147483636, 0, 393224, -2147483636, 0, 393225, -2147483636, 0, 393226, -2147483636, 0, 393227, -2147483636, 0 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="SceneTransitionBox" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 2642.04, 1374.83 )
+to_scene = "res://Scenes/Levels/Level1.tscn"
+
+[node name="NPC" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 1366.04, 589.309 )
+
+[node name="Player_Start_Loc" type="Node2D" parent="." index="3"]
+
+position = Vector2( 1376.57, 757.549 )
+
+[node name="Box2" parent="." index="4" instance=ExtResource( 4 )]
+
+position = Vector2( 693.979, 470.693 )
+
+[node name="Box3" parent="." index="5" instance=ExtResource( 4 )]
+
+position = Vector2( 1035.3, 182.41 )
+
+[node name="Box4" parent="." index="6" instance=ExtResource( 4 )]
+
+position = Vector2( 1707.17, 137.517 )
+
+[node name="Box5" parent="." index="7" instance=ExtResource( 4 )]
+
+position = Vector2( 1915.41, 265.211 )
+
+[node name="Box6" parent="." index="8" instance=ExtResource( 4 )]
+
+position = Vector2( 901.716, 756.341 )
+
+[node name="Box7" parent="." index="9" instance=ExtResource( 4 )]
+
+position = Vector2( 1092.27, 1384.99 )
+
+[node name="Box8" parent="." index="10" instance=ExtResource( 4 )]
+
+position = Vector2( 1866.3, 1400.7 )
+
+[node name="Box9" parent="." index="11" instance=ExtResource( 4 )]
+
+position = Vector2( 868.319, 911.539 )
+
+[node name="Pot" parent="." index="12" instance=ExtResource( 4 )]
+
+position = Vector2( 1463.45, 1182 )
+
+[node name="Pot2" parent="." index="13" instance=ExtResource( 4 )]
+
+position = Vector2( 1931.75, 912.166 )
+
+[node name="Pot3" parent="." index="14" instance=ExtResource( 4 )]
+
+position = Vector2( 805.406, 1229 )
+
+[node name="Pot4" parent="." index="15" instance=ExtResource( 4 )]
+
+position = Vector2( 664.396, 1364.79 )
+
+[node name="Pot5" parent="." index="16" instance=ExtResource( 4 )]
+
+position = Vector2( 460.714, 1336.94 )
+
+[node name="Pot6" parent="." index="17" instance=ExtResource( 4 )]
+
+position = Vector2( 587.798, 1178.52 )
+
+[node name="Pot7" parent="." index="18" instance=ExtResource( 4 )]
+
+position = Vector2( 356.262, 1150.67 )
+
+[node name="Pot8" parent="." index="19" instance=ExtResource( 4 )]
+
+position = Vector2( 263.996, 1349.12 )
+
+[node name="Pot9" parent="." index="20" instance=ExtResource( 4 )]
+
+position = Vector2( 481.605, 1173.3 )
+
+[node name="Pot10" parent="." index="21" instance=ExtResource( 4 )]
+
+position = Vector2( 1193.62, 1007.91 )
+
+[node name="Pot11" parent="." index="22" instance=ExtResource( 4 )]
+
+position = Vector2( 509.459, 868.645 )
+
+[node name="Pot12" parent="." index="23" instance=ExtResource( 4 )]
+
+position = Vector2( 263.996, 461.281 )
+
+[node name="Pot13" parent="." index="24" instance=ExtResource( 4 )]
+
+position = Vector2( 223.956, 177.52 )
+
+[node name="Pot14" parent="." index="25" instance=ExtResource( 4 )]
+
+position = Vector2( 504.236, 268.045 )
+
+[node name="Pot15" parent="." index="26" instance=ExtResource( 4 )]
+
+position = Vector2( 723.586, 165.334 )
+
+[node name="Pot16" parent="." index="27" instance=ExtResource( 4 )]
+
+position = Vector2( 707.918, 1086.25 )
+
+[node name="Pot17" parent="." index="28" instance=ExtResource( 4 )]
+
+position = Vector2( 831.519, 1079.29 )
+
+[node name="Pot18" parent="." index="29" instance=ExtResource( 4 )]
+
+position = Vector2( 1028.24, 971.356 )
+
+[node name="Pot19" parent="." index="30" instance=ExtResource( 4 )]
+
+position = Vector2( 974.271, 1176.78 )
+
+[node name="Pot20" parent="." index="31" instance=ExtResource( 4 )]
+
+position = Vector2( 1096.13, 1164.59 )
+
+[node name="Pot21" parent="." index="32" instance=ExtResource( 4 )]
+
+position = Vector2( 934.231, 1326.49 )
+
+[node name="Pot22" parent="." index="33" instance=ExtResource( 4 )]
+
+position = Vector2( 796.702, 1404.83 )
+
+[node name="Pot23" parent="." index="34" instance=ExtResource( 4 )]
+
+position = Vector2( 136.913, 1387.42 )
+
+[node name="Pot24" parent="." index="35" instance=ExtResource( 4 )]
+
+position = Vector2( 142.135, 1229 )
+
+[node name="Pot25" parent="." index="36" instance=ExtResource( 4 )]
+
+position = Vector2( 246.587, 1190.71 )
+
+[node name="Pot26" parent="." index="37" instance=ExtResource( 4 )]
+
+position = Vector2( 116.022, 1058.4 )
+
+[node name="Pot27" parent="." index="38" instance=ExtResource( 4 )]
+
+position = Vector2( 147.358, 886.053 )
+
+[node name="Pot28" parent="." index="39" instance=ExtResource( 4 )]
+
+position = Vector2( 236.142, 1035.77 )
+
+[node name="Pot29" parent="." index="40" instance=ExtResource( 4 )]
+
+position = Vector2( 1557.46, 943.502 )
+
+[node name="Pot30" parent="." index="41" instance=ExtResource( 4 )]
+
+position = Vector2( 1118.76, 802.492 )
+
+[node name="Pot31" parent="." index="42" instance=ExtResource( 4 )]
+
+position = Vector2( 721.845, 920.871 )
+
+[node name="Pot32" parent="." index="43" instance=ExtResource( 4 )]
+
+position = Vector2( 566.907, 1025.32 )
+
+[node name="Pot33" parent="." index="44" instance=ExtResource( 4 )]
+
+position = Vector2( 371.93, 978.319 )
+
+[node name="Pot34" parent="." index="45" instance=ExtResource( 4 )]
+
+position = Vector2( 267.478, 819.9 )
+
+[node name="Pot35" parent="." index="46" instance=ExtResource( 4 )]
+
+position = Vector2( 382.375, 739.82 )
+
+[node name="Pot36" parent="." index="47" instance=ExtResource( 4 )]
+
+position = Vector2( 1282.4, 1206.37 )
+
+[node name="Pot37" parent="." index="48" instance=ExtResource( 4 )]
+
+position = Vector2( 1278.92, 1387.42 )
+
+[node name="Pot38" parent="." index="49" instance=ExtResource( 4 )]
+
+position = Vector2( 1426.9, 1342.16 )
+
+[node name="Pot39" parent="." index="50" instance=ExtResource( 4 )]
+
+position = Vector2( 1607.95, 1138.48 )
+
+[node name="Pot40" parent="." index="51" instance=ExtResource( 4 )]
+
+position = Vector2( 1364.23, 1032.29 )
+
+[node name="Pot41" parent="." index="52" instance=ExtResource( 4 )]
+
+position = Vector2( 1289.37, 858.199 )
+
+[node name="Pot42" parent="." index="53" instance=ExtResource( 4 )]
+
+position = Vector2( 143.876, 698.039 )
+
+[node name="Pot43" parent="." index="54" instance=ExtResource( 4 )]
+
+position = Vector2( 260.514, 633.627 )
+
+[node name="Pot44" parent="." index="55" instance=ExtResource( 4 )]
+
+position = Vector2( 129.949, 518.73 )
+
+[node name="Pot45" parent="." index="56" instance=ExtResource( 4 )]
+
+position = Vector2( 591.28, 685.853 )
+
+[node name="Pot46" parent="." index="57" instance=ExtResource( 4 )]
+
+position = Vector2( 138.654, 346.384 )
+
+[node name="Pot47" parent="." index="58" instance=ExtResource( 4 )]
+
+position = Vector2( 349.299, 297.64 )
+
+[node name="Pot48" parent="." index="59" instance=ExtResource( 4 )]
+
+position = Vector2( 403.266, 111.367 )
+
+[node name="Pot49" parent="." index="60" instance=ExtResource( 4 )]
+
+position = Vector2( 584.316, 102.662 )
+
+[node name="Pot50" parent="." index="61" instance=ExtResource( 4 )]
+
+position = Vector2( 408.488, 457.8 )
+
+[node name="Pot51" parent="." index="62" instance=ExtResource( 4 )]
+
+position = Vector2( 552.98, 487.394 )
+
+[node name="Pot52" parent="." index="63" instance=ExtResource( 4 )]
+
+position = Vector2( 756.662, 732.857 )
+
+[node name="Pot53" parent="." index="64" instance=ExtResource( 4 )]
+
+position = Vector2( 1595.76, 1338.68 )
+
+[node name="Pot54" parent="." index="65" instance=ExtResource( 4 )]
+
+position = Vector2( 1755.92, 1270.79 )
+
+[node name="Pot55" parent="." index="66" instance=ExtResource( 4 )]
+
+position = Vector2( 882.005, 208.855 )
+
+[node name="Pot56" parent="." index="67" instance=ExtResource( 4 )]
+
+position = Vector2( 861.114, 400.351 )
+
+[node name="Pot57" parent="." index="68" instance=ExtResource( 4 )]
+
+position = Vector2( 866.337, 583.142 )
+
+[node name="Pot58" parent="." index="69" instance=ExtResource( 4 )]
+
+position = Vector2( 1045.65, 644.073 )
+
+[node name="Pot59" parent="." index="70" instance=ExtResource( 4 )]
+
+position = Vector2( 995.161, 367.274 )
+
+[node name="Pot60" parent="." index="71" instance=ExtResource( 4 )]
+
+position = Vector2( 1132.69, 456.059 )
+
+[node name="Pot61" parent="." index="72" instance=ExtResource( 4 )]
+
+position = Vector2( 1170.99, 295.899 )
+
+[node name="Pot62" parent="." index="73" instance=ExtResource( 4 )]
+
+position = Vector2( 1310.26, 175.779 )
+
+[node name="Pot63" parent="." index="74" instance=ExtResource( 4 )]
+
+position = Vector2( 1625.01, 732.857 )
+
+[node name="Pot64" parent="." index="75" instance=ExtResource( 4 )]
+
+position = Vector2( 1670.27, 572.697 )
+
+[node name="Pot65" parent="." index="76" instance=ExtResource( 4 )]
+
+position = Vector2( 1351.69, 358.57 )
+
+[node name="Pot66" parent="." index="77" instance=ExtResource( 4 )]
+
+position = Vector2( 1506.63, 426.464 )
+
+[node name="Pot67" parent="." index="78" instance=ExtResource( 4 )]
+
+position = Vector2( 1515.33, 233.227 )
+
+[node name="Pot68" parent="." index="79" instance=ExtResource( 4 )]
+
+position = Vector2( 1713.79, 367.274 )
+
+[node name="Pot69" parent="." index="80" instance=ExtResource( 4 )]
+
+position = Vector2( 1877.43, 447.354 )
+
+[node name="Pot70" parent="." index="81" instance=ExtResource( 4 )]
+
+position = Vector2( 1811.28, 628.405 )
+
+[node name="Pot71" parent="." index="82" instance=ExtResource( 4 )]
+
+position = Vector2( 1759.05, 812.937 )
+
+[node name="Pot72" parent="." index="83" instance=ExtResource( 4 )]
+
+position = Vector2( 1750.35, 993.987 )
+
+[node name="Pot73" parent="." index="84" instance=ExtResource( 4 )]
+
+position = Vector2( 1896.58, 1119.33 )
+
+[node name="Pot74" parent="." index="85" instance=ExtResource( 4 )]
+
+position = Vector2( 2039.33, 1317.79 )
+
+[node name="Pot75" parent="." index="86" instance=ExtResource( 4 )]
+
+position = Vector2( 2194.27, 1375.24 )
+
+[node name="Pot76" parent="." index="87" instance=ExtResource( 4 )]
+
+position = Vector2( 2042.82, 1133.26 )
+
+[node name="Pot77" parent="." index="88" instance=ExtResource( 4 )]
+
+position = Vector2( 1955.77, 727.982 )
+
+[node name="Pot78" parent="." index="89" instance=ExtResource( 4 )]
+
+position = Vector2( 2088.08, 849.843 )
+
+[node name="Pot79" parent="." index="90" instance=ExtResource( 4 )]
+
+position = Vector2( 2096.78, 663.57 )
+
+[node name="Pot80" parent="." index="91" instance=ExtResource( 4 )]
+
+position = Vector2( 2001.04, 491.224 )
+
+[node name="Pot81" parent="." index="92" instance=ExtResource( 4 )]
+
+position = Vector2( 2042.82, 174.386 )
+
+[node name="Pot82" parent="." index="93" instance=ExtResource( 4 )]
+
+position = Vector2( 2128.12, 379.809 )
+
+[node name="Pot83" parent="." index="94" instance=ExtResource( 4 )]
+
+position = Vector2( 2189.05, 209.203 )
+
+[node name="Pot84" parent="." index="95" instance=ExtResource( 4 )]
+
+position = Vector2( 2241.28, 381.549 )
+
+[node name="Pot85" parent="." index="96" instance=ExtResource( 4 )]
+
+position = Vector2( 2319.61, 170.904 )
+
+[node name="Pot86" parent="." index="97" instance=ExtResource( 4 )]
+
+position = Vector2( 2364.88, 338.028 )
+
+[node name="Pot87" parent="." index="98" instance=ExtResource( 4 )]
+
+position = Vector2( 2490.22, 177.868 )
+
+[node name="Pot88" parent="." index="99" instance=ExtResource( 4 )]
+
+position = Vector2( 2667.79, 244.021 )
+
+[node name="Pot89" parent="." index="100" instance=ExtResource( 4 )]
+
+position = Vector2( 2526.78, 397.217 )
+
+[node name="Pot90" parent="." index="101" instance=ExtResource( 4 )]
+
+position = Vector2( 2260.42, 588.713 )
+
+[node name="Pot91" parent="." index="102" instance=ExtResource( 4 )]
+
+position = Vector2( 2173.38, 1036.12 )
+
+[node name="Pot92" parent="." index="103" instance=ExtResource( 4 )]
+
+position = Vector2( 2201.24, 1199.76 )
+
+[node name="Pot93" parent="." index="104" instance=ExtResource( 4 )]
+
+position = Vector2( 2338.76, 1305.95 )
+
+[node name="Pot94" parent="." index="105" instance=ExtResource( 4 )]
+
+position = Vector2( 2377.06, 1133.6 )
+
+[node name="Pot95" parent="." index="106" instance=ExtResource( 4 )]
+
+position = Vector2( 2274.35, 835.916 )
+
+[node name="Pot96" parent="." index="107" instance=ExtResource( 4 )]
+
+position = Vector2( 2425.81, 956.036 )
+
+[node name="Pot97" parent="." index="108" instance=ExtResource( 4 )]
+
+position = Vector2( 2422.33, 721.019 )
+
+[node name="Pot98" parent="." index="109" instance=ExtResource( 4 )]
+
+position = Vector2( 2401.44, 529.523 )
+
+[node name="Pot99" parent="." index="110" instance=ExtResource( 4 )]
+
+position = Vector2( 2664.31, 461.629 )
+
+[node name="Pot100" parent="." index="111" instance=ExtResource( 4 )]
+
+position = Vector2( 2547.67, 639.198 )
+
+[node name="Pot101" parent="." index="112" instance=ExtResource( 4 )]
+
+position = Vector2( 2688.68, 727.982 )
+
+[node name="Pot102" parent="." index="113" instance=ExtResource( 4 )]
+
+position = Vector2( 2558.11, 875.956 )
+
+[node name="Pot103" parent="." index="114" instance=ExtResource( 4 )]
+
+position = Vector2( 2718.27, 1048.3 )
+
+[node name="Pot104" parent="." index="115" instance=ExtResource( 4 )]
+
+position = Vector2( 2568.56, 1114.46 )
+
+[node name="Pot105" parent="." index="116" instance=ExtResource( 4 )]
+
+position = Vector2( 2493.7, 1391.25 )
+
+

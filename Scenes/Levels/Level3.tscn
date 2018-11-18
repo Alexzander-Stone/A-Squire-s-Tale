@@ -32,7 +32,7 @@ _sections_unfolded = [ "Cell" ]
 [node name="SceneTransitionBox" parent="." index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 2902.73, 1201.91 )
-to_scene = "res://Scenes/Levels/Level1.tscn"
+to_scene = "res://Scenes/Levels/The_Pot.tscn"
 
 [node name="NPC" parent="." index="2" instance=ExtResource( 3 )]
 
