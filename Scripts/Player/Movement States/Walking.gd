@@ -8,7 +8,9 @@ export(int) var timeToRun = .3
 var initialInputs = [0, 0, 0, 0]
 var pressedMoves = [0, 0, 0, 0]
 
+
 func enter(args):
+	VELOCITY = $"../../Stats".mWalkSpeed
 	runTimer = timeToRun
 	fillPressedArray(initialInputs)
 	.enter(args)

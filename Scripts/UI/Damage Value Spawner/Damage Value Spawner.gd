@@ -18,6 +18,7 @@ func spawn_damage_value(damageValue):
 	add_child(new_node)
 	#Call after spawn.
 	setup_damage_GUI(new_node, damageValue)
+	print("i shouldn't be called here twice")
 
 func setup_damage_GUI(damage_GUI_node, damageValue):
 	var GUI_position = animated_sprite_node.get_position() + Vector2(texture_width/4, -texture_height/2)

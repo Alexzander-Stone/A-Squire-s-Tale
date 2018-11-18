@@ -3,6 +3,9 @@ extends "res://Scripts/Player/Movement States/Inheritable Classes/IMoving.gd"
 # Input moves.
 var pressedMoves = [0, 0, 0, 0]
 
+func enter(args):
+	VELOCITY = $"../../Stats".mRunSpeed
+
 func update(delta):
 	# Has player began casting?
 	check_casting()

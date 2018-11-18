@@ -42,6 +42,7 @@ func _ready():
 func setup_ability(new_node, animation_to_play):
 	new_node.position = get_parent().position
 	new_node.get_node("AnimationPlayer").play(animation_to_play)
+	new_node.damageMod = $"../Stats".mDamageMod
 	current_active_abilities.append(new_node)
 
 func craft_ability(ability_key, animation_to_play):
