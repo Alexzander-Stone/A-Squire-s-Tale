@@ -17,12 +17,12 @@ func enter(args):
 	tween_node.connect("tween_completed", self, "animation_transitions")
 	
 	# If the Rat has hit a wall or player, bounce off it.
-	if args.size() > 0:
-		var bounce_back_vect = -(args[0].normalized()) 
-		bounce_to(owner.position, owner.position + bounce_back_vect, bounce_height, number_of_bounces, animation_time)
+	#if args.size() > 0:
+	#	var bounce_back_vect = -(args[0].normalized()) 
+	#	bounce_to(owner.position, owner.position + bounce_back_vect, bounce_height, number_of_bounces, animation_time)
 	# Otherwise, the rat has ended at nothing and can immediately signal the ending of the charge.
-	else:
-		emit_signal("finished", "leaving", [])
+	#else:
+	emit_signal("finished", "leaving", [])
 
 func exit():
 	#Detach signals.

@@ -102,9 +102,11 @@ func animation_transitions(tween_object, inspector_key):
 		
 		raycast_node.force_raycast_update()
 		
-		if raycast_node.is_colliding():
-			# Returns collision shape that we are colliding with.
-			bounce_position = raycast_node.get_collision_point()
+		# Find the closest point that isn't being occupied to jump to.
+		while raycast_node.is_colliding():
+			bounce_position -= bounce_direction
+			raycast_node.set_cast_to(bounce_position)
+			raycast_node.force_raycast_update()
 		# Determine how far to charge.
 		raycasted_target = bounce_position
 		# Begin first bounce. Contains two tween processes, so next 
