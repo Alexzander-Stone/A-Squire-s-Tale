@@ -16,13 +16,14 @@ var velocity = Vector2(0,0)
 var perceived_player_position = Vector2(0,0)
 var player_to_follow = null
 
-func _ready():
-	attack_begin_collision_node.connect("area_entered", self, "begin_charging")
-
 # void enter
 # args[0], contains the player object for when the player entered the vision cone.
 func enter(args):
 	begin_following(args[0])
+	attack_begin_collision_node.connect("area_entered", self, "begin_charging")
+
+func exit():
+	attack_begin_collision_node.disconnect("area_entered", self, "begin_charging")
 
 func update(delta):
 	# Update perceived player's coordinates when player has left the 

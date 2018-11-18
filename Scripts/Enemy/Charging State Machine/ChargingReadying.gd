@@ -109,7 +109,7 @@ func animation_transitions(tween_object, inspector_key):
 		raycasted_target = bounce_position
 		# Begin first bounce. Contains two tween processes, so next 
 		# animation index will be +2.
-		bounce_to(owner.position, bounce_position * (2/3), -large_backup_height, large_bounce_count, large_bounce_time)
+		bounce_to(owner.position, bounce_position * (2.0/3.0), -large_backup_height, large_bounce_count, large_bounce_time)
 	
 	# Smaller jumps, will have 2 jumps so animation index will be +4
 	elif current_animation_index == 4:

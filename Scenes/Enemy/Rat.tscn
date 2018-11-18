@@ -1,18 +1,19 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scripts/Enemy/Rat.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Enemy/darkfalco.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Enemy/Charging State Machine/IgnoreList Jumping RayCast2D.gd" type="Script" id=3]
-[ext_resource path="res://Scripts/Enemy/EnemyStateMachine.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/Enemy/EnemyIdling.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/Enemy/EnemySearching.gd" type="Script" id=6]
-[ext_resource path="res://Scripts/Enemy/EnemyFollowing.gd" type="Script" id=7]
-[ext_resource path="res://Scripts/Enemy/EnemyCharging.gd" type="Script" id=8]
-[ext_resource path="res://Scripts/Enemy/Charging State Machine/ChargingReadying.gd" type="Script" id=9]
-[ext_resource path="res://Scripts/Enemy/Charging State Machine/ChargingAttacking.gd" type="Script" id=10]
-[ext_resource path="res://Scripts/Enemy/Charging State Machine/ChargingEnding.gd" type="Script" id=11]
-[ext_resource path="res://Scenes/UI/DebugStateLabel.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/UI/Damage Value Spawner/Damage Value Spawner.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scripts/Enemy/Charge Damage/Charging Attack.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Enemy/EnemyStateMachine.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Enemy/EnemyIdling.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Enemy/EnemySearching.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/Enemy/EnemyFollowing.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Enemy/EnemyCharging.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/Enemy/Charging State Machine/ChargingReadying.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/Enemy/Charging State Machine/ChargingAttacking.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/Enemy/Charging State Machine/ChargingEnding.gd" type="Script" id=12]
+[ext_resource path="res://Scenes/UI/DebugStateLabel.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/UI/Damage Value Spawner/Damage Value Spawner.tscn" type="PackedScene" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -33,17 +34,17 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 75, 75 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
-extents = Vector2( 20, 20 )
+extents = Vector2( 40, 40 )
 
-[sub_resource type="ConvexPolygonShape2D" id=4]
+[sub_resource type="ConvexPolygonShape2D" id=5]
 
 custom_solver_bias = 0.0
 points = PoolVector2Array( -5, 0, 5, 0, 30, 20, 0, 40, -30, 20 )
 
-[node name="Rat" type="KinematicBody2D"]
+[node name="Rat" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -116,11 +117,12 @@ angular_damp = 1.0
 monitorable = false
 audio_bus_override = false
 audio_bus_name = "Master"
+script = ExtResource( 4 )
 _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Charging Attack" index="0"]
 
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="Vision Field" type="Area2D" parent="." index="7"]
 
@@ -137,17 +139,17 @@ _sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision Field" index="0"]
 
 scale = Vector2( 6, 6 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="StateMachine" type="Node" parent="." index="8"]
 
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 START_STATE = NodePath("Idling")
 
 [node name="Idling" type="Node" parent="StateMachine" index="0"]
 
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 collision_path = NodePath("../../CollisionShape2D")
 vision_path = NodePath("../../Vision Field")
 base_time_until_search = 1.0
@@ -155,7 +157,7 @@ search_variable_time = 3.0
 
 [node name="Searching" type="Node" parent="StateMachine" index="1"]
 
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 collision_path = NodePath("../../CollisionShape2D")
 vision_path = NodePath("../../Vision Field")
 tween_path = NodePath("../../Tween")
@@ -165,7 +167,7 @@ rotation_of_character = 10
 
 [node name="Following" type="Node" parent="StateMachine" index="2"]
 
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 collision_path = NodePath("../../CollisionShape2D")
 vision_path = NodePath("../../Vision Field")
 attack_begin_collision_path = NodePath("../../Begin Attack")
@@ -174,12 +176,12 @@ speed_multiplier = 2.0
 
 [node name="Charging" type="Node" parent="StateMachine" index="3"]
 
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 initial_node_path = NodePath("Readying")
 
 [node name="Readying" type="Node" parent="StateMachine/Charging" index="0"]
 
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 tween_path = NodePath("../../../Charging Tween")
 animated_sprite_path = NodePath("../../../AnimatedSprite")
 raycast_path = NodePath("../../../Jumping RayCast2D")
@@ -195,19 +197,19 @@ small_bounce_count = 2.0
 
 [node name="Attacking" type="Node" parent="StateMachine/Charging" index="1"]
 
-script = ExtResource( 10 )
+script = ExtResource( 11 )
 charging_hitbox_path = NodePath("../../../Charging Attack")
 minimum_charge_length = 10
 
 [node name="Ending" type="Node" parent="StateMachine/Charging" index="2"]
 
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 
 [node name="Taking Damage" type="Node" parent="StateMachine" index="4"]
 
 [node name="Dying" type="Node" parent="StateMachine" index="5"]
 
-[node name="Layer Control" parent="." index="9" instance=ExtResource( 12 )]
+[node name="Layer Control" parent="." index="9" instance=ExtResource( 13 )]
 
 position = Vector2( -64, -65 )
 
@@ -215,7 +217,7 @@ position = Vector2( -64, -65 )
 
 state_machine_path = NodePath("../../../StateMachine")
 
-[node name="Damage Value Spawner" parent="." index="10" instance=ExtResource( 13 )]
+[node name="Damage Value Spawner" parent="." index="10" instance=ExtResource( 14 )]
 
 animated_sprite_path = NodePath("../AnimatedSprite")
 

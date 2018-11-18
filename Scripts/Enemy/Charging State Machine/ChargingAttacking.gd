@@ -23,6 +23,10 @@ func enter(args):
 	
 	# Enable the hitbox.
 	charging_hitbox_node.monitorable = true
+	charging_hitbox_node.monitoring = true
+	
+	# Set up signal so enemy can end charge if it hits a player.
+	charging_hitbox_node.connect("area_entered", self, "end_charge")
 	
 	# Move player and check how much it has moved.
 	previous_position = owner.position
@@ -30,8 +34,11 @@ func enter(args):
 	leftover_charge_vector -= (owner.position - previous_position).abs()
 
 func exit():
-	# Enable the hitbox.
+	# Disable the hitbox.
 	charging_hitbox_node.monitorable = false
+	charging_hitbox_node.monitoring = false
+	
+	charging_hitbox_node.disconnect("area_entered", self, "end_charge")
 
 func update(delta):
 	# Update perceived player's coordinates when player has left the 
@@ -49,3 +56,11 @@ func update(delta):
 		previous_position = owner.position
 		owner.move_and_slide(charge_vector)
 		leftover_charge_vector -= (owner.position - previous_position).abs()
+
+func end_charge(collided_object):
+	print("hello")
+	##
+	#Change to player group. Can also include walls.
+	##
+	#if collided_object.name == "Player":
+	emit_signal("finished", "ending", [])
