@@ -82,7 +82,7 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 40, 50 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 17
@@ -105,7 +105,7 @@ _sections_unfolded = [ "Playback Options" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
 
-rotation = 4.46638e-006
+rotation = 4.46638e-06
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 3 )
 animation = "Idle"

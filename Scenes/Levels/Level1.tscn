@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Environment/Tilesets/Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/NPC/NPC.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/SceneTransitionBox/SceneTransitionBox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Door/Door.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Destructibles/Pot.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Enemy/Rat.tscn" type="PackedScene" id=6]
 
 [node name="Level1" type="Node2D"]
 
@@ -89,5 +90,13 @@ position = Vector2( 111.657, 871.323 )
 [node name="Pot11" parent="." index="15" instance=ExtResource( 5 )]
 
 position = Vector2( 872.943, 875.798 )
+
+[node name="Rat" parent="." index="16" instance=ExtResource( 6 )]
+
+position = Vector2( 594.347, 509.536 )
+
+[node name="Rat2" parent="." index="17" instance=ExtResource( 6 )]
+
+position = Vector2( 295.642, 372.894 )
 
 
