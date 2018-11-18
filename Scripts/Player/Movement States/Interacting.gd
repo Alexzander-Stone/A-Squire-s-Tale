@@ -12,7 +12,9 @@ func enter(args):
 	# Set signal up for communication between interactable objects.
 	interactable_node = args[0]
 	# Begin the interaction.
-	interactable_node.inititate_interaction()
+	var theres_more = interactable_node.inititate_interaction()
+	if not theres_more:
+		end_interaction()
 	.enter(args)
 
 # When leaving the interacting state, we want to set the colliding_node to null
