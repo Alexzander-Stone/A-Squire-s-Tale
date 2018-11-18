@@ -14,12 +14,17 @@ func enter(args):
 	dummy_node.take_damage(args[0])
 	#args is the damage value, use it to display, don't edit hp
 	dummy_animation_node.play("Flinching")
-	print("Dummy State: hit")
+	#print("Dummy State: hit")
 	flinchTimer = dummy_animation_node.current_animation_length / dummy_animation_node.playback_speed
+	.enter(args)
 
 func update(delta):
 	if(flinchTimer > 0):
 		flinchTimer -= delta
 	else:
+		print("i no twice")
 		emit_signal("finished", "idling", [0])
 	.update(delta)
+	
+func exit():
+	.exit()

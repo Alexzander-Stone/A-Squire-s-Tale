@@ -39,6 +39,7 @@ func _ready():
 
 
 func enter(args):
+	.enter(args)
 	##
 	#Add check to see if crafting container only has one ability.
 	#May want to just immediately call normal crafting if so.
@@ -78,7 +79,6 @@ func enter(args):
 		else:
 			print("no casting")
 			emit_signal("finished", "idling", [])
-	.enter(args)
 
 func update(delta):
 	if(casting_animation_timer >= 0):
@@ -88,3 +88,6 @@ func update(delta):
 	
 	# Call parent class function.
 	.update(delta)
+	
+func exit():
+	.exit()

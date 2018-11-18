@@ -16,7 +16,7 @@ func fade_out():
    get_node("TweenOut").start()
    
 func delete_cur_level():
-   self.remove_child(get_node("Level"))
+   get_node("Level").queue_free()
    
 func load_new_level():
    var scene = load(to_level)

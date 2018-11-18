@@ -5,6 +5,8 @@ var collision_node
 
 func _ready():
 	collision_node = get_node(collision_path)
+	
+func enter(args):
 	collision_node.connect("area_entered", self, "collisionDetected")
 
 # void beginFlinch
@@ -18,3 +20,6 @@ func collisionDetected(colliding_object):
 	# Get the damage value from the colliding object.
 	var damage_to_take = colliding_object.calculate_damage()
 	beginFlinch(damage_to_take)
+
+func exit():
+	collision_node.disconnect("area_entered", self, "collisionDetected")

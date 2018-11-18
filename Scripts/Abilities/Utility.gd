@@ -13,6 +13,7 @@ func _ready():
 	self.connect("area_exited", self, "ObjectExited")
 
 func ObjectEntered(colliding_object):
+	#this routes by the flinching state, so enemies take damage but don't flinch
 	self.connect("tickDamage", colliding_object.owner, "take_damage")
 	
 func ObjectExited(colliding_object):

@@ -5,6 +5,7 @@ var pressedMoves = [0, 0, 0, 0]
 
 func enter(args):
 	VELOCITY = $"../../Stats".mRunSpeed
+	.enter(args)
 
 func update(delta):
 	# Has player began casting?
@@ -24,3 +25,5 @@ func update(delta):
 	
 	# Call parent class function.
 	.update(delta)
+func exit():
+	.exit()
