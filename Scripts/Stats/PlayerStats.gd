@@ -4,7 +4,9 @@ extends "res://Scripts/Stats/BasicStats.gd"
 var artifactList = []
 
 #list of all current statuses
-var currentStatusEffects= []
+var CurrentStatusEffects= []
+
+var StatusEffectDurations = []
 
 #dictionary of all artifacts
 var artifacts_dict = {}
@@ -16,14 +18,20 @@ var status_effects_dict = {}
 #stats specific to player
 #export(int) var runSpeed = 10
 export(float) var cdr = 0.0
-export(float) var damageMod = 1.0
+export(float) var damage = 1.0
+#stat modifiers
 
-#modified stats (for trinket changes)
+var maxHealthMod = 0
+var speedMod = 0
+var cdrMod = 0
+var damageMod = 0.0
+
+#modified stats (used by outside functions)
 var mMaxHealth = 150
 var mWalkSpeed
 var mRunSpeed
 var mcdr = 0.0
-var mDamageMod= 1.0
+var mDamage = 1.0
 
 func _ready():
 	
@@ -45,27 +53,67 @@ func _ready():
 	mRunSpeed = runSpeed
 	mMaxHealth = maxHealth + 50
 	mcdr = cdr
-	mDamageMod = damageMod
+	mDamage = damage
+	
+	addStatus("Warcry")
 	
 func addArtifact(args):
 	artifactList.append(args[0])
 	updateStats()
+	
 #placed this here for consistency of signals being sent to the GUI
 func heal(restore):
 	currentHealth += restore
 	if(currentHealth > mMaxHealth):
 		currentHealth = mMaxHealth
 
+func addStatus(status):
+	if(!CurrentStatusEffects.has(status)):
+		CurrentStatusEffects.append(status)
+		StatusEffectDurations.append(status_effects_dict[status]["duration"])
+		addStatusModifier(status)
+		#update stats to reflect the change in status
+		updateStats()
+	
+
 func _process(delta):
-	#add all of the status effect stats to the modified stats
-	#for artifact in artifactList:
-	#mcdr = cdr + artifacts_dict[artifact]["cdrMod"]
-	#when timer is done for each one, remove it and the stat modifiers
-	pass
+	
+	#count down status effect timers sequentially, and remove them when they hit zero
+	for i in range(StatusEffectDurations.size()):
+		StatusEffectDurations[i] -= delta
+		#if this is true, remove the status effect
+		if(StatusEffectDurations[i] <= 0):
+			removeStatusModifier(CurrentStatusEffects[i])
+			CurrentStatusEffects.remove(i)
+			StatusEffectDurations.remove(i)
+			#update stats to reflect the change in status
+			updateStats()
+
 func updateStats():
+	
+	calculateArtifactModifiers()
+	mcdr =  cdr + cdrMod
+	mDamage = damage + damageMod
+	mWalkSpeed = walkSpeed + speedMod
+	mRunSpeed = runSpeed + speedMod*2
+	print(mWalkSpeed)
+	
+	
+func calculateArtifactModifiers():
 	#add every available artifact stat to the modified stats
 	for artifact in artifactList:
-		mcdr = cdr + artifacts_dict[artifact]["cdrMod"]
+		cdrMod +=  artifacts_dict[artifact]["cdrMod"]
+		
+		
+func addStatusModifier(status):
+	#add individual status when it is gained
+		damageMod += status_effects_dict[status]["damageMod"]
+		speedMod += status_effects_dict[status]["speedMod"]
+		
+func removeStatusModifier(status):
+	#remove individual status when it is lost
+		damageMod -= status_effects_dict[status]["damageMod"]
+		speedMod -= status_effects_dict[status]["speedMod"]
 
 #export(int) var experience = 0
 #export(int) var level = 1
@@ -74,6 +122,4 @@ func updateStats():
 #export(int) var maxResource = 100
 #export(int) var currentResource = 0
 
-#updateStats() function called by 
-#newArtifact(string artifact_name) which is called when player gets a new trinket(signal), updates modified stats
 

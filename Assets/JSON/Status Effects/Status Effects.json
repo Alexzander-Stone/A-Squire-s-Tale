@@ -1,7 +1,7 @@
 {
 	"Warcry": {
 		"damageMod": 2,
-		"walkSpeedMod": 5,
+		"speedMod": 5,
 		"duration": 5.0
 	}
 }

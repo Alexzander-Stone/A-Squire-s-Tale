@@ -10,7 +10,6 @@ var pressedMoves = [0, 0, 0, 0]
 
 
 func enter(args):
-	VELOCITY = $"../../Stats".mWalkSpeed
 	runTimer = timeToRun
 	fillPressedArray(initialInputs)
 	.enter(args)
@@ -20,7 +19,10 @@ func exit():
 	.exit()
 
 func update(delta):
-	# Has player began casting?
+	#Check for a change in the player's walk speed because of status/artifact acquisition
+	VELOCITY = $"../../Stats".mWalkSpeed
+	
+	# Has player begun casting?
 	check_casting()
 	
 	# Determine which movement inputs have been used this update.

@@ -287,8 +287,5 @@ animated_sprite_path = NodePath("../AnimatedSprite")
 
 [node name="Stats" parent="." index="11" instance=ExtResource( 19 )]
 
-runSpeed = 10
-damageMod = 1.0
-
 
 [editable path="DebugStateLabel"]

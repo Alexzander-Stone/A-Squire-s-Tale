@@ -4,10 +4,11 @@ extends "res://Scripts/Player/Movement States/Inheritable Classes/IMoving.gd"
 var pressedMoves = [0, 0, 0, 0]
 
 func enter(args):
-	VELOCITY = $"../../Stats".mRunSpeed
 	.enter(args)
 
 func update(delta):
+	#Check for a change in the player's walk speed because of status/artifact acquisition
+	VELOCITY = $"../../Stats".mRunSpeed
 	# Has player began casting?
 	check_casting()
 	# Fill array with current movement input.
