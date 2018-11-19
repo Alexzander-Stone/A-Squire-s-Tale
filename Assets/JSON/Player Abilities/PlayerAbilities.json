@@ -1,34 +1,50 @@
 {
 	"01": {
-		"scene": "res://Scenes/Attack/Attack.tscn", 
+		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
 		"casting_timer": ".3"
 	},
 	"10": {
-		"scene": "res://Scenes/Attack/Attack.tscn", 
+		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
+		"casting_timer": ".3"
+	},
+	"02": {
+		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
+		"casting_timer": ".3"
+	},
+	"20": {
+		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
+		"casting_timer": ".3"
+	},
+	"03": {
+		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
+		"casting_timer": ".3"
+	},
+	"30": {
+		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
 		"casting_timer": ".3"
 	},
 	"12": {
-		"scene": "res://Scenes/Attack/Attack.tscn", 
+		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
 		"casting_timer": ".3"
 	},
 	"21": {
-		"scene": "res://Scenes/Attack/Attack.tscn", 
+		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
 		"casting_timer": ".3"
 	},
 	"13": {
-		"scene": "res://Scenes/Attack/Utility.tscn", 
-		"casting_timer": ".5"
+		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
+		"casting_timer": ".3"
 	},
 	"31": {
-		"scene": "res://Scenes/Attack/Utility.tscn", 
-		"casting_timer": ".5"
+		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
+		"casting_timer": ".3"
 	},
-	"30": {
-		"scene": "res://Scenes/Attack/Utility.tscn", 
-		"casting_timer": ".5"
+	"23": {
+		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
+		"casting_timer": ".3"
 	},
-	"03": {
-		"scene": "res://Scenes/Attack/Utility.tscn", 
-		"casting_timer": ".5"
+	"32": {
+		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
+		"casting_timer": ".3"
 	},
 }
