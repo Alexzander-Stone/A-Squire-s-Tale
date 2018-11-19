@@ -127,7 +127,6 @@ animated_sprite_path = NodePath("AnimatedSprite")
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
 rotation = 6.28319
-scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 1 )
 animation = "default"
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -210,7 +209,7 @@ angular_damp = 1.0
 monitorable = false
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Collision", "Transform", "Visibility", "Z Index" ]
+_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision Field" index="0"]
 
@@ -252,7 +251,6 @@ speed_multiplier = 2.0
 
 [node name="Charging" type="Node" parent="StateMachine" index="3"]
 
-editor/display_folded = true
 script = ExtResource( 9 )
 collision_path = NodePath("../../Damage Hitbox")
 initial_node_path = NodePath("Readying")
