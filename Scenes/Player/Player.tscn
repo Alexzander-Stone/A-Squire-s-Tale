@@ -4,12 +4,12 @@
 [ext_resource path="res://Assets/Player/Idle/idle_proper_scale.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Player/Seismic Slam/seismicslam-1_proper_scale.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Player/Seismic Slam/seismicslam-2_proper_scale.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Player/Seismic Slam/swing_proper_scale.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Player/Seismic Slam/warcry-2_proper_scale.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Player/Seismic Slam/warcry-1_proper_scale.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-1_proper_scale.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-2_proper_scale.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-3_proper_scale.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Player/Seismic Slam/warcry-2_proper_scale.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Player/Seismic Slam/warcry-1_proper_scale.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-1_proper_scale.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-2_proper_scale.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-3_proper_scale.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Player/Seismic Slam/swing_proper_scale.png" type="Texture" id=10]
 [ext_resource path="res://Scenes/Player/Interaction Layer.gd" type="Script" id=11]
 [ext_resource path="res://Scripts/Abilities/Abilities.gd" type="Script" id=12]
 [ext_resource path="res://Scripts/Player/Abilities/Cooldowns.gd" type="Script" id=13]
@@ -80,19 +80,19 @@ animations = [ {
 "name": "Seismic Slam",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "Swing",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Warcry",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "Jumpstrike",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "Swing",
 "speed": 5.0
 } ]
 
