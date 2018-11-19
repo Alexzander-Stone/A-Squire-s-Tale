@@ -1,5 +1,8 @@
 extends "res://Scripts/Player/Movement States/Inheritable Classes/IInteractable.gd"
 
+export(NodePath) var animated_sprite_path
+onready var animated_sprite_node = get_node(animated_sprite_path)
+
 export (int) var VELOCITY = 5
 
 func fillJustPressedArray(array):
@@ -34,5 +37,10 @@ func movePlayer(input):
 		
 	#only update the direction vector if the player inputs a direction
 	if(horizontalMove != 0 or verticalMove != 0):
+		# Update animation flip.
+		if horizontalMove == -1:
+			animated_sprite_node.flip_h = true
+		elif horizontalMove == 1:
+			animated_sprite_node.flip_h = false
 		owner.update_direction_vector()
 	owner.update_position()
