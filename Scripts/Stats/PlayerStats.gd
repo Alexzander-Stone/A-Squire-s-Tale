@@ -27,7 +27,7 @@ var cdrMod = 0
 var damageMod = 0.0
 
 #modified stats (used by outside functions)
-var mMaxHealth = 150
+var mMaxHealth = 100
 var mWalkSpeed
 var mRunSpeed
 var mcdr = 0.0
@@ -55,7 +55,7 @@ func _ready():
 	
 	mWalkSpeed = walkSpeed
 	mRunSpeed = runSpeed
-	mMaxHealth = maxHealth + 50
+	mMaxHealth = maxHealth
 	mcdr = cdr
 	mDamage = damage
 	

@@ -13,6 +13,7 @@
 [ext_resource path="res://Scripts/Dummy/Dying.gd" type="Script" id=11]
 [ext_resource path="res://Scenes/UI/DebugStateLabel.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/UI/Damage Value Spawner/Damage Value Spawner.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Sound_Players/SFX_Player_Dummy.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -82,7 +83,7 @@ tracks/3/keys = {
 [sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -108,7 +109,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Dummy" type="KinematicBody2D"]
+[node name="Dummy" type="KinematicBody2D" index="0"]
 
 scale = Vector2( 0.918653, 1.09591 )
 input_pickable = false
@@ -138,17 +139,13 @@ anims/Flinching = SubResource( 3 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
-[node name="SFX_Player" parent="." index="2" instance=ExtResource( 2 )]
-
-state_machine_path = NodePath("../DummyStateMachine")
-
-[node name="Full Sprite" type="Node2D" parent="." index="3"]
+[node name="Full Sprite" type="Node2D" parent="." index="2"]
 
 [node name="Sprite" type="Sprite" parent="Full Sprite" index="0"]
 
 position = Vector2( 3.71228, 74.8671 )
 scale = Vector2( 0.918653, 1 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Animation", "Offset", "Transform" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Full Sprite" index="1"]
@@ -179,7 +176,7 @@ scale = Vector2( 2.92287, 3.08602 )
 shape = SubResource( 5 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="DummyStateMachine" type="Node" parent="." index="4"]
+[node name="DummyStateMachine" type="Node" parent="." index="3"]
 
 script = ExtResource( 8 )
 START_STATE = NodePath("Idling")
@@ -209,5 +206,8 @@ state_machine_path = NodePath("../../../DummyStateMachine")
 
 animated_sprite_path = NodePath("../Full Sprite/AnimatedSprite")
 
+[node name="SFX_Player_Dummy" parent="." index="6" instance=ExtResource( 14 )]
+
+state_machine_path = NodePath("../DummyStateMachine")
 
 [editable path="DebugStateLabel"]

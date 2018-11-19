@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Player/falcotrash.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Scenes/UI/DebugStateLabel.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/UI/Damage Value Spawner/Damage Value Spawner.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Stats/PlayerStats.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/Sound_Players/SFX_Player.tscn" type="PackedScene" id=20]
 
 [sub_resource type="Animation" id=1]
 
@@ -82,14 +83,14 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 40, 50 )
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 17
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Material", "Pause", "Transform", "Visibility" ]
+_sections_unfolded = [ "Collision", "Material", "Pause", "Transform", "Visibility", "Z Index" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 
@@ -119,7 +120,6 @@ shape = SubResource( 4 )
 
 [node name="Damage Hitbox" type="Area2D" parent="." index="3"]
 
-editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -240,7 +240,6 @@ player_animation_path = NodePath("../../AnimationPlayer")
 
 [node name="Pivot" type="Position2D" parent="." index="8"]
 
-editor/display_folded = true
 script = ExtResource( 16 )
 
 [node name="CameraOffset" type="Position2D" parent="Pivot" index="0"]
@@ -276,8 +275,6 @@ _sections_unfolded = [ "Drag Margin", "Smoothing", "Transform" ]
 
 [node name="DebugStateLabel" parent="." index="9" instance=ExtResource( 17 )]
 
-editor/display_folded = true
-
 [node name="Label" parent="DebugStateLabel/DebugStateLabel" index="0"]
 
 state_machine_path = NodePath("../../../StateMachine")
@@ -287,6 +284,11 @@ state_machine_path = NodePath("../../../StateMachine")
 animated_sprite_path = NodePath("../AnimatedSprite")
 
 [node name="Stats" parent="." index="11" instance=ExtResource( 19 )]
+
+[node name="SFX_Player" parent="." index="12" instance=ExtResource( 20 )]
+
+state_machine_path = NodePath("../StateMachine")
+ability_node_path = NodePath("../StateMachine/Casting")
 
 
 [editable path="DebugStateLabel"]

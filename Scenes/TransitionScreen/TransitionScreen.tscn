@@ -19,6 +19,9 @@ _sections_unfolded = [ "Hint", "Rect" ]
 [node name="TransitionColor" parent="." index="0" instance=ExtResource( 1 )]
 
 visible = false
+margin_left = 8.0
+margin_right = 500.0
+margin_bottom = 300.0
 color = Color( 0, 0, 0, 1 )
 _sections_unfolded = [ "Anchor", "Margin", "Size Flags" ]
 

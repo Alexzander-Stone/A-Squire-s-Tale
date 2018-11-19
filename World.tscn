@@ -21,6 +21,10 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 margin_right = 140.0
 margin_bottom = 8.0
 
+[node name="Bar Top" parent="CanvasLayer/GUI" index="0"]
+
+editor/display_folded = false
+
 [node name="Super" parent="CanvasLayer/GUI/Bar Top/Abilities/Super" index="0"]
 
 ability_path = NodePath("../../../../../../Player/Cooldowns")
@@ -38,6 +42,12 @@ ability_path = NodePath("../../../../../../../Player/Cooldowns")
 ability_path = NodePath("../../../../../../../Player/Cooldowns")
 
 [node name="TransitionScreen" parent="CanvasLayer" index="1" instance=ExtResource( 2 )]
+
+[node name="TransitionColor" parent="CanvasLayer/TransitionScreen" index="0"]
+
+margin_left = 8.0
+margin_right = 500.0
+margin_bottom = 300.0
 
 [node name="Environment" parent="." index="1" instance=ExtResource( 3 )]
 
