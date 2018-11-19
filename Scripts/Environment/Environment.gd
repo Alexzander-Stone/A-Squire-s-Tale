@@ -7,7 +7,7 @@ var transition_screen_node
 export (String) var starting_level
 
 func _ready():
-   transition_screen_node = get_node("/root/World/CanvasLayer/GUI/TransitionScreen")
+   transition_screen_node = get_node("/root/World/CanvasLayer/TransitionScreen/TransitionColor")
    var scene = load(starting_level)
    var scene_instance = scene.instance()
    scene_instance.set_name("Level")
