@@ -11,10 +11,12 @@ export(NodePath) var cooldown_path
 export(NodePath) var abilities_path
 export(NodePath) var weapon_animation_path
 export(NodePath) var parent_path
+export(NodePath) var animated_sprite_path
 
 onready var cooldown_node = get_node(cooldown_path)
 onready var abilities_node = get_node(abilities_path)
 onready var parent_node = get_node(parent_path)
+onready var animated_sprite_node = get_node(animated_sprite_path)
 
 var dict = {"00" : "Attack_1R", 
 			"10" : "Attack_1R", 
@@ -85,17 +87,20 @@ func enter(args):
 		elif((args[0] == 1) && cooldown_node.primary_cooldown_timer <= 0):
 			var animation_to_play = dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))]
 			emit_signal("primary_used", animation_to_play)
+			animated_sprite_node.animation = "Swing"
 			casting_animation_timer = abilities_node.primary_length;
 		
 		#receive input for secondary ability (number 2)
 		elif((args[0] == 2) && cooldown_node.secondary_cooldown_timer <= 0):
 			var animation_to_play = dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))]
 			emit_signal("secondary_used", animation_to_play)
+			animated_sprite_node.animation = "Seismic Slam"
 			casting_animation_timer = abilities_node.secondary_length;
 			
 		elif((args[0] == 3) && cooldown_node.ternary_cooldown_timer <= 0):
 			var animation_to_play = dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))]
 			emit_signal("ternary_used", animation_to_play)
+			animated_sprite_node.animation = "Warcry"
 			casting_animation_timer = abilities_node.ternary_length;
 			
 		else:

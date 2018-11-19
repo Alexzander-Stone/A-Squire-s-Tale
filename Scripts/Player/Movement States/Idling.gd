@@ -1,7 +1,11 @@
 extends "res://Scripts/Player/Movement States/Inheritable Classes/IInteractable.gd"
 
+export(NodePath) var animated_sprite_path
+onready var animated_sprite_node = get_node(animated_sprite_path)
+
 func enter(args):
 	.enter(args)
+	animated_sprite_node.animation = "Idle"
 	owner.velocity = Vector2(0,0)
 	# When transitioning to the idling state, check for any movement
 	# inputs that are being pressed immediately. Removes the odd transtion of: 

@@ -42,7 +42,6 @@ starting_level = "res://Scenes/Levels/IntroLevel.tscn"
 
 [node name="Player" parent="." index="2" instance=ExtResource( 4 )]
 
-editor/display_folded = true
 position = Vector2( -570.552, 127.724 )
 
 [node name="Music_Player" parent="." index="3" instance=ExtResource( 5 )]
@@ -50,4 +49,3 @@ position = Vector2( -570.552, 127.724 )
 
 [editable path="CanvasLayer/GUI"]
 [editable path="CanvasLayer/TransitionScreen"]
-[editable path="Player"]
