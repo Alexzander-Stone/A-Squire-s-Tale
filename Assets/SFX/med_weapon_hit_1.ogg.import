@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/med_weapon_hit_1.ogg-e96c629e71f11eb9a7aa9a41db95dcaf.oggstr"
+
+[deps]
+
+source_file="res://Assets/SFX/med_weapon_hit_1.ogg"
+dest_files=[ "res://.import/med_weapon_hit_1.ogg-e96c629e71f11eb9a7aa9a41db95dcaf.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

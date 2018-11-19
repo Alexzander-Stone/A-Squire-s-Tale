@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/large_weapon_hit_2.ogg-b97183fa13f3c5e9e4046cdb9ed7a151.oggstr"
+
+[deps]
+
+source_file="res://Assets/SFX/large_weapon_hit_2.ogg"
+dest_files=[ "res://.import/large_weapon_hit_2.ogg-b97183fa13f3c5e9e4046cdb9ed7a151.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
