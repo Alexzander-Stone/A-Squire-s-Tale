@@ -1,4 +1,5 @@
-extends "res://Scripts/State Machine/State.gd"
+#extends "res://Scripts/State Machine/State.gd"
+extends "res://Scripts/Enemy/Enemy Inheritable Classes/IFlinchable.gd"
 
 export(NodePath) var initial_node_path
 
@@ -17,6 +18,7 @@ func _ready():
 func enter(args):
 	current_state = get_node(initial_node_path)
 	current_state.enter(args)
+	.enter(args)
 
 func update(delta):
 	current_state.update(delta)
@@ -35,3 +37,6 @@ func change_state(state_name, args):
 		current_state = states_map[state_name]
 		# Officially enter new state.
 		current_state.enter(args)
+
+func exit():
+	.exit()

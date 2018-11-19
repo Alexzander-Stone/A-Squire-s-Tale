@@ -1,4 +1,5 @@
 extends "res://Scripts/State Machine/State.gd"
+#extends "res://Scripts/Enemy/Enemy Inheritable Classes/IFlinchable.gd"
 
 export(NodePath) var tween_path
 onready var tween_node = get_node(tween_path)

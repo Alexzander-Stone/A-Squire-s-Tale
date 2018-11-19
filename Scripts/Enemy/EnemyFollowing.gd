@@ -21,9 +21,11 @@ var player_to_follow = null
 func enter(args):
 	begin_following(args[0])
 	attack_begin_collision_node.connect("area_entered", self, "begin_charging")
+	.enter(args)
 
 func exit():
 	attack_begin_collision_node.disconnect("area_entered", self, "begin_charging")
+	.exit()
 
 func update(delta):
 	# Update perceived player's coordinates when player has left the 
