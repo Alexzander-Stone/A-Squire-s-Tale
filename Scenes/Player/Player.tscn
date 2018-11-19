@@ -1,25 +1,33 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Player/falcotrash.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Player/Interaction Layer.gd" type="Script" id=3]
-[ext_resource path="res://Scripts/Abilities/Abilities.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/Player/Abilities/Cooldowns.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/Player/State Machine/PlayerStateMachine.gd" type="Script" id=6]
-[ext_resource path="res://Scripts/Player/Movement States/Idling.gd" type="Script" id=7]
-[ext_resource path="res://Scripts/Player/Movement States/Interacting.gd" type="Script" id=8]
-[ext_resource path="res://Scripts/Player/Movement States/Walking.gd" type="Script" id=9]
-[ext_resource path="res://Scripts/Player/Movement States/Stopping.gd" type="Script" id=10]
-[ext_resource path="res://Scripts/Player/Movement States/Running.gd" type="Script" id=11]
-[ext_resource path="res://Scripts/Player/Movement States/Crafting.gd" type="Script" id=12]
-[ext_resource path="res://Scripts/Player/Movement States/Casting.gd" type="Script" id=13]
-[ext_resource path="res://Scripts/Player/Movement States/Dying.gd" type="Script" id=14]
-[ext_resource path="res://Scripts/Player/Movement States/Flinching.gd" type="Script" id=15]
-[ext_resource path="res://Scripts/Camera/Pivot.gd" type="Script" id=16]
-[ext_resource path="res://Scenes/UI/DebugStateLabel.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Scenes/UI/Damage Value Spawner/Damage Value Spawner.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Scenes/Stats/PlayerStats.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Scenes/Sound_Players/SFX_Player.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Assets/Player/Idle/idle.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Player/Seismic Slam/seismicslam-1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Player/Seismic Slam/seismicslam-2.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-1.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-2.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-3.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Player/Warcry/warcry-1.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Player/Warcry/warcry-2.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Player/Swing/swing.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Player/Interaction Layer.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/Abilities/Abilities.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/Player/Abilities/Cooldowns.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/Player/State Machine/PlayerStateMachine.gd" type="Script" id=14]
+[ext_resource path="res://Scripts/Player/Movement States/Idling.gd" type="Script" id=15]
+[ext_resource path="res://Scripts/Player/Movement States/Interacting.gd" type="Script" id=16]
+[ext_resource path="res://Scripts/Player/Movement States/Walking.gd" type="Script" id=17]
+[ext_resource path="res://Scripts/Player/Movement States/Stopping.gd" type="Script" id=18]
+[ext_resource path="res://Scripts/Player/Movement States/Running.gd" type="Script" id=19]
+[ext_resource path="res://Scripts/Player/Movement States/Crafting.gd" type="Script" id=20]
+[ext_resource path="res://Scripts/Player/Movement States/Casting.gd" type="Script" id=21]
+[ext_resource path="res://Scripts/Player/Movement States/Dying.gd" type="Script" id=22]
+[ext_resource path="res://Scripts/Player/Movement States/Flinching.gd" type="Script" id=23]
+[ext_resource path="res://Scripts/Camera/Pivot.gd" type="Script" id=24]
+[ext_resource path="res://Scenes/UI/DebugStateLabel.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Scenes/UI/Damage Value Spawner/Damage Value Spawner.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Scenes/Stats/PlayerStats.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Scenes/Sound_Players/SFX_Player.tscn" type="PackedScene" id=28]
 
 [sub_resource type="Animation" id=1]
 
@@ -35,28 +43,28 @@ length = 3.0
 loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:rotation_degrees")
+tracks/0/path = NodePath("AnimatedSprite:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.5, 3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 180.0, 360.0 ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.6, 0.6, 0.6, 1 ), Color( 1, 1, 1, 1 ), Color( 0.6, 0.6, 0.6, 1 ), Color( 1, 1, 1, 1 ), Color( 0.6, 0.6, 0.6, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:modulate")
+tracks/1/path = NodePath("AnimatedSprite:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.6, 0.6, 0.6, 1 ), Color( 1, 1, 1, 1 ), Color( 0.6, 0.6, 0.6, 1 ), Color( 1, 1, 1, 1 ), Color( 0.6, 0.6, 0.6, 1 ), Color( 1, 1, 1, 1 ) ]
+"values": [ 0.0, 180.0, 360.0 ]
 }
 
 [sub_resource type="SpriteFrames" id=3]
@@ -65,6 +73,26 @@ animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Seismic Slam",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Jumpstrike",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Warcry",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "Swing",
 "speed": 5.0
 } ]
 
@@ -83,7 +111,7 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 40, 50 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 17
@@ -107,7 +135,7 @@ _sections_unfolded = [ "Playback Options" ]
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
 
 rotation = 4.46638e-06
-scale = Vector2( 0.25, 0.25 )
+scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 3 )
 animation = "Idle"
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
@@ -145,7 +173,7 @@ collision_layer = 16
 collision_mask = 16
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 3 )
+script = ExtResource( 11 )
 _sections_unfolded = [ "Collision" ]
 
 [node name="Interaction Hitbox" type="CollisionShape2D" parent="Interaction Layer" index="0"]
@@ -154,7 +182,7 @@ shape = SubResource( 6 )
 
 [node name="Abilities" type="Node2D" parent="." index="5"]
 
-script = ExtResource( 4 )
+script = ExtResource( 12 )
 primary_length = 1
 secondary_length = 1
 ternary_length = 1
@@ -168,7 +196,7 @@ position = Vector2( 0, 4 )
 
 [node name="Cooldowns" type="Node" parent="." index="6"]
 
-script = ExtResource( 5 )
+script = ExtResource( 13 )
 primary_cooldown = 2
 secondary_cooldown = 4
 ternary_cooldown = 8
@@ -177,25 +205,25 @@ casting_path = NodePath("../StateMachine/Casting")
 
 [node name="StateMachine" type="Node" parent="." index="7"]
 
-script = ExtResource( 6 )
+script = ExtResource( 14 )
 _sections_unfolded = [ "Pause" ]
 START_STATE = NodePath("Idling")
 
 [node name="Idling" type="Node" parent="StateMachine" index="0"]
 
-script = ExtResource( 7 )
+script = ExtResource( 15 )
 collision_path = NodePath("../../Damage Hitbox")
 interaction_collision_path = NodePath("../../Interaction Layer")
 
 [node name="Interacting" type="Node" parent="StateMachine" index="1"]
 
-script = ExtResource( 8 )
+script = ExtResource( 16 )
 collision_path = NodePath("../../Damage Hitbox")
 interaction_collision_path = NodePath("../../Interaction Layer")
 
 [node name="Walking" type="Node" parent="StateMachine" index="2"]
 
-script = ExtResource( 9 )
+script = ExtResource( 17 )
 collision_path = NodePath("../../Damage Hitbox")
 interaction_collision_path = NodePath("../../Interaction Layer")
 VELOCITY = 5
@@ -203,25 +231,25 @@ timeToRun = 0.3
 
 [node name="Stopping" type="Node" parent="StateMachine" index="3"]
 
-script = ExtResource( 10 )
+script = ExtResource( 18 )
 
 [node name="Running" type="Node" parent="StateMachine" index="4"]
 
-script = ExtResource( 11 )
+script = ExtResource( 19 )
 collision_path = NodePath("../../Damage Hitbox")
 interaction_collision_path = NodePath("../../Interaction Layer")
 VELOCITY = 10
 
 [node name="Crafting" type="Node" parent="StateMachine" index="5"]
 
-script = ExtResource( 12 )
+script = ExtResource( 20 )
 collision_path = NodePath("../../Damage Hitbox")
 interaction_collision_path = NodePath("../../Interaction Layer")
 VELOCITY = 2
 
 [node name="Casting" type="Node" parent="StateMachine" index="6"]
 
-script = ExtResource( 13 )
+script = ExtResource( 21 )
 collision_path = NodePath("../../Damage Hitbox")
 cooldown_path = NodePath("../../Cooldowns")
 abilities_path = NodePath("../../Abilities")
@@ -230,17 +258,17 @@ parent_path = NodePath("../..")
 
 [node name="Dying" type="Node" parent="StateMachine" index="7"]
 
-script = ExtResource( 14 )
+script = ExtResource( 22 )
 
 [node name="Flinching" type="Node" parent="StateMachine" index="8"]
 
-script = ExtResource( 15 )
+script = ExtResource( 23 )
 player_path = NodePath("../..")
 player_animation_path = NodePath("../../AnimationPlayer")
 
 [node name="Pivot" type="Position2D" parent="." index="8"]
 
-script = ExtResource( 16 )
+script = ExtResource( 24 )
 
 [node name="CameraOffset" type="Position2D" parent="Pivot" index="0"]
 
@@ -273,19 +301,19 @@ editor_draw_limits = false
 editor_draw_drag_margin = true
 _sections_unfolded = [ "Drag Margin", "Smoothing", "Transform" ]
 
-[node name="DebugStateLabel" parent="." index="9" instance=ExtResource( 17 )]
+[node name="DebugStateLabel" parent="." index="9" instance=ExtResource( 25 )]
 
 [node name="Label" parent="DebugStateLabel/DebugStateLabel" index="0"]
 
 state_machine_path = NodePath("../../../StateMachine")
 
-[node name="Damage Value Spawner" parent="." index="10" instance=ExtResource( 18 )]
+[node name="Damage Value Spawner" parent="." index="10" instance=ExtResource( 26 )]
 
 animated_sprite_path = NodePath("../AnimatedSprite")
 
-[node name="Stats" parent="." index="11" instance=ExtResource( 19 )]
+[node name="Stats" parent="." index="11" instance=ExtResource( 27 )]
 
-[node name="SFX_Player" parent="." index="12" instance=ExtResource( 20 )]
+[node name="SFX_Player" parent="." index="12" instance=ExtResource( 28 )]
 
 state_machine_path = NodePath("../StateMachine")
 ability_node_path = NodePath("../StateMachine/Casting")
