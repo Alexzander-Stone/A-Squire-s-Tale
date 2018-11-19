@@ -2,14 +2,14 @@
 
 [ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Player/Idle/idle_proper_scale.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Player/Seismic Slam/seismicslam-1_proper_scale.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Player/Seismic Slam/seismicslam-2_proper_scale.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-1_proper_scale.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-2_proper_scale.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-3_proper_scale.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Player/Seismic Slam/warcry-2_proper_scale.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Player/Seismic Slam/warcry-1_proper_scale.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Player/Seismic Slam/swing_proper_scale.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Player/Seismic Slam/warcry-2_proper_scale.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Player/Seismic Slam/warcry-1_proper_scale.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Player/Seismic Slam/swing_proper_scale.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-1_proper_scale.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-2_proper_scale.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-3_proper_scale.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Player/Seismic Slam/seismicslam-1_proper_scale.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Player/Seismic Slam/seismicslam-2_proper_scale.png" type="Texture" id=10]
 [ext_resource path="res://Scenes/Player/Interaction Layer.gd" type="Script" id=11]
 [ext_resource path="res://Scripts/Abilities/Abilities.gd" type="Script" id=12]
 [ext_resource path="res://Scripts/Player/Abilities/Cooldowns.gd" type="Script" id=13]
@@ -77,22 +77,22 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
-"name": "Seismic Slam",
+"name": "Warcry",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Swing",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "Jumpstrike",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
-"name": "Warcry",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "Swing",
+"name": "Seismic Slam",
 "speed": 5.0
 } ]
 
@@ -142,12 +142,14 @@ _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="Wall Hitbox" type="CollisionShape2D" parent="." index="2"]
 
-position = Vector2( 0, 21 )
+position = Vector2( 0, 17 )
 scale = Vector2( 0.25, 0.25 )
 shape = SubResource( 4 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Damage Hitbox" type="Area2D" parent="." index="3"]
 
+position = Vector2( 0, 17 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -155,7 +157,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damage Hitbox" index="0"]
 

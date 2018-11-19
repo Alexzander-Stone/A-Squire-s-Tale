@@ -31,8 +31,6 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Walls" type="Node2D" parent="." index="4"]
 
-editor/display_folded = true
-
 [node name="Wall" parent="Walls" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 800, 2016 )

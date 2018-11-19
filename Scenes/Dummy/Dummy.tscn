@@ -1,19 +1,17 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Dummy/Dummy.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Sound_Players/SFX_Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Dummy/Training_dummy_base.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Dummy/Training_dummy_body.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Dummy/obj_dummy_melonlord_back_proper_scale.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Dummy/obj_dummy_melonlord_front_proper_scale.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Dummy/obj_dummy_basic_proper_scale.png" type="Texture" id=7]
-[ext_resource path="res://Scripts/Dummy/State Machine.gd" type="Script" id=8]
-[ext_resource path="res://Scripts/Dummy/Idling.gd" type="Script" id=9]
-[ext_resource path="res://Scripts/Dummy/Flinching.gd" type="Script" id=10]
-[ext_resource path="res://Scripts/Dummy/Dying.gd" type="Script" id=11]
-[ext_resource path="res://Scenes/UI/DebugStateLabel.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/UI/Damage Value Spawner/Damage Value Spawner.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenes/Sound_Players/SFX_Player_Dummy.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Assets/Dummy/Training_dummy_base.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Dummy/obj_dummy_melonlord_back_proper_scale.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Dummy/obj_dummy_melonlord_front_proper_scale.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Dummy/obj_dummy_basic_proper_scale.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Dummy/State Machine.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Dummy/Idling.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/Dummy/Flinching.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Dummy/Dying.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/UI/DebugStateLabel.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/UI/Damage Value Spawner/Damage Value Spawner.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Sound_Players/SFX_Player_Dummy.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -83,22 +81,22 @@ tracks/3/keys = {
 [sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "Watermelon Back",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "Watermelon Front",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "Scarecrow",
 "speed": 5.0
@@ -109,7 +107,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Dummy" type="KinematicBody2D"]
+[node name="Dummy" type="KinematicBody2D" index="0"]
 
 scale = Vector2( 0.918653, 1.09591 )
 input_pickable = false
@@ -145,7 +143,6 @@ _sections_unfolded = [ "Playback Options" ]
 
 position = Vector2( 3.71228, 74.8671 )
 scale = Vector2( 0.918653, 1 )
-texture = ExtResource( 2 )
 _sections_unfolded = [ "Animation", "Offset", "Transform" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Full Sprite" index="1"]
@@ -167,7 +164,7 @@ collision_layer = 0
 collision_mask = 2
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Collision", "Visibility" ]
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Full Sprite/AnimatedSprite/Area2D" index="0"]
 
@@ -178,36 +175,37 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="DummyStateMachine" type="Node" parent="." index="3"]
 
-script = ExtResource( 8 )
+script = ExtResource( 6 )
 START_STATE = NodePath("Idling")
 
 [node name="Idling" type="Node" parent="DummyStateMachine" index="0"]
 
-script = ExtResource( 9 )
+script = ExtResource( 7 )
 collision_path = NodePath("../../Full Sprite/AnimatedSprite/Area2D")
 
 [node name="Flinching" type="Node" parent="DummyStateMachine" index="1"]
 
-script = ExtResource( 10 )
+script = ExtResource( 8 )
 collision_path = NodePath("../../Full Sprite/AnimatedSprite/Area2D")
 dummy_path = NodePath("../..")
 
 [node name="Dying" type="Node" parent="DummyStateMachine" index="2"]
 
-script = ExtResource( 11 )
+script = ExtResource( 9 )
 
-[node name="DebugStateLabel" parent="." index="5" instance=ExtResource( 12 )]
+[node name="DebugStateLabel" parent="." index="4" instance=ExtResource( 10 )]
 
 [node name="Label" parent="DebugStateLabel/DebugStateLabel" index="0"]
 
 state_machine_path = NodePath("../../../DummyStateMachine")
 
-[node name="Damage Value Spawner" parent="." index="6" instance=ExtResource( 13 )]
+[node name="Damage Value Spawner" parent="." index="5" instance=ExtResource( 11 )]
 
 animated_sprite_path = NodePath("../Full Sprite/AnimatedSprite")
 
-[node name="SFX_Player_Dummy" parent="." index="6" instance=ExtResource( 14 )]
+[node name="SFX_Player_Dummy" parent="." index="6" instance=ExtResource( 12 )]
 
 state_machine_path = NodePath("../DummyStateMachine")
+
 
 [editable path="DebugStateLabel"]
