@@ -101,7 +101,7 @@ position = Vector2( 347.709, 922.511 )
 
 [node name="Rat2" parent="." index="17" instance=ExtResource( 6 )]
 
-position = Vector2( 295.642, 372.894 )
+position = Vector2( 101.108, 227.334 )
 
 [node name="Wall" parent="." index="18" instance=ExtResource( 7 )]
 

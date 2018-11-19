@@ -114,7 +114,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.378906, 0.162811, 0.162811, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="Rat" type="KinematicBody2D"]
+[node name="Rat" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -209,7 +209,7 @@ angular_damp = 1.0
 monitorable = false
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
+_sections_unfolded = [ "Collision", "Transform", "Visibility", "Z Index" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision Field" index="0"]
 
