@@ -1066,11 +1066,19 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Dummy" parent="." index="5" instance=ExtResource( 5 )]
 
-position = Vector2( 2304, 2528 )
+position = Vector2( 2304, 2432 )
+
+[node name="AnimatedSprite" parent="Dummy/Full Sprite" index="1"]
+
+animation = "Scarecrow"
 
 [node name="Dummy2" parent="." index="6" instance=ExtResource( 5 )]
 
 position = Vector2( 1696, 2944 )
+
+[node name="AnimatedSprite" parent="Dummy2/Full Sprite" index="1"]
+
+animation = "Watermelon Front"
 
 [node name="Dummy3" parent="." index="7" instance=ExtResource( 5 )]
 
@@ -1078,6 +1086,13 @@ position = Vector2( 2304, 2944 )
 
 [node name="Dummy4" parent="." index="8" instance=ExtResource( 5 )]
 
-position = Vector2( 1696, 2528 )
+position = Vector2( 1696, 2432 )
+
+[node name="AnimatedSprite" parent="Dummy4/Full Sprite" index="1"]
+
+animation = "Scarecrow"
 
 
+[editable path="Dummy"]
+[editable path="Dummy2"]
+[editable path="Dummy4"]
