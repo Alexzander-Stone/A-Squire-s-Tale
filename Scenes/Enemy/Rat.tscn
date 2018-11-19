@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scripts/Enemy/Rat.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Enemy/darkfalco.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Enemy/Bear Sprite.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Enemy/Charging State Machine/IgnoreList Jumping RayCast2D.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/Enemy/Charge Damage/Charging Attack.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/Enemy/EnemyStateMachine.gd" type="Script" id=5]
@@ -127,7 +127,7 @@ animated_sprite_path = NodePath("AnimatedSprite")
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
 rotation = 6.28319
-scale = Vector2( 0.25, 0.25 )
+scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 1 )
 animation = "default"
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -210,7 +210,7 @@ angular_damp = 1.0
 monitorable = false
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
+_sections_unfolded = [ "Collision", "Transform", "Visibility", "Z Index" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision Field" index="0"]
 
@@ -252,6 +252,7 @@ speed_multiplier = 2.0
 
 [node name="Charging" type="Node" parent="StateMachine" index="3"]
 
+editor/display_folded = true
 script = ExtResource( 9 )
 collision_path = NodePath("../../Damage Hitbox")
 initial_node_path = NodePath("Readying")

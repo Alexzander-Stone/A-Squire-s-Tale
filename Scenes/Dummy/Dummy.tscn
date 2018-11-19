@@ -107,7 +107,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Dummy" type="KinematicBody2D" index="0"]
+[node name="Dummy" type="KinematicBody2D"]
 
 scale = Vector2( 0.918653, 1.09591 )
 input_pickable = false

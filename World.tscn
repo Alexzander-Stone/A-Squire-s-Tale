@@ -44,6 +44,7 @@ starting_level = "res://Scenes/Levels/IntroLevel.tscn"
 [node name="Player" parent="." index="2" instance=ExtResource( 4 )]
 
 position = Vector2( -570.552, 127.724 )
+z_index = 1
 
 [node name="Music_Player" parent="." index="3" instance=ExtResource( 5 )]
 

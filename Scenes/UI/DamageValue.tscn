@@ -16,7 +16,7 @@ use_filter = false
 font_data = SubResource( 1 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[node name="Layer Control" type="Node2D" index="0"]
+[node name="Layer Control" type="Node2D"]
 
 z_index = 10
 script = ExtResource( 1 )
