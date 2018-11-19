@@ -2,11 +2,11 @@
 
 [ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Player/Idle/idle.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Player/Seismic Slam/seismicslam-1.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Player/Seismic Slam/seismicslam-2.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-1.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-2.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-3.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-2.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-3.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Player/Seismic Slam/seismicslam-1.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Player/Seismic Slam/seismicslam-2.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Player/Warcry/warcry-1.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Player/Warcry/warcry-2.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Player/Swing/swing.png" type="Texture" id=10]
@@ -75,14 +75,14 @@ animations = [ {
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "Seismic Slam",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "Jumpstrike",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Seismic Slam",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
@@ -134,7 +134,7 @@ _sections_unfolded = [ "Playback Options" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
 
-rotation = 4.46638e-06
+rotation = 4.46638e-006
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 3 )
 animation = "Idle"
