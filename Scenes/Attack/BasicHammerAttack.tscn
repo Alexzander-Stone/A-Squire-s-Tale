@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Scripts/Attack/Attack.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Abilities/HammerAttack.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Attack/hammer_sprite_alpha.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]

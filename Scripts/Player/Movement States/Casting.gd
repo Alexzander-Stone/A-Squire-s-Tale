@@ -45,7 +45,7 @@ func enter(args):
 	#May want to just immediately call normal crafting if so.
 	##
 	if(args.size() > 0):
-		if(owner.crafting_container.size() > 0 && args[0] == 0):
+		if(owner.crafting_container.size() > 1 && args[0] == 0):
 			# While creating the ability_key string, check to see if ability cooldowns are 
 			# will prevent it from being created. 
 			var ability_key = ""
@@ -60,29 +60,42 @@ func enter(args):
 			if abilities_node.craftable_abilities_dict.has(ability_key):
 				casting_animation_timer = float(abilities_node.craftable_abilities_dict[ability_key]["casting_timer"]);
 		
-		#receive input for primary ability (number 1)
-		elif(args[0] == 1 && cooldown_node.primary_cooldown_timer <= 0):
+		#receive input from crafting ability with one input
+		elif(owner.crafting_container.size() == 1):
+			
+			if((owner.crafting_container[0] == 0) && cooldown_node.primary_cooldown_timer <= 0):
+				var animation_to_play = dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))]
+				emit_signal("primary_used", animation_to_play)
+				casting_animation_timer = abilities_node.primary_length;
+				owner.crafting_container.clear()
+			
+			elif((owner.crafting_container[0] == 1) && cooldown_node.secondary_cooldown_timer <= 0):
+				var animation_to_play = dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))]
+				emit_signal("secondary_used", animation_to_play)
+				casting_animation_timer = abilities_node.secondary_length;
+				owner.crafting_container.clear()
+			
+			elif((owner.crafting_container[0] == 2) && cooldown_node.ternary_cooldown_timer <= 0):
+				var animation_to_play = dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))]
+				emit_signal("ternary_used", animation_to_play)
+				casting_animation_timer = abilities_node.ternary_length;
+				owner.crafting_container.clear()
+		
+		#receive input for primary ability
+		elif((args[0] == 1) && cooldown_node.primary_cooldown_timer <= 0):
 			var animation_to_play = dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))]
 			emit_signal("primary_used", animation_to_play)
 			casting_animation_timer = abilities_node.primary_length;
 		
 		#receive input for secondary ability (number 2)
-		elif(args[0] == 2 && cooldown_node.secondary_cooldown_timer <= 0):
+		elif((args[0] == 2) && cooldown_node.secondary_cooldown_timer <= 0):
 			var animation_to_play = dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))]
 			emit_signal("secondary_used", animation_to_play)
-			#set timeToAnimate to the animation duration
-			# Need to replace with inheritable helper method.
-			
-			# Get casting_animation_timer from Abilities node.
 			casting_animation_timer = abilities_node.secondary_length;
 			
-		elif(args[0] == 3 && cooldown_node.ternary_cooldown_timer <= 0):
+		elif((args[0] == 3) && cooldown_node.ternary_cooldown_timer <= 0):
 			var animation_to_play = dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))]
 			emit_signal("ternary_used", animation_to_play)
-			#set timeToAnimate to the animation duration
-			# Need to replace with inheritable helper method.
-			
-			# Get casting_animation_timer from Abilities node.
 			casting_animation_timer = abilities_node.ternary_length;
 			
 		else:

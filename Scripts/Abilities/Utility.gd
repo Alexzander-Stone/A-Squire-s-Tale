@@ -17,7 +17,9 @@ func ObjectEntered(colliding_object):
 	self.connect("tickDamage", colliding_object.owner, "take_damage")
 
 func ObjectExited(colliding_object):
-	self.disconnect("tickDamage", colliding_object.owner, "take_damage")
+	if(colliding_object.owner != null):
+		self.disconnect("tickDamage", colliding_object.owner, "take_damage")
+
 
 
 func _process(delta):

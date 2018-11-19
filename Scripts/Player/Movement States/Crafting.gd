@@ -9,6 +9,7 @@ func enter(args):
 	.enter(args)
 
 func update(delta):
+	VELOCITY = $"../../Stats".mWalkSpeed/2
 	# Check casting actions.
 	castInput = int(Input.is_action_pressed("craft"))
 	if(castInput == 0):

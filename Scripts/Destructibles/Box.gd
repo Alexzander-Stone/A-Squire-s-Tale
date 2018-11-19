@@ -24,23 +24,25 @@ func _physics_process(delta):
 		velocity = velocity*.5
 	
 	move_and_slide(velocity)
+	
+func take_damage(damage):
+	health -= 1
+	if(health == 0):
+		destroy()
 
 func collisionDetected(colliding_object):
-	#in here, check for collision with player hitbox vs. attack.
-	#do this for player hitbox
-	#physics engine part, need the player to walk into the object, but not through it
-	#if(colliding_object.name == "Player"):
 	#reference colliding object
-	if(colliding_object.name == "Weapon"):
-		health -= 1
-		if(health == 0):
-			#create an instance of the stopwatch
-			var scene = load("res://Scenes/Artifacts/Stopwatch.tscn")
-			var scene_instance = scene.instance()
-			scene_instance.set_name("Stopwatch")
-			scene_instance.position = global_position
-			get_node("/root/World/Environment/Level").add_child(scene_instance)
-			queue_free()
+	health -= 1
+	if(health == 0):
+		destroy()
+func destroy():
+	#create an instance of the stopwatch
+	var scene = load("res://Scenes/Artifacts/Stopwatch.tscn")
+	var scene_instance = scene.instance()
+	scene_instance.set_name("Stopwatch")
+	scene_instance.position = global_position
+	get_node("/root/World/Environment/Level").add_child(scene_instance)
+	queue_free()
 	
 
 #func _process(delta):
