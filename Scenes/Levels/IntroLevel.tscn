@@ -6,7 +6,7 @@
 [ext_resource path="res://Scenes/Wall/IntroWall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Dummy/Dummy.tscn" type="PackedScene" id=5]
 
-[node name="IntroLevel" type="Node2D" index="0"]
+[node name="IntroLevel" type="Node2D"]
 
 [node name="NPC" parent="." index="0" instance=ExtResource( 1 )]
 
