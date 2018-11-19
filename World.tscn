@@ -6,10 +6,11 @@
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Sound_Players/Music_Player.tscn" type="PackedScene" id=5]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="0"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -42,6 +43,7 @@ starting_level = "res://Scenes/Levels/IntroLevel.tscn"
 
 [node name="Player" parent="." index="2" instance=ExtResource( 4 )]
 
+editor/display_folded = true
 position = Vector2( -570.552, 127.724 )
 
 [node name="Music_Player" parent="." index="3" instance=ExtResource( 5 )]
@@ -49,4 +51,3 @@ position = Vector2( -570.552, 127.724 )
 
 [editable path="CanvasLayer/GUI"]
 [editable path="CanvasLayer/TransitionScreen"]
-[editable path="Player"]
