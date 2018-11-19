@@ -1,13 +1,13 @@
 extends "res://Scripts/Player/Movement States/Inheritable Classes/IInteractable.gd"
 
 func enter(args):
+	.enter(args)
 	owner.velocity = Vector2(0,0)
 	# When transitioning to the idling state, check for any movement
 	# inputs that are being pressed immediately. Removes the odd transtion of: 
 	# Casting -> Idling -> Walking and now has Casting -> Walking.
 	if Input.is_action_pressed("ui_right") || Input.is_action_pressed("ui_left") || Input.is_action_pressed("ui_up") || Input.is_action_pressed("ui_down"):
 		emit_signal("finished", "walking", [])
-	.enter(args)
 
 
 func handle_input(event):
@@ -17,3 +17,6 @@ func handle_input(event):
 		emit_signal("finished", "walking", [])
 	
 	return .handle_input(event)
+	
+func exit():
+	.exit()

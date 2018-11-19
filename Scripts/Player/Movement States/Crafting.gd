@@ -6,6 +6,7 @@ var castInput = 0
 func enter(args):
 	# Reset crafting container. Needed for interaction transitions.
 	owner.crafting_container.clear()
+	.enter(args)
 
 func update(delta):
 	# Check casting actions.
@@ -34,3 +35,6 @@ func addCraftingAbilities():
 		owner.add_to_crafting(2)
 	if(Input.is_action_just_pressed("super_ability")):
 		owner.add_to_crafting(3)
+		
+func exit():
+	.exit()

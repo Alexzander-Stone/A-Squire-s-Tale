@@ -37,6 +37,7 @@ func initialize_secondary_cooldown(args):
 
 func initialize_ternary_cooldown(args):
 	ternary_cooldown_timer = ternary_cooldown * (1 - $"../Stats".mcdr)
+	print(ternary_cooldown_timer)
 	emit_signal("begin_ternary_cooldown", ternary_cooldown* (1 - $"../Stats".mcdr))
 
 func initialize_super_cooldown(args):

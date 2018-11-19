@@ -3,7 +3,12 @@ extends "res://Scripts/Player/Movement States/Inheritable Classes/IMoving.gd"
 # Input moves.
 var pressedMoves = [0, 0, 0, 0]
 
+func enter(args):
+	.enter(args)
+
 func update(delta):
+	#Check for a change in the player's walk speed because of status/artifact acquisition
+	VELOCITY = $"../../Stats".mRunSpeed
 	# Has player began casting?
 	check_casting()
 	# Fill array with current movement input.
@@ -21,3 +26,5 @@ func update(delta):
 	
 	# Call parent class function.
 	.update(delta)
+func exit():
+	.exit()
