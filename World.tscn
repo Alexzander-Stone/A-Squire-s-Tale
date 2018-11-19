@@ -20,19 +20,19 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="Super" parent="CanvasLayer/GUI/Bar Top/Abilities/Super" index="0"]
 
-ability_path = NodePath("../../../../../../Player/Abilities")
+ability_path = NodePath("../../../../../../Player/Cooldowns")
 
 [node name="Cooldown" parent="CanvasLayer/GUI/Bar Top/Abilities/Regular/Secondary" index="0"]
 
-ability_path = NodePath("../../../../../../../Player/Abilities")
+ability_path = NodePath("../../../../../../../Player/Cooldowns")
 
 [node name="Cooldown" parent="CanvasLayer/GUI/Bar Top/Abilities/Regular/Primary" index="1"]
 
-ability_path = NodePath("../../../../../../../Player/Abilities")
+ability_path = NodePath("../../../../../../../Player/Cooldowns")
 
 [node name="Cooldown" parent="CanvasLayer/GUI/Bar Top/Abilities/Regular/Ternary" index="0"]
 
-ability_path = NodePath("../../../../../../../Player/Abilities")
+ability_path = NodePath("../../../../../../../Player/Cooldowns")
 
 [node name="TransitionScreen" parent="CanvasLayer" index="1" instance=ExtResource( 2 )]
 
