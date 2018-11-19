@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/large_hit_react_3.ogg-4812822bee727cf1617fce5fcc4dcf90.oggstr"
+
+[deps]
+
+source_file="res://Assets/SFX/large_hit_react_3.ogg"
+dest_files=[ "res://.import/large_hit_react_3.ogg-4812822bee727cf1617fce5fcc4dcf90.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
