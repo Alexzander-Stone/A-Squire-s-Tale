@@ -10,13 +10,13 @@ func enter(args):
 	collision_node.connect("area_entered", self, "collisionDetected")
 
 func exit():
-	collision_node.connect("area_entered", self, "collisionDetected")
+	collision_node.disconnect("area_entered", self, "collisionDetected")
 
 # void beginFlinch
 # Transitions into the flinch state. Callable from outside object.
 # Need to implement cleanup in each state.
 func beginFlinch(damage_to_take):
-	emit_signal("finished", "Taking Damage", [damage_to_take])
+	emit_signal("finished", "taking damage", [damage_to_take])
 
 # Collision objects will always be the "weapon" itself.
 func collisionDetected(colliding_object):

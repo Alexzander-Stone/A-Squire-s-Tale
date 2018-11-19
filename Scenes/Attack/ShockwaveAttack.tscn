@@ -78,7 +78,7 @@ step = 0.1
 custom_solver_bias = 0.0
 extents = Vector2( 150, 150 )
 
-[node name="AoE" type="Area2D" index="0"]
+[node name="AoE" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )

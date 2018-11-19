@@ -14,9 +14,11 @@ func _ready():
 
 func enter(args):
 	vision_node.connect("area_entered", self, "check_if_player")
+	.enter(args)
 
 func exit():
 	vision_node.disconnect("area_entered", self, "check_if_player")
+	.exit()
 
 func check_if_player(collided_object):
 	# If the collided node is the player, begin following them.

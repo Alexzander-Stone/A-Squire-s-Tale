@@ -1,17 +1,23 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Assets/UI/HealthBarUI.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/UI/HealthBar.gd" type="Script" id=2]
-[ext_resource path="res://Assets/UI/SuperButton.png" type="Texture" id=3]
-[ext_resource path="res://Assets/UI/SuperButtonOverlay.png" type="Texture" id=4]
-[ext_resource path="res://Scripts/UI/SuperCooldown.gd" type="Script" id=5]
-[ext_resource path="res://Assets/UI/AbilityButton.png" type="Texture" id=6]
-[ext_resource path="res://Assets/UI/AbilityButtonOverlay.png" type="Texture" id=7]
-[ext_resource path="res://Scripts/UI/SecondaryCooldown.gd" type="Script" id=8]
-[ext_resource path="res://Scripts/UI/PrimaryCooldown.gd" type="Script" id=9]
-[ext_resource path="res://Scripts/UI/TernaryCooldown.gd" type="Script" id=10]
+[ext_resource path="res://Assets/Icons/Super_proper_scale.PNG" type="Texture" id=3]
+[ext_resource path="res://Assets/UI/SuperButton.png" type="Texture" id=4]
+[ext_resource path="res://Assets/UI/SuperAbilityButtonOverlay.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/UI/SuperCooldown.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Icons/SeismicSlam_proper_scale.PNG" type="Texture" id=7]
+[ext_resource path="res://Assets/UI/AbilityButton.png" type="Texture" id=8]
+[ext_resource path="res://Assets/UI/SecondaryAbilityButtonOverlay.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/UI/SecondaryCooldown.gd" type="Script" id=10]
+[ext_resource path="res://Assets/Icons/BasicHammer_proper_scale.PNG" type="Texture" id=11]
+[ext_resource path="res://Assets/UI/PrimaryAbilityButtonOverlay.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/UI/PrimaryCooldown.gd" type="Script" id=13]
+[ext_resource path="res://Assets/Icons/Warcry_proper_scale.png" type="Texture" id=14]
+[ext_resource path="res://Assets/UI/TertiaryAbilityButtonOverlay.png" type="Texture" id=15]
+[ext_resource path="res://Scripts/UI/TernaryCooldown.gd" type="Script" id=16]
 
-[node name="GUI" type="MarginContainer"]
+[node name="GUI" type="MarginContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -152,13 +158,13 @@ value = 0.0
 exp_edit = false
 rounded = false
 texture_under = ExtResource( 3 )
-texture_over = null
-texture_progress = ExtResource( 4 )
+texture_over = ExtResource( 4 )
+texture_progress = ExtResource( 5 )
 fill_mode = 5
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Anchor", "Margin", "Radial Fill", "Rect", "Textures" ]
 ability_path = null
 
@@ -217,14 +223,14 @@ page = 0.0
 value = 0.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 6 )
-texture_over = null
-texture_progress = ExtResource( 7 )
+texture_under = ExtResource( 7 )
+texture_over = ExtResource( 8 )
+texture_progress = ExtResource( 9 )
 fill_mode = 5
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 8 )
+script = ExtResource( 10 )
 _sections_unfolded = [ "Radial Fill", "Rect", "Textures" ]
 ability_path = null
 
@@ -286,14 +292,14 @@ page = 0.0
 value = 0.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 6 )
-texture_over = null
-texture_progress = ExtResource( 7 )
+texture_under = ExtResource( 11 )
+texture_over = ExtResource( 8 )
+texture_progress = ExtResource( 12 )
 fill_mode = 5
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 9 )
+script = ExtResource( 13 )
 _sections_unfolded = [ "Anchor", "Focus", "Hint", "Margin", "Material", "Mouse", "Pause", "Radial Fill", "Rect", "Size Flags", "Textures", "Theme", "Visibility" ]
 ability_path = null
 
@@ -335,14 +341,14 @@ page = 0.0
 value = 0.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 6 )
-texture_over = null
-texture_progress = ExtResource( 7 )
+texture_under = ExtResource( 14 )
+texture_over = ExtResource( 8 )
+texture_progress = ExtResource( 15 )
 fill_mode = 5
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 10 )
+script = ExtResource( 16 )
 _sections_unfolded = [ "Radial Fill", "Textures" ]
 ability_path = null
 

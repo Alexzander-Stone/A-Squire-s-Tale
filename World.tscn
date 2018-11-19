@@ -51,4 +51,3 @@ position = Vector2( -570.552, 127.724 )
 
 [editable path="CanvasLayer/GUI"]
 [editable path="CanvasLayer/TransitionScreen"]
-[editable path="Player"]
