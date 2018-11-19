@@ -1,4 +1,5 @@
 extends "res://Scripts/State Machine/State.gd"
+#extends "res://Scripts/Enemy/Enemy Inheritable Classes/IFlinchable.gd"
 
 export(NodePath) var charging_hitbox_path
 onready var charging_hitbox_node = get_node(charging_hitbox_path)

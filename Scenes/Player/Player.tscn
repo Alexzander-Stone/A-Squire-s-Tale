@@ -106,7 +106,6 @@ _sections_unfolded = [ "Playback Options" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
 
-rotation = 4.46638e-006
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 3 )
 animation = "Idle"

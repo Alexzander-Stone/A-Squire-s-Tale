@@ -16,7 +16,8 @@ var status_effects_dict = {}
 
 
 #stats specific to player
-#export(int) var runSpeed = 10
+export(int) var walkSpeed = 5
+export(int) var runSpeed = 10
 export(float) var cdr = 0.0
 export(float) var damage = 1.0
 #stat modifiers

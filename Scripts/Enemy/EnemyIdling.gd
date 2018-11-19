@@ -20,3 +20,7 @@ func update(delta):
 		emit_signal("finished", "searching", [])
 	else:
 		to_search_timer -= delta
+		
+		
+func exit():
+	.exit()
