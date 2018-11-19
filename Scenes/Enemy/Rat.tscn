@@ -251,6 +251,7 @@ speed_multiplier = 2.0
 
 [node name="Charging" type="Node" parent="StateMachine" index="3"]
 
+editor/display_folded = true
 script = ExtResource( 9 )
 collision_path = NodePath("../../Damage Hitbox")
 initial_node_path = NodePath("Readying")

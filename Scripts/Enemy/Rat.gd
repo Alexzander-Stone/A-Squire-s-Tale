@@ -20,4 +20,4 @@ func update_direction_vector():
 func take_damage(damage):
 	$"Stats".currentHealth -= damage
 	# Informs UI of change in health.
-	#emit_signal("damaged", damage)
+	emit_signal("damaged", damage)
