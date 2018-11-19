@@ -3,7 +3,7 @@
 [ext_resource path="res://Scenes/Sound_Players/Music_Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/TitleScreen/TitleScreen.tscn" type="PackedScene" id=2]
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 [node name="Music_Player" parent="." index="0" instance=ExtResource( 1 )]
 

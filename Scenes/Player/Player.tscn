@@ -4,12 +4,12 @@
 [ext_resource path="res://Assets/Player/Idle/idle_proper_scale.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Player/Seismic Slam/seismicslam-1_proper_scale.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Player/Seismic Slam/seismicslam-2_proper_scale.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Player/Seismic Slam/warcry-2_proper_scale.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Player/Seismic Slam/warcry-1_proper_scale.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-1_proper_scale.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-2_proper_scale.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-3_proper_scale.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Player/Seismic Slam/swing_proper_scale.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Player/Seismic Slam/swing_proper_scale.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Player/Seismic Slam/warcry-2_proper_scale.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Player/Seismic Slam/warcry-1_proper_scale.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-1_proper_scale.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-2_proper_scale.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Player/Jumpstrike/jumpstrike-3_proper_scale.png" type="Texture" id=10]
 [ext_resource path="res://Scenes/Player/Interaction Layer.gd" type="Script" id=11]
 [ext_resource path="res://Scripts/Abilities/Abilities.gd" type="Script" id=12]
 [ext_resource path="res://Scripts/Player/Abilities/Cooldowns.gd" type="Script" id=13]
@@ -80,19 +80,19 @@ animations = [ {
 "name": "Seismic Slam",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Swing",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "Warcry",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "Jumpstrike",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "Swing",
 "speed": 5.0
 } ]
 
@@ -111,7 +111,7 @@ extents = Vector2( 50, 50 )
 custom_solver_bias = 0.0
 extents = Vector2( 60, 80 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 17
@@ -228,6 +228,7 @@ interaction_collision_path = NodePath("../../Interaction Layer")
 script = ExtResource( 17 )
 collision_path = NodePath("../../Damage Hitbox")
 interaction_collision_path = NodePath("../../Interaction Layer")
+animated_sprite_path = NodePath("../../AnimatedSprite")
 VELOCITY = 5
 timeToRun = 0.3
 
@@ -240,6 +241,7 @@ script = ExtResource( 18 )
 script = ExtResource( 19 )
 collision_path = NodePath("../../Damage Hitbox")
 interaction_collision_path = NodePath("../../Interaction Layer")
+animated_sprite_path = NodePath("../../AnimatedSprite")
 VELOCITY = 10
 
 [node name="Crafting" type="Node" parent="StateMachine" index="5"]
@@ -247,6 +249,7 @@ VELOCITY = 10
 script = ExtResource( 20 )
 collision_path = NodePath("../../Damage Hitbox")
 interaction_collision_path = NodePath("../../Interaction Layer")
+animated_sprite_path = NodePath("../../AnimatedSprite")
 VELOCITY = 2
 
 [node name="Casting" type="Node" parent="StateMachine" index="6"]

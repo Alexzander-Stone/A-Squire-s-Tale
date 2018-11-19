@@ -122,11 +122,11 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Z Index", "collision" ]
+animated_sprite_path = NodePath("AnimatedSprite")
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
 rotation = 6.28319
-scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 1 )
 animation = "default"
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -251,7 +251,6 @@ speed_multiplier = 2.0
 
 [node name="Charging" type="Node" parent="StateMachine" index="3"]
 
-editor/display_folded = true
 script = ExtResource( 9 )
 collision_path = NodePath("../../Damage Hitbox")
 initial_node_path = NodePath("Readying")

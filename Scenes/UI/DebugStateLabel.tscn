@@ -2,8 +2,6 @@
 
 [ext_resource path="res://Scripts/Player/Debug/Label.gd" type="Script" id=1]
 
-
-
 [node name="Layer Control" type="Node2D"]
 
 position = Vector2( -64, -80 )

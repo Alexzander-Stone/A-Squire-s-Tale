@@ -19,7 +19,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Popup", "Visibility" ]
-dialog_list = [ "Hey bud.", "There be monsters out there.", "Be safe." ]
+dialog_list = [ "Hey bud.", "There be monsters out there.", "It's dangerous to go alone. Take this" ]
 
 [node name="Background" type="Panel" parent="." index="0"]
 

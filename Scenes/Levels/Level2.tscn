@@ -1,13 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Environment/Tilesets/Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/SceneTransitionBox/SceneTransitionBox.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/NPC/NPC.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Dummy/Dummy.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Destructibles/Box.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Destructibles/Pot.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Dummy/Dummy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Destructibles/Box.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Destructibles/Pot.tscn" type="PackedScene" id=5]
 
-[node name="Level2" type="Node2D"]
+[node name="Level2" type="Node2D" index="0"]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
@@ -36,67 +35,63 @@ _sections_unfolded = [ "Cell", "Z Index" ]
 position = Vector2( 221.885, 1511.04 )
 to_scene = "res://Scenes/Levels/Level3.tscn"
 
-[node name="NPC" parent="." index="2" instance=ExtResource( 3 )]
-
-position = Vector2( 581.464, 313.404 )
-
-[node name="Dummy" parent="." index="3" instance=ExtResource( 4 )]
+[node name="Dummy" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 247.95, 72.87 )
 
-[node name="Player_Start_Loc" type="Node2D" parent="." index="4"]
+[node name="Player_Start_Loc" type="Node2D" parent="." index="3"]
 
 position = Vector2( 247.947, 304.426 )
 
-[node name="Box" parent="." index="5" instance=ExtResource( 5 )]
+[node name="Box" parent="." index="4" instance=ExtResource( 4 )]
 
 position = Vector2( 2561.25, 746.638 )
 
-[node name="Box2" parent="." index="6" instance=ExtResource( 6 )]
+[node name="Box2" parent="." index="5" instance=ExtResource( 5 )]
 
 position = Vector2( 2736.72, 1132.16 )
 
-[node name="Box3" parent="." index="7" instance=ExtResource( 6 )]
+[node name="Box3" parent="." index="6" instance=ExtResource( 5 )]
 
 position = Vector2( 2651.65, 1180.15 )
 
-[node name="Box4" parent="." index="8" instance=ExtResource( 6 )]
+[node name="Box4" parent="." index="7" instance=ExtResource( 5 )]
 
 position = Vector2( 113.774, 1868.91 )
 
-[node name="Box5" parent="." index="9" instance=ExtResource( 6 )]
+[node name="Box5" parent="." index="8" instance=ExtResource( 5 )]
 
 position = Vector2( 397.671, 1153.75 )
 
-[node name="Box6" parent="." index="10" instance=ExtResource( 6 )]
+[node name="Box6" parent="." index="9" instance=ExtResource( 5 )]
 
 position = Vector2( 632.333, 641.184 )
 
-[node name="Box7" parent="." index="11" instance=ExtResource( 6 )]
+[node name="Box7" parent="." index="10" instance=ExtResource( 5 )]
 
 position = Vector2( -130.856, 614.138 )
 
-[node name="Box8" parent="." index="12" instance=ExtResource( 6 )]
+[node name="Box8" parent="." index="11" instance=ExtResource( 5 )]
 
 position = Vector2( -25.0691, 637.04 )
 
-[node name="Box9" parent="." index="13" instance=ExtResource( 6 )]
+[node name="Box9" parent="." index="12" instance=ExtResource( 5 )]
 
 position = Vector2( -78.5076, 519.257 )
 
-[node name="Box10" parent="." index="14" instance=ExtResource( 6 )]
+[node name="Box10" parent="." index="13" instance=ExtResource( 5 )]
 
 position = Vector2( -14.7683, -121.786 )
 
-[node name="Box11" parent="." index="15" instance=ExtResource( 6 )]
+[node name="Box11" parent="." index="14" instance=ExtResource( 5 )]
 
 position = Vector2( 1714.47, 514.272 )
 
-[node name="Box12" parent="." index="16" instance=ExtResource( 6 )]
+[node name="Box12" parent="." index="15" instance=ExtResource( 5 )]
 
 position = Vector2( 1365.35, 1200.91 )
 
-[node name="Box13" parent="." index="17" instance=ExtResource( 6 )]
+[node name="Box13" parent="." index="16" instance=ExtResource( 5 )]
 
 position = Vector2( 643.347, 1939.08 )
 

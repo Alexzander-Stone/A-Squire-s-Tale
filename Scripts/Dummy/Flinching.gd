@@ -22,7 +22,6 @@ func update(delta):
 	if(flinchTimer > 0):
 		flinchTimer -= delta
 	else:
-		print("i no twice")
 		emit_signal("finished", "idling", [0])
 	.update(delta)
 	
