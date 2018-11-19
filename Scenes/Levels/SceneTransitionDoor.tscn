@@ -13,7 +13,7 @@ render_priority = 0
 blend_mode = 2
 light_mode = 0
 
-[node name="SceneTransitionBox" type="Node2D"]
+[node name="SceneTransitionBox" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 to_scene = "Null"
