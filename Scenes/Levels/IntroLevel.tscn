@@ -289,4 +289,776 @@ position = Vector2( 1184, 1824 )
 scale = Vector2( 15, 2.5 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
+[node name="Wall65" parent="Node" index="64" instance=ExtResource( 4 )]
+
+position = Vector2( 1568, 1568 )
+
+[node name="Wall66" parent="Node" index="65" instance=ExtResource( 4 )]
+
+position = Vector2( 1600, 1568 )
+
+[node name="Wall67" parent="Node" index="66" instance=ExtResource( 4 )]
+
+position = Vector2( 1568, 1504 )
+
+[node name="Wall68" parent="Node" index="67" instance=ExtResource( 4 )]
+
+position = Vector2( 1600, 1504 )
+
+[node name="Wall69" parent="Node" index="68" instance=ExtResource( 4 )]
+
+position = Vector2( 1120, 1568 )
+
+[node name="Wall70" parent="Node" index="69" instance=ExtResource( 4 )]
+
+position = Vector2( 1152, 1568 )
+
+[node name="Wall71" parent="Node" index="70" instance=ExtResource( 4 )]
+
+position = Vector2( 1120, 1504 )
+
+[node name="Wall72" parent="Node" index="71" instance=ExtResource( 4 )]
+
+position = Vector2( 1152, 1504 )
+
+[node name="Wall73" parent="Node" index="72" instance=ExtResource( 4 )]
+
+position = Vector2( 1120, 1440 )
+
+[node name="Wall74" parent="Node" index="73" instance=ExtResource( 4 )]
+
+position = Vector2( 1152, 1440 )
+
+[node name="Wall75" parent="Node" index="74" instance=ExtResource( 4 )]
+
+position = Vector2( 1216, 1440 )
+
+[node name="Wall76" parent="Node" index="75" instance=ExtResource( 4 )]
+
+position = Vector2( 1280, 1440 )
+
+[node name="Wall77" parent="Node" index="76" instance=ExtResource( 4 )]
+
+position = Vector2( 1344, 1440 )
+
+[node name="Wall78" parent="Node" index="77" instance=ExtResource( 4 )]
+
+position = Vector2( 1408, 1440 )
+
+[node name="Wall79" parent="Node" index="78" instance=ExtResource( 4 )]
+
+position = Vector2( 1472, 1440 )
+
+[node name="Wall80" parent="Node" index="79" instance=ExtResource( 4 )]
+
+position = Vector2( 1568, 1440 )
+
+[node name="Wall81" parent="Node" index="80" instance=ExtResource( 4 )]
+
+position = Vector2( 1600, 1440 )
+
+[node name="Wall82" parent="Node" index="81" instance=ExtResource( 4 )]
+
+position = Vector2( 1536, 1440 )
+
+[node name="Wall83" parent="Node" index="82" instance=ExtResource( 4 )]
+
+position = Vector2( 992, 1728 )
+
+[node name="Wall84" parent="Node" index="83" instance=ExtResource( 4 )]
+
+position = Vector2( 1056, 1568 )
+
+[node name="Wall85" parent="Node" index="84" instance=ExtResource( 4 )]
+
+position = Vector2( 992, 1568 )
+
+[node name="Wall86" parent="Node" index="85" instance=ExtResource( 4 )]
+
+position = Vector2( 992, 1632 )
+
+[node name="Wall87" parent="Node" index="86" instance=ExtResource( 4 )]
+
+position = Vector2( 992, 1696 )
+
+[node name="Wall88" parent="Node" index="87" instance=ExtResource( 4 )]
+
+position = Vector2( 2368, 1568 )
+
+[node name="Wall89" parent="Node" index="88" instance=ExtResource( 4 )]
+
+position = Vector2( 2368, 1504 )
+
+[node name="Wall90" parent="Node" index="89" instance=ExtResource( 4 )]
+
+position = Vector2( 2368, 1440 )
+
+[node name="Wall91" parent="Node" index="90" instance=ExtResource( 4 )]
+
+position = Vector2( 2432, 1440 )
+
+[node name="Wall92" parent="Node" index="91" instance=ExtResource( 4 )]
+
+position = Vector2( 2496, 1440 )
+
+[node name="Wall93" parent="Node" index="92" instance=ExtResource( 4 )]
+
+position = Vector2( 2560, 1440 )
+
+[node name="Wall94" parent="Node" index="93" instance=ExtResource( 4 )]
+
+position = Vector2( 2624, 1440 )
+
+[node name="Wall95" parent="Node" index="94" instance=ExtResource( 4 )]
+
+position = Vector2( 2688, 1440 )
+
+[node name="Wall96" parent="Node" index="95" instance=ExtResource( 4 )]
+
+position = Vector2( 2752, 1440 )
+
+[node name="Wall97" parent="Node" index="96" instance=ExtResource( 4 )]
+
+position = Vector2( 2816, 1440 )
+
+[node name="Wall98" parent="Node" index="97" instance=ExtResource( 4 )]
+
+position = Vector2( 2816, 1504 )
+
+[node name="Wall99" parent="Node" index="98" instance=ExtResource( 4 )]
+
+position = Vector2( 2816, 1568 )
+
+[node name="Wall100" parent="Node" index="99" instance=ExtResource( 4 )]
+
+position = Vector2( 2304, 1504 )
+
+[node name="Wall101" parent="Node" index="100" instance=ExtResource( 4 )]
+
+position = Vector2( 2240, 1504 )
+
+[node name="Wall102" parent="Node" index="101" instance=ExtResource( 4 )]
+
+position = Vector2( 2880, 1376 )
+
+[node name="Wall103" parent="Node" index="102" instance=ExtResource( 4 )]
+
+position = Vector2( 2944, 1376 )
+
+[node name="Wall104" parent="Node" index="103" instance=ExtResource( 4 )]
+
+position = Vector2( 3008, 1376 )
+
+[node name="Wall105" parent="Node" index="104" instance=ExtResource( 4 )]
+
+position = Vector2( 3072, 1312 )
+
+[node name="Wall106" parent="Node" index="105" instance=ExtResource( 4 )]
+
+position = Vector2( 3136, 1248 )
+
+[node name="Wall107" parent="Node" index="106" instance=ExtResource( 4 )]
+
+position = Vector2( 3200, 1248 )
+
+[node name="Wall108" parent="Node" index="107" instance=ExtResource( 4 )]
+
+position = Vector2( 3264, 1248 )
+
+[node name="Wall109" parent="Node" index="108" instance=ExtResource( 4 )]
+
+position = Vector2( 3328, 1248 )
+
+[node name="Wall110" parent="Node" index="109" instance=ExtResource( 4 )]
+
+position = Vector2( 3392, 1248 )
+
+[node name="Wall111" parent="Node" index="110" instance=ExtResource( 4 )]
+
+position = Vector2( 3392, 1312 )
+
+[node name="Wall112" parent="Node" index="111" instance=ExtResource( 4 )]
+
+position = Vector2( 3360, 1312 )
+
+[node name="Wall113" parent="Node" index="112" instance=ExtResource( 4 )]
+
+position = Vector2( 3456, 1248 )
+
+[node name="Wall114" parent="Node" index="113" instance=ExtResource( 4 )]
+
+position = Vector2( 3520, 1248 )
+
+[node name="Wall115" parent="Node" index="114" instance=ExtResource( 4 )]
+
+position = Vector2( 3584, 1248 )
+
+[node name="Wall116" parent="Node" index="115" instance=ExtResource( 4 )]
+
+position = Vector2( 3648, 1248 )
+
+[node name="Wall117" parent="Node" index="116" instance=ExtResource( 4 )]
+
+position = Vector2( 3712, 1248 )
+
+[node name="Wall118" parent="Node" index="117" instance=ExtResource( 4 )]
+
+position = Vector2( 3712, 1312 )
+
+[node name="Wall119" parent="Node" index="118" instance=ExtResource( 4 )]
+
+position = Vector2( 3776, 1248 )
+
+[node name="Wall120" parent="Node" index="119" instance=ExtResource( 4 )]
+
+position = Vector2( 3808, 1312 )
+
+[node name="Wall121" parent="Node" index="120" instance=ExtResource( 4 )]
+
+position = Vector2( 3808, 1376 )
+
+[node name="Wall122" parent="Node" index="121" instance=ExtResource( 4 )]
+
+position = Vector2( 3808, 1440 )
+
+[node name="Wall123" parent="Node" index="122" instance=ExtResource( 4 )]
+
+position = Vector2( 3808, 1504 )
+
+[node name="Wall124" parent="Node" index="123" instance=ExtResource( 4 )]
+
+position = Vector2( 3808, 1568 )
+
+[node name="Wall125" parent="Node" index="124" instance=ExtResource( 4 )]
+
+position = Vector2( 3616, 1632 )
+scale = Vector2( 15, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall126" parent="Node" index="125" instance=ExtResource( 4 )]
+
+position = Vector2( 3168, 1696 )
+
+[node name="Wall127" parent="Node" index="126" instance=ExtResource( 4 )]
+
+position = Vector2( 3168, 1760 )
+
+[node name="Wall128" parent="Node" index="127" instance=ExtResource( 4 )]
+
+position = Vector2( 1152, 2752 )
+scale = Vector2( 1, 15 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall129" parent="Node" index="128" instance=ExtResource( 4 )]
+
+position = Vector2( 2752, 2656 )
+scale = Vector2( 1, 10 )
+_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
+
+[node name="Wall130" parent="Node" index="129" instance=ExtResource( 4 )]
+
+position = Vector2( 2752, 3008 )
+
+[node name="Wall131" parent="Node" index="130" instance=ExtResource( 4 )]
+
+position = Vector2( 2784, 3040 )
+
+[node name="Wall132" parent="Node" index="131" instance=ExtResource( 4 )]
+
+position = Vector2( 2784, 3104 )
+
+[node name="Wall133" parent="Node" index="132" instance=ExtResource( 4 )]
+
+position = Vector2( 2720, 3136 )
+
+[node name="Wall134" parent="Node" index="133" instance=ExtResource( 4 )]
+
+position = Vector2( 2784, 3136 )
+
+[node name="Wall135" parent="Node" index="134" instance=ExtResource( 4 )]
+
+position = Vector2( 2656, 3136 )
+
+[node name="Wall136" parent="Node" index="135" instance=ExtResource( 4 )]
+
+position = Vector2( 2592, 3136 )
+
+[node name="Wall137" parent="Node" index="136" instance=ExtResource( 4 )]
+
+position = Vector2( 2560, 3200 )
+
+[node name="Wall138" parent="Node" index="137" instance=ExtResource( 4 )]
+
+position = Vector2( 2560, 3264 )
+
+[node name="Wall139" parent="Node" index="138" instance=ExtResource( 4 )]
+
+position = Vector2( 2560, 3328 )
+
+[node name="Wall140" parent="Node" index="139" instance=ExtResource( 4 )]
+
+position = Vector2( 2560, 3392 )
+
+[node name="Wall141" parent="Node" index="140" instance=ExtResource( 4 )]
+
+position = Vector2( 2496, 3392 )
+
+[node name="Wall142" parent="Node" index="141" instance=ExtResource( 4 )]
+
+position = Vector2( 2432, 3392 )
+
+[node name="Wall143" parent="Node" index="142" instance=ExtResource( 4 )]
+
+position = Vector2( 2368, 3392 )
+
+[node name="Wall144" parent="Node" index="143" instance=ExtResource( 4 )]
+
+position = Vector2( 2304, 3392 )
+
+[node name="Wall145" parent="Node" index="144" instance=ExtResource( 4 )]
+
+position = Vector2( 2240, 3392 )
+
+[node name="Wall146" parent="Node" index="145" instance=ExtResource( 4 )]
+
+position = Vector2( 2176, 3392 )
+
+[node name="Wall147" parent="Node" index="146" instance=ExtResource( 4 )]
+
+position = Vector2( 2176, 3328 )
+
+[node name="Wall148" parent="Node" index="147" instance=ExtResource( 4 )]
+
+position = Vector2( 2176, 3264 )
+
+[node name="Wall149" parent="Node" index="148" instance=ExtResource( 4 )]
+
+position = Vector2( 2176, 3232 )
+
+[node name="Wall150" parent="Node" index="149" instance=ExtResource( 4 )]
+
+position = Vector2( 2240, 3232 )
+
+[node name="Wall151" parent="Node" index="150" instance=ExtResource( 4 )]
+
+position = Vector2( 2304, 3232 )
+
+[node name="Wall152" parent="Node" index="151" instance=ExtResource( 4 )]
+
+position = Vector2( 2368, 3232 )
+
+[node name="Wall153" parent="Node" index="152" instance=ExtResource( 4 )]
+
+position = Vector2( 2432, 3232 )
+
+[node name="Wall154" parent="Node" index="153" instance=ExtResource( 4 )]
+
+position = Vector2( 2496, 3232 )
+
+[node name="Wall155" parent="Node" index="154" instance=ExtResource( 4 )]
+
+position = Vector2( 2528, 3168 )
+
+[node name="Wall156" parent="Node" index="155" instance=ExtResource( 4 )]
+
+position = Vector2( 2528, 3104 )
+
+[node name="Wall157" parent="Node" index="156" instance=ExtResource( 4 )]
+
+position = Vector2( 2528, 3040 )
+
+[node name="Wall158" parent="Node" index="157" instance=ExtResource( 4 )]
+
+position = Vector2( 2528, 2976 )
+
+[node name="Wall159" parent="Node" index="158" instance=ExtResource( 4 )]
+
+position = Vector2( 2528, 2912 )
+
+[node name="Wall160" parent="Node" index="159" instance=ExtResource( 4 )]
+
+position = Vector2( 2592, 2912 )
+
+[node name="Wall161" parent="Node" index="160" instance=ExtResource( 4 )]
+
+position = Vector2( 2656, 2848 )
+
+[node name="Wall162" parent="Node" index="161" instance=ExtResource( 4 )]
+
+position = Vector2( 2656, 2784 )
+
+[node name="Wall163" parent="Node" index="162" instance=ExtResource( 4 )]
+
+position = Vector2( 2656, 2720 )
+
+[node name="Wall164" parent="Node" index="163" instance=ExtResource( 4 )]
+
+position = Vector2( 2656, 2656 )
+
+[node name="Wall165" parent="Node" index="164" instance=ExtResource( 4 )]
+
+position = Vector2( 2592, 2592 )
+
+[node name="Wall166" parent="Node" index="165" instance=ExtResource( 4 )]
+
+position = Vector2( 2528, 2592 )
+
+[node name="Wall167" parent="Node" index="166" instance=ExtResource( 4 )]
+
+position = Vector2( 2496, 2592 )
+
+[node name="Wall168" parent="Node" index="167" instance=ExtResource( 4 )]
+
+position = Vector2( 2496, 2528 )
+
+[node name="Wall169" parent="Node" index="168" instance=ExtResource( 4 )]
+
+position = Vector2( 2496, 2464 )
+
+[node name="Wall170" parent="Node" index="169" instance=ExtResource( 4 )]
+
+position = Vector2( 2496, 2400 )
+
+[node name="Wall171" parent="Node" index="170" instance=ExtResource( 4 )]
+
+position = Vector2( 2208, 2304 )
+
+[node name="Wall172" parent="Node" index="171" instance=ExtResource( 4 )]
+
+position = Vector2( 2272, 2304 )
+
+[node name="Wall173" parent="Node" index="172" instance=ExtResource( 4 )]
+
+position = Vector2( 2336, 2304 )
+
+[node name="Wall174" parent="Node" index="173" instance=ExtResource( 4 )]
+
+position = Vector2( 2400, 2304 )
+
+[node name="Wall175" parent="Node" index="174" instance=ExtResource( 4 )]
+
+position = Vector2( 2464, 2304 )
+
+[node name="Wall176" parent="Node" index="175" instance=ExtResource( 4 )]
+
+position = Vector2( 2496, 2336 )
+
+[node name="Wall177" parent="Node" index="176" instance=ExtResource( 4 )]
+
+position = Vector2( 2464, 2336 )
+
+[node name="Wall178" parent="Node" index="177" instance=ExtResource( 4 )]
+
+position = Vector2( 2208, 2240 )
+
+[node name="Wall179" parent="Node" index="178" instance=ExtResource( 4 )]
+
+position = Vector2( 2176, 2304 )
+
+[node name="Wall180" parent="Node" index="179" instance=ExtResource( 4 )]
+
+position = Vector2( 2176, 2240 )
+
+[node name="Wall181" parent="Node" index="180" instance=ExtResource( 4 )]
+
+position = Vector2( 2176, 2176 )
+
+[node name="Wall182" parent="Node" index="181" instance=ExtResource( 4 )]
+
+position = Vector2( 2176, 2112 )
+
+[node name="Wall183" parent="Node" index="182" instance=ExtResource( 4 )]
+
+position = Vector2( 2240, 2112 )
+
+[node name="Wall184" parent="Node" index="183" instance=ExtResource( 4 )]
+
+position = Vector2( 2304, 2112 )
+
+[node name="Wall185" parent="Node" index="184" instance=ExtResource( 4 )]
+
+position = Vector2( 2368, 2112 )
+
+[node name="Wall186" parent="Node" index="185" instance=ExtResource( 4 )]
+
+position = Vector2( 2432, 2112 )
+
+[node name="Wall187" parent="Node" index="186" instance=ExtResource( 4 )]
+
+position = Vector2( 2496, 2112 )
+
+[node name="Wall188" parent="Node" index="187" instance=ExtResource( 4 )]
+
+position = Vector2( 2496, 2176 )
+
+[node name="Wall189" parent="Node" index="188" instance=ExtResource( 4 )]
+
+position = Vector2( 2496, 2240 )
+
+[node name="Wall190" parent="Node" index="189" instance=ExtResource( 4 )]
+
+position = Vector2( 2496, 2304 )
+
+[node name="Wall191" parent="Node" index="190" instance=ExtResource( 4 )]
+
+position = Vector2( 2560, 2368 )
+
+[node name="Wall192" parent="Node" index="191" instance=ExtResource( 4 )]
+
+position = Vector2( 2624, 2368 )
+
+[node name="Wall193" parent="Node" index="192" instance=ExtResource( 4 )]
+
+position = Vector2( 2688, 2368 )
+
+[node name="Wall194" parent="Node" index="193" instance=ExtResource( 4 )]
+
+position = Vector2( 2816, 2368 )
+
+[node name="Wall195" parent="Node" index="194" instance=ExtResource( 4 )]
+
+position = Vector2( 2816, 2432 )
+
+[node name="Wall196" parent="Node" index="195" instance=ExtResource( 4 )]
+
+position = Vector2( 2816, 2496 )
+
+[node name="Wall197" parent="Node" index="196" instance=ExtResource( 4 )]
+
+position = Vector2( 2816, 2560 )
+
+[node name="Wall198" parent="Node" index="197" instance=ExtResource( 4 )]
+
+position = Vector2( 2816, 2592 )
+
+[node name="Wall199" parent="Node" index="198" instance=ExtResource( 4 )]
+
+position = Vector2( 2848, 2592 )
+
+[node name="Wall200" parent="Node" index="199" instance=ExtResource( 4 )]
+
+position = Vector2( 2848, 2528 )
+
+[node name="Wall201" parent="Node" index="200" instance=ExtResource( 4 )]
+
+position = Vector2( 2848, 2464 )
+
+[node name="Wall202" parent="Node" index="201" instance=ExtResource( 4 )]
+
+position = Vector2( 2848, 2400 )
+
+[node name="Wall203" parent="Node" index="202" instance=ExtResource( 4 )]
+
+position = Vector2( 2848, 2368 )
+
+[node name="Wall204" parent="Node" index="203" instance=ExtResource( 4 )]
+
+position = Vector2( 1504, 3200 )
+scale = Vector2( 10, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall205" parent="Node" index="204" instance=ExtResource( 4 )]
+
+position = Vector2( 1568, 3392 )
+scale = Vector2( 7, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall206" parent="Node" index="205" instance=ExtResource( 4 )]
+
+position = Vector2( 1568, 3328 )
+scale = Vector2( 7, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall207" parent="Node" index="206" instance=ExtResource( 4 )]
+
+position = Vector2( 1568, 3264 )
+scale = Vector2( 7, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall208" parent="Node" index="207" instance=ExtResource( 4 )]
+
+position = Vector2( 1600, 3264 )
+scale = Vector2( 7, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall209" parent="Node" index="208" instance=ExtResource( 4 )]
+
+position = Vector2( 1600, 3328 )
+scale = Vector2( 7, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall210" parent="Node" index="209" instance=ExtResource( 4 )]
+
+position = Vector2( 1600, 3392 )
+scale = Vector2( 7, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall211" parent="Node" index="210" instance=ExtResource( 4 )]
+
+position = Vector2( 1312, 3136 )
+scale = Vector2( 7, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall212" parent="Node" index="211" instance=ExtResource( 4 )]
+
+position = Vector2( 1312, 3200 )
+scale = Vector2( 7, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall213" parent="Node" index="212" instance=ExtResource( 4 )]
+
+position = Vector2( 1312, 3072 )
+scale = Vector2( 7, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall214" parent="Node" index="213" instance=ExtResource( 4 )]
+
+position = Vector2( 1312, 3008 )
+scale = Vector2( 7, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall215" parent="Node" index="214" instance=ExtResource( 4 )]
+
+position = Vector2( 1312, 2944 )
+scale = Vector2( 7, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall216" parent="Node" index="215" instance=ExtResource( 4 )]
+
+position = Vector2( 1312, 2592 )
+scale = Vector2( 6, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall217" parent="Node" index="216" instance=ExtResource( 4 )]
+
+position = Vector2( 1312, 2528 )
+scale = Vector2( 6, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall218" parent="Node" index="217" instance=ExtResource( 4 )]
+
+position = Vector2( 1312, 2464 )
+scale = Vector2( 6, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall219" parent="Node" index="218" instance=ExtResource( 4 )]
+
+position = Vector2( 1312, 2400 )
+scale = Vector2( 6, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall220" parent="Node" index="219" instance=ExtResource( 4 )]
+
+position = Vector2( 1312, 2336 )
+scale = Vector2( 6, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall221" parent="Node" index="220" instance=ExtResource( 4 )]
+
+position = Vector2( 1312, 2304 )
+scale = Vector2( 6, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall222" parent="Node" index="221" instance=ExtResource( 4 )]
+
+position = Vector2( 1600, 2304 )
+scale = Vector2( 6, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall223" parent="Node" index="222" instance=ExtResource( 4 )]
+
+position = Vector2( 1248, 2752 )
+scale = Vector2( 1, 6 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall224" parent="Node" index="223" instance=ExtResource( 4 )]
+
+position = Vector2( 1696, 2240 )
+scale = Vector2( 3, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall225" parent="Node" index="224" instance=ExtResource( 4 )]
+
+position = Vector2( 1696, 2176 )
+scale = Vector2( 3, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall226" parent="Node" index="225" instance=ExtResource( 4 )]
+
+position = Vector2( 1696, 2112 )
+scale = Vector2( 3, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall227" parent="Node" index="226" instance=ExtResource( 4 )]
+
+position = Vector2( 1728, 2112 )
+scale = Vector2( 3, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall228" parent="Node" index="227" instance=ExtResource( 4 )]
+
+position = Vector2( 1728, 2176 )
+scale = Vector2( 3, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall229" parent="Node" index="228" instance=ExtResource( 4 )]
+
+position = Vector2( 1728, 2304 )
+scale = Vector2( 3, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall230" parent="Node" index="229" instance=ExtResource( 4 )]
+
+position = Vector2( 1728, 2240 )
+scale = Vector2( 3, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall231" parent="Node" index="230" instance=ExtResource( 4 )]
+
+position = Vector2( 1728, 1504 )
+scale = Vector2( 3, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall232" parent="Node" index="231" instance=ExtResource( 4 )]
+
+position = Vector2( 2240, 1504 )
+scale = Vector2( 3, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall233" parent="Node" index="232" instance=ExtResource( 4 )]
+
+position = Vector2( 1856, 1440 )
+scale = Vector2( 3, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall234" parent="Node" index="233" instance=ExtResource( 4 )]
+
+position = Vector2( 2048, 1440 )
+scale = Vector2( 3, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall237" parent="Node" index="234" instance=ExtResource( 4 )]
+
+position = Vector2( 2752, 2912 )
+scale = Vector2( 3, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall238" parent="Node" index="235" instance=ExtResource( 4 )]
+
+position = Vector2( 2752, 2976 )
+scale = Vector2( 3, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall235" parent="Node" index="236" instance=ExtResource( 4 )]
+
+position = Vector2( 2080, 1440 )
+scale = Vector2( 3, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall236" parent="Node" index="237" instance=ExtResource( 4 )]
+
+position = Vector2( 1984, 3808 )
+scale = Vector2( 40, 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
 
