@@ -91,19 +91,11 @@ func enter(args):
 		elif((args[0] == 2) && cooldown_node.secondary_cooldown_timer <= 0):
 			var animation_to_play = dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))]
 			emit_signal("secondary_used", animation_to_play)
-			#set timeToAnimate to the animation duration
-			# Need to replace with inheritable helper method.
-			
-			# Get casting_animation_timer from Abilities node.
 			casting_animation_timer = abilities_node.secondary_length;
 			
 		elif((args[0] == 3) && cooldown_node.ternary_cooldown_timer <= 0):
 			var animation_to_play = dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))]
 			emit_signal("ternary_used", animation_to_play)
-			#set timeToAnimate to the animation duration
-			# Need to replace with inheritable helper method.
-			
-			# Get casting_animation_timer from Abilities node.
 			casting_animation_timer = abilities_node.ternary_length;
 			
 		else:

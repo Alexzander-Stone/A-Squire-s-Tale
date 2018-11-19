@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Abilities/Warcry.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Player/Warcry/warcry-2.png" type="Texture" id=2]
@@ -695,8 +695,14 @@ tracks/5/keys = {
 "values": [ false ]
 }
 
+[sub_resource type="RectangleShape2D" id=11]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
 [node name="Weapon" type="Area2D"]
 
+z_index = -1
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -709,7 +715,7 @@ collision_mask = 0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Transform", "Visibility" ]
+_sections_unfolded = [ "Collision", "Transform", "Visibility", "Z Index" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -739,11 +745,11 @@ _sections_unfolded = [ "Pause", "Playback Options" ]
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Visibility", "Z Index" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="." index="2"]
 
-build_mode = 0
-polygon = PoolVector2Array( 20, -76, 20, 72, 108, 72, 108, -76 )
+shape = SubResource( 11 )
+_sections_unfolded = [ "Z Index" ]
 
 

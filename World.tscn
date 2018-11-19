@@ -36,11 +36,14 @@ ability_path = NodePath("../../../../../../../Player/Cooldowns")
 
 [node name="Environment" parent="." index="1" instance=ExtResource( 2 )]
 
+_sections_unfolded = [ "Z Index" ]
 starting_level = "res://Scenes/Levels/Level1.tscn"
 
 [node name="Player" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( -570.552, 127.724 )
+z_index = 1
+z_as_relative = false
 
 [node name="Music_Player" parent="." index="3" instance=ExtResource( 4 )]
 
