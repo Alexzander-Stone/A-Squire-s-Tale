@@ -9,8 +9,8 @@ extends Node
 ##
 onready var primary_spawner = preload("res://Scenes/Attack/BasicHammerAttack.tscn")
 onready var secondary_spawner = preload("res://Scenes/Attack/ShockwaveAttack.tscn")
-# Placeholders
 onready var ternary_spawner = preload("res://Scenes/Attack/Warcry.tscn")
+# Placeholders
 onready var super_spawner = preload("res://Scenes/Attack/MovingHammerAttack.tscn")
 
 export(int) var primary_length = 1
@@ -73,6 +73,7 @@ func spawn_secondary(animation_to_play):
 func spawn_ternary(animation_to_play):
 	var new_node = ternary_spawner.instance()
 	setup_ability(new_node, animation_to_play)
+	#warcry animation follows player.
 	follow_node.add_child(new_node)
 
 func spawn_super(animation_to_play):

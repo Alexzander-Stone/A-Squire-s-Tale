@@ -4,6 +4,7 @@ export(String) var statusEffect = "Warcry"
 
 var damageMod = 0.0
 var default_damage = 0
+export(bool) var follow_player = true
 
 signal giveStatus
 

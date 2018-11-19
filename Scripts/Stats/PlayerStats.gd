@@ -69,6 +69,7 @@ func heal(restore):
 
 func addArtifact(args):
 	artifactList.append(args[0])
+	calculateArtifactModifiers()
 	updateStats()
 	
 
@@ -79,6 +80,8 @@ func addStatus(status):
 		addStatusModifier(status)
 		#update stats to reflect the change in status
 		updateStats()
+	else:
+		StatusEffectDurations[CurrentStatusEffects.find(status)] = status_effects_dict[status]["duration"]
 	
 
 func _process(delta):
@@ -95,8 +98,6 @@ func _process(delta):
 			updateStats()
 
 func updateStats():
-	
-	calculateArtifactModifiers()
 	mcdr =  cdr + cdrMod
 	mDamage = damage + damageMod
 	mWalkSpeed = walkSpeed + speedMod
@@ -106,6 +107,8 @@ func updateStats():
 	
 func calculateArtifactModifiers():
 	#add every available artifact stat to the modified stats
+	#temp value must change to incorporate a STATUSCDRMOD
+	cdrMod = 0
 	for artifact in artifactList:
 		cdrMod +=  artifacts_dict[artifact]["cdrMod"]
 		

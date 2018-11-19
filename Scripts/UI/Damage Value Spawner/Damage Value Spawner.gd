@@ -20,5 +20,5 @@ func spawn_damage_value(damageValue):
 	setup_damage_GUI(new_node, damageValue)
 
 func setup_damage_GUI(damage_GUI_node, damageValue):
-	var GUI_position = animated_sprite_node.get_position() + Vector2(texture_width/4, -texture_height/2)
+	var GUI_position = owner.get_position() + Vector2(texture_width/4, -texture_height/2)
 	damage_GUI_node.get_node("Damage Value").emit_damage(damageValue, GUI_position, GUI_start_color, GUI_end_color)
