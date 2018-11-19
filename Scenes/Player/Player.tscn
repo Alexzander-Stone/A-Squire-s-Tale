@@ -99,12 +99,12 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
-extents = Vector2( 85.3419, 110.204 )
+extents = Vector2( 200, 200 )
 
 [sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 50, 50 )
 
 [sub_resource type="RectangleShape2D" id=6]
 
@@ -142,7 +142,7 @@ _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="Wall Hitbox" type="CollisionShape2D" parent="." index="2"]
 
-visible = false
+position = Vector2( 0, 21 )
 scale = Vector2( 0.25, 0.25 )
 shape = SubResource( 4 )
 
