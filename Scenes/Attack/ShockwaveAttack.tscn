@@ -73,12 +73,12 @@ length = 3.0
 loop = false
 step = 0.1
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="CircleShape2D" id=11]
 
 custom_solver_bias = 0.0
-extents = Vector2( 150, 150 )
+radius = 160.0
 
-[node name="AoE" type="Area2D" index="0"]
+[node name="AoE" type="Area2D"]
 
 z_index = -1
 input_pickable = true
