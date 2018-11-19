@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/NPC/NPC.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/SceneTransitionBox/SceneTransitionBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Intro Area/tutorial_background_hires.png" type="Texture" id=3]
+
+[node name="IntroLevel" type="Node2D" index="0"]
+
+[node name="NPC" parent="." index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 421.376, 150.122 )
+
+[node name="SceneTransitionBox" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 1408, -256 )
+to_scene = "res://Scenes/Levels/Level1.tscn"
+
+[node name="Player_Start_Loc" type="Node2D" parent="." index="2"]
+
+position = Vector2( 1972.69, 3593.29 )
+
+[node name="tutorial_background_hires" type="Sprite" parent="." index="3"]
+
+position = Vector2( 1920, 1920 )
+z_index = -10
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+

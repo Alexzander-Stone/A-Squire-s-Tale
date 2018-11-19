@@ -8,7 +8,7 @@
 [ext_resource path="res://Scenes/Enemy/Rat.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Wall/Wall.tscn" type="PackedScene" id=7]
 
-[node name="Level1" type="Node2D"]
+[node name="Level1" type="Node2D" index="0"]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
