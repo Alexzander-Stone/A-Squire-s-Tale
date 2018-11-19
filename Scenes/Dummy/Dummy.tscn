@@ -141,8 +141,9 @@ _sections_unfolded = [ "Playback Options" ]
 
 [node name="Sprite" type="Sprite" parent="Full Sprite" index="0"]
 
-position = Vector2( 3.71228, 74.8671 )
+position = Vector2( 3.71228, 66.6548 )
 scale = Vector2( 0.918653, 1 )
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Animation", "Offset", "Transform" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Full Sprite" index="1"]
