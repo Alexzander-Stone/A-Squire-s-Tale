@@ -277,4 +277,16 @@ position = Vector2( 3168, 2016 )
 
 position = Vector2( 3168, 1952 )
 
+[node name="Wall63" parent="Node" index="62" instance=ExtResource( 4 )]
+
+position = Vector2( 2752, 1824 )
+scale = Vector2( 15, 2.5 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall64" parent="Node" index="63" instance=ExtResource( 4 )]
+
+position = Vector2( 1184, 1824 )
+scale = Vector2( 15, 2.5 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
 
