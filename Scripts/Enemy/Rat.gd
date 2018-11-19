@@ -18,6 +18,6 @@ func update_direction_vector():
 
 # Used during initial step of flinching state.
 func take_damage(damage):
-	$"Stats".current_health -= damage
+	$"Stats".currentHealth -= damage
 	# Informs UI of change in health.
-	emit_signal("damaged", damage)
+	#emit_signal("damaged", damage)

@@ -1,4 +1,5 @@
 extends "res://Scripts/State Machine/State.gd"
+#extends "res://Scripts/Enemy/Enemy Inheritable Classes/IFlinchable.gd"
 
 # Base direction on passed player object.
 # Take in a direction to begin moving back towards.
