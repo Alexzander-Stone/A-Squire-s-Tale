@@ -10,7 +10,7 @@ extends Node
 onready var primary_spawner = preload("res://Scenes/Attack/BasicHammerAttack.tscn")
 onready var secondary_spawner = preload("res://Scenes/Attack/ShockwaveAttack.tscn")
 # Placeholders
-onready var ternary_spawner = preload("res://Scenes/Attack/BasicHammerAttack.tscn")
+onready var ternary_spawner = preload("res://Scenes/Attack/Warcry.tscn")
 onready var super_spawner = preload("res://Scenes/Attack/MovingHammerAttack.tscn")
 
 export(int) var primary_length = 1
@@ -42,6 +42,7 @@ func _ready():
 func setup_ability(new_node, animation_to_play):
 	new_node.position = get_parent().position
 	new_node.get_node("AnimationPlayer").play(animation_to_play)
+	new_node.damageMod = $"../Stats".mDamage
 	current_active_abilities.append(new_node)
 
 func craft_ability(ability_key, animation_to_play):

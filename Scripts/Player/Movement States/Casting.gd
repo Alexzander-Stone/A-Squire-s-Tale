@@ -39,6 +39,7 @@ func _ready():
 
 
 func enter(args):
+	.enter(args)
 	##
 	#Add check to see if crafting container only has one ability.
 	#May want to just immediately call normal crafting if so.
@@ -75,10 +76,18 @@ func enter(args):
 			# Get casting_animation_timer from Abilities node.
 			casting_animation_timer = abilities_node.secondary_length;
 			
+		elif(args[0] == 3 && cooldown_node.ternary_cooldown_timer <= 0):
+			var animation_to_play = dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))]
+			emit_signal("ternary_used", animation_to_play)
+			#set timeToAnimate to the animation duration
+			# Need to replace with inheritable helper method.
+			
+			# Get casting_animation_timer from Abilities node.
+			casting_animation_timer = abilities_node.ternary_length;
+			
 		else:
 			print("no casting")
 			emit_signal("finished", "idling", [])
-	.enter(args)
 
 func update(delta):
 	if(casting_animation_timer >= 0):
@@ -88,3 +97,6 @@ func update(delta):
 	
 	# Call parent class function.
 	.update(delta)
+	
+func exit():
+	.exit()
