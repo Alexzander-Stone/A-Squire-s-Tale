@@ -1,18 +1,18 @@
 {
 	"0": {
-		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
+		"scene": "res://Scenes/Attack/BasicHammerAttack.tscn", 
 		"casting_timer": ".3",
 		"follow_player": "true",
 		"character_animation": "Swing"
 	},
 	"1": {
-		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
+		"scene": "res://Scenes/Attack/ShockwaveAttack.tscn", 
 		"casting_timer": ".3",
-		"follow_player": "true",
+		"follow_player": "false",
 		"character_animation": "Seismic Slam"
 	},
 	"2": {
-		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
+		"scene": "res://Scenes/Attack/Warcry.tscn", 
 		"casting_timer": ".3",
 		"follow_player": "true",
 		"character_animation": "Warcry"

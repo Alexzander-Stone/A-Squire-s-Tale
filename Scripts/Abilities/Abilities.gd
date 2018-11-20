@@ -55,8 +55,9 @@ func craft_ability(ability_key, animation_to_play):
 		var new_node = craft_spawner.instance()
 		setup_ability(new_node, animation_to_play)
 		# Stay vs follow conditional inside JSON file. Position related changes.
-		var is_following_player = bool(craftable_abilities_dict[ability_key]["follow_player"])
-		if is_following_player == true:
+		var is_following_player = craftable_abilities_dict[ability_key]["follow_player"]
+		print(is_following_player)
+		if is_following_player == "true":
 			follow_node.add_child(new_node)
 		else:
 			stay_node.add_child(new_node)
