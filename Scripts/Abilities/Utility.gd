@@ -1,12 +1,10 @@
-extends Area2D
-
-var default_damage = 10
-#base values, edit later
-var damageMod = 1.0
-var tickTimer = 1.0
-var currentTick = 1.0
+extends "res://Scripts/Abilities/Inheritables/IAnimatedWeapon.gd"
 
 signal tickDamage
+
+#base values, edit later
+var tickTimer = 1.0
+var currentTick = 1.0
 
 func _ready():
 	self.connect("area_entered", self, "ObjectEntered")
@@ -20,21 +18,11 @@ func ObjectExited(colliding_object):
 	if(colliding_object.owner != null):
 		self.disconnect("tickDamage", colliding_object.owner, "take_damage")
 
-
-
 func _process(delta):
-	if !$"AnimationPlayer".is_playing():
-		queue_free()
+	# Inherited parent takes care of removal of node.
+	._process(delta)
+	if(currentTick >= 0):
+		currentTick -= delta
 	else:
-		if(currentTick <= 0):
-			emit_signal("tickDamage", calculate_damage())
-			currentTick = tickTimer
-		else:
-			currentTick -= delta
-
-func play_animation(animation_to_play):
-	$"AnimationPlayer".play(animation_to_play)
-
-# Allows the weapon to calculate what damage to return using the parent's stats.
-func calculate_damage():
-	return default_damage*damageMod
+		emit_signal("tickDamage", calculate_damage())
+		currentTick = tickTimer
