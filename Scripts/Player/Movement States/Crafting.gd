@@ -13,7 +13,7 @@ func update(delta):
 	# Check casting actions.
 	castInput = int(Input.is_action_pressed("craft"))
 	if(castInput == 0):
-		emit_signal("finished", "casting", [0])
+		emit_signal("finished", "casting", [-1])
 	
 	# Add currently pressed spells to the crafting container.
 	addCraftingAbilities()

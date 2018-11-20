@@ -34,7 +34,7 @@ func _ready():
 # Each ability will have a unique key ID, weapon indicator animation, and casting timer.
 func enter(args):
 	.enter(args)
-	
+
 	# Verify that the player hasn't entered the casting state without abilities being used.
 	if args[0] == -1 and owner.crafting_container.size() <= 0:
 		emit_signal("finished", "idling", [])
