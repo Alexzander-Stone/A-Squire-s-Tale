@@ -258,8 +258,6 @@ script = ExtResource( 21 )
 collision_path = NodePath("../../Damage Hitbox")
 cooldown_path = NodePath("../../Cooldowns")
 abilities_path = NodePath("../../Abilities")
-weapon_animation_path = NodePath("../../Abilities/Weapon/AnimationPlayer")
-parent_path = NodePath("../..")
 animated_sprite_path = NodePath("../../AnimatedSprite")
 
 [node name="Dying" type="Node" parent="StateMachine" index="7"]
