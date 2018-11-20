@@ -1,10 +1,7 @@
 extends "res://Scripts/Player/Movement States/Inheritable Classes/IFlinchable.gd"
 
-signal primary_used(animation_to_play)
-signal secondary_used(animation_to_play)
-signal ternary_used(animation_to_play)
-signal super_used(animation_to_play)
-# Ability key = Abilities numbers used for crafting.
+# ability_key : String path to scene of animation to play.
+# animation_to_play : String key ID for the PlayerAbilities.JSON file.
 signal crafting_used(ability_key, animation_to_play)
 
 export(NodePath) var cooldown_path
@@ -33,10 +30,6 @@ var casting_animation_timer = 0
 var timeToAnimate = 2
 
 func _ready():
-	self.connect("primary_used", abilities_node, "spawn_primary")
-	self.connect("secondary_used", abilities_node, "spawn_secondary")
-	self.connect("ternary_used", abilities_node, "spawn_ternary")
-	self.connect("super_used", abilities_node, "spawn_super")
 	self.connect("crafting_used", abilities_node, "craft_ability")
 
 
@@ -44,7 +37,7 @@ func enter(args):
 	.enter(args)
 	
 	# Verify that the player hasn't entered the casting state without abilities being used.
-	if args[0] == 0 and owner.crafting_container.size() <= 0:
+	if args[0] == -1 and owner.crafting_container.size() <= 0:
 		print("no casting")
 		emit_signal("finished", "idling", [])
 	
@@ -78,6 +71,3 @@ func update(delta):
 	
 	# Call parent class function.
 	.update(delta)
-	
-func exit():
-	.exit()

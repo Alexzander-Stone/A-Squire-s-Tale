@@ -21,10 +21,6 @@ onready var casting_node = get_node(casting_path)
 
 func _ready():
 	# Begin listening to casting node for cooldown directions.
-	casting_node.connect("primary_used", self, "initialize_primary_cooldown")
-	casting_node.connect("secondary_used", self, "initialize_secondary_cooldown")
-	casting_node.connect("ternary_used", self, "initialize_ternary_cooldown")
-	casting_node.connect("super_used", self, "initialize_super_cooldown")
 	casting_node.connect("crafting_used", self, "initialize_multiple_cooldowns")
 
 func initialize_primary_cooldown(args):

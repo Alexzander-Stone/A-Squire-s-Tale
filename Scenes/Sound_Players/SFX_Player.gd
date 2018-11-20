@@ -8,10 +8,14 @@ var current_sfx = ""
 
 func _ready():
 	state_machine_node.connect("state_changed", self, "trigger_sfx_hit", [])
-	ability_node.connect("primary_used", self, "trigger_sfx_ability_primary", [])
-	ability_node.connect("secondary_used", self, "trigger_sfx_ability_secondary", [])
-	ability_node.connect("ternary_used", self, "trigger_sfx_ability_ternary", [])
-	ability_node.connect("super_used", self, "trigger_sfx_ability_super", [])
+	
+	##
+	# Replace with connections to ability crafting signal.
+	##
+	#ability_node.connect("primary_used", self, "trigger_sfx_ability_primary", [])
+	#ability_node.connect("secondary_used", self, "trigger_sfx_ability_secondary", [])
+	#ability_node.connect("ternary_used", self, "trigger_sfx_ability_ternary", [])
+	#ability_node.connect("super_used", self, "trigger_sfx_ability_super", [])
 
 func play():
 	if(current_sfx != ""):
