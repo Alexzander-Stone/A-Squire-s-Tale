@@ -720,7 +720,6 @@ __meta__ = {
 "_edit_group_": true
 }
 statusEffect = "Warcry"
-follow_player = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 
