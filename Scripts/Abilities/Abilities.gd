@@ -60,26 +60,3 @@ func craft_ability(ability_key, animation_to_play):
 			follow_node.add_child(new_node)
 		else:
 			stay_node.add_child(new_node)
-
-func spawn_primary(animation_to_play):
-	var new_node = primary_spawner.instance()
-	setup_ability(new_node, animation_to_play)
-	# Hammer follows player.
-	follow_node.add_child(new_node)
-
-func spawn_secondary(animation_to_play):
-	var new_node = secondary_spawner.instance()
-	setup_ability(new_node, animation_to_play)
-	# Spikes don't follow player.
-	stay_node.add_child(new_node)
-
-func spawn_ternary(animation_to_play):
-	var new_node = ternary_spawner.instance()
-	setup_ability(new_node, animation_to_play)
-	#warcry animation follows player.
-	follow_node.add_child(new_node)
-
-func spawn_super(animation_to_play):
-	var new_node = super_spawner.instance()
-	setup_ability(new_node, animation_to_play)
-	follow_node.add_child(new_node)
