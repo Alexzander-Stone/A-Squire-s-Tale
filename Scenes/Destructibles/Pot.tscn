@@ -13,14 +13,15 @@ extents = Vector2( 20, 40 )
 custom_solver_bias = 0.0
 extents = Vector2( 50, 70 )
 
-[node name="Pot" type="KinematicBody2D"]
+[node name="Pot" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-collision_path = NodePath("Hitbox")
+hitbox_path = NodePath("Hitbox")
+health = 1
 
 [node name="CollisionBox" type="CollisionShape2D" parent="." index="0"]
 
