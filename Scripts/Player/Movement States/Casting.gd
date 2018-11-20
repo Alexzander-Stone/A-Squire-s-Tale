@@ -42,53 +42,33 @@ func _ready():
 
 func enter(args):
 	.enter(args)
-	##
-	#Add check to see if crafting container only has one ability.
-	#May want to just immediately call normal crafting if so.
-	##
-	if(args.size() > 0):
-		if(args[0] == 0):
-			# While creating the ability_key string, check to see if ability cooldowns are 
-			# will prevent it from being created. 
-			# Accounts for crafting abilities when given one input.
-			var ability_key = ""
-			while owner.crafting_container.size() > 0:
-				var i = owner.crafting_container.pop_front()
-				if cooldown_node.is_cooldown_running_for(i) == true:
-					return
-				ability_key += String(i)
-			# Weapon sprite/visual indicator animation to play.
-			var weapon_animation_to_play = dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))]
-			emit_signal("crafting_used", ability_key, weapon_animation_to_play)
-			# Get casting_animation_timer from Abilities node.
-			# Also, set Character animation to play.
-			if abilities_node.craftable_abilities_dict.has(ability_key):
-				casting_animation_timer = float(abilities_node.craftable_abilities_dict[ability_key]["casting_timer"])
-				animated_sprite_node.animation = abilities_node.craftable_abilities_dict[ability_key]["character_animation"]
-		
-		# No crafting involved, single input and straight to casting.
-		elif((args[0] == 1) && cooldown_node.primary_cooldown_timer <= 0):
-			var animation_to_play = dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))]
-			emit_signal("primary_used", animation_to_play)
-			animated_sprite_node.animation = "Swing"
-			casting_animation_timer = abilities_node.primary_length;
-		
-		#receive input for secondary ability (number 2)
-		elif((args[0] == 2) && cooldown_node.secondary_cooldown_timer <= 0):
-			var animation_to_play = dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))]
-			emit_signal("secondary_used", animation_to_play)
-			animated_sprite_node.animation = "Seismic Slam"
-			casting_animation_timer = abilities_node.secondary_length;
-			
-		elif((args[0] == 3) && cooldown_node.ternary_cooldown_timer <= 0):
-			var animation_to_play = dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))]
-			emit_signal("ternary_used", animation_to_play)
-			animated_sprite_node.animation = "Warcry"
-			casting_animation_timer = abilities_node.ternary_length;
-			
-		else:
-			print("no casting")
-			emit_signal("finished", "idling", [])
+	
+	# Verify that the player hasn't entered the casting state without abilities being used.
+	if args[0] == 0 and owner.crafting_container.size() <= 0:
+		print("no casting")
+		emit_signal("finished", "idling", [])
+	
+	# No crafting involved, single input and straight to casting.
+	if((args[0] != -1)):
+		owner.crafting_container.append(args[0])
+	
+	# While creating the ability_key string, check to see if ability cooldowns are 
+	# will prevent it from being created. 
+	# Accounts for crafting abilities when given one input.
+	var ability_key = ""
+	while owner.crafting_container.size() > 0:
+		var i = owner.crafting_container.pop_front()
+		if cooldown_node.is_cooldown_running_for(i) == true:
+			return
+		ability_key += String(i)
+	# Weapon sprite/visual indicator animation to play.
+	var weapon_animation_to_play = dict[str(round(parent_node.direction_vector[0])) + str(round(parent_node.direction_vector[1]))]
+	emit_signal("crafting_used", ability_key, weapon_animation_to_play)
+	# Get casting_animation_timer from Abilities node.
+	# Also, set Character animation to play.
+	if abilities_node.craftable_abilities_dict.has(ability_key):
+		casting_animation_timer = float(abilities_node.craftable_abilities_dict[ability_key]["casting_timer"])
+		animated_sprite_node.animation = abilities_node.craftable_abilities_dict[ability_key]["character_animation"]
 
 func update(delta):
 	if(casting_animation_timer >= 0):
