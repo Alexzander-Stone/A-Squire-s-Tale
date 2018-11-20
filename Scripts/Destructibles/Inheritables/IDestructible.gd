@@ -26,10 +26,11 @@ func _physics_process(delta):
 ##
 # This doesn't do anything?
 ##
-func take_damage(damage):
-	health -= damage
-	if(health <= 0):
-		destroy()
+#func take_damage(damage):
+#	print("helelele")
+#	health -= damage
+#	if(health <= 0):
+#		destroy()
 
 func collision_detected(colliding_object):
 	#reference colliding object
