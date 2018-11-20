@@ -47,6 +47,6 @@ func addArtifact(artifact):
 func addStatusEffect(status):
 	$"Stats".addStatus(status)
 
-func medkitCollected(health):
-	$"Stats".heal(health[0])
-	emit_signal("healed", health[0])
+func medkit_collected(health):
+	$"Stats".heal(health)
+	emit_signal("healed", health)
