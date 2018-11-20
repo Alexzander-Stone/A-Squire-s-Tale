@@ -45,14 +45,18 @@ func setup_ability(new_node, animation_to_play):
 	new_node.damageMod = $"../Stats".mDamage
 	current_active_abilities.append(new_node)
 
+# void craft_ability(String ability_key, String animation_to_play)
+# ability_key : String path to scene of animation to play.
+# animation_to_play : String key ID for the PlayerAbilities.JSON file.
 func craft_ability(ability_key, animation_to_play):
 	# Check to see if ability is valid.
 	if craftable_abilities_dict.has(ability_key):
 		var craft_spawner = load(craftable_abilities_dict[ability_key][node_path_key])
 		var new_node = craft_spawner.instance()
 		setup_ability(new_node, animation_to_play)
-		# Need to determine whether to place into stay vs following node.
-		if new_node.follow_player == true:
+		# Stay vs follow conditional inside JSON file. Position related changes.
+		var is_following_player = bool(craftable_abilities_dict[ability_key]["follow_player"])
+		if is_following_player == true:
 			follow_node.add_child(new_node)
 		else:
 			stay_node.add_child(new_node)

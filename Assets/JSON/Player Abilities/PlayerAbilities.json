@@ -1,50 +1,98 @@
 {
+	"0": {
+		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
+		"casting_timer": ".3",
+		"follow_player": "true",
+		"character_animation": "Swing"
+	},
+	"1": {
+		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
+		"casting_timer": ".3",
+		"follow_player": "true",
+		"character_animation": "Seismic Slam"
+	},
+	"2": {
+		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
+		"casting_timer": ".3",
+		"follow_player": "true",
+		"character_animation": "Warcry"
+	},
+	"3": {
+		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
+		"casting_timer": ".3",
+		"follow_player": "true",
+		"character_animation": "Swing"
+	},
 	"01": {
 		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
-		"casting_timer": ".3"
+		"casting_timer": ".3",
+		"follow_player": "true",
+		"character_animation": "Swing"
 	},
 	"10": {
 		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
-		"casting_timer": ".3"
+		"casting_timer": ".3",
+		"follow_player": "true",
+		"character_animation": "Swing"
 	},
 	"02": {
 		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
-		"casting_timer": ".3"
+		"casting_timer": ".3",
+		"follow_player": "true",
+		"character_animation": "Swing"
 	},
 	"20": {
 		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
-		"casting_timer": ".3"
+		"casting_timer": ".3",
+		"follow_player": "true",
+		"character_animation": "Swing"
 	},
 	"03": {
 		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
-		"casting_timer": ".3"
+		"casting_timer": ".3",
+		"follow_player": "true",
+		"character_animation": "Swing"
 	},
 	"30": {
 		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
-		"casting_timer": ".3"
+		"casting_timer": ".3",
+		"follow_player": "true",
+		"character_animation": "Swing"
 	},
 	"12": {
 		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
-		"casting_timer": ".3"
+		"casting_timer": ".3",
+		"follow_player": "true",
+		"character_animation": "Swing"
 	},
 	"21": {
 		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
-		"casting_timer": ".3"
+		"casting_timer": ".3",
+		"follow_player": "true",
+		"character_animation": "Swing"
 	},
 	"13": {
 		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
-		"casting_timer": ".3"
+		"casting_timer": ".3",
+		"follow_player": "true",
+		"character_animation": "Swing"
 	},
 	"31": {
 		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
-		"casting_timer": ".3"
+		"casting_timer": ".3",
+		"follow_player": "true",
+		"character_animation": "Swing"
 	},
 	"23": {
 		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
-		"casting_timer": ".3"
+		"casting_timer": ".3",
+		"follow_player": "true",
+		"character_animation": "Swing"
 	},
 	"32": {
 		"scene": "res://Scenes/Attack/MovingHammerAttack.tscn", 
-		"casting_timer": ".3"
+		"casting_timer": ".3",
+		"follow_player": "true",
+		"character_animation": "Swing"
 	},
 }

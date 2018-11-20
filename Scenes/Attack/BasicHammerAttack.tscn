@@ -695,7 +695,7 @@ tracks/5/keys = {
 "values": [ false ]
 }
 
-[node name="Weapon" type="Area2D" index="0"]
+[node name="Weapon" type="Area2D"]
 
 visible = false
 position = Vector2( -150, -50 )
