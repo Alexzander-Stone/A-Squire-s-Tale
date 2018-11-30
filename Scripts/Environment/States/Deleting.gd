@@ -7,9 +7,4 @@ func _ready():
    
 func enter(args):
    print("Deleting: enter")
-   environment_node.delete_cur_level()
-   finish()
-   
-func finish():
-   print("Deleting: changed scenes")
    emit_signal("finished", "loading", []);

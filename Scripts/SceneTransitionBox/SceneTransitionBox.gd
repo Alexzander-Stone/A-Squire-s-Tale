@@ -30,4 +30,4 @@ func update_shader():
    
 func move_to_scene():
    var env = get_node("/root/World/Environment")
-   env.change_levels_notification(to_scene)
+   env.load_new_level(to_scene)

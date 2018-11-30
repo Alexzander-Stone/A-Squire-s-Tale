@@ -16,8 +16,7 @@ export (NodePath) var tween_path
 onready var tween_node = get_node(tween_path)
 
 func _ready():
-   change_levels_notification(starting_level)   
-   load_new_level()
+   load_new_level(starting_level)
 
 func toggle_fade():
    transition_screen_node.show()
@@ -28,12 +27,14 @@ func toggle_fade():
    tween_node.start()
    is_fading = !is_fading
    
-func delete_cur_level():
-   get_node("Level").queue_free()
-   remove_child(get_node("Level"))
-   
-func load_new_level():
-   var scene = load(to_level)
+func load_new_level(to_scene):
+   # If a current level exists, remove it before creating the new level.
+   if has_node("Level"):
+      get_node("Level").queue_free()
+      remove_child(get_node("Level"))
+
+   var scene = load(to_scene)
+   emit_signal("change_scene")
 
    var scene_instance = scene.instance()
    scene_instance.set_name("Level")
@@ -42,11 +43,3 @@ func load_new_level():
    var start_node = get_node("Level/Player_Start_Loc")
    var start_loc = start_node.get_position()
    player_node.set_position(start_loc)
-
-func change_levels_notification(var to_scene):
-   to_level = to_scene
-   emit_signal("change_scene")
-   
-func reset():
-   #transition_screen_node.hide()
-   pass

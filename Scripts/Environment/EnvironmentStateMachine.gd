@@ -9,8 +9,8 @@ extends "res://Scripts/State Machine/IStateMachine.gd"
 func _ready():
    states_map = {
    "waiting": $Waiting,
-   "fadingout": $Fadingout,
+   "fading out": $"Fading Out",
    "deleting": $Deleting,
    "loading": $Loading,
-   "fadingin": $Fadingin
+   "fading in": $"Fading In"
    }
