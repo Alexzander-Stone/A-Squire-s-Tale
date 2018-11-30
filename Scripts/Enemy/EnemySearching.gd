@@ -34,11 +34,11 @@ func _ready():
 	tween_node = get_node(tween_path)
 	animated_sprite_node = get_node(animated_sprite_path)
 	vision_node = get_node(vision_path)
-	# Tween_completed returns object and nodepath to object.
-	tween_node.connect("tween_completed", self, "next_search_step")
 
 # To create some cool "AI", randomize how many times the animation is played and what direction it is played.
 func enter(args):
+	# Tween_completed returns object and nodepath to object.
+	tween_node.connect("tween_completed", self, "next_search_step")
 	##
 	#Replace with check to see which rotation values to begin with, based on animation frames.
 	#
@@ -53,6 +53,8 @@ func enter(args):
 # Clear any animations from playing.
 # To make it not appear jagged, flinching state must have unique animation.
 func exit():
+	# Tween_completed returns object and nodepath to object.
+	tween_node.disconnect("tween_completed", self, "next_search_step")
 	# May need to change to reset_all()
 	tween_node.stop_all()
 	.exit()
