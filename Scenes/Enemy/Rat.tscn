@@ -114,7 +114,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.378906, 0.162811, 0.162811, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="Rat" type="KinematicBody2D" index="0"]
+[node name="Rat" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1

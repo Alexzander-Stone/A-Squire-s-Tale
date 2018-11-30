@@ -13,6 +13,7 @@
 script = ExtResource( 1 )
 _sections_unfolded = [ "Z Index" ]
 starting_level = null
+transition_screen_path = null
 
 [node name="TweenIn" type="Tween" parent="." index="0"]
 

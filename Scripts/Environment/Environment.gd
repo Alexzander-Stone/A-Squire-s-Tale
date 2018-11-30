@@ -3,8 +3,11 @@ extends Node2D
 signal change_scene(to_scene)
 
 var to_level = ""
-var transition_screen_node
 export (String) var starting_level
+
+export (NodePath) var transition_screen_path
+onready var transition_screen_node = get_node(transition_screen_path)
+
 
 func _ready():
    transition_screen_node = get_node("/root/World/CanvasLayer/TransitionScreen/TransitionColor")

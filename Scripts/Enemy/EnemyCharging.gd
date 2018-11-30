@@ -37,6 +37,3 @@ func change_state(state_name, args):
 		current_state = states_map[state_name]
 		# Officially enter new state.
 		current_state.enter(args)
-
-func exit():
-	.exit()
