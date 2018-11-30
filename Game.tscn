@@ -45,7 +45,8 @@ z_index = 1
 [node name="Environment" parent="." index="2" instance=ExtResource( 4 )]
 
 starting_level = "res://Scenes/Levels/IntroLevel.tscn"
-transition_screen_path = NodePath("../CanvasLayer/TransitionScreen")
+transition_screen_path = NodePath("../CanvasLayer/TransitionScreen/TransitionColor")
+player_path = NodePath("../Player")
 
 [node name="Music_Player" parent="." index="3" instance=ExtResource( 5 )]
 

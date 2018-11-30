@@ -14,17 +14,10 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Z Index" ]
 starting_level = null
 transition_screen_path = null
+player_path = null
+tween_path = NodePath("Tween")
 
-[node name="TweenIn" type="Tween" parent="." index="0"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-
-[node name="TweenOut" type="Tween" parent="." index="1"]
+[node name="Tween" type="Tween" parent="." index="0"]
 
 repeat = false
 playback_process_mode = 1
@@ -33,7 +26,7 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="StateMachine" type="Node" parent="." index="2"]
+[node name="StateMachine" type="Node" parent="." index="1"]
 
 editor/display_folded = true
 script = ExtResource( 2 )
