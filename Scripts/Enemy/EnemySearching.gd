@@ -45,8 +45,8 @@ func enter(args):
 	current_character_rotation = 0
 	current_vision_rotation = 0
 	
-	number_of_searches_left = rand_range(1, 4)
-	setup_search_rotation(0)
+	number_of_searches_left = randi() % 4 + 1
+	setup_search_rotation((randi() % 4) * 90)
 	next_search_step(null, null)
 	.enter(args)
 
