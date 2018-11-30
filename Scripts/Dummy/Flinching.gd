@@ -6,9 +6,10 @@ var flinchTimer = 0
 var timeToFlinch = 1
 
 export(NodePath) var dummy_path
+export(NodePath) var dummy_animation_path
 
 onready var dummy_node = get_node(dummy_path)
-onready var dummy_animation_node = $"../../AnimationPlayer"
+onready var dummy_animation_node = get_node(dummy_animation_path)
 
 func enter(args):
 	dummy_node.take_damage(args[0])
@@ -22,7 +23,7 @@ func update(delta):
 	if(flinchTimer > 0):
 		flinchTimer -= delta
 	else:
-		emit_signal("finished", "idling", [0])
+		emit_signal("finished", "idling", [])
 	.update(delta)
 	
 func exit():

@@ -2,9 +2,9 @@
 
 [ext_resource path="res://Scripts/Dummy/Dummy.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Dummy/Training_dummy_base.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Dummy/obj_dummy_melonlord_back_proper_scale.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Dummy/obj_dummy_melonlord_front_proper_scale.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Dummy/obj_dummy_basic_proper_scale.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Dummy/obj_dummy_melonlord_front_proper_scale.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Dummy/obj_dummy_basic_proper_scale.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Dummy/obj_dummy_melonlord_back_proper_scale.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/Dummy/State Machine.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/Dummy/Idling.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/Dummy/Flinching.gd" type="Script" id=8]
@@ -88,17 +88,17 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "Watermelon Back",
+"name": "Watermelon Front",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "Watermelon Front",
+"name": "Scarecrow",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "Scarecrow",
+"name": "Watermelon Back",
 "speed": 5.0
 } ]
 
@@ -107,7 +107,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Dummy" type="KinematicBody2D"]
+[node name="Dummy" type="KinematicBody2D" index="0"]
 
 scale = Vector2( 0.918653, 1.09591 )
 input_pickable = false
@@ -189,6 +189,7 @@ collision_path = NodePath("../../Full Sprite/AnimatedSprite/Area2D")
 script = ExtResource( 8 )
 collision_path = NodePath("../../Full Sprite/AnimatedSprite/Area2D")
 dummy_path = NodePath("../..")
+dummy_animation_path = NodePath("../../AnimationPlayer")
 
 [node name="Dying" type="Node" parent="DummyStateMachine" index="2"]
 
