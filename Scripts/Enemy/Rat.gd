@@ -29,7 +29,6 @@ func _process(delta):
 	previous_position = position
 
 func update_position():
-	#position += velocity
 	move_and_collide(velocity)
 
 func update_direction_vector():
