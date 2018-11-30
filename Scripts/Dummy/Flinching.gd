@@ -25,6 +25,3 @@ func update(delta):
 	else:
 		emit_signal("finished", "idling", [])
 	.update(delta)
-	
-func exit():
-	.exit()
